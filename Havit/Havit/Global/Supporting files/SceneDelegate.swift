@@ -18,8 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Coordinator 연결
         let coordinator = SceneCoordinator(window: window)
-        let viewModel = MainViewModel(sceneCoordinator: coordinator)
-        let rootScene = Scene.main(viewModel)
+        let rootScene = Scene.main(coordinator)
         coordinator.transition(to: rootScene,
                                using: .root,
                                animated: false)

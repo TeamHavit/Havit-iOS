@@ -12,6 +12,8 @@ import RxSwift
 class BaseViewController: UIViewController {
 
     let disposeBag = DisposeBag()
+    
+    var sceneCoordinator: SceneCoordinatorType?
 
     init() {
         super.init(nibName: nil, bundle: nil)

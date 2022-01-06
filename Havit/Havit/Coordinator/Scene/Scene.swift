@@ -8,14 +8,16 @@
 import UIKit
 
 enum Scene {
-    case main(MainViewModel)
+    case main(SceneCoordinator)
 }
 
 extension Scene: SceneRegisterable {
     func instantiate() -> UIViewController {
         switch self {
-        case .main(let viewModel):
-            return MainViewController(viewModel: viewModel)
+        case .main(let coordinator):
+            let mainVC = MainViewController()
+            mainVC.sceneCoordinator = coordinator
+            return mainVC
         }
     }
 }
