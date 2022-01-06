@@ -39,6 +39,12 @@
 		ED443F3B2786B3FF0059DE76 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */; };
 		ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3D2786B5840059DE76 /* RxCocoa */; };
 		ED443F402786B5840059DE76 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3F2786B5840059DE76 /* RxSwift */; };
+		ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */; };
+		ED443F442786B9420059DE76 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F432786B9420059DE76 /* UIView+.swift */; };
+		ED443F462786B99B0059DE76 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F452786B99B0059DE76 /* UIViewController+.swift */; };
+		ED443F482786BA0F0059DE76 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+.swift */; };
+		ED443F4A2786BB5B0059DE76 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+.swift */; };
+		ED443F4C2786BBAF0059DE76 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +97,12 @@
 		ED443F302786AC5F0059DE76 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		ED443F322786AC640059DE76 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		ED443F342786AF2C0059DE76 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
+		ED443F432786B9420059DE76 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		ED443F452786B99B0059DE76 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		ED443F472786BA0F0059DE76 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		ED443F492786BB5B0059DE76 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,8 +254,14 @@
 		ED443EE32785CD610059DE76 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */,
 				ED443F302786AC5F0059DE76 /* UIFont+.swift */,
 				ED443F322786AC640059DE76 /* UIColor+.swift */,
+				ED443F432786B9420059DE76 /* UIView+.swift */,
+				ED443F452786B99B0059DE76 /* UIViewController+.swift */,
+				ED443F472786BA0F0059DE76 /* UILabel+.swift */,
+				ED443F492786BB5B0059DE76 /* UIButton+.swift */,
+				ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -685,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED443F482786BA0F0059DE76 /* UILabel+.swift in Sources */,
 				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
 				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
@@ -698,16 +717,21 @@
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
 				ED443F312786AC5F0059DE76 /* UIFont+.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
+				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
+				ED443F4A2786BB5B0059DE76 /* UIButton+.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
+				ED443F4C2786BBAF0059DE76 /* UIScreen+.swift in Sources */,
 				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
+				ED443F462786B99B0059DE76 /* UIViewController+.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
+				ED443F442786B9420059DE76 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
