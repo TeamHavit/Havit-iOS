@@ -50,6 +50,7 @@
 		ED443F522786BF980059DE76 /* SceneRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F512786BF980059DE76 /* SceneRegisterable.swift */; };
 		ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F532786BFE30059DE76 /* SceneCoordinator.swift */; };
 		ED443F562786C1AD0059DE76 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F552786C1AD0059DE76 /* Scene.swift */; };
+		ED443F582786D69F0059DE76 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F572786D69F0059DE76 /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		ED443F512786BF980059DE76 /* SceneRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRegisterable.swift; sourceTree = "<group>"; };
 		ED443F532786BFE30059DE76 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		ED443F552786C1AD0059DE76 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		ED443F572786D69F0059DE76 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443F342786AF2C0059DE76 /* BaseViewController.swift */,
+				ED443F572786D69F0059DE76 /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
 				ED443F462786B99B0059DE76 /* UIViewController+.swift in Sources */,
+				ED443F582786D69F0059DE76 /* BaseViewModel.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
 				ED443F442786B9420059DE76 /* UIView+.swift in Sources */,
@@ -926,7 +930,6 @@
 				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -954,7 +957,6 @@
 				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

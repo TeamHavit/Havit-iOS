@@ -24,7 +24,8 @@ class SceneCoordinator: SceneCoordinatorType {
     
     required init(window: UIWindow) {
         self.window = window
-        currentVC = window.rootViewController!
+        self.window.backgroundColor = .white
+        currentVC = window.rootViewController ?? UINavigationController()
     }
     
     @discardableResult

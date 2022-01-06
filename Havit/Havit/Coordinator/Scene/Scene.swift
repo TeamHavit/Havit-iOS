@@ -8,14 +8,14 @@
 import UIKit
 
 enum Scene {
-    case tabbar
+    case main(MainViewModel)
 }
 
 extension Scene: SceneRegisterable {
     func instantiate() -> UIViewController {
         switch self {
-        case .tabbar:
-            return TabbarController()
+        case .main(let viewModel):
+            return MainViewController(viewModel: viewModel)
         }
     }
 }

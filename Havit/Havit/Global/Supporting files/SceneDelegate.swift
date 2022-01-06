@@ -11,14 +11,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        window.makeKeyAndVisible()
+        
+        // Coordinator 연결
+        let coordinator = SceneCoordinator(window: window)
+        let viewModel = MainViewModel(sceneCoordinator: coordinator)
+        let rootScene = Scene.main(viewModel)
+        coordinator.transition(to: rootScene,
+                               using: .root,
+                               animated: false)
+        
+        // StatusBarHeight 설정
+        if let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height {
             StatusBar.shared.height = statusBarHeight
             print("statusBarHeight: \(statusBarHeight)")
         }
-        
-        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
