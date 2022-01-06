@@ -29,6 +29,16 @@
 		ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F222786A4240059DE76 /* SocialLoginViewModel.swift */; };
 		ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F242786A4310059DE76 /* MypageViewController.swift */; };
 		ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F262786A43C0059DE76 /* MypageViewModel.swift */; };
+		ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F282786A9260059DE76 /* GenericResponse.swift */; };
+		ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F2A2786A9500059DE76 /* NetworkStatus.swift */; };
+		ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F2D2786AB8A0059DE76 /* ImageLiteral.swift */; };
+		ED443F312786AC5F0059DE76 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F302786AC5F0059DE76 /* UIFont+.swift */; };
+		ED443F332786AC640059DE76 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F322786AC640059DE76 /* UIColor+.swift */; };
+		ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
+		ED443F382786B32B0059DE76 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F372786B32B0059DE76 /* SnapKit */; };
+		ED443F3B2786B3FF0059DE76 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */; };
+		ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3D2786B5840059DE76 /* RxCocoa */; };
+		ED443F402786B5840059DE76 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3F2786B5840059DE76 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +85,12 @@
 		ED443F222786A4240059DE76 /* SocialLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginViewModel.swift; sourceTree = "<group>"; };
 		ED443F242786A4310059DE76 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		ED443F262786A43C0059DE76 /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		ED443F282786A9260059DE76 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		ED443F2A2786A9500059DE76 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		ED443F2D2786AB8A0059DE76 /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
+		ED443F302786AC5F0059DE76 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		ED443F322786AC640059DE76 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		ED443F342786AF2C0059DE76 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +98,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */,
+				ED443F382786B32B0059DE76 /* SnapKit in Frameworks */,
+				ED443F402786B5840059DE76 /* RxSwift in Frameworks */,
+				ED443F3B2786B3FF0059DE76 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443EF027869C960059DE76 /* Foundation */,
+				ED443F2C2786A9B20059DE76 /* Mock */,
 				ED443EEF27869C910059DE76 /* API */,
 				ED443EEE27869C890059DE76 /* APIService */,
 				ED443EED27869C860059DE76 /* Model */,
@@ -221,6 +242,8 @@
 		ED443EE32785CD610059DE76 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				ED443F302786AC5F0059DE76 /* UIFont+.swift */,
+				ED443F322786AC640059DE76 /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -245,6 +268,7 @@
 		ED443EE62785CD980059DE76 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				ED443F342786AF2C0059DE76 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -252,6 +276,7 @@
 		ED443EE72785CD9B0059DE76 /* Literal */ = {
 			isa = PBXGroup;
 			children = (
+				ED443F2D2786AB8A0059DE76 /* ImageLiteral.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -308,6 +333,8 @@
 		ED443EF027869C960059DE76 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				ED443F282786A9260059DE76 /* GenericResponse.swift */,
+				ED443F2A2786A9500059DE76 /* NetworkStatus.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -510,6 +537,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		ED443F2C2786A9B20059DE76 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -526,6 +560,12 @@
 			dependencies = (
 			);
 			name = Havit;
+			packageProductDependencies = (
+				ED443F372786B32B0059DE76 /* SnapKit */,
+				ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */,
+				ED443F3D2786B5840059DE76 /* RxCocoa */,
+				ED443F3F2786B5840059DE76 /* RxSwift */,
+			);
 			productName = Havit;
 			productReference = ED443EAA278598670059DE76 /* Havit.app */;
 			productType = "com.apple.product-type.application";
@@ -598,6 +638,11 @@
 				Base,
 			);
 			mainGroup = ED443EA1278598670059DE76;
+			packageReferences = (
+				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = ED443EAB278598670059DE76 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -640,17 +685,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
+				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
+				ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */,
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
 				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,
 				ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */,
 				ED443F112786A2F50059DE76 /* WebViewController.swift in Sources */,
 				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
+				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
+				ED443F312786AC5F0059DE76 /* UIFont+.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
+				ED443F332786AC640059DE76 /* UIColor+.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
 				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
@@ -828,7 +879,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Havit/Supporting files/Info.plist";
+				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -856,7 +907,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Havit/Supporting files/Info.plist";
+				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -988,6 +1039,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ED443F372786B32B0059DE76 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		ED443F3D2786B5840059DE76 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		ED443F3F2786B5840059DE76 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED443EA2278598670059DE76 /* Project object */;
 }
