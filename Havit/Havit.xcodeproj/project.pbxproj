@@ -1,0 +1,993 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
+		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
+		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
+		ED443EBA278598690059DE76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB8278598690059DE76 /* LaunchScreen.storyboard */; };
+		ED443EC5278598690059DE76 /* HavitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EC4278598690059DE76 /* HavitTests.swift */; };
+		ED443ECF278598690059DE76 /* HavitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443ECE278598690059DE76 /* HavitUITests.swift */; };
+		ED443ED1278598690059DE76 /* HavitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443ED0278598690059DE76 /* HavitUITestsLaunchTests.swift */; };
+		ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F0A2786A2B00059DE76 /* TabbarController.swift */; };
+		ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F0C2786A2D30059DE76 /* MainViewController.swift */; };
+		ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F0E2786A2E10059DE76 /* MainViewModel.swift */; };
+		ED443F112786A2F50059DE76 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F102786A2F50059DE76 /* WebViewController.swift */; };
+		ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F122786A2FF0059DE76 /* WebViewModel.swift */; };
+		ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F142786A31E0059DE76 /* SearchContentsViewController.swift */; };
+		ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F162786A3320059DE76 /* SearchContentsViewModel.swift */; };
+		ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F182786A3450059DE76 /* CategoryContentsViewController.swift */; };
+		ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F1A2786A3540059DE76 /* CategoryContentsViewModel.swift */; };
+		ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */; };
+		ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F1E2786A4060059DE76 /* CategoryViewModel.swift */; };
+		ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F202786A41B0059DE76 /* SocialLoginViewController.swift */; };
+		ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F222786A4240059DE76 /* SocialLoginViewModel.swift */; };
+		ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F242786A4310059DE76 /* MypageViewController.swift */; };
+		ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F262786A43C0059DE76 /* MypageViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED443EC1278598690059DE76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED443EA2278598670059DE76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED443EA9278598670059DE76;
+			remoteInfo = Havit;
+		};
+		ED443ECB278598690059DE76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED443EA2278598670059DE76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED443EA9278598670059DE76;
+			remoteInfo = Havit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ED443EB6278598690059DE76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED443EB9278598690059DE76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ED443EBB278598690059DE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED443EC0278598690059DE76 /* HavitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HavitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED443EC4278598690059DE76 /* HavitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HavitTests.swift; sourceTree = "<group>"; };
+		ED443ECA278598690059DE76 /* HavitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HavitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED443ECE278598690059DE76 /* HavitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HavitUITests.swift; sourceTree = "<group>"; };
+		ED443ED0278598690059DE76 /* HavitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HavitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ED443F0A2786A2B00059DE76 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		ED443F0C2786A2D30059DE76 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		ED443F0E2786A2E10059DE76 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		ED443F102786A2F50059DE76 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		ED443F122786A2FF0059DE76 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		ED443F142786A31E0059DE76 /* SearchContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsViewController.swift; sourceTree = "<group>"; };
+		ED443F162786A3320059DE76 /* SearchContentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsViewModel.swift; sourceTree = "<group>"; };
+		ED443F182786A3450059DE76 /* CategoryContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsViewController.swift; sourceTree = "<group>"; };
+		ED443F1A2786A3540059DE76 /* CategoryContentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsViewModel.swift; sourceTree = "<group>"; };
+		ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		ED443F1E2786A4060059DE76 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		ED443F202786A41B0059DE76 /* SocialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginViewController.swift; sourceTree = "<group>"; };
+		ED443F222786A4240059DE76 /* SocialLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginViewModel.swift; sourceTree = "<group>"; };
+		ED443F242786A4310059DE76 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		ED443F262786A43C0059DE76 /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED443EA7278598670059DE76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED443EBD278598690059DE76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED443EC7278598690059DE76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED443EA1278598670059DE76 = {
+			isa = PBXGroup;
+			children = (
+				ED443EF627869DC20059DE76 /* Shared */,
+				ED443EAC278598670059DE76 /* Havit */,
+				ED443EC3278598690059DE76 /* HavitTests */,
+				ED443ECD278598690059DE76 /* HavitUITests */,
+				ED443EAB278598670059DE76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED443EAB278598670059DE76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EAA278598670059DE76 /* Havit.app */,
+				ED443EC0278598690059DE76 /* HavitTests.xctest */,
+				ED443ECA278598690059DE76 /* HavitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED443EAC278598670059DE76 /* Havit */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EE02785CD300059DE76 /* Coordinator */,
+				ED443EDF2785CD2B0059DE76 /* Network */,
+				ED443EDE2785CD250059DE76 /* Global */,
+				ED443EDD2785CD1E0059DE76 /* Screens */,
+			);
+			path = Havit;
+			sourceTree = "<group>";
+		};
+		ED443EC3278598690059DE76 /* HavitTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EC4278598690059DE76 /* HavitTests.swift */,
+			);
+			path = HavitTests;
+			sourceTree = "<group>";
+		};
+		ED443ECD278598690059DE76 /* HavitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED443ECE278598690059DE76 /* HavitUITests.swift */,
+				ED443ED0278598690059DE76 /* HavitUITestsLaunchTests.swift */,
+			);
+			path = HavitUITests;
+			sourceTree = "<group>";
+		};
+		ED443EDD2785CD1E0059DE76 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EF727869DE80059DE76 /* Tabbar */,
+				ED443EF427869D4A0059DE76 /* Main */,
+				ED443EF527869D5A0059DE76 /* WebView */,
+				ED443EF127869C9F0059DE76 /* SearchContents */,
+				ED443EF327869D380059DE76 /* CategoryContents */,
+				ED443EF227869D170059DE76 /* Category */,
+				ED443EF927869E240059DE76 /* SocialLogin */,
+				ED443EF827869E1A0059DE76 /* Mypage */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ED443EDE2785CD250059DE76 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EE72785CD9B0059DE76 /* Literal */,
+				ED443EE62785CD980059DE76 /* Base */,
+				ED443EE52785CD920059DE76 /* Protocol */,
+				ED443EE32785CD610059DE76 /* Extension */,
+				ED443EE12785CD3D0059DE76 /* Resource */,
+				ED443EE22785CD510059DE76 /* UIComponent */,
+				ED443EE42785CD680059DE76 /* Supporting files */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		ED443EDF2785CD2B0059DE76 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EF027869C960059DE76 /* Foundation */,
+				ED443EEF27869C910059DE76 /* API */,
+				ED443EEE27869C890059DE76 /* APIService */,
+				ED443EED27869C860059DE76 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		ED443EE02785CD300059DE76 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EEC27869C030059DE76 /* Foundation */,
+				ED443EEB27869C000059DE76 /* Scene */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ED443EE12785CD3D0059DE76 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EB6278598690059DE76 /* Assets.xcassets */,
+				ED443EB8278598690059DE76 /* LaunchScreen.storyboard */,
+				ED443EEA27869BB90059DE76 /* Lottie */,
+				ED443EE827869B940059DE76 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ED443EE22785CD510059DE76 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		ED443EE32785CD610059DE76 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		ED443EE42785CD680059DE76 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EAD278598670059DE76 /* AppDelegate.swift */,
+				ED443EAF278598670059DE76 /* SceneDelegate.swift */,
+				ED443EBB278598690059DE76 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		ED443EE52785CD920059DE76 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		ED443EE62785CD980059DE76 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		ED443EE72785CD9B0059DE76 /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		ED443EE827869B940059DE76 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		ED443EEA27869BB90059DE76 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		ED443EEB27869C000059DE76 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		ED443EEC27869C030059DE76 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		ED443EED27869C860059DE76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED443EEE27869C890059DE76 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		ED443EEF27869C910059DE76 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		ED443EF027869C960059DE76 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		ED443EF127869C9F0059DE76 /* SearchContents */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0127869F640059DE76 /* ViewModel */,
+				ED443F0027869F620059DE76 /* View */,
+			);
+			path = SearchContents;
+			sourceTree = "<group>";
+		};
+		ED443EF227869D170059DE76 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0527869F720059DE76 /* ViewModel */,
+				ED443F0427869F700059DE76 /* View */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		ED443EF327869D380059DE76 /* CategoryContents */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0327869F6B0059DE76 /* ViewModel */,
+				ED443F0227869F680059DE76 /* View */,
+			);
+			path = CategoryContents;
+			sourceTree = "<group>";
+		};
+		ED443EF427869D4A0059DE76 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EFD27869EB90059DE76 /* ViewModel */,
+				ED443EFC27869EB70059DE76 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		ED443EF527869D5A0059DE76 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EFF27869F5E0059DE76 /* ViewModel */,
+				ED443EFE27869EBD0059DE76 /* View */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		ED443EF627869DC20059DE76 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		ED443EF727869DE80059DE76 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				ED443EFA27869EA30059DE76 /* View */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		ED443EF827869E1A0059DE76 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0927869F800059DE76 /* ViewModel */,
+				ED443F0827869F7E0059DE76 /* View */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		ED443EF927869E240059DE76 /* SocialLogin */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0727869F790059DE76 /* ViewModel */,
+				ED443F0627869F750059DE76 /* View */,
+			);
+			path = SocialLogin;
+			sourceTree = "<group>";
+		};
+		ED443EFA27869EA30059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0A2786A2B00059DE76 /* TabbarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443EFC27869EB70059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0C2786A2D30059DE76 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443EFD27869EB90059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F0E2786A2E10059DE76 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED443EFE27869EBD0059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F102786A2F50059DE76 /* WebViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443EFF27869F5E0059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F122786A2FF0059DE76 /* WebViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED443F0027869F620059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F142786A31E0059DE76 /* SearchContentsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443F0127869F640059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F162786A3320059DE76 /* SearchContentsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED443F0227869F680059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F182786A3450059DE76 /* CategoryContentsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443F0327869F6B0059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F1A2786A3540059DE76 /* CategoryContentsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED443F0427869F700059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443F0527869F720059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F1E2786A4060059DE76 /* CategoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED443F0627869F750059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F202786A41B0059DE76 /* SocialLoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443F0727869F790059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F222786A4240059DE76 /* SocialLoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED443F0827869F7E0059DE76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F242786A4310059DE76 /* MypageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED443F0927869F800059DE76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F262786A43C0059DE76 /* MypageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED443EA9278598670059DE76 /* Havit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED443ED4278598690059DE76 /* Build configuration list for PBXNativeTarget "Havit" */;
+			buildPhases = (
+				ED443EA6278598670059DE76 /* Sources */,
+				ED443EA7278598670059DE76 /* Frameworks */,
+				ED443EA8278598670059DE76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Havit;
+			productName = Havit;
+			productReference = ED443EAA278598670059DE76 /* Havit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED443EBF278598690059DE76 /* HavitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED443ED7278598690059DE76 /* Build configuration list for PBXNativeTarget "HavitTests" */;
+			buildPhases = (
+				ED443EBC278598690059DE76 /* Sources */,
+				ED443EBD278598690059DE76 /* Frameworks */,
+				ED443EBE278598690059DE76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED443EC2278598690059DE76 /* PBXTargetDependency */,
+			);
+			name = HavitTests;
+			productName = HavitTests;
+			productReference = ED443EC0278598690059DE76 /* HavitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED443EC9278598690059DE76 /* HavitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED443EDA278598690059DE76 /* Build configuration list for PBXNativeTarget "HavitUITests" */;
+			buildPhases = (
+				ED443EC6278598690059DE76 /* Sources */,
+				ED443EC7278598690059DE76 /* Frameworks */,
+				ED443EC8278598690059DE76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED443ECC278598690059DE76 /* PBXTargetDependency */,
+			);
+			name = HavitUITests;
+			productName = HavitUITests;
+			productReference = ED443ECA278598690059DE76 /* HavitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED443EA2278598670059DE76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					ED443EA9278598670059DE76 = {
+						CreatedOnToolsVersion = 13.2;
+					};
+					ED443EBF278598690059DE76 = {
+						CreatedOnToolsVersion = 13.2;
+						TestTargetID = ED443EA9278598670059DE76;
+					};
+					ED443EC9278598690059DE76 = {
+						CreatedOnToolsVersion = 13.2;
+						TestTargetID = ED443EA9278598670059DE76;
+					};
+				};
+			};
+			buildConfigurationList = ED443EA5278598670059DE76 /* Build configuration list for PBXProject "Havit" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED443EA1278598670059DE76;
+			productRefGroup = ED443EAB278598670059DE76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED443EA9278598670059DE76 /* Havit */,
+				ED443EBF278598690059DE76 /* HavitTests */,
+				ED443EC9278598690059DE76 /* HavitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED443EA8278598670059DE76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED443EBA278598690059DE76 /* LaunchScreen.storyboard in Resources */,
+				ED443EB7278598690059DE76 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED443EBE278598690059DE76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED443EC8278598690059DE76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED443EA6278598670059DE76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
+				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
+				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
+				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,
+				ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */,
+				ED443F112786A2F50059DE76 /* WebViewController.swift in Sources */,
+				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
+				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
+				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
+				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
+				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
+				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
+				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
+				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
+				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
+				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
+				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED443EBC278598690059DE76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED443EC5278598690059DE76 /* HavitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED443EC6278598690059DE76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED443ECF278598690059DE76 /* HavitUITests.swift in Sources */,
+				ED443ED1278598690059DE76 /* HavitUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED443EC2278598690059DE76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED443EA9278598670059DE76 /* Havit */;
+			targetProxy = ED443EC1278598690059DE76 /* PBXContainerItemProxy */;
+		};
+		ED443ECC278598690059DE76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED443EA9278598670059DE76 /* Havit */;
+			targetProxy = ED443ECB278598690059DE76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED443EB8278598690059DE76 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED443EB9278598690059DE76 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED443ED2278598690059DE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED443ED3278598690059DE76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED443ED5278598690059DE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Havit/Supporting files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.Havit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ED443ED6278598690059DE76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Havit/Supporting files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.Havit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		ED443ED8278598690059DE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.HavitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Havit.app/Havit";
+			};
+			name = Debug;
+		};
+		ED443ED9278598690059DE76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.HavitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Havit.app/Havit";
+			};
+			name = Release;
+		};
+		ED443EDB278598690059DE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.HavitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Havit;
+			};
+			name = Debug;
+		};
+		ED443EDC278598690059DE76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.HavitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Havit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED443EA5278598670059DE76 /* Build configuration list for PBXProject "Havit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED443ED2278598690059DE76 /* Debug */,
+				ED443ED3278598690059DE76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED443ED4278598690059DE76 /* Build configuration list for PBXNativeTarget "Havit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED443ED5278598690059DE76 /* Debug */,
+				ED443ED6278598690059DE76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED443ED7278598690059DE76 /* Build configuration list for PBXNativeTarget "HavitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED443ED8278598690059DE76 /* Debug */,
+				ED443ED9278598690059DE76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED443EDA278598690059DE76 /* Build configuration list for PBXNativeTarget "HavitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED443EDB278598690059DE76 /* Debug */,
+				ED443EDC278598690059DE76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED443EA2278598670059DE76 /* Project object */;
+}
