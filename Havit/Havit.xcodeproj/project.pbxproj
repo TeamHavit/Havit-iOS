@@ -49,7 +49,8 @@
 		ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */; };
 		ED443F522786BF980059DE76 /* SceneRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F512786BF980059DE76 /* SceneRegisterable.swift */; };
 		ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F532786BFE30059DE76 /* SceneCoordinator.swift */; };
-		ED443F562786C1AD0059DE76 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F552786C1AD0059DE76 /* Scene.swift */; };
+		ED443F562786C1AD0059DE76 /* TabbarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F552786C1AD0059DE76 /* TabbarScene.swift */; };
+		ED443F5B2786E19F0059DE76 /* RootScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F5A2786E19F0059DE76 /* RootScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +113,8 @@
 		ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		ED443F512786BF980059DE76 /* SceneRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRegisterable.swift; sourceTree = "<group>"; };
 		ED443F532786BFE30059DE76 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
-		ED443F552786C1AD0059DE76 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		ED443F552786C1AD0059DE76 /* TabbarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarScene.swift; sourceTree = "<group>"; };
+		ED443F5A2786E19F0059DE76 /* RootScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,7 +328,8 @@
 		ED443EEB27869C000059DE76 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				ED443F552786C1AD0059DE76 /* Scene.swift */,
+				ED443F5A2786E19F0059DE76 /* RootScene.swift */,
+				ED443F552786C1AD0059DE76 /* TabbarScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -728,7 +731,7 @@
 				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,
 				ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */,
 				ED443F112786A2F50059DE76 /* WebViewController.swift in Sources */,
-				ED443F562786C1AD0059DE76 /* Scene.swift in Sources */,
+				ED443F562786C1AD0059DE76 /* TabbarScene.swift in Sources */,
 				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
 				ED443F312786AC5F0059DE76 /* UIFont+.swift in Sources */,
@@ -741,6 +744,7 @@
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */,
+				ED443F5B2786E19F0059DE76 /* RootScene.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
 				ED443F4C2786BBAF0059DE76 /* UIScreen+.swift in Sources */,

@@ -75,11 +75,13 @@ class SceneCoordinator: SceneCoordinatorType {
     func close(animated: Bool) -> Completable {
         return Completable.create { [unowned self] completable in
             if let presentingVC = self.currentVC.presentingViewController {
+                print(currentVC, " 가 dismiss 됩니다. ✅")
                 self.currentVC.dismiss(animated: animated) {
                     self.currentVC = presentingVC.sceneViewController
                     completable(.completed)
                 }
             } else if let nav = self.currentVC.navigationController {
+                print(currentVC, " 가 Nav에서 POP 됩니다. 🙆🏻‍♂️")
                 guard nav.popViewController(animated: animated) != nil else {
                     completable(.error(TransitionError.cannotPop))
                     return Disposables.create()
@@ -87,6 +89,7 @@ class SceneCoordinator: SceneCoordinatorType {
                 self.currentVC = nav.viewControllers.last!
                 completable(.completed)
             } else {
+                print("close error 발생 🐞")
                 completable(.error(TransitionError.unknown))
             }
             

@@ -1,5 +1,5 @@
 //
-//  Scene.swift
+//  TabbarScene.swift
 //  Havit
 //
 //  Created by SHIN YOON AH on 2022/01/06.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-enum Scene {
+enum TabbarScene {
     case main(SceneCoordinator)
 }
 
-extension Scene: SceneRegisterable {
+extension TabbarScene: SceneRegisterable {
     func instantiate() -> UIViewController {
         switch self {
         case .main(let coordinator):

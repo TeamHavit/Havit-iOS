@@ -10,10 +10,3 @@ import UIKit
 protocol SceneRegisterable {
     func instantiate() -> UIViewController
 }
-
-extension SceneRegisterable where Self == Scene {
-    func instantiate() -> UIViewController {
-
-        return UIViewController()
-    }
-}

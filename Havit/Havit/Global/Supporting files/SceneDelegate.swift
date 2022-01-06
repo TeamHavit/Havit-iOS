@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Coordinator 연결
         let coordinator = SceneCoordinator(window: window)
-        let rootScene = Scene.main(coordinator)
+        let rootScene = TabbarScene.main(coordinator)
         coordinator.transition(to: rootScene,
                                using: .root,
                                animated: false)
