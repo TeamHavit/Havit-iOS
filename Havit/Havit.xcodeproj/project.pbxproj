@@ -42,8 +42,8 @@
 		ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */; };
 		ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F432786B9420059DE76 /* UIView+Extension.swift */; };
 		ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F452786B99B0059DE76 /* UIViewController+Extension.swift */; };
-		ED443F482786BA0F0059DE76 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+.swift */; };
-		ED443F4A2786BB5B0059DE76 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+.swift */; };
+		ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */; };
+		ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */; };
 		ED443F4C2786BBAF0059DE76 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */; };
 		ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4D2786BF060059DE76 /* TransitionStyle.swift */; };
 		ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */; };
@@ -107,8 +107,8 @@
 		ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		ED443F432786B9420059DE76 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F452786B99B0059DE76 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		ED443F472786BA0F0059DE76 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
-		ED443F492786BB5B0059DE76 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
 		ED443F4D2786BF060059DE76 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
@@ -273,8 +273,8 @@
 				ED443F322786AC640059DE76 /* UIColor+Extension.swift */,
 				ED443F432786B9420059DE76 /* UIView+Extension.swift */,
 				ED443F452786B99B0059DE76 /* UIViewController+Extension.swift */,
-				ED443F472786BA0F0059DE76 /* UILabel+.swift */,
-				ED443F492786BB5B0059DE76 /* UIButton+.swift */,
+				ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */,
+				ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */,
 				ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */,
 				ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */,
 			);
@@ -724,7 +724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED443F482786BA0F0059DE76 /* UILabel+.swift in Sources */,
+				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
 				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
@@ -741,7 +741,7 @@
 				ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
-				ED443F4A2786BB5B0059DE76 /* UIButton+.swift in Sources */,
+				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
