@@ -170,9 +170,9 @@
 		ED443EAC278598670059DE76 /* Havit */ = {
 			isa = PBXGroup;
 			children = (
+				ED443EDE2785CD250059DE76 /* Global */,
 				ED443EE02785CD300059DE76 /* Coordinator */,
 				ED443EDF2785CD2B0059DE76 /* Network */,
-				ED443EDE2785CD250059DE76 /* Global */,
 				ED443EDD2785CD1E0059DE76 /* Screens */,
 			);
 			path = Havit;
