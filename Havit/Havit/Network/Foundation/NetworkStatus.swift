@@ -19,5 +19,5 @@ enum NetworkStatus: Int {
     case conflict = 409
     case internalServerError = 500
     case serviceUnavailable = 503
-    case dbError = 600
+    case unknown = 0
 }
