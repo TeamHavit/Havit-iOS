@@ -221,7 +221,7 @@
 				ED443EE32785CD610059DE76 /* Extension */,
 				ED443EE12785CD3D0059DE76 /* Resource */,
 				ED443EE22785CD510059DE76 /* UIComponent */,
-				ED443EE42785CD680059DE76 /* Supporting files */,
+				ED443EE42785CD680059DE76 /* Supports */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -281,14 +281,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		ED443EE42785CD680059DE76 /* Supporting files */ = {
+		ED443EE42785CD680059DE76 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
 				ED443EAD278598670059DE76 /* AppDelegate.swift */,
 				ED443EAF278598670059DE76 /* SceneDelegate.swift */,
 				ED443EBB278598690059DE76 /* Info.plist */,
 			);
-			path = "Supporting files";
+			path = Supports;
 			sourceTree = "<group>";
 		};
 		ED443EE52785CD920059DE76 /* Protocol */ = {
@@ -931,7 +931,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
+				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -958,7 +958,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
+				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
