@@ -45,12 +45,6 @@
 		ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */; };
 		ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */; };
 		ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */; };
-		ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4D2786BF060059DE76 /* TransitionStyle.swift */; };
-		ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */; };
-		ED443F522786BF980059DE76 /* SceneRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F512786BF980059DE76 /* SceneRegisterable.swift */; };
-		ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F532786BFE30059DE76 /* SceneCoordinator.swift */; };
-		ED443F562786C1AD0059DE76 /* TabbarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F552786C1AD0059DE76 /* TabbarScene.swift */; };
-		ED443F5B2786E19F0059DE76 /* RootScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F5A2786E19F0059DE76 /* RootScene.swift */; };
 		ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */; };
 		ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F79278B61590059DE76 /* UITableView+Extension.swift */; };
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
@@ -112,12 +106,6 @@
 		ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
-		ED443F4D2786BF060059DE76 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
-		ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
-		ED443F512786BF980059DE76 /* SceneRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRegisterable.swift; sourceTree = "<group>"; };
-		ED443F532786BFE30059DE76 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
-		ED443F552786C1AD0059DE76 /* TabbarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarScene.swift; sourceTree = "<group>"; };
-		ED443F5A2786E19F0059DE76 /* RootScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScene.swift; sourceTree = "<group>"; };
 		ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		ED443F79278B61590059DE76 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -245,8 +233,6 @@
 		ED443EE02785CD300059DE76 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				ED443EEC27869C030059DE76 /* Foundation */,
-				ED443EEB27869C000059DE76 /* Scene */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -332,26 +318,6 @@
 			children = (
 			);
 			path = Lottie;
-			sourceTree = "<group>";
-		};
-		ED443EEB27869C000059DE76 /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-				ED443F5A2786E19F0059DE76 /* RootScene.swift */,
-				ED443F552786C1AD0059DE76 /* TabbarScene.swift */,
-			);
-			path = Scene;
-			sourceTree = "<group>";
-		};
-		ED443EEC27869C030059DE76 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				ED443F4D2786BF060059DE76 /* TransitionStyle.swift */,
-				ED443F512786BF980059DE76 /* SceneRegisterable.swift */,
-				ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */,
-				ED443F532786BFE30059DE76 /* SceneCoordinator.swift */,
-			);
-			path = Foundation;
 			sourceTree = "<group>";
 		};
 		ED443EED27869C860059DE76 /* Model */ = {
@@ -740,28 +706,22 @@
 				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,
 				ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */,
 				ED443F112786A2F50059DE76 /* WebViewController.swift in Sources */,
-				ED443F562786C1AD0059DE76 /* TabbarScene.swift in Sources */,
 				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
 				ED443F312786AC5F0059DE76 /* UIFont+Extension.swift in Sources */,
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
-				ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
-				ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
-				ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */,
-				ED443F5B2786E19F0059DE76 /* RootScene.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
 				ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */,
 				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
-				ED443F522786BF980059DE76 /* SceneRegisterable.swift in Sources */,
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,

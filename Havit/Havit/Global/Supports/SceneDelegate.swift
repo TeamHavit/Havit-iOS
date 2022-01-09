@@ -16,13 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
         
-        // Coordinator 연결
-        let coordinator = SceneCoordinator(window: window)
-        let rootScene = TabbarScene.main(coordinator)
-        coordinator.transition(to: rootScene,
-                               using: .root,
-                               animated: false)
-        
         // StatusBarHeight 설정
         if let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height {
             StatusBar.shared.height = statusBarHeight
