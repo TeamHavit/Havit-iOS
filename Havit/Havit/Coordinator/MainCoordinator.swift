@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum MainTransition {
-    case guide
-}
-
 final class MainCoordinator: BaseCoordinator {
+    
+    enum MainTransition {
+        case guide
+    }
 
     override func start() {
         let main = MainViewController()
