@@ -19,10 +19,10 @@ extension UILabel {
         }
     }
     
-    func applySpecificColor(_ color: UIColor, target: String) {
+    func applyColor(to targetString: String, with color: UIColor) {
         if let labelText = text, labelText.count > 0 {
             let attributedStr = NSMutableAttributedString(string: labelText)
-            attributedStr.addAttribute(.foregroundColor, value: color, range: (labelText as NSString).range(of: target))
+            attributedStr.addAttribute(.foregroundColor, value: color, range: (labelText as NSString).range(of: targetString))
             attributedText = attributedStr
         }
     }

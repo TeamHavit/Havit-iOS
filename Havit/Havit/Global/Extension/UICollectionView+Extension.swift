@@ -38,8 +38,8 @@ extension UICollectionView {
         return view
     }
 
-    func register<T>(cell: T.Type,
-                     forCellWithReuseIdentifier reuseIdentifier: String = T.className) where T: UICollectionViewCell {
+    func register<T: UICollectionViewCell>(cell: T.Type,
+                     forCellWithReuseIdentifier reuseIdentifier: String = T.className) {
         register(cell, forCellWithReuseIdentifier: reuseIdentifier)
     }
 }

@@ -11,16 +11,16 @@ enum ImageLiteral {
 
     // MARK: - Image
     
-    static var imgCatchGuide: UIImage { .load(name: "imgCatchGuide") }
+    static var imgCatchGuide: UIImage { .load(named: "imgCatchGuide") }
 
 }
 
 extension UIImage {
-    static func load(name: String) -> UIImage {
-        guard let image = UIImage(named: name, in: nil, compatibleWith: nil) else {
+    static func load(named imageName: String) -> UIImage {
+        guard let image = UIImage(named: imageName, in: nil, compatibleWith: nil) else {
             return UIImage()
         }
-        image.accessibilityIdentifier = name
+        image.accessibilityIdentifier = imageName
         return image
     }
     

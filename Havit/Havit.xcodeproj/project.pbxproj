@@ -54,6 +54,8 @@
 		ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */; };
 		ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F79278B61590059DE76 /* UITableView+Extension.swift */; };
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
+		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
+		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		ED443F79278B61590059DE76 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,7 @@
 				ED443EE72785CD9B0059DE76 /* Literal */,
 				ED443EE62785CD980059DE76 /* Base */,
 				ED443EE52785CD920059DE76 /* Protocol */,
+				ED443F8B278C51BF0059DE76 /* Utils */,
 				ED443EE32785CD610059DE76 /* Extension */,
 				ED443EE12785CD3D0059DE76 /* Resource */,
 				ED443EE22785CD510059DE76 /* UIComponent */,
@@ -283,6 +288,7 @@
 				ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */,
 				ED443F79278B61590059DE76 /* UITableView+Extension.swift */,
 				ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */,
+				ED443F89278C4D710059DE76 /* NSObject+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -589,6 +595,14 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		ED443F8B278C51BF0059DE76 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F8C278C51DF0059DE76 /* Logger.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -745,11 +759,13 @@
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
 				ED443F312786AC5F0059DE76 /* UIFont+Extension.swift in Sources */,
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
+				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
 				ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
+				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
