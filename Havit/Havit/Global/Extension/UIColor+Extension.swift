@@ -1,5 +1,5 @@
 //
-//  UIColor+.swift
+//  UIColor+Extension.swift
 //  Havit
 //
 //  Created by SHIN YOON AH on 2022/01/06.
@@ -8,16 +8,16 @@
 import UIKit
 
 extension UIColor {
-    @nonobjc class var pink100: UIColor {
+    static var pink100: UIColor {
         return UIColor(hex: "#EA4579")
     }
     
-    @nonobjc class var pink200: UIColor {
+    static var pink200: UIColor {
         return UIColor(hex: "#EC477B")
     }
 }
 
-fileprivate extension UIColor {
+extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         var hexFormatted: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         

@@ -7,30 +7,27 @@
 
 import UIKit
 
-public enum ImageLiteral {
+enum ImageLiteral {
 
     // MARK: - Image
     
-    public static var imgCatchGuide: UIImage { .load(name: "imgCatchGuide") }
+    static var imgCatchGuide: UIImage { .load(named: "imgCatchGuide") }
 
 }
 
 extension UIImage {
-    fileprivate static func load(name: String) -> UIImage {
-        guard let image = UIImage(named: name, in: nil, compatibleWith: nil) else {
-            assert(false, "\(name) 이미지 로드 실패")
+    static func load(named imageName: String) -> UIImage {
+        guard let image = UIImage(named: imageName, in: nil, compatibleWith: nil) else {
             return UIImage()
         }
-        image.accessibilityIdentifier = name
+        image.accessibilityIdentifier = imageName
         return image
     }
     
-    internal func resize(to length: CGFloat) -> UIImage {
-        let newSize = CGSize(width: length, height: length)
-        let image = UIGraphicsImageRenderer(size: newSize).image { _ in
-            draw(in: CGRect(origin: .zero, size: newSize))
+    func resize(to size: CGSize) -> UIImage {
+        let image = UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
         }
-            
         return image
     }
 }

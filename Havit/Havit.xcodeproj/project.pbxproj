@@ -32,25 +32,30 @@
 		ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F282786A9260059DE76 /* GenericResponse.swift */; };
 		ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F2A2786A9500059DE76 /* NetworkStatus.swift */; };
 		ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F2D2786AB8A0059DE76 /* ImageLiteral.swift */; };
-		ED443F312786AC5F0059DE76 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F302786AC5F0059DE76 /* UIFont+.swift */; };
-		ED443F332786AC640059DE76 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F322786AC640059DE76 /* UIColor+.swift */; };
+		ED443F312786AC5F0059DE76 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F302786AC5F0059DE76 /* UIFont+Extension.swift */; };
+		ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F322786AC640059DE76 /* UIColor+Extension.swift */; };
 		ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
 		ED443F382786B32B0059DE76 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F372786B32B0059DE76 /* SnapKit */; };
 		ED443F3B2786B3FF0059DE76 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */; };
 		ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3D2786B5840059DE76 /* RxCocoa */; };
 		ED443F402786B5840059DE76 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED443F3F2786B5840059DE76 /* RxSwift */; };
 		ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */; };
-		ED443F442786B9420059DE76 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F432786B9420059DE76 /* UIView+.swift */; };
-		ED443F462786B99B0059DE76 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F452786B99B0059DE76 /* UIViewController+.swift */; };
-		ED443F482786BA0F0059DE76 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+.swift */; };
-		ED443F4A2786BB5B0059DE76 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+.swift */; };
-		ED443F4C2786BBAF0059DE76 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */; };
+		ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F432786B9420059DE76 /* UIView+Extension.swift */; };
+		ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F452786B99B0059DE76 /* UIViewController+Extension.swift */; };
+		ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */; };
+		ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */; };
+		ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */; };
 		ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4D2786BF060059DE76 /* TransitionStyle.swift */; };
 		ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */; };
 		ED443F522786BF980059DE76 /* SceneRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F512786BF980059DE76 /* SceneRegisterable.swift */; };
 		ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F532786BFE30059DE76 /* SceneCoordinator.swift */; };
 		ED443F562786C1AD0059DE76 /* TabbarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F552786C1AD0059DE76 /* TabbarScene.swift */; };
 		ED443F5B2786E19F0059DE76 /* RootScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F5A2786E19F0059DE76 /* RootScene.swift */; };
+		ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */; };
+		ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F79278B61590059DE76 /* UITableView+Extension.swift */; };
+		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
+		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
+		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,21 +105,26 @@
 		ED443F282786A9260059DE76 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		ED443F2A2786A9500059DE76 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		ED443F2D2786AB8A0059DE76 /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
-		ED443F302786AC5F0059DE76 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		ED443F322786AC640059DE76 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		ED443F302786AC5F0059DE76 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		ED443F322786AC640059DE76 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		ED443F342786AF2C0059DE76 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
-		ED443F432786B9420059DE76 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		ED443F452786B99B0059DE76 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		ED443F472786BA0F0059DE76 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
-		ED443F492786BB5B0059DE76 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
-		ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
+		ED443F432786B9420059DE76 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		ED443F452786B99B0059DE76 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		ED443F4D2786BF060059DE76 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		ED443F4F2786BF1F0059DE76 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		ED443F512786BF980059DE76 /* SceneRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRegisterable.swift; sourceTree = "<group>"; };
 		ED443F532786BFE30059DE76 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		ED443F552786C1AD0059DE76 /* TabbarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarScene.swift; sourceTree = "<group>"; };
 		ED443F5A2786E19F0059DE76 /* RootScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScene.swift; sourceTree = "<group>"; };
+		ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		ED443F79278B61590059DE76 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,9 +180,9 @@
 		ED443EAC278598670059DE76 /* Havit */ = {
 			isa = PBXGroup;
 			children = (
+				ED443EDE2785CD250059DE76 /* Global */,
 				ED443EE02785CD300059DE76 /* Coordinator */,
 				ED443EDF2785CD2B0059DE76 /* Network */,
-				ED443EDE2785CD250059DE76 /* Global */,
 				ED443EDD2785CD1E0059DE76 /* Screens */,
 			);
 			path = Havit;
@@ -216,10 +226,11 @@
 				ED443EE72785CD9B0059DE76 /* Literal */,
 				ED443EE62785CD980059DE76 /* Base */,
 				ED443EE52785CD920059DE76 /* Protocol */,
+				ED443F8B278C51BF0059DE76 /* Utils */,
 				ED443EE32785CD610059DE76 /* Extension */,
 				ED443EE12785CD3D0059DE76 /* Resource */,
 				ED443EE22785CD510059DE76 /* UIComponent */,
-				ED443EE42785CD680059DE76 /* Supporting files */,
+				ED443EE42785CD680059DE76 /* Supports */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -267,25 +278,29 @@
 			isa = PBXGroup;
 			children = (
 				ED443F412786B8060059DE76 /* Reactive+UIViewController.swift */,
-				ED443F302786AC5F0059DE76 /* UIFont+.swift */,
-				ED443F322786AC640059DE76 /* UIColor+.swift */,
-				ED443F432786B9420059DE76 /* UIView+.swift */,
-				ED443F452786B99B0059DE76 /* UIViewController+.swift */,
-				ED443F472786BA0F0059DE76 /* UILabel+.swift */,
-				ED443F492786BB5B0059DE76 /* UIButton+.swift */,
-				ED443F4B2786BBAF0059DE76 /* UIScreen+.swift */,
+				ED443F302786AC5F0059DE76 /* UIFont+Extension.swift */,
+				ED443F322786AC640059DE76 /* UIColor+Extension.swift */,
+				ED443F432786B9420059DE76 /* UIView+Extension.swift */,
+				ED443F452786B99B0059DE76 /* UIViewController+Extension.swift */,
+				ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */,
+				ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */,
+				ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */,
+				ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */,
+				ED443F79278B61590059DE76 /* UITableView+Extension.swift */,
+				ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */,
+				ED443F89278C4D710059DE76 /* NSObject+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		ED443EE42785CD680059DE76 /* Supporting files */ = {
+		ED443EE42785CD680059DE76 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
 				ED443EAD278598670059DE76 /* AppDelegate.swift */,
 				ED443EAF278598670059DE76 /* SceneDelegate.swift */,
 				ED443EBB278598690059DE76 /* Info.plist */,
 			);
-			path = "Supporting files";
+			path = Supports;
 			sourceTree = "<group>";
 		};
 		ED443EE52785CD920059DE76 /* Protocol */ = {
@@ -580,6 +595,14 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		ED443F8B278C51BF0059DE76 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F8C278C51DF0059DE76 /* Logger.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,7 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED443F482786BA0F0059DE76 /* UILabel+.swift in Sources */,
+				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
 				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
@@ -734,28 +757,33 @@
 				ED443F562786C1AD0059DE76 /* TabbarScene.swift in Sources */,
 				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
-				ED443F312786AC5F0059DE76 /* UIFont+.swift in Sources */,
+				ED443F312786AC5F0059DE76 /* UIFont+Extension.swift in Sources */,
+				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
+				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
 				ED443F502786BF1F0059DE76 /* SceneCoordinatorType.swift in Sources */,
+				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
-				ED443F4A2786BB5B0059DE76 /* UIButton+.swift in Sources */,
+				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
+				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				ED443F4E2786BF060059DE76 /* TransitionStyle.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
+				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
 				ED443F542786BFE30059DE76 /* SceneCoordinator.swift in Sources */,
 				ED443F5B2786E19F0059DE76 /* RootScene.swift in Sources */,
-				ED443F332786AC640059DE76 /* UIColor+.swift in Sources */,
+				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
-				ED443F4C2786BBAF0059DE76 /* UIScreen+.swift in Sources */,
+				ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */,
 				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
 				ED443F522786BF980059DE76 /* SceneRegisterable.swift in Sources */,
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
-				ED443F462786B99B0059DE76 /* UIViewController+.swift in Sources */,
+				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
-				ED443F442786B9420059DE76 /* UIView+.swift in Sources */,
+				ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,7 +955,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
+				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -954,7 +982,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Havit/Global/Supporting files/Info.plist";
+				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

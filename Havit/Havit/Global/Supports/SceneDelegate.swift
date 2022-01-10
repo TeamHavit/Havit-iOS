@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // StatusBarHeight 설정
         if let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height {
             StatusBar.shared.height = statusBarHeight
-            print("statusBarHeight: \(statusBarHeight)")
+            Logger.debugDescription("statusBarHeight: \(statusBarHeight)")
         }
     }
 
@@ -64,5 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 class StatusBar {
     static let shared = StatusBar()
     
-    public fileprivate(set) var height: CGFloat = 0
+    private init() { }
+    
+    fileprivate(set) var height: CGFloat = 0
 }
