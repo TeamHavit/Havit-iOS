@@ -50,7 +50,8 @@
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
 		ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
 		ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */; };
-		ED443F82278B6C2B0059DE76 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F81278B6C2B0059DE76 /* Transition.swift */; };
+		ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */; };
+		ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +115,8 @@
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7D278B6B180059DE76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		ED443F81278B6C2B0059DE76 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				ED443F83278B6C9D0059DE76 /* Foundation */,
+				ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */,
+				ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -565,7 +569,6 @@
 		ED443F83278B6C9D0059DE76 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				ED443F81278B6C2B0059DE76 /* Transition.swift */,
 				ED443F7D278B6B180059DE76 /* Coordinator.swift */,
 				ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */,
 			);
@@ -713,7 +716,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED443F82278B6C2B0059DE76 /* Transition.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
 				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
@@ -730,6 +732,7 @@
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
+				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
@@ -737,6 +740,7 @@
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
+				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
