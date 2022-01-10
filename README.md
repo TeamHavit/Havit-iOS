@@ -15,13 +15,12 @@ _**기억하고 싶은 모든 콘텐츠를 내 손 안에, HAVIT**_
 
 
 ### 🎁 Library
-| 라이브러리 |  |
-|--|--|
-| SnapKit | `SPM` |
-| IQKeyboardManager | `SPM` |
-| RxSwift | `SPM` |
-| RxCocoa | `SPM` |
-| SwiftLint | `SPM` |
+| 라이브러리 | Version |  | 
+|--|:--:|--|
+| SnapKit | `5.0.1` | `SPM` |
+| IQKeyboardManager | `6.5.9` | `SPM` |
+| RxSwift | `6.2.0` | `SPM` |
+| RxCocoa | `6.2.0` | `SPM` |
 
 <br/>
  
