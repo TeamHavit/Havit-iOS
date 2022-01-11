@@ -8,12 +8,76 @@
 import UIKit
 
 extension UIColor {
-    static var pink100: UIColor {
-        return UIColor(hex: "#EA4579")
+    static var gray000: UIColor {
+        return UIColor(hex: "#f3f3f3")
     }
     
-    static var pink200: UIColor {
-        return UIColor(hex: "#EC477B")
+    static var gray001: UIColor {
+        return UIColor(hex: "#dddce1")
+    }
+    
+    static var gray002: UIColor {
+        return UIColor(hex: "#afafb7")
+    }
+    
+    static var gray003: UIColor {
+        return UIColor(hex: "#74757e")
+    }
+    
+    static var gray004: UIColor {
+        return UIColor(hex: "#424247")
+    }
+    
+    static var gray005: UIColor {
+        return UIColor(hex: "#212225")
+    }
+    
+    static var whiteGray: UIColor {
+        return UIColor(hex: "#f6f6f8")
+    }
+    
+    static var purpleText: UIColor {
+        return UIColor(hex: "#7c73d9")
+    }
+    
+    static var purpleLight: UIColor {
+        return UIColor(hex: "#d6d5ff")
+    }
+    
+    static var purpleCategory: UIColor {
+        return UIColor(hex: "#f7f6ff")
+    }
+    
+    static var purple001: UIColor {
+        return UIColor(hex: "#efedff")
+    }
+    
+    static var purple002: UIColor {
+        return UIColor(hex: "#c3c2ff")
+    }
+    
+    static var caution: UIColor {
+        return UIColor(hex: "#ff6969")
+    }
+    
+    static var havitGray: UIColor {
+        return UIColor(hex: "#272b30")
+    }
+    
+    static var havitWhite: UIColor {
+        return UIColor(hex: "#fafafa")
+    }
+    
+    static var havitPurple: UIColor {
+        return UIColor(hex: "#8578ff")
+    }
+    
+    static var havitRed: UIColor {
+        return UIColor(hex: "#ef4848")
+    }
+    
+    static var havitGreen: UIColor {
+        return UIColor(hex: "#5fec86")
     }
 }
 
