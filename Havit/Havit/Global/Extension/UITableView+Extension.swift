@@ -15,14 +15,8 @@ extension UITableView {
         return cell
     }
     
-    func register<T>( cell: T.Type,
+    func register<T>(cell: T.Type,
                       forCellReuseIdentifier reuseIdentifier: String = T.className) where T: UITableViewCell {
         register(cell, forCellReuseIdentifier: reuseIdentifier)
-    }
-}
-
-extension NSObject {
-    static var className: String {
-        return String(describing: self)
     }
 }

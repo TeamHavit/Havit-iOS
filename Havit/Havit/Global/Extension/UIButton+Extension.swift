@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    func drawUnderline(text: String, with style: NSUnderlineStyle) {
+    func drawUnderline(to text: String, withStyle style: NSUnderlineStyle) {
         let underlineAttribute = [NSAttributedString.Key.underlineStyle: style.rawValue]
         let underlineAttributedString = NSAttributedString(string: text, attributes: underlineAttribute)
         self.titleLabel?.attributedText = underlineAttributedString
