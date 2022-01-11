@@ -13,18 +13,34 @@ _**기억하고 싶은 모든 콘텐츠를 내 손 안에, HAVIT**_
 
 <img width="77" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/iOS-15.0+-silver"> <img width="85" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/Xcode-13.2.1-blue">
 
-
 ### 🎁 Library
-| 라이브러리 | Version |  | 
-|--|:--:|--|
-| SnapKit | `5.0.1` | `SPM` |
+
+| 라이브러리        | Version |       |
+| ----------------- | :-----: | ----- |
+| SnapKit           | `5.0.1` | `SPM` |
 | IQKeyboardManager | `6.5.9` | `SPM` |
-| RxSwift | `6.2.0` | `SPM` |
-| RxCocoa | `6.2.0` | `SPM` |
+| RxSwift           | `6.2.0` | `SPM` |
+| RxCocoa           | `6.2.0` | `SPM` |
 
 <br/>
  
-### 📖 HAVIT SwiftLint Rule
+### 📖 HAVIT SwiftLint Rule & Usage
+
+#### STEP1 : SwiftLint Install
+
+```
+brew install swiftlint
+```
+
+#### STEP2 : Git HooksPath 변경
+
+(Git hooks pre-commit 적용)
+
+```
+git config core.hookspath .githooks
+```
+
+#### SwiftLint Rule
 
 ```
 disabled_rules:
@@ -38,8 +54,9 @@ opt_in_rules:
   - let_var_whitespace
 
 included:
-  - Havit-iOS
+  - Havit
 excluded:
+  # AppDelegate, SceneDelegate file 무시
   - Havit-iOS/Havit/Havit/Global/Supports/AppDelegate.swift
   - Havit-iOS/Havit/Havit/Global/Supports/SceneDelegate.swift
 
@@ -49,8 +66,8 @@ identifier_name:
 
 force_cast: warning
 ```
-  
-### 🔀 Git branch & [Git Flow](https://techblog.woowahan.com/2553/) 
+
+### 🔀 Git branch & [Git Flow](https://techblog.woowahan.com/2553/)
 
 ```
 develop(default)
@@ -65,14 +82,14 @@ hotfix/11-main-activty-bug
 ### 🗂 Folder Structure
 
 ```
-Havit-iOS  
+Havit-iOS
   |
   |── Shared
   |── Share-Extension
   └── Havit
         |── Global
-        │   │── Literal 
-        │   │── Base 
+        │   │── Literal
+        │   │── Base
         │   │── Protocol
         │   │── Supports
         │   │      │── AppDelegate
@@ -90,13 +107,13 @@ Havit-iOS
         │   └── Foundation
         │
         |── Network
-        │   │── APIService 
-        │   │── API  
+        │   │── APIService
+        │   │── API
         │   │── Model
-        │   │── Mock  
+        │   │── Mock
         │   └── Foundation
         │
-        └── Screens 
+        └── Screens
               |── Tarbar
               └── Main
                     │── ViewModel
@@ -116,8 +133,8 @@ _**기억하고 싶은 HAVIT iOS Developers**_
 |---|---|---|
 |<img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773237-124097e8-055c-48ec-99cf-b9e25803361f.png">|<img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773728-9aca9e29-639b-48b9-b5d8-e1c81282b0b7.png">|<img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773753-870ea62e-50c4-49ca-bc3c-61c17071096a.png">|
 
-| [@YoonAh-dev](https://github.com/YoonAh-dev) | [@noah0316](https://github.com/noah0316) |
-|---|---|
-|<img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773764-cf9b7dc0-9ba8-412f-9a96-39156efbe385.png">|<img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773887-63ef9b5d-821b-4f92-b1e9-6d33d1540ad6.png">|
+| [@YoonAh-dev](https://github.com/YoonAh-dev)                                                                                                                                 | [@noah0316](https://github.com/noah0316)                                                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773764-cf9b7dc0-9ba8-412f-9a96-39156efbe385.png"> | <img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/148773887-63ef9b5d-821b-4f92-b1e9-6d33d1540ad6.png"> |
 
 </div>
