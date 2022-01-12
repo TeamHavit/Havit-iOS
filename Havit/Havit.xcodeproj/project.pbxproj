@@ -35,6 +35,7 @@
 		4D6F9E4E278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D6F9E4F278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */; };
+		4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -112,6 +113,7 @@
 		4D6F9E33278C8AA800EC074D /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */,
+				4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
 				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
+				4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,

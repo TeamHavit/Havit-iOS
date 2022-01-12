@@ -23,6 +23,7 @@ class CategoryViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(cell: CategoryCollectionViewCell.self)
 
         return collectionView
     }()
@@ -52,7 +53,9 @@ extension CategoryViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
+
+        return cell
     }
 }
 
