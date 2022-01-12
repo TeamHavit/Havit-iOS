@@ -17,7 +17,7 @@ class CategoryContentsViewController: BaseViewController {
     var changeShowButton: UIButton!
     var sortButton: UIButton!
     
-    private var contentsCollectionView: UICollectionView!
+    private var filterCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +70,14 @@ class CategoryContentsViewController: BaseViewController {
         }()
         filterView.addSubview(sortButton)
         
+        filterCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        filterCollectionView.backgroundColor = .blue
+        filterView.addSubview(filterCollectionView)
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        filterCollectionView.register(CategoryFilterCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "cellIdentifier")
+
+        
         
         // TODO: 메인 컨텐츠 뷰 생성 - 컬렉션 뷰
         
@@ -85,13 +93,11 @@ class CategoryContentsViewController: BaseViewController {
             make.leading.trailing.equalTo(mainView).offset(0)
             make.top.equalTo(mainView).offset(17)
             make.height.equalTo(67)
-            
         }
         
         totalLabel.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(filterView).offset(16)
             make.top.equalTo(filterView).offset(0)
-        
         }
         
         changeShowButton.snp.makeConstraints { (make) -> Void in
@@ -107,47 +113,41 @@ class CategoryContentsViewController: BaseViewController {
             make.width.equalTo(47)
             make.height.equalTo(15)
         }
-    }
-
-}
-
-class CollectionViewCell: UICollectionViewCell {
-    
-    var memberNameLabel: UILabel!
-     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setUpCell()
-        setUpLabel()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        setUpCell()
-        setUpLabel()
-    }
         
-    func setUpCell() {
-        memberNameLabel = UILabel()
-        contentView.addSubview(memberNameLabel)
-        memberNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        memberNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        memberNameLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        memberNameLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        memberNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        filterCollectionView.snp.makeConstraints { (make) -> Void in
+            make.leading.equalTo(filterView).offset(0)
+            make.bottom.equalTo(filterView).offset(-9)
+            make.width.equalTo(250)
+            make.height.equalTo(31)
         }
-        
-    func setUpLabel() {
-        memberNameLabel.font = UIFont.systemFont(ofSize: 32)
-        memberNameLabel.textAlignment = .center
     }
-    
 }
 
 
 // MARK: - Extensions
 
-
 extension CategoryContentsViewController: UISearchBarDelegate {
+    
+}
+
+extension CategoryContentsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath) as! CategoryFilterCollectionViewCell
+        cell.filterNameLabel.text = "앙대"
+        
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50, height: 31)
+    }
+    
+    
+
     
 }
