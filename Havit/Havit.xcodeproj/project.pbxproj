@@ -75,12 +75,13 @@
 		ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */; };
 		ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F79278B61590059DE76 /* UITableView+Extension.swift */; };
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
-		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
-		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 		ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
 		ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */; };
 		ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */; };
 		ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */; };
+		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
+		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
+		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,12 +152,13 @@
 		ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		ED443F79278B61590059DE76 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
-		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
-		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		ED443F7D278B6B180059DE76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -617,14 +619,6 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		ED443F8B278C51BF0059DE76 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				ED443F8C278C51DF0059DE76 /* Logger.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		ED443F83278B6C9D0059DE76 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,6 +626,15 @@
 				ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		ED443F8B278C51BF0059DE76 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED443F8C278C51DF0059DE76 /* Logger.swift */,
+				EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -827,6 +830,7 @@
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
+				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
 				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
