@@ -12,8 +12,8 @@ included:
   - Havit
 excluded:
   # AppDelegate, SceneDelegate file 무시
-  - Havit-iOS/Havit/Havit/Global/Supports/AppDelegate.swift
-  - Havit-iOS/Havit/Havit/Global/Supports/SceneDelegate.swift
+  - Havit/Global/Supports/AppDelegate.swift
+  - Havit/Global/Supports/SceneDelegate.swift
 
 identifier_name:
   excluded:
