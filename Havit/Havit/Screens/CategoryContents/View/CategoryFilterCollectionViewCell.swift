@@ -8,6 +8,8 @@
 import UIKit
 
 class CategoryFilterCollectionViewCell: UICollectionViewCell {
+    static cellID = "CategoryFilterCollectionViewCell"
+    
     var filterNameLabel: UILabel!
     
     required init?(coder: NSCoder) {
