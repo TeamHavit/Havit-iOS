@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoryFilterCollectionViewCell: UICollectionViewCell {
-    static cellID = "CategoryFilterCollectionViewCell"
+    static var cellID = "CategoryFilterCollectionViewCell"
     
     var filterNameLabel: UILabel!
     
