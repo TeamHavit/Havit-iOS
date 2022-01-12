@@ -18,6 +18,7 @@ class CategoryContentsViewController: BaseViewController {
     var sortButton: UIButton!
     
     private var filterCollectionView: UICollectionView!
+    private var contentsCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,12 @@ class CategoryContentsViewController: BaseViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
-        // 메인뷰 생성
+        // 메인 뷰 생성
         mainView = UIView()
         mainView.backgroundColor = .systemRed
         self.view.addSubview(mainView)
         
-        // TODO: 필터뷰 생성 - 전체 레이블, 컬렉션 뷰, 보기 버튼, 정렬 버튼
+        // 필터 뷰 생성
         filterView = UIView()
         filterView.backgroundColor = .white
         self.view.addSubview(filterView)
@@ -75,12 +76,15 @@ class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(filterCollectionView)
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
-        filterCollectionView.register(CategoryFilterCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "cellIdentifier")
-
-        
+        filterCollectionView.register(CategoryFilterCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: CategoryFilterCollectionViewCell.cellID)
         
         // TODO: 메인 컨텐츠 뷰 생성 - 컬렉션 뷰
-        
+        contentsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        contentsCollectionView.backgroundColor = .green
+        mainView.addSubview(contentsCollectionView)
+        contentsCollectionView.delegate = self
+        contentsCollectionView.dataSource = self
+        contentsCollectionView.register(CategoryFilterCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "cellIdentifier")
     }
     
     func setAutoLayouts() {
@@ -132,22 +136,35 @@ extension CategoryContentsViewController: UISearchBarDelegate {
 
 extension CategoryContentsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        switch collectionView {
+        case filterCollectionView:
+            return 3
+        case contentsCollectionView:
+            return 10
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath) as! CategoryFilterCollectionViewCell
-        cell.filterNameLabel.text = "앙대"
-        
-        return cell
+        switch collectionView {
+        case filterCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFilterCollectionViewCell.cellID, for: indexPath) as! CategoryFilterCollectionViewCell
+            cell.filterNameLabel.text = "앙대"
+            
+            return cell
+        case contentsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFilterCollectionViewCell.cellID, for: indexPath) as! CategoryFilterCollectionViewCell
+            cell.filterNameLabel.text = "앙대"
+            
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
+
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 50, height: 31)
     }
-    
-    
-
-    
 }
