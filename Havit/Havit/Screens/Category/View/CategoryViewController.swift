@@ -13,6 +13,8 @@ class CategoryViewController: UIViewController {
 
     // MARK: - Vars & Lets Part
 
+    weak var coordinator: CategoryCoordinator?
+
     // MARK: - UI Component Part
 
     private lazy var categoryCollectionView: UICollectionView = {
