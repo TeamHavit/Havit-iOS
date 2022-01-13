@@ -133,9 +133,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // 📌 이부분 셀 width 비율에 맞춰서 해주고 싶은데 이 방법밖에 생각이 안나서 더 좋은 방법이 있다면 알려주세요!
-        let widthRatio: CGFloat = 343/375
-        return CGSize(width: collectionView.frame.width * widthRatio, height: 56)
+        return CGSize(width: UIScreen.main.bounds.size.width - 32 , height: 56)
     }
 
     func collectionView(_ collectionView: UICollectionView,
