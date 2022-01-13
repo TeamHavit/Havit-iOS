@@ -16,7 +16,6 @@ final class MainViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
