@@ -6,85 +6,67 @@
 //
 
 import UIKit
+
 import SnapKit
 import RxSwift
 
 class CategoryContentsViewController: BaseViewController {
     var searchController: UISearchController!
-    var mainView: UIView!
-    var filterView: UIView!
-    var totalLabel: UILabel!
-    var changeShowButton: UIButton!
-    var sortButton: UIButton!
+    var mainView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemRed
+        return view
+    }()
+    var filterView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    var totalLabel: UILabel = {
+        let label = UILabel()
+        label.text = "전체 0"
+        return label
+    }()
+    var changeShowButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("B", for: .normal)
+        button.backgroundColor = UIColor.blue
+        return button
+    }()
+    var sortButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("최근순", for: .normal)
+        button.backgroundColor = UIColor.blue
+        return button
+    }()
     
-    private var filterCollectionView: UICollectionView!
-    private var contentsCollectionView: UICollectionView!
+    var filterCollectionView: UICollectionView!
+    var contentsCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        configUI()
+        setCollectionViews()
         setAutoLayouts()
-        
+        setNavigationItems()
     }
     
-    func setUI() {
+    override func configUI() {
         // TODO: 네비게이션바 생성 (메인화면에서 Coordinator로 진입)
         
         // 검색바 생성
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
-        self.navigationItem.searchController = searchController
-        self.navigationItem.title = "카테고리"
-        searchController.hidesNavigationBarDuringPresentation = false
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-        
+       
         // 메인 뷰 생성
-        mainView = UIView()
-        mainView.backgroundColor = .systemRed
         self.view.addSubview(mainView)
         
         // 필터 뷰 생성
-        filterView = UIView()
-        filterView.backgroundColor = .white
         self.view.addSubview(filterView)
-        
-        totalLabel = {
-            let label = UILabel()
-            label.text = "전체 0"
-            return label
-        }()
         filterView.addSubview(totalLabel)
-        
-        changeShowButton = {
-            let button = UIButton()
-            button.setTitle("B", for: .normal)
-            button.backgroundColor = UIColor.blue
-            return button
-        }()
         filterView.addSubview(changeShowButton)
-        
-        sortButton = {
-            let button = UIButton()
-            button.setTitle("최근순", for: .normal)
-            button.backgroundColor = UIColor.blue
-            return button
-        }()
         filterView.addSubview(sortButton)
         
-        filterCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        filterCollectionView.backgroundColor = .blue
-        filterView.addSubview(filterCollectionView)
-        filterCollectionView.delegate = self
-        filterCollectionView.dataSource = self
-        filterCollectionView.register(CategoryFilterCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: CategoryFilterCollectionViewCell.cellID)
-        
-        // TODO: 메인 컨텐츠 뷰 생성 - 컬렉션 뷰
-        contentsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        contentsCollectionView.backgroundColor = .green
-        mainView.addSubview(contentsCollectionView)
-        contentsCollectionView.delegate = self
-        contentsCollectionView.dataSource = self
-        contentsCollectionView.register(ContentsCollectionViewCell_sort2.classForCoder(), forCellWithReuseIdentifier: ContentsCollectionViewCell_sort2.cellID)
     }
     
     func setAutoLayouts() {
@@ -132,10 +114,33 @@ class CategoryContentsViewController: BaseViewController {
             make.bottom.equalTo(mainView).offset(0)
         }
     }
+    
+    func setNavigationItems() {
+        self.navigationItem.searchController = searchController
+        self.navigationItem.title = "카테고리"
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    func setCollectionViews() {
+        // 필터 컬렉션 뷰 생성
+        filterCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        filterCollectionView.backgroundColor = .blue
+        filterView.addSubview(filterCollectionView)
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        filterCollectionView.register(cell: CategoryFilterCollectionViewCell.self)
+        
+        // 메인 컨텐츠 뷰 생성
+        contentsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        contentsCollectionView.backgroundColor = .green
+        mainView.addSubview(contentsCollectionView)
+        contentsCollectionView.delegate = self
+        contentsCollectionView.dataSource = self
+        contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
+    }
 }
 
-
-// MARK: - Extensions
 
 extension CategoryContentsViewController: UISearchBarDelegate {
     
@@ -149,12 +154,12 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case filterCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFilterCollectionViewCell.cellID, for: indexPath) as! CategoryFilterCollectionViewCell
+            let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.filterNameLabel.text = "앙대"
             
             return cell
         case contentsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell_sort2.cellID, for: indexPath) as! ContentsCollectionViewCell_sort2
+            let cell: SortTwoContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.backgroundColor = .white
             
             return cell
