@@ -86,19 +86,19 @@ class CategoryViewController: BaseViewController {
         view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
 
         categoryCountLabel.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(22)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(22)
             $0.leading.equalToSuperview().inset(18)
         }
 
         addButton.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(13)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(13)
             $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
         }
 
         categoryCollectionView.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(56)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(56)
             $0.leading.bottom.trailing.equalToSuperview()
         }
     }
