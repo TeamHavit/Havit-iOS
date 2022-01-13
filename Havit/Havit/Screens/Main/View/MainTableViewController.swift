@@ -12,7 +12,7 @@ import SnapKit
 class MainTableViewController: BaseViewController {
     
     private enum Size {
-        static let headerHeight: CGFloat = 72
+        static let headerHeight: CGFloat = 94
         static let footerHeight: CGFloat = 122
     }
     

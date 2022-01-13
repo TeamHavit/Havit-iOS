@@ -40,7 +40,7 @@ final class MainSearchHeaderView: UIView {
         addSubViews([searchBarView, corneredView])
         
         searchBarView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(22)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
