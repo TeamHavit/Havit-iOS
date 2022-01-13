@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryCollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
     private let categoryImageView: UIImageView = {
@@ -31,30 +31,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setLayouts()
-        setBackground()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - func
-    private func setBackground() {
-        self.backgroundColor = .purpleCategory
-        layer.cornerRadius = 6
-    }
-
-    private func setLayouts() {
-        setViewHierarchies()
-        setConstraints()
-    }
-
-    private func setViewHierarchies() {
+    // MARK: - life cycle
+    override func render() {
         self.addSubViews([categoryImageView, categoryTitleLabel, arrowImageView])
-    }
 
-    private func setConstraints() {
         categoryImageView.snp.makeConstraints {
             $0.top.leading.bottom.equalToSuperview().inset(7)
             $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-7)
@@ -74,4 +60,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    override func configUI() {
+        self.backgroundColor = .purpleCategory
+        layer.cornerRadius = 6
+    }
 }
