@@ -66,7 +66,6 @@ final class SortTwoContentsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

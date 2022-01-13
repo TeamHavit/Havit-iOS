@@ -52,7 +52,7 @@ class CategoryContentsViewController: BaseViewController {
     }
     
     override func configUI() {
-        // TODO: 네비게이션바 생성 (메인화면에서 Coordinator로 진입)
+        // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
         
         // 검색바 생성
         let searchController = UISearchController(searchResultsController: nil)
@@ -185,7 +185,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            return CGSize(width: view.frame.width / 2 - 9, height: 139)
+            return CGSize(width: (view.frame.width / 2) - 9, height: 139)
         default:
             return CGSize(width: 0, height: 0)
         }
