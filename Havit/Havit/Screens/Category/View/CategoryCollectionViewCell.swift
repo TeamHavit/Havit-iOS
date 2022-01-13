@@ -41,41 +41,37 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - func
     private func setBackground() {
-        contentView.layer.backgroundColor = UIColor.purpleCategory.cgColor
+        self.backgroundColor = .purpleCategory
         layer.cornerRadius = 6
-        contentView.layer.cornerRadius = 6
     }
 
-}
-
-extension CategoryCollectionViewCell {
     private func setLayouts() {
         setViewHierarchies()
         setConstraints()
     }
 
     private func setViewHierarchies() {
-        // 📌 이거 여러개 추가하는 extension 어케 쓰죵
-        contentView.addSubview(categoryImageView)
-        contentView.addSubview(categoryTitleLabel)
-        contentView.addSubview(arrowImageView)
+        self.adds([categoryImageView, categoryTitleLabel, arrowImageView])
     }
 
     private func setConstraints() {
         categoryImageView.snp.makeConstraints {
-            // ✨ 이미지뷰 레이아웃 뭐 잡아줘야하는지 !
             $0.top.leading.bottom.equalToSuperview().inset(7)
+            $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-7)
         }
 
         categoryTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(18)
             $0.leading.equalTo(categoryImageView.snp.trailing).offset(7)
+            $0.bottom.equalToSuperview().inset(19)
         }
 
         arrowImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(13)
             $0.trailing.equalToSuperview().inset(11)
             $0.bottom.equalToSuperview().inset(15)
+            $0.width.height.equalTo(28)
         }
     }
+
 }

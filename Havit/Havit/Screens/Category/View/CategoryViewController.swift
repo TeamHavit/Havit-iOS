@@ -114,6 +114,34 @@ class CategoryViewController: UIViewController {
             break
         }
     }
+
+    func setLayouts() {
+        setViewHierarchies()
+        setConstraints()
+    }
+
+    func setViewHierarchies() {
+        view.adds([categoryCollectionView, categoryCountLabel, addButton])
+    }
+
+    func setConstraints() {
+        categoryCountLabel.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(22)
+            $0.leading.equalToSuperview().inset(18)
+        }
+
+        addButton.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(13)
+            $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
+        }
+
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(56)
+            $0.leading.bottom.trailing.equalToSuperview()
+        }
+    }
 }
 
 extension CategoryViewController: UICollectionViewDataSource {
@@ -152,38 +180,5 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
-    }
-}
-
-extension CategoryViewController {
-    func setLayouts() {
-        setViewHierarchies()
-        setConstraints()
-    }
-
-    func setViewHierarchies() {
-        view.addSubview(categoryCollectionView)
-        view.addSubview(categoryCountLabel)
-        view.addSubview(addButton)
-    }
-
-    func setConstraints() {
-        categoryCountLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(114)
-            $0.leading.equalToSuperview().inset(18)
-        }
-
-        addButton.snp.makeConstraints {
-            // 네비게이션바에서부터 레이아웃을 잡아야할지 아니면 가장 상단에서 부터 잡아야할지 ! 
-            $0.top.equalToSuperview().inset(105)
-            $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
-        }
-
-        categoryCollectionView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(148)
-            $0.leading.bottom.trailing.equalToSuperview()
-        }
     }
 }
