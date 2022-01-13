@@ -2,7 +2,7 @@
 warn("PR is classed as Work in Progress") if github.pr_title.include? "WIP"
 
 swiftlint.config_file = './Havit/.swiftlint.yml'
-swiftlint.lint_all_files = true
+swiftlint.filter_issues_in_diff = true
 swiftlint.lint_files inline_mode: true
 swiftlint.lint_files fail_on_error: true
 
