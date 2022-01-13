@@ -15,7 +15,7 @@ extension TabbarScene: SceneRegisterable {
     func instantiate() -> UIViewController {
         switch self {
         case .main(let coordinator):
-            let mainVC = CategoryContentsViewController()
+            let mainVC = MainViewController()
             mainVC.sceneCoordinator = coordinator
             return mainVC
         }
