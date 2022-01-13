@@ -9,10 +9,7 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
-    // MARK: - Vars & Lets Part
-
-    // MARK: - UI Component Part
-
+    // MARK: - property
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "category_icon")
@@ -31,7 +28,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         return image
     }()
 
-    // MARK: - Life Cycle Part
+    // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayouts()
@@ -42,17 +39,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Custom Method Part
+    // MARK: - func
     private func setBackground() {
         contentView.layer.backgroundColor = UIColor.purpleCategory.cgColor
         layer.cornerRadius = 6
         contentView.layer.cornerRadius = 6
     }
 
-    // MARK: - Custom Method Part
 }
 
-// MARK: - Extension Part
 extension CategoryCollectionViewCell {
     private func setLayouts() {
         setViewHierarchies()

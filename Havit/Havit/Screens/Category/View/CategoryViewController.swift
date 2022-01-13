@@ -11,11 +11,8 @@ import SnapKit
 
 class CategoryViewController: UIViewController {
 
-    // MARK: - Vars & Lets Part
-
+    // MARK: - property
     weak var coordinator: CategoryCoordinator?
-
-    // MARK: - UI Component Part
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -62,7 +59,6 @@ class CategoryViewController: UIViewController {
         return button
     }()
 
-    // NavigationBar Button
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "iconBackBlack"), for: .normal)
@@ -77,7 +73,7 @@ class CategoryViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Life Cycle Part
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
@@ -85,8 +81,7 @@ class CategoryViewController: UIViewController {
         setNavigationBar()
     }
 
-    // MARK: - Custom Method Part
-
+    // MARK: - func
     private func setDelegation() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -106,8 +101,6 @@ class CategoryViewController: UIViewController {
         return UIBarButtonItem(customView: button)
     }
 
-    // MARK: - @objc Function Part
-
     @objc
     private func buttonDidTapped(_ sender: UIButton) {
         switch sender {
@@ -122,7 +115,6 @@ class CategoryViewController: UIViewController {
         }
     }
 }
-// MARK: - Extension Part
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
