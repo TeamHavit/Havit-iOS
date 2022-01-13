@@ -43,4 +43,3 @@ extension UICollectionView {
         register(cell, forCellWithReuseIdentifier: reuseIdentifier)
     }
 }
-
