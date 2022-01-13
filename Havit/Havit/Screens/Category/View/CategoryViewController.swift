@@ -138,7 +138,6 @@ class CategoryViewController: BaseViewController {
                 self?.coordinator?.performTransition(to: .main)
             })
             .disposed(by: disposeBag)
-
     }
 }
 
