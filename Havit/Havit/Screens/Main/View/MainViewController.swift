@@ -9,11 +9,11 @@ import UIKit
 
 import SnapKit
 
-final class MainViewController: BaseViewController {
+final class MainViewController: MainTableViewController {
     
     // MARK: - Property
     
-    let topView = MainTopView()
+    private let topView = MainTopView()
     
     weak var coordinator: MainCoordinator?
     
@@ -24,7 +24,7 @@ final class MainViewController: BaseViewController {
     }
     
     override func render() {
-        view.adds([topView])
+        view.addSubViews([topView])
         
         topView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)

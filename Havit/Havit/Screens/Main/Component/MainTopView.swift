@@ -11,13 +11,13 @@ import SnapKit
 
 final class MainTopView: UIView {
     
-    let logoImageView: UIImageView = {
+    private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .red
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    let alarmButton: UIButton = {
+    private let alarmButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
         button.backgroundColor = .blue
         return button
@@ -32,8 +32,8 @@ final class MainTopView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func render() {
-        adds([logoImageView, alarmButton])
+    private func render() {
+        addSubViews([logoImageView, alarmButton])
         
         logoImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(17)
