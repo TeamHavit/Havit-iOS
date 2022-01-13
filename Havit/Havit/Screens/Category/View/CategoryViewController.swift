@@ -161,7 +161,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width - 32 , height: 56)
+        return CGSize(width: UIScreen.main.bounds.size.width - 32, height: 56)
     }
 
     func collectionView(_ collectionView: UICollectionView,
