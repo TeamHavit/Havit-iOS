@@ -37,6 +37,7 @@ class CategoryViewController: UIViewController {
         return label
     }()
 
+    // 📌 카테고리 추가 버튼은 재사용될 것 같아서 나중에 따로 빼면 좋을 것 같아요 !
     private let addButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
 
@@ -94,7 +95,9 @@ extension CategoryViewController: UICollectionViewDataSource {
 
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 343, height: 56)
+        // 📌 이부분 셀 width 비율에 맞춰서 해주고 싶은데 이 방법밖에 생각이 안나서 더 좋은 방법이 있다면 알려주세요!
+        let widthRatio: CGFloat = 343/375
+        return CGSize(width: collectionView.frame.width * widthRatio , height: 56)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

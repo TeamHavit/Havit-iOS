@@ -60,7 +60,7 @@ extension CategoryCollectionViewCell {
     }
 
     private func setViewHierarchies() {
-        // 이거 여러개 추가하는 extension 어케 쓰죵
+        //📌 이거 여러개 추가하는 extension 어케 쓰죵
         contentView.addSubview(categoryImageView)
         contentView.addSubview(categoryTitleLabel)
         contentView.addSubview(arrowImageView)
@@ -68,7 +68,7 @@ extension CategoryCollectionViewCell {
 
     private func setConstraints() {
         categoryImageView.snp.makeConstraints {
-            // 이미지뷰 레이아웃 뭐 잡아줘야하는지 !
+            //✨ 이미지뷰 레이아웃 뭐 잡아줘야하는지 !
             $0.top.leading.bottom.equalToSuperview().inset(7)
         }
 
