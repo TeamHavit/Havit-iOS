@@ -11,17 +11,17 @@ import SnapKit
 
 class MainTableViewController: BaseViewController {
     
-    enum Size {
+    private enum Size {
         static let headerHeight: CGFloat = 50
         static let footerHeight: CGFloat = 100
     }
     
-    enum ReachSection: Int, CaseIterable {
+    private enum ReachSection: Int, CaseIterable {
         case notification
         case progress
     }
     
-    enum CategorySection: Int, CaseIterable {
+    private enum CategorySection: Int, CaseIterable {
         case category
         case guideline
         case recent
@@ -75,7 +75,7 @@ extension MainTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 1:
-            return MainTopView()
+            return MainSearchHeaderView()
         default:
             return UIView()
         }

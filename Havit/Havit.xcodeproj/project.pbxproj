@@ -87,6 +87,7 @@
 		EDDE099B2790789B0093B83F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */; };
 		EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099C27908DF40093B83F /* MainTableViewController.swift */; };
 		EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */; };
+		EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EDDE099C27908DF40093B83F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -656,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				EDDE099627905C7D0093B83F /* MainTopView.swift */,
+				EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
+				EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
