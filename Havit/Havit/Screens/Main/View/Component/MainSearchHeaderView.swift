@@ -13,7 +13,7 @@ final class MainSearchHeaderView: UIView {
 
     // MARK: - property
     
-    private let searchBarView = UIView()
+    private let searchBarView = SearchBarView()
     private let corneredView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -37,6 +37,11 @@ final class MainSearchHeaderView: UIView {
     
     private func render() {
         addSubViews([searchBarView, corneredView])
+        
+        searchBarView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
         
         corneredView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
