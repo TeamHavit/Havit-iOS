@@ -17,9 +17,12 @@ class MainTableViewController: BaseViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.register(cell: ReachRateNotificationTableViewCell.self)
         return tableView
     }()
 
+    // MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,6 +34,9 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
+            withType: ReachRateNotificationTableViewCell.self, for: indexPath)
+        
+        return cell
     }
 }

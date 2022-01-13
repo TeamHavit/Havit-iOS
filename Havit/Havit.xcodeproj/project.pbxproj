@@ -86,6 +86,7 @@
 		EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */; };
 		EDDE099B2790789B0093B83F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */; };
 		EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099C27908DF40093B83F /* MainTableViewController.swift */; };
+		EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,7 @@
 		EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EDDE099C27908DF40093B83F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateNotificationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +516,7 @@
 		ED443EFC27869EB70059DE76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDDE099E279093BE0093B83F /* Cell */,
 				ED443F0C2786A2D30059DE76 /* MainViewController.swift */,
 				EDDE099C27908DF40093B83F /* MainTableViewController.swift */,
 			);
@@ -655,6 +658,14 @@
 				EDDE099627905C7D0093B83F /* MainTopView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		EDDE099E279093BE0093B83F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -867,6 +878,7 @@
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */,
+				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
