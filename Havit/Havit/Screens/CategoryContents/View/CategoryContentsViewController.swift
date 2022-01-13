@@ -84,7 +84,7 @@ class CategoryContentsViewController: BaseViewController {
         mainView.addSubview(contentsCollectionView)
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
-        contentsCollectionView.register(ContentsCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: ContentsCollectionViewCell.cellID)
+        contentsCollectionView.register(ContentsCollectionViewCell_sort2.classForCoder(), forCellWithReuseIdentifier: ContentsCollectionViewCell_sort2.cellID)
     }
     
     func setAutoLayouts() {
@@ -141,7 +141,30 @@ extension CategoryContentsViewController: UISearchBarDelegate {
     
 }
 
-extension CategoryContentsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CategoryContentsViewController: UICollectionViewDelegate {
+    
+}
+
+extension CategoryContentsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case filterCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFilterCollectionViewCell.cellID, for: indexPath) as! CategoryFilterCollectionViewCell
+            cell.filterNameLabel.text = "앙대"
+            
+            return cell
+        case contentsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell_sort2.cellID, for: indexPath) as! ContentsCollectionViewCell_sort2
+            cell.backgroundColor = .white
+            
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
+    }
+}
+
+extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case filterCollectionView:
@@ -153,30 +176,12 @@ extension CategoryContentsViewController: UICollectionViewDelegate, UICollection
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView {
-        case filterCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFilterCollectionViewCell.cellID, for: indexPath) as! CategoryFilterCollectionViewCell
-            cell.filterNameLabel.text = "앙대"
-            
-            return cell
-        case contentsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell.cellID, for: indexPath) as! ContentsCollectionViewCell
-            cell.backgroundColor = .white
-            
-            return cell
-        default:
-            return UICollectionViewCell()
-        }
-
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            return CGSize(width: view.frame.width, height: 139)
+            return CGSize(width: view.frame.width / 2 - 9, height: 139)
         default:
             return CGSize(width: 0, height: 0)
         }
