@@ -11,6 +11,8 @@ import SnapKit
 
 final class MainTopView: UIView {
     
+    // MARK: - property
+    
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .red
@@ -23,6 +25,8 @@ final class MainTopView: UIView {
         return button
     }()
 
+    // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         render()
@@ -31,6 +35,8 @@ final class MainTopView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - func
     
     private func render() {
         addSubViews([logoImageView, alarmButton])

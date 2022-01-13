@@ -11,24 +11,29 @@ import SnapKit
 
 final class MainViewController: MainTableViewController {
     
-    // MARK: - Property
+    // MARK: - property
     
     private let topView = MainTopView()
     
     weak var coordinator: MainCoordinator?
     
-    // MARK: - View Life Cycle
+    // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func render() {
-        view.addSubViews([topView])
+        view.addSubViews([topView, tableView])
         
         topView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(44)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(topView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
