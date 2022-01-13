@@ -16,7 +16,8 @@ class ContentsCollectionViewCell: UICollectionViewCell {
     var alarmImgView: UIImageView!
     var titleLabel: UILabel!
     var subtitleLabel: UILabel!
-    var dateAndLinkLabel: UILabel!
+    var dateLabel: UILabel!
+    var linkLabel: UILabel!
     var moreButton: UIButton!
     var isReadImgView: UIImageView!
     var alarmLabel: UILabel!
@@ -59,13 +60,22 @@ class ContentsCollectionViewCell: UICollectionViewCell {
         }()
         contentView.addSubview(subtitleLabel)
         
-        dateAndLinkLabel = {
+        dateLabel = {
             let label = UILabel()
-            label.text = "2021. 11. 24 * www.beansbin.oopy.io"
+            label.text = "2021. 11. 24"
             
             return label
         }()
-        contentView.addSubview(dateAndLinkLabel)
+        contentView.addSubview(dateLabel)
+        
+        linkLabel = {
+            let label = UILabel()
+            label.text = "www.beansbin.oopy.io"
+            
+            return label
+        }()
+        contentView.addSubview(linkLabel)
+        
         
         alarmLabel = {
             let label = UILabel()
@@ -119,14 +129,18 @@ class ContentsCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(titleLabel).offset(6)
         }
         
-        dateAndLinkLabel.snp.makeConstraints { (make) -> Void in
+        dateLabel.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(mainImgView).offset(12)
+            make.top.equalTo(subtitleLabel).offset(15)
+        }
+        linkLabel.snp.makeConstraints { (make) -> Void in
+            make.leading.equalTo(dateLabel).offset(0)
             make.top.equalTo(subtitleLabel).offset(15)
         }
         
         alarmLabel.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(mainImgView).offset(12)
-            make.top.equalTo(dateAndLinkLabel).offset(8)
+            make.top.equalTo(dateLabel).offset(8)
         }
         
         alarmImgView.snp.makeConstraints { (make) -> Void in
