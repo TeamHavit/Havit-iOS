@@ -27,6 +27,7 @@ final class MainSearchHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         render()
+        configUI()
     }
     
     required init?(coder: NSCoder) {
@@ -49,4 +50,7 @@ final class MainSearchHeaderView: UIView {
         }
     }
     
+    private func configUI() {
+        backgroundColor = .whiteGray
+    }
 }
