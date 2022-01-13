@@ -62,12 +62,28 @@ class CategoryViewController: UIViewController {
         return button
     }()
 
+    // NavigationBar Button
+    private let backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "iconBackBlack"), for: .normal)
+        return button
+    }()
+
+    private let editButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("수정", for: .normal)
+        button.titleLabel?.font = .font(FontName.pretendardMedium, ofSize: 14)
+        button.setTitleColor(UIColor.gray003, for: .normal)
+        return button
+    }()
+
 
     // MARK: - Life Cycle Part
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
         setLayouts()
+        setNavigationBar()
     }
 
     // MARK: - Custom Method Part
@@ -77,7 +93,35 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.dataSource = self
     }
 
+    private func setNavigationBar() {
+        title = "전체 카테고리"
+        // 여기 폰트적용 어떻게 하나용
+        navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: "Pretendard-Bold", size: 16)]
+        navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
+        navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
+    }
+
+    private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
+        button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
+        button.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }
+
     // MARK: - @objc Function Part
+
+    @objc
+    private func buttonDidTapped(_ sender: UIButton) {
+        switch sender {
+        case backButton:
+            // 뒤로 화면전환 coordinator 선배 써야하는데... 어케 하죵 
+            navigationController?.popViewController(animated: true)
+        case editButton:
+            // 수정 탭으로 넘어가기 일단 임시로 pop 넣어둠
+            navigationController?.popViewController(animated: true)
+        default:
+            break
+        }
+    }
 }
 // MARK: - Extension Part
 
@@ -132,6 +176,7 @@ extension CategoryViewController {
         }
 
         addButton.snp.makeConstraints {
+            // 네비게이션바에서부터 레이아웃을 잡아야할지 아니면 가장 상단에서 부터 잡아야할지 ! 
             $0.top.equalToSuperview().inset(105)
             $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
             $0.trailing.equalToSuperview().inset(16)
