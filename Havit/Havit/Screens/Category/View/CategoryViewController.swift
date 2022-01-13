@@ -94,8 +94,8 @@ class CategoryViewController: UIViewController {
 
     private func setNavigationBar() {
         title = "전체 카테고리"
-        // 여기 폰트적용 어떻게 하나용
-        navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: "Pretendard-Bold", size: 16)]
+        let font = UIFont.font(.pretendardBold, ofSize: 16)
+        navigationController?.navigationBar.titleTextAttributes = [.font: font]
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
     }
