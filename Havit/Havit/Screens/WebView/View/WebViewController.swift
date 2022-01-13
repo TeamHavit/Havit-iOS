@@ -36,5 +36,15 @@ final class WebViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadWebPage(with: url)
+    }
+    
+    // MARK: - func
+    private func loadWebPage(with url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        webView.load(urlRequest)
     }
 }
