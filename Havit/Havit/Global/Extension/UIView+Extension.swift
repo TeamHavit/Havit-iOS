@@ -20,12 +20,12 @@ extension UIView {
         return self
     }
     
-    func add<T: UIView>(_ subview: T, completionHandler closure: ((T) -> Void)? = nil) {
+    func addSubView<T: UIView>(_ subview: T, completionHandler closure: ((T) -> Void)? = nil) {
         addSubview(subview)
         closure?(subview)
     }
     
-    func adds<T: UIView>(_ subviews: [T], completionHandler closure: (([T]) -> Void)? = nil) {
+    func addSubViews<T: UIView>(_ subviews: [T], completionHandler closure: (([T]) -> Void)? = nil) {
         subviews.forEach { addSubview($0) }
         closure?(subviews)
     }
