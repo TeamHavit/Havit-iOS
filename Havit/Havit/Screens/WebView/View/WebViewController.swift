@@ -11,6 +11,7 @@ import WebKit
 final class WebViewController: BaseViewController {
     
     // MARK: - property
+    weak var coordinator: WebViewCoordinator?
     private let url: String
     private lazy var webView: WKWebView = {
         let webView = WKWebView()
