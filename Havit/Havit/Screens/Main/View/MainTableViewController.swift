@@ -36,6 +36,8 @@ class MainTableViewController: BaseViewController {
         tableView.delegate = self
         tableView.backgroundColor = .clear
         tableView.sectionHeaderTopPadding = 0
+        tableView.estimatedRowHeight = 44
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(cell: ReachRateNotificationTableViewCell.self)
         return tableView
     }()
@@ -66,6 +68,10 @@ extension MainTableViewController: UITableViewDataSource {
 }
 
 extension MainTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 1:
