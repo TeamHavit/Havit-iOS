@@ -458,7 +458,6 @@
 		ED443EF427869D4A0059DE76 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EDDE099527905C5D0093B83F /* Component */,
 				ED443EFD27869EB90059DE76 /* ViewModel */,
 				ED443EFC27869EB70059DE76 /* View */,
 			);
@@ -518,6 +517,7 @@
 		ED443EFC27869EB70059DE76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDDE099527905C5D0093B83F /* Component */,
 				EDDE099E279093BE0093B83F /* Cell */,
 				ED443F0C2786A2D30059DE76 /* MainViewController.swift */,
 				EDDE099C27908DF40093B83F /* MainTableViewController.swift */,
