@@ -13,7 +13,7 @@ class MainTableViewController: BaseViewController {
     
     private enum Size {
         static let headerHeight: CGFloat = 72
-        static let footerHeight: CGFloat = 100
+        static let footerHeight: CGFloat = 122
     }
     
     private enum ReachSection: Int, CaseIterable {
@@ -93,7 +93,7 @@ extension MainTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         switch section {
         case 1:
-            return MainTopView()
+            return MainFooterView()
         default:
             return UIView()
         }
