@@ -30,9 +30,9 @@ class CategoryViewController: UIViewController {
 
     private let categoryCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Pretendard-Regular", size: 13)
+        label.font = .font(FontName.pretendardReular, ofSize: 13)
         label.text = "전체 0"
-        label.textColor =  UIColor(red: 0.412, green: 0.412, blue: 0.412, alpha: 1)
+        label.textColor = UIColor.gray003
 
         return label
     }()
@@ -42,15 +42,15 @@ class CategoryViewController: UIViewController {
         var configuration = UIButton.Configuration.plain()
 
         var container = AttributeContainer()
-        container.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+        container.font = .font(FontName.pretendardSemibold, ofSize: 12)
 
         configuration.attributedTitle = AttributedString("카테고리 추가", attributes: container)
 
-        configuration.baseForegroundColor = UIColor(red: 0.488, green: 0.45, blue: 0.849, alpha: 1)
+        configuration.baseForegroundColor = UIColor.purpleText
         configuration.image = UIImage(named: "category_add")
 
         configuration.background.cornerRadius = 23
-        configuration.background.strokeColor = UIColor(red: 0.839, green: 0.836, blue: 1, alpha: 1)
+        configuration.background.strokeColor = UIColor.purpleLight
         configuration.background.strokeWidth = 1
 
         configuration.imagePadding = 2

@@ -21,7 +21,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     private let categoryTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Pretendard-Medium", size: 14)
+        label.font = .font(FontName.pretendardMedium, ofSize: 14)
         return label
     }()
 
@@ -44,7 +44,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Custom Method Part
     private func setBackground() {
-        contentView.layer.backgroundColor = UIColor(red: 0.969, green: 0.965, blue: 1, alpha: 1).cgColor
+        contentView.layer.backgroundColor = UIColor.purpleCategory.cgColor
         layer.cornerRadius = 6
         contentView.layer.cornerRadius = 6
     }
