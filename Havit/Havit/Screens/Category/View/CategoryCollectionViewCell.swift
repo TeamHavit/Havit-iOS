@@ -18,7 +18,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     private let categoryTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .font(FontName.pretendardMedium, ofSize: 14)
+        label.font = .font(.pretendardMedium, ofSize: 14)
         return label
     }()
 

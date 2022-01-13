@@ -27,7 +27,7 @@ class CategoryViewController: UIViewController {
 
     private let categoryCountLabel: UILabel = {
         let label = UILabel()
-        label.font = .font(FontName.pretendardReular, ofSize: 13)
+        label.font = .font(.pretendardReular, ofSize: 13)
         label.text = "전체 0"
         label.textColor = UIColor.gray003
 
@@ -39,7 +39,7 @@ class CategoryViewController: UIViewController {
         var configuration = UIButton.Configuration.plain()
 
         var container = AttributeContainer()
-        container.font = .font(FontName.pretendardSemibold, ofSize: 12)
+        container.font = .font(.pretendardSemibold, ofSize: 12)
 
         configuration.attributedTitle = AttributedString("카테고리 추가", attributes: container)
 
@@ -68,7 +68,7 @@ class CategoryViewController: UIViewController {
     private let editButton: UIButton = {
         let button = UIButton()
         button.setTitle("수정", for: .normal)
-        button.titleLabel?.font = .font(FontName.pretendardMedium, ofSize: 14)
+        button.titleLabel?.font = .font(.pretendardMedium, ofSize: 14)
         button.setTitleColor(UIColor.gray003, for: .normal)
         return button
     }()
