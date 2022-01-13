@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import RxCocoa
 
 class CategoryViewController: BaseViewController {
 
@@ -78,6 +79,7 @@ class CategoryViewController: BaseViewController {
         super.viewDidLoad()
         setDelegation()
         setNavigationBar()
+        bind()
     }
     
     override func render() {
@@ -101,6 +103,10 @@ class CategoryViewController: BaseViewController {
         }
     }
 
+    override func configUI() {
+        view.backgroundColor = .white
+    }
+
     // MARK: - func
     private func setDelegation() {
         categoryCollectionView.delegate = self
@@ -117,22 +123,22 @@ class CategoryViewController: BaseViewController {
 
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
         button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
-        button.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }
 
-    @objc
-    private func buttonDidTapped(_ sender: UIButton) {
-        switch sender {
-        case backButton:
-            // 뒤로 화면전환 coordinator 선배 써야하는데... 어케 하죵 
-            navigationController?.popViewController(animated: true)
-        case editButton:
-            // 수정 탭으로 넘어가기 일단 임시로 pop 넣어둠
-            navigationController?.popViewController(animated: true)
-        default:
-            break
-        }
+    private func bind() {
+        backButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.coordinator?.performTransition(to: .main)
+            })
+            .disposed(by: disposeBag)
+
+        editButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.coordinator?.performTransition(to: .main)
+            })
+            .disposed(by: disposeBag)
+
     }
 }
 
