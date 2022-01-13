@@ -7,24 +7,22 @@
 
 import UIKit
 
-class CategoryFilterCollectionViewCell: UICollectionViewCell {
+final class CategoryFilterCollectionViewCell: UICollectionViewCell {
     static var cellID = "CategoryFilterCollectionViewCell"
     
     var filterNameLabel: UILabel!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUpCell()
-        setUpLabel()
     }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setUpCell()
+        setCell()
         setUpLabel()
     }
     
-    func setUpCell() {
+    func setCell() {
         filterNameLabel = UILabel()
         contentView.addSubview(filterNameLabel)
         filterNameLabel.translatesAutoresizingMaskIntoConstraints = false

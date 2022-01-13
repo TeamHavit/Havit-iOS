@@ -1,5 +1,5 @@
 //
-//  ContentsCollectionViewCell.swift
+//  ContentsCollectionViewCell_sort3.swift
 //  Havit
 //
 //  Created by 박예빈 on 2022/01/12.
@@ -8,9 +8,8 @@
 import UIKit
 
 import SnapKit
-import RxSwift
 
-final class ContentsCollectionViewCell: UICollectionViewCell {
+final class SortThreeContentsCollectionViewCell: UICollectionViewCell {
     
     var mainImageView: UIImageView = {
         let imageView = UIImageView()
@@ -67,7 +66,6 @@ final class ContentsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -92,35 +90,10 @@ final class ContentsCollectionViewCell: UICollectionViewCell {
     
     func setAutoLayouts() {
         mainImageView.snp.makeConstraints {
-            $0.top.equalTo(contentView).offset(12)
+            $0.top.equalTo(contentView).offset(17)
             $0.leading.equalTo(contentView).offset(16)
-            $0.trailing.equalTo(contentView).offset(19)
-            $0.height.equalTo(108)
-        }
-        
-        titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(12)
-            $0.top.equalTo(contentView).offset(12)
-            $0.trailing.equalTo(moreButton).offset(17)
-        }
-        
-        subtitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(12)
-            $0.top.equalTo(titleLabel).offset(6)
-        }
-        
-        dateLabel.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(12)
-            $0.top.equalTo(subtitleLabel).offset(15)
-        }
-        linkLabel.snp.makeConstraints {
-            $0.leading.equalTo(dateLabel).offset(0)
-            $0.top.equalTo(subtitleLabel).offset(15)
-        }
-        
-        alarmLabel.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(12)
-            $0.top.equalTo(dateLabel).offset(8)
+            $0.trailing.equalTo(contentView).offset(-16)
+            $0.height.equalTo(184)
         }
         
         alarmImageView.snp.makeConstraints {
@@ -130,16 +103,43 @@ final class ContentsCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(28)
         }
         
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalTo(contentView).offset(17)
+            $0.top.equalTo(mainImageView).offset(15)
+            $0.trailing.equalTo(moreButton).offset(-18)
+        }
+        
+        subtitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(contentView).offset(17)
+            $0.top.equalTo(titleLabel).offset(3)
+            $0.trailing.equalTo(titleLabel).offset(0)
+        }
+        
+        dateLabel.snp.makeConstraints {
+            $0.leading.equalTo(contentView).offset(17)
+            $0.top.equalTo(linkLabel).offset(9)
+        }
+        
+        linkLabel.snp.makeConstraints {
+            $0.leading.equalTo(dateLabel).offset(0)
+            $0.top.equalTo(subtitleLabel).offset(9)
+        }
+        
         moreButton.snp.makeConstraints {
-            $0.top.equalTo(contentView).offset(15)
-            $0.trailing.equalTo(contentView).offset(-16)
+            $0.top.equalTo(subtitleLabel).offset(15)
+            $0.trailing.equalTo(contentView).offset(-20)
             $0.width.equalTo(16)
             $0.height.equalTo(10)
         }
         
+        alarmLabel.snp.makeConstraints {
+            $0.leading.equalTo(mainImageView).offset(0)
+            $0.top.equalTo(mainImageView).offset(0)
+        }
+        
         isReadImageView.snp.makeConstraints {
-            $0.trailing.equalTo(contentView).offset(-14)
-            $0.bottom.equalTo(mainImageView).offset(-9)
+            $0.trailing.equalTo(contentView).offset(-16)
+            $0.bottom.equalTo(mainImageView).offset(-4)
             $0.width.equalTo(31)
             $0.height.equalTo(42)
         }
