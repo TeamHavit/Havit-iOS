@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		4D6F9E35278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
 		4D6F9E36278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
 		4D6F9E37278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
@@ -102,6 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4D6F9E2D278C8AA700EC074D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4D6F9E2E278C8AA700EC074D /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */,
 				ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */,
 				ED443F382786B32B0059DE76 /* SnapKit in Frameworks */,
 				ED443F402786B5840059DE76 /* RxSwift in Frameworks */,
@@ -190,6 +193,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BBB51D2279062910098A835 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BBB51D3279062910098A835 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ED443EA1278598670059DE76 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +209,7 @@
 				ED443EC3278598690059DE76 /* HavitTests */,
 				ED443ECD278598690059DE76 /* HavitUITests */,
 				ED443EAB278598670059DE76 /* Products */,
+				3BBB51D2279062910098A835 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
