@@ -7,8 +7,8 @@
 
 import UIKit
 
-class CategoryContentsCollectionViewCell: UICollectionViewCell {
-    static var cellID = "CategoryContentsCollectionViewCell"
+class CategoryContentsCollectionViewCell_none: UICollectionViewCell {
+    static var cellID = "CategoryContentsCollectionViewCell_none"
     
     var noticeLabel: UILabel!
     var imgView: UIImageView!

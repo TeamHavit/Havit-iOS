@@ -84,7 +84,7 @@ class CategoryContentsViewController: BaseViewController {
         mainView.addSubview(contentsCollectionView)
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
-        contentsCollectionView.register(CategoryContentsCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: CategoryContentsCollectionViewCell.cellID)
+        contentsCollectionView.register(ContentsCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: ContentsCollectionViewCell.cellID)
     }
     
     func setAutoLayouts() {
@@ -126,7 +126,7 @@ class CategoryContentsViewController: BaseViewController {
         }
         
         contentsCollectionView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(filterView).offset(0)
+            make.top.equalTo(filterView).offset(67)
             make.leading.equalTo(mainView).offset(0)
             make.trailing.equalTo(mainView).offset(0)
             make.bottom.equalTo(mainView).offset(0)
@@ -147,7 +147,7 @@ extension CategoryContentsViewController: UICollectionViewDelegate, UICollection
         case filterCollectionView:
             return 3
         case contentsCollectionView:
-            return 1
+            return 10
         default:
             return 0
         }
@@ -161,7 +161,8 @@ extension CategoryContentsViewController: UICollectionViewDelegate, UICollection
             
             return cell
         case contentsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryContentsCollectionViewCell.cellID, for: indexPath) as! CategoryContentsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell.cellID, for: indexPath) as! ContentsCollectionViewCell
+            cell.backgroundColor = .white
             
             return cell
         default:
@@ -175,7 +176,7 @@ extension CategoryContentsViewController: UICollectionViewDelegate, UICollection
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            return CGSize(width: 200, height: 200)
+            return CGSize(width: view.frame.width, height: 139)
         default:
             return CGSize(width: 0, height: 0)
         }
