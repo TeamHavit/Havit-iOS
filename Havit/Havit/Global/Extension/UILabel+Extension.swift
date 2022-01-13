@@ -22,7 +22,9 @@ extension UILabel {
     func applyColor(to targetString: String, with color: UIColor) {
         if let labelText = text, labelText.count > 0 {
             let attributedStr = NSMutableAttributedString(string: labelText)
-            attributedStr.addAttribute(.foregroundColor, value: color, range: (labelText as NSString).range(of: targetString))
+            attributedStr.addAttribute(.foregroundColor,
+                                       value: color,
+                                       range: (labelText as NSString).range(of: targetString))
             attributedText = attributedStr
         }
     }
