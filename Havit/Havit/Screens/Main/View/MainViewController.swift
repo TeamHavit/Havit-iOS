@@ -31,6 +31,10 @@ final class MainViewController: BaseViewController {
             $0.height.equalTo(44)
         }
     }
+    
+    override func configUI() {
+        view.backgroundColor = .whiteGray
+    }
 }
 
 #if canImport(SwiftUI) && DEBUG
