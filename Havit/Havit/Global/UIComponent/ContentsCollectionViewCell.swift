@@ -67,7 +67,6 @@ final class ContentsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
