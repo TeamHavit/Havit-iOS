@@ -121,7 +121,7 @@ class CategoryViewController: UIViewController {
     }
 
     func setViewHierarchies() {
-        view.adds([categoryCollectionView, categoryCountLabel, addButton])
+        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
     }
 
     func setConstraints() {

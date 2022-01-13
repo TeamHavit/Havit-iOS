@@ -51,7 +51,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
 
     private func setViewHierarchies() {
-        self.adds([categoryImageView, categoryTitleLabel, arrowImageView])
+        self.addSubViews([categoryImageView, categoryTitleLabel, arrowImageView])
     }
 
     private func setConstraints() {
