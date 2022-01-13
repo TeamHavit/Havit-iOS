@@ -1,0 +1,22 @@
+disabled_rules:
+  - trailing_whitespace
+  - function_body_length
+  - line_length
+  - orphaned_doc_comment
+  - nesting
+
+opt_in_rules:
+  - let_var_whitespace
+
+included:
+  - Havit
+excluded:
+  # AppDelegate, SceneDelegate file 무시
+  - Havit/Global/Supports/AppDelegate.swift
+  - Havit/Global/Supports/SceneDelegate.swift
+
+identifier_name:
+  excluded:
+    - id
+
+force_cast: warning
