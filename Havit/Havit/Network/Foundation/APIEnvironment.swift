@@ -16,7 +16,7 @@ extension APIEnvironment {
     var baseUrl: String {
         switch self {
         case .development:
-            return ""
+            return "https://asia-northeast3-havit-wesopt29.cloudfunctions.net/api"
         case .production:
             return ""
         }
