@@ -51,6 +51,7 @@ final class WebViewController: BaseViewController {
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
         webView.uiDelegate = self
+        webView.navigationDelegate = self
         return webView
     }()
     
@@ -138,5 +139,15 @@ extension WebViewController: WKUIDelegate {
             alertController.addAction(alertAction)
         }
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension WebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        setUrlTextFieldText(with: webView.url?.description)
+    }
+    
+    private func setUrlTextFieldText(with url: String?) {
+        urlTextField.text = url
     }
 }
