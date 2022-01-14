@@ -57,7 +57,7 @@ final class WebViewController: BaseViewController {
 
 extension WebViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
             completionHandler()
         }
         showAlert(with: message, alertActions: okAction)
