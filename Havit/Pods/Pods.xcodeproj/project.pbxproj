@@ -61,14 +61,14 @@
 		1FC8DE8BCB85FF0334AB38F01249A35A /* Pods-HavitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HavitTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		22852AFA48F4A39F22A87EA69BEACCB4 /* Pods-HavitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HavitTests.release.xcconfig"; sourceTree = "<group>"; };
 		2583F65D69D5021A196D1114DB23E6F3 /* Pods-Havit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit.release.xcconfig"; sourceTree = "<group>"; };
-		2A3F6CD256D4F06211BEE06266CC5161 /* Pods_Havit_HavitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Havit_HavitUITests.framework; path = "Pods-Havit-HavitUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3F6CD256D4F06211BEE06266CC5161 /* Pods_Havit_HavitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Havit_HavitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEBA04AE5EF2C334C63F76D89C152DB /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Source/Extension/UIView+Extension.swift"; sourceTree = "<group>"; };
 		2CF8A8EF0B3F205A99323D7AE56F176F /* BTNavigationDropdownMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BTNavigationDropdownMenu.release.xcconfig; sourceTree = "<group>"; };
 		2F98D1FBD8A28CC9E6C013DE3AC6589B /* Pods-Havit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Havit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2FF6F19C0D09B6FBB1286E7683E337E7 /* BTNavigationDropdownMenu.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = BTNavigationDropdownMenu.bundle; path = Source/BTNavigationDropdownMenu.bundle; sourceTree = "<group>"; };
-		3222A60447324F893C3B3DB188C32BBB /* BTNavigationDropdownMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BTNavigationDropdownMenu.framework; path = BTNavigationDropdownMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3222A60447324F893C3B3DB188C32BBB /* BTNavigationDropdownMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BTNavigationDropdownMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E59FA836E2D60D822227B35A245AED /* Pods-Havit-HavitUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-HavitUITests-Info.plist"; sourceTree = "<group>"; };
-		43942F2449E6FBB20B6A735710DED29A /* Pods_HavitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HavitTests.framework; path = "Pods-HavitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43942F2449E6FBB20B6A735710DED29A /* Pods_HavitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HavitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4581A962906536AD8B9A7E6FA976B784 /* Pods-Havit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-acknowledgements.plist"; sourceTree = "<group>"; };
 		572A0A6DF55ADF1C5F79383708148EF4 /* Pods-Havit-HavitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Havit-HavitUITests.modulemap"; sourceTree = "<group>"; };
 		58305EC759E43A04DC6FE7EBFB097C8A /* Pods-Havit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-Info.plist"; sourceTree = "<group>"; };
@@ -83,10 +83,10 @@
 		7C503B3F06E3329517D4BB8E7976D274 /* Pods-Havit-HavitUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Havit-HavitUITests-dummy.m"; sourceTree = "<group>"; };
 		82020EFE4FCB7B33818765D78E0F4EF8 /* Pods-Havit-HavitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit-HavitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86C20A7BE521DA6F3F16BBCA699C5C6C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "Source/Extension/UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		965AC86B5A3E04F0110F2C728AB9D325 /* Pods_Havit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Havit.framework; path = "Pods-Havit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		965AC86B5A3E04F0110F2C728AB9D325 /* Pods_Havit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Havit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		985E49E05AF3FC41C0A548196053D2A7 /* BTNavigationDropdownMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BTNavigationDropdownMenu.modulemap; sourceTree = "<group>"; };
 		99EA03BD988E4AB252C3470F10C6D1F7 /* Pods-HavitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HavitTests-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0F3315BEC9B37261980D59F755DDC8B /* Pods-HavitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HavitTests.modulemap"; sourceTree = "<group>"; };
 		A1441BA33B6B695190FB01052AD756C0 /* BTTableCellContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTTableCellContentView.swift; path = Source/Internal/BTTableCellContentView.swift; sourceTree = "<group>"; };
 		A1DDC108EC4E4349B7A46CB0D1DE13D0 /* Pods-HavitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HavitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -249,7 +249,6 @@
 				6FEFB11F5376C933E235DB18408B641F /* Resources */,
 				B3CC8ACFD9CD34BF3BDA365DB9976444 /* Support Files */,
 			);
-			name = BTNavigationDropdownMenu;
 			path = BTNavigationDropdownMenu;
 			sourceTree = "<group>";
 		};
@@ -408,7 +407,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -618,7 +617,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -857,7 +856,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

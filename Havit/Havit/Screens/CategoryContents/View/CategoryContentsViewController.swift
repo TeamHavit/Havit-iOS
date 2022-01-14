@@ -9,6 +9,7 @@ import UIKit
 
 import RxSwift
 import SnapKit
+import BTNavigationDropdownMenu
 
 class CategoryContentsViewController: BaseViewController {
     
@@ -25,7 +26,7 @@ class CategoryContentsViewController: BaseViewController {
     
     var mainView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemCyan
         return view
     }()
     
@@ -55,13 +56,6 @@ class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
-    var categoryButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("카테고리", for: .normal)
-        button.backgroundColor = .red
-        return button
-    }()
-    
     var navigationRightButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "수정",
                                      style: .plain,
@@ -78,10 +72,10 @@ class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
         setCollectionViews()
-        setAutoLayouts()
         setNavigationItems()
+        setAutoLayouts()
+        view.backgroundColor = .red
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,57 +87,68 @@ class CategoryContentsViewController: BaseViewController {
         
         // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
         
+        // 검색 뷰 생성
+        self.view.addSubview(searchController.searchBar)
+        
         // 메인 뷰 생성
         self.view.addSubview(mainView)
-        
+
         // 필터 뷰 생성
-        self.view.addSubview(filterView)
+        mainView.addSubview(filterView)
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
+        
+       
     }
     
     func setAutoLayouts() {
         
-        mainView.snp.makeConstraints {
+        searchController.searchBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+        }
+        
+        mainView.snp.makeConstraints {
+            $0.top.equalTo(searchController.searchBar).offset(56)
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-        
+
         filterView.snp.makeConstraints {
             $0.leading.trailing.equalTo(mainView).offset(0)
             $0.top.equalTo(mainView).offset(17)
             $0.height.equalTo(67)
         }
-        
+
         totalLabel.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(16)
             $0.top.equalTo(filterView).offset(0)
         }
-        
+
         changeShowButton.snp.makeConstraints {
             $0.top.equalTo(filterView).offset(0)
             $0.trailing.equalTo(filterView).offset(-16)
             $0.width.equalTo(18)
             $0.height.equalTo(18)
         }
-        
+
         sortButton.snp.makeConstraints {
             $0.bottom.equalTo(filterView).offset(-19)
             $0.trailing.equalTo(filterView).offset(-16)
             $0.width.equalTo(47)
             $0.height.equalTo(15)
         }
-        
+
         filterCollectionView.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(0)
             $0.bottom.equalTo(filterView).offset(-9)
             $0.width.equalTo(250)
             $0.height.equalTo(31)
         }
-        
+
         contentsCollectionView.snp.makeConstraints {
             $0.top.equalTo(filterView).offset(67)
             $0.leading.equalTo(mainView).offset(0)
@@ -154,18 +159,16 @@ class CategoryContentsViewController: BaseViewController {
     
     
     func setNavigationItems() {
-        //  검색바
-        self.navigationItem.searchController = searchController
         searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.hidesSearchBarWhenScrolling = true
         
         // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = navigationRightButton
-//
-//        // titleView
-//        navigationItem.titleView = categoryButton
-//        categoryButton.addTarget(self, action: #selector(showDropDown(_:)), for: .touchUpInside)
         
+        let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
+        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
+        navigationItem.titleView = menuView
+    
     }
     
     func setCollectionViews() {
