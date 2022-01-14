@@ -88,9 +88,8 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             self.addSubView(editButton)
 
             editButton.snp.makeConstraints {
-                $0.top.equalToSuperview().inset(14)
+                $0.top.bottom.equalToSuperview().inset(14)
                 $0.trailing.equalToSuperview().inset(12)
-                $0.bottom.equalToSuperview().inset(14)
             }
         }
     }
