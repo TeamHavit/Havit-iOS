@@ -80,8 +80,6 @@ class CategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
-        setNavigationBar()
-        bind()
     }
     
     override func render() {
@@ -107,6 +105,8 @@ class CategoryViewController: BaseViewController {
 
     override func configUI() {
         view.backgroundColor = .white
+        setNavigationBar()
+        bind()
     }
 
     // MARK: - func
