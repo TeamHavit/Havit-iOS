@@ -13,6 +13,15 @@ import RxSwift
 
 final class WebViewController: BaseViewController {
     
+    enum Size {
+        static let urlTextFieldWidth: CGFloat = {
+            let viewWidth = UIScreen.main.bounds.width
+            let barButtonWidth: CGFloat = 44
+            return viewWidth - (barButtonWidth * 2)
+        }()
+        static let urlTextFieldHeight: CGFloat = 33
+    }
+    
     // MARK: - property
     
     weak var coordinator: WebViewCoordinator?
@@ -30,7 +39,8 @@ final class WebViewController: BaseViewController {
     private let urlTextField: UITextField = {
         let textField = UITextField()
         textField.frame = CGRect(origin: .zero,
-                                 size: CGSize(width: .max, height: 33))
+                                 size: CGSize(width: Size.urlTextFieldWidth,
+                                              height: Size.urlTextFieldHeight))
         textField.backgroundColor = .gray000
         textField.layer.cornerRadius = 4
         textField.font = .font(.pretendardReular, ofSize: 16)
