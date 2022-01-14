@@ -250,7 +250,11 @@
 		3BBB51D2279062910098A835 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3BBB51D3279062910098A835 /* WebKit.framework */,
+				3BBB51D3279062910098A835 /* WebKit.framework */,		
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4F4545DE2790B69600A9E3B1 /* ShareExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,13 +262,6 @@
 				4F4545E42790B69600A9E3B1 /* Info.plist */,
 			);
 			path = ShareExtension;
-			sourceTree = "<group>";
-		};
-		4F4545F22791BFA500A9E3B1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ED443EA1278598670059DE76 = {
