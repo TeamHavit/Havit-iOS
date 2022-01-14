@@ -24,7 +24,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "category_icon")
+        image.image = ImageLiteral.imgCategoryNone
         return image
     }()
 
@@ -36,13 +36,13 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     private let arrowImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "go_gray2")
+        image.image = ImageLiteral.iconGoGray
         return image
     }()
 
     private let editButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "edit"), for: .normal)
+        button.setImage(ImageLiteral.iconCategoryEdit, for: .normal)
         return button
     }()
 

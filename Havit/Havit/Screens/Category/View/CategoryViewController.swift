@@ -31,7 +31,7 @@ class CategoryViewController: BaseViewController {
         let label = UILabel()
         label.font = .font(.pretendardReular, ofSize: 13)
         label.text = "전체 0"
-        label.textColor = UIColor.gray003
+        label.textColor = .gray003
 
         return label
     }()
@@ -46,7 +46,7 @@ class CategoryViewController: BaseViewController {
         configuration.attributedTitle = AttributedString("카테고리 추가", attributes: container)
 
         configuration.baseForegroundColor = UIColor.purpleText
-        configuration.image = UIImage(named: "category_add")
+        configuration.image = ImageLiteral.iconCategoryAdd
 
         configuration.background.cornerRadius = 23
         configuration.background.strokeColor = UIColor.purpleLight
@@ -63,7 +63,7 @@ class CategoryViewController: BaseViewController {
 
     private let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "iconBackBlack"), for: .normal)
+        button.setImage(ImageLiteral.btnBackBlack, for: .normal)
         return button
     }()
 

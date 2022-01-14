@@ -26,7 +26,7 @@ class ManageCategoryViewController: BaseViewController {
 
     private let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "iconBackWhite"), for: .normal)
+        button.setImage(ImageLiteral.iconBackWhite, for: .normal)
         return button
     }()
 
@@ -40,7 +40,7 @@ class ManageCategoryViewController: BaseViewController {
 
     private let noticeIcon: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "noticeicon")
+        image.image = ImageLiteral.iconNoticeGray
         return image
     }()
 
@@ -65,13 +65,13 @@ class ManageCategoryViewController: BaseViewController {
         noticeIcon.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(29)
             $0.leading.equalToSuperview().inset(26)
-            $0.width.height.equalTo(12)
+            $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-15)
         }
 
         noticeLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(29)
-            $0.leading.equalTo(noticeIcon.snp.trailing).offset(-5)
-            $0.trailing.equalToSuperview().inset(27)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(26)
+            $0.leading.equalTo(noticeIcon.snp.trailing).offset(5)
+            $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-13)
         }
 
         categoryCollectionView.snp.makeConstraints {
@@ -82,6 +82,7 @@ class ManageCategoryViewController: BaseViewController {
 
     override func configUI() {
         view.backgroundColor = .white
+        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, shadowImage: UIImage(), isTranslucent: false, tintColor: .white)
         setNavigationBar()
         bind()
     }
@@ -100,14 +101,7 @@ class ManageCategoryViewController: BaseViewController {
         appearance.titleTextAttributes = [
             .font: UIFont.font(.pretendardBold, ofSize: 16)
         ]
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.white
-        ]
-        // 혹시 여기서 네비게이션 바 색깔이 안바뀌는 이유가 뭔지 아시나요.. 다양한 방법을 시도 해봤는데 안되네요 ..ㅜㅜㅜㅜ
-        UINavigationBar.appearance().backgroundColor = .havitPurple
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        
+
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: doneButton)
     }
