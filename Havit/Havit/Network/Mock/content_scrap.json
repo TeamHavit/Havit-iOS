@@ -1,0 +1,16 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "콘텐츠 스크랩 성공",
+    "data": {
+        "ogTitle": "WEBn (Fin.)",
+        "ogDescription": "가장 최근에 학습 한 WEB7 강의를 끝으로, 내가 계획했던 이고잉님의 WEBn 강의들을 모두 학습했다. 2020년 7월, WEB1을 처음 시작할 때에는, '군대라는 특수한 공간에서 꾸준히 공부를 이어나갈 수 있을까?'라는..",
+        "ogImage": {
+            "url": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "width": null,
+            "height": null,
+            "type": "png"
+        },
+        "ogUrl": "https://blog.hyositive.com/40"
+    }
+}

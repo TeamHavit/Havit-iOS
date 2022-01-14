@@ -1,0 +1,27 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "카테고리 별 콘텐츠 검색 성공",
+    "data": {
+        [
+            {
+                "id" : 1,
+                "title" : "태준의 닭가슴살 맛있게 먹는 방법",
+                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+                "url" : "https://blog.hyositive.com/40",
+                "isSeen" : true,
+                "isNotificated" : true,
+                "createdAt" : "2022-01-14 14:22"
+            },
+            {
+                "id" : 7,
+                "title" : "박태준 운동법 2022 개정판",
+                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+                "url" : "https://blog.hyositive.com/40",
+                "isSeen" : false,
+                "isNotificated" : false
+                "createdAt" : "2022-01-14 14:22"
+            },
+        ],
+    }
+}

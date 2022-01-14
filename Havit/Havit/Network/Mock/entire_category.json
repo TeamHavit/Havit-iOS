@@ -1,0 +1,42 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "카테고리 전체 조회 성공",
+    "data": [
+        {
+            "id": 3,
+            "title": "슉슉",
+            "contentNumber": 0,
+            "orderIndex": 1,
+            "url": "sample url1"
+        },
+        {
+            "id": 4,
+            "title": "개발 하기 싫은",
+            "contentNumber": 0,
+            "orderIndex": 2,
+            "url": "sample url2"
+        },
+        {
+            "id": 6,
+            "title": "앱잼",
+            "contentNumber": 0,
+            "orderIndex": 4,
+            "url": "sample url1"
+        },
+        {
+            "id": 7,
+            "title": "요리",
+            "contentNumber": 0,
+            "orderIndex": 5,
+            "url": "sample url2"
+        },
+        {
+            "id": 8,
+            "title": "생성",
+            "contentNumber": 0,
+            "orderIndex": 6,
+            "url": "sample url2"
+        }
+    ]
+}
