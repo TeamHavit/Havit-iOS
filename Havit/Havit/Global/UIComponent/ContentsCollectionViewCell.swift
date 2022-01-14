@@ -7,8 +7,8 @@
 
 import UIKit
 
-import SnapKit
 import RxSwift
+import SnapKit
 
 final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
