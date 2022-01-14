@@ -7,24 +7,37 @@
 
 import UIKit
 
-final class MainViewController: BaseViewController {
+import SnapKit
+
+final class MainViewController: MainTableViewController {
+    
+    // MARK: - property
+    
+    private let topView = MainTopView()
     
     weak var coordinator: MainCoordinator?
     
+    // MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func render() {
+        view.addSubViews([topView, tableView])
+        
+        topView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(44)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(topView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
-    */
-
+    
+    override func configUI() {
+        view.backgroundColor = .whiteGray
+    }
 }

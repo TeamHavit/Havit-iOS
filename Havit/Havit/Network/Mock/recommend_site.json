@@ -1,0 +1,31 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "추천 사이트 조회 성공",
+    "data": [
+        {
+            "id": 1,
+            "title": "블로그입니다",
+            "image": "https://image/image",
+            "url": "https://blog.naver.com",
+            "websiteType": "블로그",
+            "websiteCategory": "아티클",
+        },
+        {
+            "id": 2,
+            "title": "블로그입니다2",
+            "image": "https://image/image2",
+            "url": "https://news.naver.com",
+            "websiteType": "뉴스",
+            "websiteCategory": "it",
+        },
+        {
+            "id": 3,
+            "title": "블로그입니다3",
+            "image": "https://image/image3",
+            "url": "https://blog.naver.com",
+            "websiteType": "블로그",
+            "websiteCategory": "아티클",
+        }
+    ]
+}
