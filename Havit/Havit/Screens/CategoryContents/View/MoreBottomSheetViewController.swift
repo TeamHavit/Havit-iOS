@@ -7,6 +7,8 @@
 
 import UIKit
 
+let moreList = ["제목 수정", "공유", "카테고리 이동"]
+
 class MoreBottomSheetViewController: BaseViewController {
 
     // MARK: - Property
@@ -43,7 +45,7 @@ class MoreBottomSheetViewController: BaseViewController {
     
     let moreTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(cell: SortBottomSheetTableViewCell.self, forCellReuseIdentifier: SortBottomSheetTableViewCell.className)
+        tableView.register(cell: MoreBottomSheetTableViewCell.self, forCellReuseIdentifier: MoreBottomSheetTableViewCell.className)
         return tableView
     }()
     
@@ -121,8 +123,8 @@ extension MoreBottomSheetViewController: UITableViewDelegate {
 
 extension MoreBottomSheetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withType: SortBottomSheetTableViewCell.self, for: indexPath)
-        cell.label.text = sortList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withType: MoreBottomSheetTableViewCell.self, for: indexPath)
+        cell.label.text = moreList[indexPath.row]
         
         return cell
     }
