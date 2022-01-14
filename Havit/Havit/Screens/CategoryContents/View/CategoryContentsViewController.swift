@@ -172,7 +172,7 @@ class CategoryContentsViewController: BaseViewController {
     
     func setNavigationItems() {
         searchController.hidesNavigationBarDuringPresentation = false
-        self.navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = true
         
         // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = navigationRightButton
