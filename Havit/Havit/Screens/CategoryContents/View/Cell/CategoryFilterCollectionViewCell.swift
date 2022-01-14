@@ -20,10 +20,16 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setUpLabel()
+    }
+    
+    override func render() {
+        // filterNameLabel.font = UIFont.systemFont(ofSize: 32)
+        filterNameLabel.textAlignment = .center
     }
     
     override func configUI() {
+        setUpLabel()
+        
         // 이 부분은 디자인 부분에서 다시 수정할 예정입니다!!
         contentView.addSubview(filterNameLabel)
         filterNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -33,8 +39,5 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
         filterNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
-    func setUpLabel() {
-        // filterNameLabel.font = UIFont.systemFont(ofSize: 32)
-        filterNameLabel.textAlignment = .center
-    }
+  
 }

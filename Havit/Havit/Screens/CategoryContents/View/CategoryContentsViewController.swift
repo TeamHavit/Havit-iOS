@@ -46,22 +46,25 @@ final class CategoryContentsViewController: BaseViewController {
     }()
     
     var filterCollectionView: UICollectionView = {
-        return UICollectionView(frame: CGRect.zero,
-                                collectionViewLayout: UICollectionViewFlowLayout.init())
+        var collectionView = UICollectionView()
+        collectionView.backgroundColor = .blue
+        collectionView.register(cell: CategoryFilterCollectionViewCell.self)
+        return collectionView
     }()
     var contentsCollectionView: UICollectionView = {
-        UICollectionView(frame: CGRect.zero,
-                         collectionViewLayout: UICollectionViewFlowLayout.init())
+        var collectionView = UICollectionView()
+        collectionView.backgroundColor = .green
+        collectionView.register(cell: SortTwoContentsCollectionViewCell.self)
+        return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegations()
     }
     
     override func configUI() {
-        self.navigationItem.searchController = searchController
-        self.navigationItem.title = "카테고리"
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        setNavigationItems()
     }
     
     override func render() {
@@ -74,18 +77,12 @@ final class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
+        
         // 필터 컬렉션 뷰 생성
-        filterCollectionView.backgroundColor = .blue
-        filterCollectionView.delegate = self
-        filterCollectionView.dataSource = self
-        filterCollectionView.register(cell: CategoryFilterCollectionViewCell.self)
+      
         filterView.addSubview(filterCollectionView)
         
         // 메인 컨텐츠 뷰 생성
-        contentsCollectionView.backgroundColor = .green
-        contentsCollectionView.delegate = self
-        contentsCollectionView.dataSource = self
-        contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
         mainView.addSubview(contentsCollectionView)
         
         mainView.snp.makeConstraints {
@@ -133,6 +130,19 @@ final class CategoryContentsViewController: BaseViewController {
             $0.trailing.equalTo(mainView).offset(0)
             $0.bottom.equalTo(mainView).offset(0)
         }
+    }
+    
+    func setNavigationItems() {
+        self.navigationItem.searchController = searchController
+        self.navigationItem.title = "카테고리"
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    func setDelegations() {
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        contentsCollectionView.delegate = self
+        contentsCollectionView.dataSource = self
     }
 }
 
