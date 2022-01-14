@@ -11,6 +11,7 @@ import WebKit
 final class WebViewController: BaseViewController {
     
     // MARK: - property
+    
     weak var coordinator: WebViewCoordinator?
     private let url: String
     private lazy var webView: WKWebView = {
@@ -21,6 +22,7 @@ final class WebViewController: BaseViewController {
     }()
     
     // MARK: - init
+    
     init(url: String) {
         self.url = url
         super.init()
@@ -32,6 +34,7 @@ final class WebViewController: BaseViewController {
     }
     
     // MARK: - life cycle
+    
     override func loadView() {
         view = webView
     }
@@ -42,6 +45,7 @@ final class WebViewController: BaseViewController {
     }
     
     // MARK: - func
+    
     private func loadWebPage(with url: String) {
         guard let url = URL(string: url) else {
             return
