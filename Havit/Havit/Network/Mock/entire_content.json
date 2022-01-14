@@ -2,96 +2,61 @@
     "status": 200,
     "success": true,
     "message": "전체 콘텐츠 조회 성공",
-    "data": {
-        [
-            {
-                "id" : 1,
-                "title" : "태준의 닭가슴살 맛있게 먹는 방법",
-                "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : true,
-                "isNotified" : true,
-                "createdAt" : "2022-01-14 14:22",
-                "notificationTime" : "2022-01-15 23:00",
-            },
-            {
-                "id" : 2,
-                "title" : "정아의 너도 할수있다! 알고리즘",
-                "description" : "이 글만 보면 당신도 플래티넘까지 갈 수 있습니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : false,
-                "isNotified" : false
-                "createdAt" : "2022-01-10 15:23",
-                "notificationTime" : ""
-            },
-            {
-                "id" : 3,
-                "title" : "태준의 닭가슴살 맛있게 먹는 방법",
-                "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : true,
-                "isNotified" : true,
-                "createdAt" : "2022-01-14 14:22",
-                "notificationTime" : "2022-01-15 23:00",
-            },
-            {
-                "id" : 4,
-                "title" : "정아의 너도 할수있다! 알고리즘",
-                "description" : "이 글만 보면 당신도 플래티넘까지 갈 수 있습니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : false,
-                "isNotified" : false
-                "createdAt" : "2022-01-10 15:23",
-                "notificationTime" : ""
-            },
-            {
-                "id" : 5,
-                "title" : "태준의 닭가슴살 맛있게 먹는 방법",
-                "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : true,
-                "isNotified" : true,
-                "createdAt" : "2022-01-14 14:22",
-                "notificationTime" : "2022-01-15 23:00",
-            },
-            {
-                "id" : 6,
-                "title" : "정아의 너도 할수있다! 알고리즘",
-                "description" : "이 글만 보면 당신도 플래티넘까지 갈 수 있습니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : false,
-                "isNotified" : false
-                "createdAt" : "2022-01-10 15:23",
-                "notificationTime" : ""
-            },
-            {
-                "id" : 7,
-                "title" : "태준의 닭가슴살 맛있게 먹는 방법",
-                "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : true,
-                "isNotified" : true,
-                "createdAt" : "2022-01-14 14:22",
-                "notificationTime" : "2022-01-15 23:00",
-            },
-            {
-                "id" : 8,
-                "title" : "정아의 너도 할수있다! 알고리즘",
-                "description" : "이 글만 보면 당신도 플래티넘까지 갈 수 있습니다.",
-                "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
-                "url" : "https://blog.hyositive.com/40",
-                "isSeen" : false,
-                "isNotified" : false
-                "createdAt" : "2022-01-10 15:23",
-                "notificationTime" : ""
-            }
-        ]
-    }
+    "data": [
+        {
+            "id" : 1,
+            "title" : "태준의 닭가슴살 맛있게 먹는 방법",
+            "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
+            "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url" : "https://blog.hyositive.com/40",
+            "isSeen" : true,
+            "isNotified" : true,
+            "createdAt" : "2022-01-14 14:22",
+            "notificationTime" : "2022-01-15 23:00"
+        },
+        {
+            "id" : 1,
+            "title" : "태준의 라면 맛있게 먹는 방법",
+            "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
+            "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url" : "https://blog.hyositive.com/40",
+            "isSeen" : true,
+            "isNotified" : true,
+            "createdAt" : "2022-01-14 14:22",
+            "notificationTime" : "2022-01-15 23:00"
+        },
+        {
+            "id" : 3,
+            "title" : "태준의 브라우니 맛있게 먹는 방법",
+            "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
+            "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url" : "https://blog.hyositive.com/40",
+            "isSeen" : true,
+            "isNotified" : true,
+            "createdAt" : "2022-01-14 14:22",
+            "notificationTime" : "2022-01-15 23:00"
+        },
+        {
+            "id" : 5,
+            "title" : "하요하요 바바요",
+            "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
+            "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url" : "https://blog.hyositive.com/40",
+            "isSeen" : true,
+            "isNotified" : true,
+            "createdAt" : "2022-01-14 14:22",
+            "notificationTime" : "2022-01-15 23:00"
+        },
+        {
+            "id" : 7,
+            "title" : "태정태세문단세세바리바리바바요!",
+            "description" : "단언컨대 닭가슴살은 완벽한 음식입니다.",
+            "image" : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url" : "https://blog.hyositive.com/40",
+            "isSeen" : true,
+            "isNotified" : true,
+            "createdAt" : "2022-01-14 14:22",
+            "notificationTime" : ""
+        }
+    ]
 }
