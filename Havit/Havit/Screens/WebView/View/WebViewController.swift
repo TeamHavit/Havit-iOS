@@ -16,7 +16,7 @@ final class WebViewController: BaseViewController {
     // MARK: - property
     
     weak var coordinator: WebViewCoordinator?
-    private let url: String
+    private let urlString: String
     
     private let navigationBackBarButton: UIBarButtonItem = {
         let backButtonImage = UIImage(named: "iconBackBlack")
@@ -60,8 +60,8 @@ final class WebViewController: BaseViewController {
     
     // MARK: - init
     
-    init(url: String) {
-        self.url = url
+    init(urlString: String) {
+        self.urlString = urlString
         super.init()
     }
 
@@ -79,7 +79,7 @@ final class WebViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        loadWebPage(with: url)
+        loadWebPage(with: urlString)
     }
     
     // MARK: - func
@@ -122,14 +122,14 @@ final class WebViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    private func appendHttpPrefixIfNeeded(to url: String?) -> String? {
-        guard var url = url else {
+    private func appendHttpPrefixIfNeeded(to urlString: String?) -> String? {
+        guard var urlString = urlString else {
             return nil
         }
-        if !url.hasPrefix("http") {
-            url = "http://" + url
+        if !urlString.hasPrefix("http") {
+            urlString = "http://" + urlString
         }
-        return url
+        return urlString
     }
     
     private func loadWebPage(with urlString: String?) {

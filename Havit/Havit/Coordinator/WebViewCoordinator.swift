@@ -13,8 +13,8 @@ final class WebViewCoordinator: BaseCoordinator {
         case previous
     }
     
-    func start(with url: String) {
-        let webViewController = WebViewController(url: url)
+    func start(with urlString: String) {
+        let webViewController = WebViewController(urlString: urlString)
         webViewController.coordinator = self
         navigationController.pushViewController(webViewController, animated: true)
     }
