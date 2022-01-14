@@ -28,6 +28,56 @@ class MainTableViewController: BaseViewController {
         case recommend
     }
     
+    private enum Section: Int, CaseIterable {
+        case reach
+        case category
+        
+        var numberOfRows: Int {
+            switch self {
+            case .reach:
+                return ReachSection.allCases.count
+            case .category:
+                return CategorySection.allCases.count
+            }
+        }
+        
+        var headerView: UIView {
+            switch self {
+            case .category:
+                return MainSearchHeaderView()
+            default:
+                return UIView()
+            }
+        }
+        
+        var headerHeight: CGFloat {
+            switch self {
+            case .category:
+                return Size.headerHeight
+            default:
+                return .zero
+            }
+        }
+        
+        var footerView: UIView {
+            switch self {
+            case .category:
+                return MainFooterView()
+            default:
+                return UIView()
+            }
+        }
+        
+        var footerHeight: CGFloat {
+            switch self {
+            case .category:
+                return Size.footerHeight
+            default:
+                return .zero
+            }
+        }
+    }
+    
     // MARK: - property
     
     lazy var tableView: UITableView = {
@@ -45,18 +95,11 @@ class MainTableViewController: BaseViewController {
 
 extension MainTableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return Section.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return ReachSection.allCases.count
-        case 1:
-            return CategorySection.allCases.count
-        default:
-            return 0
-        }
+        return Section.init(rawValue: section)?.numberOfRows ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,38 +116,18 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 1:
-            return MainSearchHeaderView()
-        default:
-            return UIView()
-        }
+        return Section.init(rawValue: section)?.headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 1:
-            return Size.headerHeight
-        default:
-            return 0
-        }
+        return Section.init(rawValue: section)?.headerHeight ?? .zero
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        switch section {
-        case 1:
-            return MainFooterView()
-        default:
-            return UIView()
-        }
+        return Section.init(rawValue: section)?.footerView
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        switch section {
-        case 1:
-            return Size.footerHeight
-        default:
-            return 0
-        }
+        return Section.init(rawValue: section)?.footerHeight ?? .zero
     }
 }
