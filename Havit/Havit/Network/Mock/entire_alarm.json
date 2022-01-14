@@ -1,0 +1,27 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "알림 전체 조회 성공",
+    "data": [
+        {
+            "id": 3
+            "time": "2021-09-01 11:30",
+            "title": "슉슉 이것은 제목",
+            "description": "상세 내용",
+            "image": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url": "https://blog.naver.com",
+            "isSeen": true
+            "createdAt": "2021-08-21 12:30"
+        },
+        {
+            "id": 2
+            "time": "2021-10-01 10:20",
+            "title": "슉슉 이것은 제목",
+            "description": "상세 내용",
+            "image": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fd1bhq3%2FbtrbuBbasG7%2FAHqWkbCtuVWriV1zFt66a0%2Fimg.png",
+            "url": "https://blog.naver.com",
+            "isSeen": false,
+            "createdAt": "2021-09-30 14:02"
+        }
+    ]
+}
