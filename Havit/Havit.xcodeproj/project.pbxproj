@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */; };
+		15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */; };
+		15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */; };
+		15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE2278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift */; };
+		15D49CE5278F19230030DBE5 /* SortThreeContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE4278F19230030DBE5 /* SortThreeContentsCollectionViewCell.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */; };
 		4D6F9E35278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
@@ -114,6 +119,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		15D49CE2278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTwoContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		15D49CE4278F19230030DBE5 /* SortThreeContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortThreeContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
 		4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -215,6 +225,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		155D4F86279098360069F035 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */,
+				15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */,
+				15D49CE2278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift */,
+				15D49CE4278F19230030DBE5 /* SortThreeContentsCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3BBB51D2279062910098A835 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +271,6 @@
 			children = (
 				ED443EDE2785CD250059DE76 /* Global */,
 				ED443EE02785CD300059DE76 /* Coordinator */,
-				ED443EDF2785CD2B0059DE76 /* Network */,
 				ED443EDD2785CD1E0059DE76 /* Screens */,
 			);
 			path = Havit;
@@ -341,6 +361,8 @@
 		ED443EE22785CD510059DE76 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */,
+				ED443EDF2785CD2B0059DE76 /* Network */,
 				EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */,
 			);
 			path = UIComponent;
@@ -594,6 +616,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443F182786A3450059DE76 /* CategoryContentsViewController.swift */,
+				155D4F86279098360069F035 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -891,10 +914,13 @@
 				3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
+				15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */,
 				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
 				ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */,
+				15D49CE5278F19230030DBE5 /* SortThreeContentsCollectionViewCell.swift in Sources */,
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
+				15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
 				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,
 				ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */,
@@ -921,10 +947,12 @@
 				EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
+				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
 				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
 				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
+				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
 				ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */,
