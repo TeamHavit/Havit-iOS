@@ -1,5 +1,6 @@
 disabled_rules:
   - trailing_whitespace
+  - line_length
   - orphaned_doc_comment
 
 opt_in_rules:

@@ -1,0 +1,8 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "카테고리 이름 조회 성공",
+    "data": {
+        "titles": [ "UI/UX", "요리", "개발", "자전거" ]
+    }
+}
