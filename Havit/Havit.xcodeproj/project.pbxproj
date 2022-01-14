@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
+		3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */; };
 		4D6F9E35278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
 		4D6F9E36278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
 		4D6F9E37278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
@@ -34,6 +36,8 @@
 		4D6F9E4D278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D6F9E4E278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D6F9E4F278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
+		4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */; };
+		4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -110,6 +114,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
 		4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4D6F9E2D278C8AA700EC074D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4D6F9E2E278C8AA700EC074D /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 		4D6F9E32278C8AA800EC074D /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		4D6F9E33278C8AA800EC074D /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */,
 				ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */,
 				ED443F382786B32B0059DE76 /* SnapKit in Frameworks */,
 				ED443F402786B5840059DE76 /* RxSwift in Frameworks */,
@@ -206,6 +215,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BBB51D2279062910098A835 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BBB51D3279062910098A835 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ED443EA1278598670059DE76 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +231,7 @@
 				ED443EC3278598690059DE76 /* HavitTests */,
 				ED443ECD278598690059DE76 /* HavitUITests */,
 				ED443EAB278598670059DE76 /* Products */,
+				3BBB51D2279062910098A835 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -303,6 +321,8 @@
 				ED443F83278B6C9D0059DE76 /* Foundation */,
 				ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */,
 				ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */,
+				3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */,
+				4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -590,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */,
+				4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -867,6 +888,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				ED443F292786A9260059DE76 /* GenericResponse.swift in Sources */,
 				ED443F2B2786A9500059DE76 /* NetworkStatus.swift in Sources */,
@@ -883,6 +905,7 @@
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
 				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
+				4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */,
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
@@ -890,6 +913,7 @@
 				ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
+				4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
