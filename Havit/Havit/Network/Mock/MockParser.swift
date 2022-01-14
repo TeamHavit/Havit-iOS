@@ -8,8 +8,8 @@
 import Foundation
 
 final class MockParser {
-    static func load<T: Decodable>(type: T.Type, fileName: String) -> T? {
-        guard let path = Bundle(for: MockParser.self).path(forResource: fileName, ofType: "json") else {
+    static func load<T: Decodable>(type: T.Type, fileName: String) -> BaseModel<T>? {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
             return nil
         }
         let fileURL = URL(fileURLWithPath: path)
@@ -20,6 +20,6 @@ final class MockParser {
             return nil
         }
         guard let decodable = try? JSONSerialization.data(withJSONObject: jsonObject) else { return nil }
-        return try? JSONDecoder().decode(type, from: decodable)
+        return try? JSONDecoder().decode(BaseModel<T>.self, from: decodable)
     }
 }
