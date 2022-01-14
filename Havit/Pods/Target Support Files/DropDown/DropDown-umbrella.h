@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double BTNavigationDropdownMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char BTNavigationDropdownMenuVersionString[];
+FOUNDATION_EXPORT double DropDownVersionNumber;
+FOUNDATION_EXPORT const unsigned char DropDownVersionString[];
 
