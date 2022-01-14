@@ -11,6 +11,10 @@ import SnapKit
 import RxSwift
 
 class CategoryContentsViewController: BaseViewController {
+    
+    // MARK: - Property
+    weak var coordinator: CategoryContentsCoordinator?
+    
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
