@@ -33,7 +33,6 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func render() {
@@ -42,13 +41,25 @@ class BaseViewController: UIViewController {
     
     func configUI() {
         // View Configuration
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    private func setupBaseNavigationBar() {
+    func setupBaseNavigationBar(backgroundColor: UIColor = .white,
+                                titleColor: UIColor = .black,
+                                shadowImage: UIImage = UIImage(),
+                                isTranslucent: Bool = false,
+                                tintColor: UIColor = .black) {
         guard let navigationBar = navigationController?.navigationBar else { return }
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
-        navigationBar.tintColor = .black
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backgroundColor = backgroundColor
+        appearance.titleTextAttributes = [.foregroundColor: titleColor]
+        
+        navigationBar.standardAppearance = appearance
+        navigationBar.compactAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.shadowImage = shadowImage
+        navigationBar.isTranslucent = isTranslucent
+        navigationBar.tintColor = tintColor
     }
 }
