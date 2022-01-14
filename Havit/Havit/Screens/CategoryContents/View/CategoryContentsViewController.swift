@@ -61,7 +61,11 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     override func configUI() {
-        // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
+        // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입
+        
+    }
+    
+    override func render() {
         
         // 메인 뷰 생성
         self.view.addSubview(mainView)
@@ -71,10 +75,20 @@ final class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
+        // 필터 컬렉션 뷰 생성
+        filterCollectionView.backgroundColor = .blue
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        filterCollectionView.register(cell: CategoryFilterCollectionViewCell.self)
+        filterView.addSubview(filterCollectionView)
         
-    }
-    
-    override func render() {
+        // 메인 컨텐츠 뷰 생성
+        contentsCollectionView.backgroundColor = .green
+        contentsCollectionView.delegate = self
+        contentsCollectionView.dataSource = self
+        contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
+        mainView.addSubview(contentsCollectionView)
+        
         mainView.snp.makeConstraints {
             $0.leading.equalTo(view)
             $0.bottom.equalTo(view)
@@ -129,19 +143,7 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     func setCollectionViews() {
-        // 필터 컬렉션 뷰 생성
-        filterCollectionView.backgroundColor = .blue
-        filterCollectionView.delegate = self
-        filterCollectionView.dataSource = self
-        filterCollectionView.register(cell: CategoryFilterCollectionViewCell.self)
-        filterView.addSubview(filterCollectionView)
         
-        // 메인 컨텐츠 뷰 생성
-        contentsCollectionView.backgroundColor = .green
-        contentsCollectionView.delegate = self
-        contentsCollectionView.dataSource = self
-        contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
-        mainView.addSubview(contentsCollectionView)
     }
 }
 

@@ -78,11 +78,13 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configUI() {
-        contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
-        mainImageView.addSubview(alarmImageView)
+        
     }
     
     override func render() {
+        contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
+        mainImageView.addSubview(alarmImageView)
+        
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(12)
             $0.leading.equalTo(contentView).offset(16)

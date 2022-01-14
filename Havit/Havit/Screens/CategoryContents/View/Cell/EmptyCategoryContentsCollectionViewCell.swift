@@ -37,10 +37,12 @@ final class EmptyCategoryContentsCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configUI() {
-        contentView.addSubViews([noticeLabel, imageView, addButton])
+        
     }
     
     override func render() {
+        contentView.addSubViews([noticeLabel, imageView, addButton])
+        
         noticeLabel.snp.makeConstraints {
             $0.centerX.equalTo(contentView)
             $0.top.equalTo(contentView).offset(84)
