@@ -122,6 +122,19 @@ final class WebViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
+    private func loadWebPage(with urlString: String?) {
+        let isValidUrlString = urlString?.isValidURL ?? false
+        let validUrlString = isValidUrlString ? appendHttpPrefixIfNeeded(to: urlString) : getGoogleSearchUrl(withKeyword: urlString)
+        
+        guard let validUrlString = validUrlString,
+              let url = URL(string: validUrlString) else {
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
+        webView.load(urlRequest)
+    }
+    
     private func appendHttpPrefixIfNeeded(to urlString: String?) -> String? {
         guard var urlString = urlString else {
             return nil
@@ -132,16 +145,9 @@ final class WebViewController: BaseViewController {
         return urlString
     }
     
-    private func loadWebPage(with urlString: String?) {
-        let urlString = appendHttpPrefixIfNeeded(to: urlString)
-        
-        guard let urlString = urlString,
-              let url = URL(string: urlString) else {
-            return
-        }
-        
-        let urlRequest = URLRequest(url: url)
-        webView.load(urlRequest)
+    private func getGoogleSearchUrl(withKeyword keyword: String?) -> String {
+        let googleSearchUrl = "https://www.google.com/search?q=\(keyword ?? "")"
+        return googleSearchUrl
     }
 }
 
@@ -190,5 +196,19 @@ extension WebViewController: WKNavigationDelegate {
     
     private func setUrlTextFieldText(with url: String?) {
         urlTextField.text = url
+    }
+}
+
+fileprivate extension String {
+    var isValidURL: Bool {
+        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else {
+            return false
+        }
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == self.utf16.count
+        } else {
+            return false
+        }
     }
 }
