@@ -7,6 +7,7 @@ target 'Havit' do
 
   # Pods for Havit
   pod 'BTNavigationDropdownMenu'
+  pod 'MaterialComponents/BottomSheet'
 
   target 'HavitTests' do
     inherit! :search_paths

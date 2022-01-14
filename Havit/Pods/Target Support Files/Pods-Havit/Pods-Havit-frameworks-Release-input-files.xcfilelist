@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BTNavigationDropdownMenu/BTNavigationDropdownMenu.framework
+${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework
