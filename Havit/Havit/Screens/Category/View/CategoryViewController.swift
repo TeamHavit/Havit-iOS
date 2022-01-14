@@ -13,6 +13,7 @@ import RxCocoa
 class CategoryViewController: BaseViewController {
 
     // MARK: - property
+
     weak var coordinator: CategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -75,6 +76,7 @@ class CategoryViewController: BaseViewController {
     }()
 
     // MARK: - life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
@@ -108,6 +110,7 @@ class CategoryViewController: BaseViewController {
     }
 
     // MARK: - func
+    
     private func setDelegation() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self

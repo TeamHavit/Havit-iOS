@@ -10,6 +10,7 @@ import UIKit
 class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
+    
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "category_icon")
@@ -29,6 +30,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     }()
 
     // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -39,6 +41,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     }
 
     // MARK: - life cycle
+
     override func render() {
         self.addSubViews([categoryImageView, categoryTitleLabel, arrowImageView])
 
