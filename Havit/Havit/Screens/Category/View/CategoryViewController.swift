@@ -106,6 +106,7 @@ class CategoryViewController: BaseViewController {
 
     override func configUI() {
         view.backgroundColor = .white
+        setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, shadowImage: UIImage(), isTranslucent: true)
     }
 
     // MARK: - func
@@ -118,9 +119,6 @@ class CategoryViewController: BaseViewController {
         title = "전체 카테고리"
         let font = UIFont.font(.pretendardBold, ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
-
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.shadowImage = UIImage()
 
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
