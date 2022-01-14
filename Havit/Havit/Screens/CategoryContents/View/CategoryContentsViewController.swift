@@ -60,7 +60,7 @@ class CategoryContentsViewController: BaseViewController {
         button.backgroundColor = .red
         return button
     }()
-    
+
     let dropDown = DropDown()
     
     var navigationRightButton: UIBarButtonItem = {
@@ -98,7 +98,7 @@ class CategoryContentsViewController: BaseViewController {
         self.view.addSubview(mainView)
         
         // 필터 뷰 생성
-        mainView.addSubview(filterView)
+        self.view.addSubview(filterView)
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
