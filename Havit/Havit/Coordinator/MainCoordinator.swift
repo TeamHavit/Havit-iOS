@@ -14,9 +14,9 @@ final class MainCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        let main = MainViewController()
-        main.coordinator = self
-        navigationController.pushViewController(main, animated: true)
+        let mainViewController = MainViewController()
+        mainViewController.coordinator = self
+        navigationController.pushViewController(mainViewController, animated: true)
     }
     
     func performTransition(to transition: MainTransition) {
