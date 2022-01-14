@@ -269,6 +269,7 @@
 		ED443EAC278598670059DE76 /* Havit */ = {
 			isa = PBXGroup;
 			children = (
+				ED443EDF2785CD2B0059DE76 /* Network */,
 				ED443EDE2785CD250059DE76 /* Global */,
 				ED443EE02785CD300059DE76 /* Coordinator */,
 				ED443EDD2785CD1E0059DE76 /* Screens */,
@@ -332,7 +333,8 @@
 				ED443EEE27869C890059DE76 /* APIService */,
 				ED443EED27869C860059DE76 /* Model */,
 			);
-			path = Network;
+			name = Network;
+			path = Global/UIComponent/Network;
 			sourceTree = "<group>";
 		};
 		ED443EE02785CD300059DE76 /* Coordinator */ = {
@@ -362,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */,
-				ED443EDF2785CD2B0059DE76 /* Network */,
 				EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */,
 			);
 			path = UIComponent;
