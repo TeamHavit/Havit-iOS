@@ -38,6 +38,14 @@
 		4D6F9E4F278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */; };
 		4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */; };
+		4F4545E02790B69600A9E3B1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* ShareViewController.swift */; };
+		4F4545E82790B69600A9E3B1 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
+		4F4545F42791BFBF00A9E3B1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F32791BFBF00A9E3B1 /* SnapKit */; };
+		4F4545F62791BFBF00A9E3B1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F52791BFBF00A9E3B1 /* IQKeyboardManagerSwift */; };
+		4F4545F82791BFBF00A9E3B1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F72791BFBF00A9E3B1 /* RxCocoa */; };
+		4F4545FA2791BFBF00A9E3B1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F92791BFBF00A9E3B1 /* RxRelay */; };
+		4F4545FC2791BFBF00A9E3B1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545FB2791BFBF00A9E3B1 /* RxSwift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -91,6 +99,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4F4545E52790B69600A9E3B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED443EA2278598670059DE76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F4545DC2790B69600A9E3B1;
+			remoteInfo = ShareExtension;
+		};
 		ED443EC1278598690059DE76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED443EA2278598670059DE76 /* Project object */;
@@ -107,6 +122,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4F4545E72790B69600A9E3B1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4F4545E82790B69600A9E3B1 /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
@@ -121,6 +150,9 @@
 		4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F4545DF2790B69600A9E3B1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4F4545E42790B69600A9E3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +206,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4F4545DA2790B69600A9E3B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F4545F82791BFBF00A9E3B1 /* RxCocoa in Frameworks */,
+				4F4545F42791BFBF00A9E3B1 /* SnapKit in Frameworks */,
+				4F4545FC2791BFBF00A9E3B1 /* RxSwift in Frameworks */,
+				4F4545FA2791BFBF00A9E3B1 /* RxRelay in Frameworks */,
+				4F4545F62791BFBF00A9E3B1 /* IQKeyboardManagerSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED443EA7278598670059DE76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +251,18 @@
 			isa = PBXGroup;
 			children = (
 				3BBB51D3279062910098A835 /* WebKit.framework */,
+		4F4545DE2790B69600A9E3B1 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4F4545DF2790B69600A9E3B1 /* ShareViewController.swift */,
+				4F4545E42790B69600A9E3B1 /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		4F4545F22791BFA500A9E3B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -218,8 +274,10 @@
 				ED443EAC278598670059DE76 /* Havit */,
 				ED443EC3278598690059DE76 /* HavitTests */,
 				ED443ECD278598690059DE76 /* HavitUITests */,
+				4F4545DE2790B69600A9E3B1 /* ShareExtension */,
 				ED443EAB278598670059DE76 /* Products */,
 				3BBB51D2279062910098A835 /* Frameworks */,
+				4F4545F22791BFA500A9E3B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +287,7 @@
 				ED443EAA278598670059DE76 /* Havit.app */,
 				ED443EC0278598690059DE76 /* HavitTests.xctest */,
 				ED443ECA278598690059DE76 /* HavitUITests.xctest */,
+				4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -667,6 +726,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4F4545DC2790B69600A9E3B1 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F4545EB2790B69600A9E3B1 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				4F4545D92790B69600A9E3B1 /* Sources */,
+				4F4545DA2790B69600A9E3B1 /* Frameworks */,
+				4F4545DB2790B69600A9E3B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			packageProductDependencies = (
+				4F4545F32791BFBF00A9E3B1 /* SnapKit */,
+				4F4545F52791BFBF00A9E3B1 /* IQKeyboardManagerSwift */,
+				4F4545F72791BFBF00A9E3B1 /* RxCocoa */,
+				4F4545F92791BFBF00A9E3B1 /* RxRelay */,
+				4F4545FB2791BFBF00A9E3B1 /* RxSwift */,
+			);
+			productName = ShareExtension;
+			productReference = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		ED443EA9278598670059DE76 /* Havit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED443ED4278598690059DE76 /* Build configuration list for PBXNativeTarget "Havit" */;
@@ -675,10 +758,12 @@
 				ED443EA7278598670059DE76 /* Frameworks */,
 				ED443EA8278598670059DE76 /* Resources */,
 				4F49E441278D8448003E730B /* SwiftLint */,
+				4F4545E72790B69600A9E3B1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4F4545E62790B69600A9E3B1 /* PBXTargetDependency */,
 			);
 			name = Havit;
 			packageProductDependencies = (
@@ -734,9 +819,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					4F4545DC2790B69600A9E3B1 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					ED443EA9278598670059DE76 = {
 						CreatedOnToolsVersion = 13.2;
 					};
@@ -771,11 +859,19 @@
 				ED443EA9278598670059DE76 /* Havit */,
 				ED443EBF278598690059DE76 /* HavitTests */,
 				ED443EC9278598690059DE76 /* HavitUITests */,
+				4F4545DC2790B69600A9E3B1 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4F4545DB2790B69600A9E3B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED443EA8278598670059DE76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -850,6 +946,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4F4545D92790B69600A9E3B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F4545E02790B69600A9E3B1 /* ShareViewController.swift in Sources */,
+				4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED443EA6278598670059DE76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -921,6 +1026,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4F4545E62790B69600A9E3B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F4545DC2790B69600A9E3B1 /* ShareExtension */;
+			targetProxy = 4F4545E52790B69600A9E3B1 /* PBXContainerItemProxy */;
+		};
 		ED443EC2278598690059DE76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ED443EA9278598670059DE76 /* Havit */;
@@ -945,6 +1055,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4F4545E92790B69600A9E3B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.Havit.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F4545EA2790B69600A9E3B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamHavit.Havit.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		ED443ED2278598690059DE76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1064,6 +1222,7 @@
 		ED443ED5278598690059DE76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1091,6 +1250,7 @@
 		ED443ED6278598690059DE76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1190,6 +1350,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4F4545EB2790B69600A9E3B1 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F4545E92790B69600A9E3B1 /* Debug */,
+				4F4545EA2790B69600A9E3B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ED443EA5278598670059DE76 /* Build configuration list for PBXProject "Havit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1256,6 +1425,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4F4545F32791BFBF00A9E3B1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		4F4545F52791BFBF00A9E3B1 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		4F4545F72791BFBF00A9E3B1 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		4F4545F92791BFBF00A9E3B1 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		4F4545FB2791BFBF00A9E3B1 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
