@@ -94,7 +94,6 @@ class CategoryViewController: BaseViewController {
 
         addButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(13)
-            $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
         }
