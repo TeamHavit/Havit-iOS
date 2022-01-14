@@ -13,6 +13,8 @@ import RxCocoa
 class CategoryViewController: BaseViewController {
 
     // MARK: - property
+
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: CategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -143,13 +145,16 @@ class CategoryViewController: BaseViewController {
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
+        cell.updateData(data: categoryList[indexPath.row])
+        categoryCountLabel.text = "전체 \(categoryList.count)"
+        
         return cell
     }
 }

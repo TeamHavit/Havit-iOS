@@ -65,4 +65,11 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         self.backgroundColor = .purpleCategory
         layer.cornerRadius = 6
     }
+
+    // MARK: - func
+
+    func updateData(data: CategoryListData) {
+        categoryImageView.image = UIImage(named: data.categoryImageName)
+        categoryTitleLabel.text = "\(data.categoryTitle)"
+    }
 }
