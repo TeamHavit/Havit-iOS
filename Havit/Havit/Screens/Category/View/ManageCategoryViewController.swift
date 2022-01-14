@@ -64,7 +64,7 @@ class ManageCategoryViewController: BaseViewController {
 
         noticeIcon.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(29)
-            $0.leading.equalToSuperview().inset(26)
+            $0.trailing.equalTo(noticeLabel.snp.leading).offset(-5)
             $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-15)
         }
 
@@ -72,6 +72,7 @@ class ManageCategoryViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(26)
             $0.leading.equalTo(noticeIcon.snp.trailing).offset(5)
             $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-13)
+            $0.centerX.equalToSuperview()
         }
 
         categoryCollectionView.snp.makeConstraints {
