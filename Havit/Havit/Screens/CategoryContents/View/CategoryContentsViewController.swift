@@ -141,7 +141,6 @@ class CategoryContentsViewController: BaseViewController {
     }
 }
 
-
 extension CategoryContentsViewController: UISearchBarDelegate {
     
 }
