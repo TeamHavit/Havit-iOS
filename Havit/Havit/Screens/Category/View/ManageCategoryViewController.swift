@@ -121,13 +121,13 @@ class ManageCategoryViewController: BaseViewController {
     private func bind() {
         backButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .category)
+                self?.coordinator?.performTransition(to: .previous)
             })
             .disposed(by: disposeBag)
 
         doneButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .category)
+                self?.coordinator?.performTransition(to: .previous)
             })
             .disposed(by: disposeBag)
     }

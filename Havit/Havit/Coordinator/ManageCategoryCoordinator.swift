@@ -10,7 +10,7 @@ import Foundation
 final class ManageCategoryCoordinator: BaseCoordinator {
 
     enum ManageCategoryTransition {
-        case category
+        case previous
     }
 
     override func start() {
@@ -21,7 +21,7 @@ final class ManageCategoryCoordinator: BaseCoordinator {
 
     func performTransition(to transition: ManageCategoryTransition) {
         switch transition {
-        case .category:
+        case .previous:
             parentCoordinator?.didFinish(coordinator: self)
             navigationController.popViewController(animated: true)
         }
