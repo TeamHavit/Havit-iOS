@@ -105,6 +105,7 @@
 		EDEF61B02791444700C93C84 /* search_category.json in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61AF2791444700C93C84 /* search_category.json */; };
 		EDEF61B2279144F300C93C84 /* category_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61B1279144F300C93C84 /* category_icon.json */; };
 		EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61B32791453A00C93C84 /* entire_alarm.json */; };
+		EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61B5279146C800C93C84 /* MockParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,7 @@
 		EDEF61AF2791444700C93C84 /* search_category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_category.json; sourceTree = "<group>"; };
 		EDEF61B1279144F300C93C84 /* category_icon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = category_icon.json; sourceTree = "<group>"; };
 		EDEF61B32791453A00C93C84 /* entire_alarm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entire_alarm.json; sourceTree = "<group>"; };
+		EDEF61B5279146C800C93C84 /* MockParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,6 +686,7 @@
 		ED443F2C2786A9B20059DE76 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				EDEF61B5279146C800C93C84 /* MockParser.swift */,
 				EDEF61A92791428300C93C84 /* recommend_site.json */,
 				EDEF61AD2791433700C93C84 /* category_title.json */,
 				EDEF61B1279144F300C93C84 /* category_icon.json */,
@@ -945,6 +948,7 @@
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
+				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
