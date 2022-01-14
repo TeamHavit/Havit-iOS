@@ -100,6 +100,13 @@ final class WebViewController: BaseViewController {
     }
     
     private func bind() {
+        navigationBackBarButton.rx
+            .tap
+            .subscribe { [weak self] _ in
+                self?.coordinator?.performTransition(to: .previous)
+            }
+            .disposed(by: disposeBag)
+        
         urlTextField.rx
             .controlEvent(.editingDidEndOnExit)
             .compactMap { [weak self] _ -> String? in
