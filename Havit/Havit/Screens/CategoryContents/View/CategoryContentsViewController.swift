@@ -9,7 +9,7 @@ import UIKit
 
 import RxSwift
 import SnapKit
-import BTNavigationDropdownMenu
+import DropDown
 
 class CategoryContentsViewController: BaseViewController {
     
@@ -54,6 +54,15 @@ class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
+    var categoryButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("카테고리", for: .normal)
+        button.backgroundColor = .red
+        return button
+    }()
+    
+    let dropDown = DropDown()
+    
     var navigationRightButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "수정",
                                      style: .plain,
@@ -89,18 +98,19 @@ class CategoryContentsViewController: BaseViewController {
         self.view.addSubview(mainView)
         
         // 필터 뷰 생성
-        self.view.addSubview(filterView)
+        mainView.addSubview(filterView)
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
     }
     
     func setAutoLayouts() {
+        
         mainView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         filterView.snp.makeConstraints {
@@ -143,13 +153,25 @@ class CategoryContentsViewController: BaseViewController {
         }
     }
     
+    
     func setNavigationItems() {
+        //  검색바
         self.navigationItem.searchController = searchController
-        self.navigationItem.title = "카테고리"
         searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.hidesSearchBarWhenScrolling = true
         
+        // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = navigationRightButton
+        
+        // titleView
+        navigationItem.titleView = categoryButton
+        categoryButton.addTarget(self, action: #selector(showDropDown(_:)), for: .touchUpInside)
+        
+        dropDown.anchorView = mainView
+        dropDown.dataSource = ["뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식"]
+        dropDown.direction = .bottom
+        dropDown.offsetFromWindowBottom = 300
+        
     }
     
     func setCollectionViews() {
@@ -172,6 +194,10 @@ class CategoryContentsViewController: BaseViewController {
     
     @objc func goToCategoryCorrection(_: UIButton) {
         
+    }
+    
+    @objc func showDropDown(_ sender: UIButton) {
+        dropDown.show()
     }
 }
 
@@ -225,15 +251,3 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
-
-// ViewController의 Preview
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct Preview: PreviewProvider {
-    static var previews: some View {
-        CategoryContentsViewController().showPreview(.iPhone13Mini)
-        CategoryContentsViewController().showPreview(.iPhone12ProMax)
-    }
-}
-#endif
