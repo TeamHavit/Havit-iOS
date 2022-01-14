@@ -7,8 +7,9 @@
 
 import UIKit
 
-import SnapKit
 import RxSwift
+import SnapKit
+import BTNavigationDropdownMenu
 
 class CategoryContentsViewController: BaseViewController {
     
@@ -50,7 +51,9 @@ class CategoryContentsViewController: BaseViewController {
     
     var filterCollectionView: UICollectionView!
     var contentsCollectionView: UICollectionView!
-
+    
+    // MARK: - View life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -59,9 +62,15 @@ class CategoryContentsViewController: BaseViewController {
         setNavigationItems()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func configUI() {
+        
         // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
-       
+        
         // 메인 뷰 생성
         self.view.addSubview(mainView)
         
@@ -70,13 +79,14 @@ class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
-        
     }
     
     func setAutoLayouts() {
         mainView.snp.makeConstraints {
-            $0.leading.bottom.trailing.equalToSuperview()
-            $0.top.equalTo(view).offset(17)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
         }
         
         filterView.snp.makeConstraints {
@@ -195,3 +205,15 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+
+// ViewController의 Preview
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct Preview: PreviewProvider {
+    static var previews: some View {
+        CategoryContentsViewController().showPreview(.iPhone13Mini)
+        CategoryContentsViewController().showPreview(.iPhone12ProMax)
+    }
+}
+#endif

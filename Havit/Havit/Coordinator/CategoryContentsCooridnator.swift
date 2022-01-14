@@ -19,7 +19,7 @@ final class CategoryContentsCoordinator: BaseCoordinator {
         navigationController.pushViewController(categoryContents, animated: true)
     }
 
-    func performTransition(to transition: CategoryContetnsTransition) {
+    func performTransition(to transition: CategoryContentsTransition) {
         switch transition {
         case .main:
             parentCoordinator?.didFinish(coordinator: self)
