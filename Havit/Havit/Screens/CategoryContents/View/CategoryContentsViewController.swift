@@ -11,7 +11,11 @@ import SnapKit
 import RxSwift
 
 class CategoryContentsViewController: BaseViewController {
-    var searchController: UISearchController!
+    var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
+        return searchController
+    }()
     var mainView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemRed
@@ -53,10 +57,6 @@ class CategoryContentsViewController: BaseViewController {
     
     override func configUI() {
         // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
-        
-        // 검색바 생성
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
        
         // 메인 뷰 생성
         self.view.addSubview(mainView)
@@ -70,48 +70,48 @@ class CategoryContentsViewController: BaseViewController {
     }
     
     func setAutoLayouts() {
-        mainView.snp.makeConstraints { (make) -> Void in
-            make.leading.bottom.trailing.equalToSuperview()
-            make.top.equalTo(view).offset(17)
+        mainView.snp.makeConstraints {
+            $0.leading.bottom.trailing.equalToSuperview()
+            $0.top.equalTo(view).offset(17)
         }
         
-        filterView.snp.makeConstraints { (make) -> Void in
-            make.leading.trailing.equalTo(mainView).offset(0)
-            make.top.equalTo(mainView).offset(17)
-            make.height.equalTo(67)
+        filterView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(mainView).offset(0)
+            $0.top.equalTo(mainView).offset(17)
+            $0.height.equalTo(67)
         }
         
-        totalLabel.snp.makeConstraints { (make) -> Void in
-            make.leading.equalTo(filterView).offset(16)
-            make.top.equalTo(filterView).offset(0)
+        totalLabel.snp.makeConstraints {
+            $0.leading.equalTo(filterView).offset(16)
+            $0.top.equalTo(filterView).offset(0)
         }
         
-        changeShowButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(filterView).offset(0)
-            make.trailing.equalTo(filterView).offset(-16)
-            make.width.equalTo(18)
-            make.height.equalTo(18)
+        changeShowButton.snp.makeConstraints {
+            $0.top.equalTo(filterView).offset(0)
+            $0.trailing.equalTo(filterView).offset(-16)
+            $0.width.equalTo(18)
+            $0.height.equalTo(18)
         }
         
-        sortButton.snp.makeConstraints { (make) -> Void in
-            make.bottom.equalTo(filterView).offset(-19)
-            make.trailing.equalTo(filterView).offset(-16)
-            make.width.equalTo(47)
-            make.height.equalTo(15)
+        sortButton.snp.makeConstraints {
+            $0.bottom.equalTo(filterView).offset(-19)
+            $0.trailing.equalTo(filterView).offset(-16)
+            $0.width.equalTo(47)
+            $0.height.equalTo(15)
         }
         
-        filterCollectionView.snp.makeConstraints { (make) -> Void in
-            make.leading.equalTo(filterView).offset(0)
-            make.bottom.equalTo(filterView).offset(-9)
-            make.width.equalTo(250)
-            make.height.equalTo(31)
+        filterCollectionView.snp.makeConstraints {
+            $0.leading.equalTo(filterView).offset(0)
+            $0.bottom.equalTo(filterView).offset(-9)
+            $0.width.equalTo(250)
+            $0.height.equalTo(31)
         }
         
-        contentsCollectionView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(filterView).offset(67)
-            make.leading.equalTo(mainView).offset(0)
-            make.trailing.equalTo(mainView).offset(0)
-            make.bottom.equalTo(mainView).offset(0)
+        contentsCollectionView.snp.makeConstraints {
+            $0.top.equalTo(filterView).offset(67)
+            $0.leading.equalTo(mainView).offset(0)
+            $0.trailing.equalTo(mainView).offset(0)
+            $0.bottom.equalTo(mainView).offset(0)
         }
     }
     
@@ -126,18 +126,18 @@ class CategoryContentsViewController: BaseViewController {
         // 필터 컬렉션 뷰 생성
         filterCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         filterCollectionView.backgroundColor = .blue
-        filterView.addSubview(filterCollectionView)
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         filterCollectionView.register(cell: CategoryFilterCollectionViewCell.self)
+        filterView.addSubview(filterCollectionView)
         
         // 메인 컨텐츠 뷰 생성
         contentsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         contentsCollectionView.backgroundColor = .green
-        mainView.addSubview(contentsCollectionView)
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
         contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
+        mainView.addSubview(contentsCollectionView)
     }
 }
 

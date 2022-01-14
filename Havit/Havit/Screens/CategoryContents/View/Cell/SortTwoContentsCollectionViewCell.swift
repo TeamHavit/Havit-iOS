@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class SortTwoContentsCollectionViewCell: UICollectionViewCell {
+final class SortTwoContentsCollectionViewCell: BaseCollectionViewCell {
     
     var mainImageView: UIImageView = {
         let imageView = UIImageView()
@@ -72,20 +72,13 @@ final class SortTwoContentsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setCell()
+        configUI()
         setAutoLayouts()
     }
     
-    func setCell() {
-        contentView.addSubview(mainImageView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(subtitleLabel)
-        contentView.addSubview(dateLabel)
-        contentView.addSubview(linkLabel)
-        contentView.addSubview(alarmLabel)
+    override func configUI() {
+        contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
         mainImageView.addSubview(alarmImageView)
-        contentView.addSubview(moreButton)
-        contentView.addSubview(isReadImageView)
     }
     
     func setAutoLayouts() {
