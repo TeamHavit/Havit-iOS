@@ -1,0 +1,6 @@
+framework module Pods_Havit {
+  umbrella header "Pods-Havit-umbrella.h"
+
+  export *
+  module * { export * }
+}

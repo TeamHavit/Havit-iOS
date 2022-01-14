@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1220520440F920E5DAEB6617 /* Pods_Havit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81CBFF4EB6B75A2740D42D /* Pods_Havit.framework */; };
 		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */; };
 		15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */; };
@@ -44,6 +45,7 @@
 		4D6F9E4F278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */; };
 		4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */; };
+		599DBD0D5D9A7F77636AA65A /* Pods_Havit_HavitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B30D6902E7DCD5EB6FB99E /* Pods_Havit_HavitUITests.framework */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -94,6 +96,7 @@
 		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
 		EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */; };
 		EDDE099B2790789B0093B83F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */; };
+		EE8DA2C6D16080E4B551DF74 /* Pods_HavitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040277E8A53381A7E36F2E77 /* Pods_HavitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,12 +117,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040277E8A53381A7E36F2E77 /* Pods_HavitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HavitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		155D4F89279132670069F035 /* ToastAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlarm.swift; sourceTree = "<group>"; };
+		15B30D6902E7DCD5EB6FB99E /* Pods_Havit_HavitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Havit_HavitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE2278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTwoContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE4278F19230030DBE5 /* SortThreeContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortThreeContentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D81CBFF4EB6B75A2740D42D /* Pods_Havit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Havit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31FA57A6A67A1DD3B4064D68 /* Pods-Havit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Havit.debug.xcconfig"; path = "Target Support Files/Pods-Havit/Pods-Havit.debug.xcconfig"; sourceTree = "<group>"; };
+		320F63866EEDD08599522835 /* Pods-HavitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HavitTests.debug.xcconfig"; path = "Target Support Files/Pods-HavitTests/Pods-HavitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
 		4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -133,6 +141,10 @@
 		4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		54A1B9C903F8101A20A5AC8D /* Pods-Havit-HavitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Havit-HavitUITests.release.xcconfig"; path = "Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		77DF18EFD71406DC17226C8D /* Pods-Havit-HavitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Havit-HavitUITests.debug.xcconfig"; path = "Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8543F4135C23613D2C8F1E2 /* Pods-Havit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Havit.release.xcconfig"; path = "Target Support Files/Pods-Havit/Pods-Havit.release.xcconfig"; sourceTree = "<group>"; };
+		C0777B3218F037CE0409024B /* Pods-HavitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HavitTests.release.xcconfig"; path = "Target Support Files/Pods-HavitTests/Pods-HavitTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +207,7 @@
 				ED443F382786B32B0059DE76 /* SnapKit in Frameworks */,
 				ED443F402786B5840059DE76 /* RxSwift in Frameworks */,
 				ED443F3B2786B3FF0059DE76 /* IQKeyboardManagerSwift in Frameworks */,
+				1220520440F920E5DAEB6617 /* Pods_Havit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8DA2C6D16080E4B551DF74 /* Pods_HavitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,12 +223,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599DBD0D5D9A7F77636AA65A /* Pods_Havit_HavitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A9563BD3BD002885985916C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31FA57A6A67A1DD3B4064D68 /* Pods-Havit.debug.xcconfig */,
+				A8543F4135C23613D2C8F1E2 /* Pods-Havit.release.xcconfig */,
+				77DF18EFD71406DC17226C8D /* Pods-Havit-HavitUITests.debug.xcconfig */,
+				54A1B9C903F8101A20A5AC8D /* Pods-Havit-HavitUITests.release.xcconfig */,
+				320F63866EEDD08599522835 /* Pods-HavitTests.debug.xcconfig */,
+				C0777B3218F037CE0409024B /* Pods-HavitTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		155D4F86279098360069F035 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				3BBB51D3279062910098A835 /* WebKit.framework */,
+				2D81CBFF4EB6B75A2740D42D /* Pods_Havit.framework */,
+				15B30D6902E7DCD5EB6FB99E /* Pods_Havit_HavitUITests.framework */,
+				040277E8A53381A7E36F2E77 /* Pods_HavitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -243,6 +275,7 @@
 				ED443ECD278598690059DE76 /* HavitUITests */,
 				ED443EAB278598670059DE76 /* Products */,
 				3BBB51D2279062910098A835 /* Frameworks */,
+				0A9563BD3BD002885985916C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -697,10 +730,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED443ED4278598690059DE76 /* Build configuration list for PBXNativeTarget "Havit" */;
 			buildPhases = (
+				07A15C41B8DBEAEECB78BEC5 /* [CP] Check Pods Manifest.lock */,
 				ED443EA6278598670059DE76 /* Sources */,
 				ED443EA7278598670059DE76 /* Frameworks */,
 				ED443EA8278598670059DE76 /* Resources */,
 				4F49E441278D8448003E730B /* SwiftLint */,
+				9069918AAC8AEA9708D6B677 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -721,6 +756,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED443ED7278598690059DE76 /* Build configuration list for PBXNativeTarget "HavitTests" */;
 			buildPhases = (
+				FC298DC2F76CE8F2FB43299B /* [CP] Check Pods Manifest.lock */,
 				ED443EBC278598690059DE76 /* Sources */,
 				ED443EBD278598690059DE76 /* Frameworks */,
 				ED443EBE278598690059DE76 /* Resources */,
@@ -739,9 +775,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED443EDA278598690059DE76 /* Build configuration list for PBXNativeTarget "HavitUITests" */;
 			buildPhases = (
+				AAA1F7F1C6A54C8DE976C4C2 /* [CP] Check Pods Manifest.lock */,
 				ED443EC6278598690059DE76 /* Sources */,
 				ED443EC7278598690059DE76 /* Frameworks */,
 				ED443EC8278598690059DE76 /* Resources */,
+				27E4B68EB66EFF2D8E84182D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -786,9 +824,9 @@
 			);
 			mainGroup = ED443EA1278598670059DE76;
 			packageReferences = (
-				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
 				ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
 			);
 			productRefGroup = ED443EAB278598670059DE76 /* Products */;
 			projectDirPath = "";
@@ -855,6 +893,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		07A15C41B8DBEAEECB78BEC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Havit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27E4B68EB66EFF2D8E84182D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4F49E441278D8448003E730B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -872,6 +949,67 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  \nfi\n";
+		};
+		9069918AAC8AEA9708D6B677 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAA1F7F1C6A54C8DE976C4C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Havit-HavitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC298DC2F76CE8F2FB43299B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HavitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1095,6 +1233,7 @@
 		};
 		ED443ED5278598690059DE76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31FA57A6A67A1DD3B4064D68 /* Pods-Havit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1122,6 +1261,7 @@
 		};
 		ED443ED6278598690059DE76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8543F4135C23613D2C8F1E2 /* Pods-Havit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1149,6 +1289,7 @@
 		};
 		ED443ED8278598690059DE76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 320F63866EEDD08599522835 /* Pods-HavitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1168,6 +1309,7 @@
 		};
 		ED443ED9278598690059DE76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0777B3218F037CE0409024B /* Pods-HavitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1187,6 +1329,7 @@
 		};
 		ED443EDB278598690059DE76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77DF18EFD71406DC17226C8D /* Pods-Havit-HavitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1204,6 +1347,7 @@
 		};
 		ED443EDC278598690059DE76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54A1B9C903F8101A20A5AC8D /* Pods-Havit-HavitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1261,7 +1405,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1277,7 +1421,7 @@
 				minimumVersion = 6.5.0;
 			};
 		};
-		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -1290,7 +1434,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 		ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */ = {
@@ -1300,12 +1444,12 @@
 		};
 		ED443F3D2786B5840059DE76 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxCocoa;
 		};
 		ED443F3F2786B5840059DE76 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

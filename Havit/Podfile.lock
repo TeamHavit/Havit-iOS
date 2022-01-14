@@ -1,0 +1,16 @@
+PODS:
+  - BTNavigationDropdownMenu (0.7)
+
+DEPENDENCIES:
+  - BTNavigationDropdownMenu
+
+SPEC REPOS:
+  trunk:
+    - BTNavigationDropdownMenu
+
+SPEC CHECKSUMS:
+  BTNavigationDropdownMenu: 57a72c74dc211db3564f5be168f4f7643491a7de
+
+PODFILE CHECKSUM: fd4ae673d33e38c09ffaafa9b4a635d2bfc59480
+
+COCOAPODS: 1.10.2
