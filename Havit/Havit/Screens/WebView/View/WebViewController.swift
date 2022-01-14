@@ -109,11 +109,8 @@ final class WebViewController: BaseViewController {
         
         urlTextField.rx
             .controlEvent(.editingDidEndOnExit)
-            .compactMap { [weak self] _ -> String? in
-                self?.appendHttpPrefixIfNeeded(to: self?.urlTextField.text)
-            }
-            .subscribe { [weak self] url in
-                self?.loadWebPage(with: url)
+            .subscribe { [weak self] _ in
+                self?.loadWebPage(with: self?.urlTextField.text)
             }
             .disposed(by: disposeBag)
         
@@ -135,10 +132,14 @@ final class WebViewController: BaseViewController {
         return url
     }
     
-    private func loadWebPage(with url: String) {
-        guard let url = URL(string: url) else {
+    private func loadWebPage(with urlString: String?) {
+        let urlString = appendHttpPrefixIfNeeded(to: urlString)
+        
+        guard let urlString = urlString,
+              let url = URL(string: urlString) else {
             return
         }
+        
         let urlRequest = URLRequest(url: url)
         webView.load(urlRequest)
     }
