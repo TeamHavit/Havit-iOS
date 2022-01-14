@@ -21,32 +21,46 @@ class CategoryContentsViewController: BaseViewController {
         searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
         return searchController
     }()
+    
     var mainView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemRed
         return view
     }()
+    
     var filterView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
+    
     var totalLabel: UILabel = {
         let label = UILabel()
         label.text = "전체 0"
         return label
     }()
+    
     var changeShowButton: UIButton = {
         let button = UIButton()
         button.setTitle("B", for: .normal)
         button.backgroundColor = UIColor.blue
         return button
     }()
+    
     var sortButton: UIButton = {
         let button = UIButton()
-        button.setTitle("최근순", for: .normal)
+        button.setTitle("수정", for: .normal)
         button.backgroundColor = UIColor.blue
         return button
+    }()
+    
+    var navigationRightButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "수정",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(goToCategoryCorrection(_:)))
+        return button
+        
     }()
     
     var filterCollectionView: UICollectionView!
@@ -133,7 +147,9 @@ class CategoryContentsViewController: BaseViewController {
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "카테고리"
         searchController.hidesNavigationBarDuringPresentation = false
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+        
+        self.navigationItem.rightBarButtonItem = navigationRightButton
     }
     
     func setCollectionViews() {
@@ -152,6 +168,10 @@ class CategoryContentsViewController: BaseViewController {
         contentsCollectionView.dataSource = self
         contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
         mainView.addSubview(contentsCollectionView)
+    }
+    
+    @objc func goToCategoryCorrection(_: UIButton) {
+        
     }
 }
 
