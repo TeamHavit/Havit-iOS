@@ -8,6 +8,9 @@
 import UIKit
 import WebKit
 
+import RxCocoa
+import RxSwift
+
 final class WebViewController: BaseViewController {
     
     // MARK: - property
@@ -75,6 +78,7 @@ final class WebViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         loadWebPage(with: url)
     }
     
@@ -93,6 +97,28 @@ final class WebViewController: BaseViewController {
         navigationItem.leftBarButtonItem = leftBarButtonItem
         navigationItem.titleView = titleView
         navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    private func bind() {
+        urlTextField.rx
+            .controlEvent(.editingDidEndOnExit)
+            .compactMap { [weak self] _ -> String? in
+                self?.appendHttpPrefixIfNeeded(to: self?.urlTextField.text)
+            }
+            .subscribe { [weak self] url in
+                self?.loadWebPage(with: url)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func appendHttpPrefixIfNeeded(to url: String?) -> String? {
+        guard var url = url else {
+            return nil
+        }
+        if !url.hasPrefix("http") {
+            url = "http://" + url
+        }
+        return url
     }
     
     private func loadWebPage(with url: String) {
