@@ -44,9 +44,9 @@ class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
-    var filterCollectionView: UICollectionView!
-    var contentsCollectionView: UICollectionView!
-
+    var filterCollectionView = UICollectionView()
+    var contentsCollectionView = UICollectionView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -57,7 +57,7 @@ class CategoryContentsViewController: BaseViewController {
     
     override func configUI() {
         // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
-       
+        
         // 메인 뷰 생성
         self.view.addSubview(mainView)
         
