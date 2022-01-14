@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import SnapKit
 import BTNavigationDropdownMenu
+import MaterialComponents.MaterialComponents
 
 class CategoryContentsViewController: BaseViewController {
     
@@ -98,8 +99,6 @@ class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
-        
-       
     }
     
     func setAutoLayouts() {
