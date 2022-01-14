@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SnapKit
 import BTNavigationDropdownMenu
-import MaterialComponents.MaterialComponents
+import MaterialComponents.MaterialBottomSheet
 
 class CategoryContentsViewController: BaseViewController {
     
@@ -77,6 +77,19 @@ class CategoryContentsViewController: BaseViewController {
         setNavigationItems()
         setAutoLayouts()
         view.backgroundColor = .red
+        
+        sortButton.addTarget(self, action: #selector(showSortBottomSheet(_:)), for: .touchUpInside)
+    }
+    
+    @objc func showSortBottomSheet(_ sender: UIButton) {
+            // 바텀 시트로 쓰일 뷰컨트롤러 생성
+            let vc = SortBottomSheetViewController()
+            
+            // MDC 바텀 시트로 설정
+            let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: vc)
+            
+            // 보여주기
+            present(bottomSheet, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
