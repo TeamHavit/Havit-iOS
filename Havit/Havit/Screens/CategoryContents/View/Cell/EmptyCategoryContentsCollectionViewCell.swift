@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class EmptyCategoryContentsCollectionViewCell: UICollectionViewCell {
+final class EmptyCategoryContentsCollectionViewCell: BaseCollectionViewCell {
     
     var noticeLabel: UILabel = {
         let label = UILabel()
@@ -33,14 +33,12 @@ final class EmptyCategoryContentsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setCell()
+        configUI()
         setAutoLayouts()
     }
     
-    func setCell() {
-        contentView.addSubview(noticeLabel)
-        contentView.addSubview(imageView)
-        contentView.addSubview(addButton)
+    override func configUI() {
+        contentView.addSubViews([noticeLabel, imageView, addButton])
     }
     
     func setAutoLayouts() {

@@ -7,10 +7,12 @@
 
 import UIKit
 
-final class CategoryFilterCollectionViewCell: UICollectionViewCell {
+final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
     static var cellID = "CategoryFilterCollectionViewCell"
     
-    var filterNameLabel: UILabel!
+    var filterNameLabel: UILabel = {
+        return UILabel()
+    }()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -18,12 +20,12 @@ final class CategoryFilterCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setCell()
+        configUI()
         setUpLabel()
     }
     
-    func setCell() {
-        filterNameLabel = UILabel()
+    override func configUI() {
+        // 이 부분은 디자인 부분에서 다시 수정할 예정입니다!!
         contentView.addSubview(filterNameLabel)
         filterNameLabel.translatesAutoresizingMaskIntoConstraints = false
         filterNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
