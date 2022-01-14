@@ -7,9 +7,20 @@
 
 import UIKit
 
+enum CategoryCollectionViewCellType {
+    case category
+    case manage
+}
+
 class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
+
+    var type: CategoryCollectionViewCellType = .category {
+        didSet {
+            render()
+        }
+    }
     
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
@@ -29,6 +40,12 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         return image
     }()
 
+    private let editButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "edit"), for: .normal)
+        return button
+    }()
+
     // MARK: - init
 
     override init(frame: CGRect) {
@@ -43,11 +60,12 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     // MARK: - life cycle
 
     override func render() {
-        self.addSubViews([categoryImageView, categoryTitleLabel, arrowImageView])
+        self.addSubViews([categoryImageView, categoryTitleLabel])
 
         categoryImageView.snp.makeConstraints {
             $0.top.leading.bottom.equalToSuperview().inset(7)
             $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-7)
+            $0.width.height.equalTo(42)
         }
 
         categoryTitleLabel.snp.makeConstraints {
@@ -56,11 +74,24 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             $0.bottom.equalToSuperview().inset(19)
         }
 
-        arrowImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(13)
-            $0.trailing.equalToSuperview().inset(11)
-            $0.bottom.equalToSuperview().inset(15)
-            $0.width.height.equalTo(28)
+        switch type {
+        case .category:
+            self.addSubView(arrowImageView)
+
+            arrowImageView.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(13)
+                $0.trailing.equalToSuperview().inset(11)
+                $0.bottom.equalToSuperview().inset(15)
+                $0.width.height.equalTo(28)
+            }
+        case .manage:
+            self.addSubView(editButton)
+
+            editButton.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(14)
+                $0.trailing.equalToSuperview().inset(12)
+                $0.bottom.equalToSuperview().inset(14)
+            }
         }
     }
 
