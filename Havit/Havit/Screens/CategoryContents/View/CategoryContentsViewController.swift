@@ -56,13 +56,12 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionViews()
-        setNavigationItems()
     }
     
     override func configUI() {
-        // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입
-        
+        self.navigationItem.searchController = searchController
+        self.navigationItem.title = "카테고리"
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func render() {
@@ -134,16 +133,6 @@ final class CategoryContentsViewController: BaseViewController {
             $0.trailing.equalTo(mainView).offset(0)
             $0.bottom.equalTo(mainView).offset(0)
         }
-    }
-    
-    func setNavigationItems() {
-        self.navigationItem.searchController = searchController
-        self.navigationItem.title = "카테고리"
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-    }
-    
-    func setCollectionViews() {
-        
     }
 }
 
