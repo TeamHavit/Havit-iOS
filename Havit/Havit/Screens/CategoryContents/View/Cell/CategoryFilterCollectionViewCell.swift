@@ -28,7 +28,6 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configUI() {
-        setUpLabel()
         
         // 이 부분은 디자인 부분에서 다시 수정할 예정입니다!!
         contentView.addSubview(filterNameLabel)
