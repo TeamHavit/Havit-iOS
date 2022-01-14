@@ -9,12 +9,13 @@ import UIKit
 
 import RxSwift
 import SnapKit
-import DropDown
 
 class CategoryContentsViewController: BaseViewController {
     
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
+    
+    var isOpenDropDownView: Bool = false
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -60,8 +61,6 @@ class CategoryContentsViewController: BaseViewController {
         button.backgroundColor = .red
         return button
     }()
-
-    let dropDown = DropDown()
     
     var navigationRightButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "수정",
@@ -162,15 +161,10 @@ class CategoryContentsViewController: BaseViewController {
         
         // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = navigationRightButton
-        
-        // titleView
-        navigationItem.titleView = categoryButton
-        categoryButton.addTarget(self, action: #selector(showDropDown(_:)), for: .touchUpInside)
-        
-        dropDown.anchorView = mainView
-        dropDown.dataSource = ["뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식", "뉴스/시사 기본 상식"]
-        dropDown.direction = .bottom
-        dropDown.offsetFromWindowBottom = 300
+//
+//        // titleView
+//        navigationItem.titleView = categoryButton
+//        categoryButton.addTarget(self, action: #selector(showDropDown(_:)), for: .touchUpInside)
         
     }
     
@@ -196,9 +190,6 @@ class CategoryContentsViewController: BaseViewController {
         
     }
     
-    @objc func showDropDown(_ sender: UIButton) {
-        dropDown.show()
-    }
 }
 
 extension CategoryContentsViewController: UISearchBarDelegate {

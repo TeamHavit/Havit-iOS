@@ -1,0 +1,6 @@
+framework module BTNavigationDropdownMenu {
+  umbrella header "BTNavigationDropdownMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

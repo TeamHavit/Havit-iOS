@@ -6,7 +6,7 @@ target 'Havit' do
   use_frameworks!
 
   # Pods for Havit
-  pod 'DropDown'
+  pod 'BTNavigationDropdownMenu'
 
   target 'HavitTests' do
     inherit! :search_paths
