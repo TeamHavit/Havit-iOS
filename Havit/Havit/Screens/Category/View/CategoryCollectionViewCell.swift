@@ -16,12 +16,6 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
 
-    var type: CategoryCollectionViewCellType = .category {
-        didSet {
-            render()
-        }
-    }
-    
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
@@ -73,7 +67,16 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             $0.leading.equalTo(categoryImageView.snp.trailing).offset(7)
             $0.bottom.equalToSuperview().inset(19)
         }
+    }
 
+    override func configUI() {
+        self.backgroundColor = .purpleCategory
+        layer.cornerRadius = 6
+    }
+
+    // MARK: - func
+
+    func configure(type: CategoryCollectionViewCellType) {
         switch type {
         case .category:
             self.addSubView(arrowImageView)
@@ -88,14 +91,10 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             self.addSubView(editButton)
 
             editButton.snp.makeConstraints {
-                $0.top.bottom.equalToSuperview().inset(14)
+                $0.top.equalToSuperview().inset(14)
                 $0.trailing.equalToSuperview().inset(12)
+                $0.bottom.equalToSuperview().inset(14)
             }
         }
-    }
-
-    override func configUI() {
-        self.backgroundColor = .purpleCategory
-        layer.cornerRadius = 6
     }
 }

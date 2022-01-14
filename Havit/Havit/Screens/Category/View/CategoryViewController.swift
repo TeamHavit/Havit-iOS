@@ -153,7 +153,7 @@ extension CategoryViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
-        cell.type = .category
+        cell.configure(type: .category)
         return cell
     }
 }

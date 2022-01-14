@@ -137,7 +137,7 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
         
-        cell.type = .manage
+        cell.configure(type: .manage)
         return cell
     }
 }
