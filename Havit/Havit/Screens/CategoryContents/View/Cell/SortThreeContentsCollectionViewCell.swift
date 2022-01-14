@@ -91,8 +91,8 @@ final class SortThreeContentsCollectionViewCell: BaseCollectionViewCell {
         }
         
         alarmImageView.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(0)
-            $0.top.equalTo(mainImageView).offset(0)
+            $0.leading.equalTo(mainImageView)
+            $0.top.equalTo(mainImageView)
             $0.width.equalTo(28)
             $0.height.equalTo(28)
         }
