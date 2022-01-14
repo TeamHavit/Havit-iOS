@@ -25,7 +25,7 @@ final class WebViewController: BaseViewController {
     // MARK: - property
     
     weak var coordinator: WebViewCoordinator?
-    private let urlString: String
+    private let viewModel: WebViewModel
     
     private let navigationBackBarButton: UIBarButtonItem = {
         let backButtonImage = UIImage(named: "iconBackBlack")
@@ -71,7 +71,7 @@ final class WebViewController: BaseViewController {
     // MARK: - init
     
     init(urlString: String) {
-        self.urlString = urlString
+        viewModel = WebViewModel(urlString: urlString)
         super.init()
     }
 
@@ -88,8 +88,8 @@ final class WebViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
-        loadWebPage(with: urlString)
+        bindInput()
+        bindOutput()
     }
     
     // MARK: - func
@@ -109,7 +109,7 @@ final class WebViewController: BaseViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    private func bind() {
+    private func bindInput() {
         navigationBackBarButton.rx
             .tap
             .subscribe { [weak self] _ in
@@ -119,45 +119,26 @@ final class WebViewController: BaseViewController {
         
         urlTextField.rx
             .controlEvent(.editingDidEndOnExit)
-            .subscribe { [weak self] _ in
-                self?.loadWebPage(with: self?.urlTextField.text)
+            .map { [weak self] _ in
+                self?.urlTextField.text
             }
+            .bind(to: viewModel.urlString)
             .disposed(by: disposeBag)
         
         reloadUrlBarButton.rx
             .tap
-            .subscribe { [weak self] _ in
+            .bind { [weak self] _ in
                 self?.webView.reload()
             }
             .disposed(by: disposeBag)
     }
     
-    private func loadWebPage(with urlString: String?) {
-        let isValidUrlString = urlString?.isValidURL ?? false
-        let validUrlString = isValidUrlString ? appendHttpPrefixIfNeeded(to: urlString) : getGoogleSearchUrl(withKeyword: urlString)
-        
-        guard let validUrlString = validUrlString,
-              let url = URL(string: validUrlString) else {
-            return
-        }
-        
-        let urlRequest = URLRequest(url: url)
-        webView.load(urlRequest)
-    }
-    
-    private func appendHttpPrefixIfNeeded(to urlString: String?) -> String? {
-        guard var urlString = urlString else {
-            return nil
-        }
-        if !urlString.hasPrefix("http") {
-            urlString = "http://" + urlString
-        }
-        return urlString
-    }
-    
-    private func getGoogleSearchUrl(withKeyword keyword: String?) -> String {
-        let googleSearchUrl = "https://www.google.com/search?q=\(keyword ?? "")"
-        return googleSearchUrl
+    private func bindOutput() {
+        viewModel.urlRequest
+            .bind { [weak self] urlRequest in
+                self?.webView.load(urlRequest)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -206,19 +187,5 @@ extension WebViewController: WKNavigationDelegate {
     
     private func setUrlTextFieldText(with url: String?) {
         urlTextField.text = url
-    }
-}
-
-fileprivate extension String {
-    var isValidURL: Bool {
-        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else {
-            return false
-        }
-        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
-            // it is a link, if the match covers the whole string
-            return match.range.length == self.utf16.count
-        } else {
-            return false
-        }
     }
 }
