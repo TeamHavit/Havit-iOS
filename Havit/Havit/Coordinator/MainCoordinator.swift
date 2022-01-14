@@ -14,8 +14,8 @@ final class MainCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        let main = MainViewController()
-        main.coordinator = self
+        let main = CategoryContentsViewController()
+        // main.coordinator = self
         navigationController.pushViewController(main, animated: true)
     }
     

@@ -10,10 +10,11 @@ import UIKit
 import SnapKit
 import RxSwift
 
-class CategoryContentsViewController: BaseViewController {
-    var searchController: UISearchController = {
+final class CategoryContentsViewController: BaseViewController {
+    private var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
+        searchController.hidesNavigationBarDuringPresentation = false
         return searchController
     }()
     var mainView: UIView = {
@@ -44,14 +45,18 @@ class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
-    var filterCollectionView = UICollectionView()
-    var contentsCollectionView = UICollectionView()
+    var filterCollectionView: UICollectionView = {
+        return UICollectionView(frame: CGRect.zero,
+                                collectionViewLayout: UICollectionViewFlowLayout.init())
+    }()
+    var contentsCollectionView: UICollectionView = {
+        UICollectionView(frame: CGRect.zero,
+                         collectionViewLayout: UICollectionViewFlowLayout.init())
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
         setCollectionViews()
-        setAutoLayouts()
         setNavigationItems()
     }
     
@@ -69,9 +74,11 @@ class CategoryContentsViewController: BaseViewController {
         
     }
     
-    func setAutoLayouts() {
+    override func render() {
         mainView.snp.makeConstraints {
-            $0.leading.bottom.trailing.equalToSuperview()
+            $0.leading.equalTo(view)
+            $0.bottom.equalTo(view)
+            $0.trailing.equalTo(view)
             $0.top.equalTo(view).offset(17)
         }
         
@@ -118,13 +125,11 @@ class CategoryContentsViewController: BaseViewController {
     func setNavigationItems() {
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "카테고리"
-        searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setCollectionViews() {
         // 필터 컬렉션 뷰 생성
-        filterCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         filterCollectionView.backgroundColor = .blue
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
@@ -132,7 +137,6 @@ class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(filterCollectionView)
         
         // 메인 컨텐츠 뷰 생성
-        contentsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         contentsCollectionView.backgroundColor = .green
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self

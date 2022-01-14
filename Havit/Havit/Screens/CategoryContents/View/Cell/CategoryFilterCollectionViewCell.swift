@@ -8,19 +8,18 @@
 import UIKit
 
 final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
-    static var cellID = "CategoryFilterCollectionViewCell"
     
     var filterNameLabel: UILabel = {
         return UILabel()
     }()
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        configUI()
         setUpLabel()
     }
     

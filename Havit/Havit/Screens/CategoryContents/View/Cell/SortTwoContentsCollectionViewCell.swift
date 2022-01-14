@@ -66,14 +66,13 @@ final class SortTwoContentsCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        configUI()
-        setAutoLayouts()
     }
     
     override func configUI() {
@@ -81,7 +80,7 @@ final class SortTwoContentsCollectionViewCell: BaseCollectionViewCell {
         mainImageView.addSubview(alarmImageView)
     }
     
-    func setAutoLayouts() {
+    override func render() {
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(16)
             $0.leading.equalTo(contentView).offset(0)

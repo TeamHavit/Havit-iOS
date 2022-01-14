@@ -27,21 +27,20 @@ final class EmptyCategoryContentsCollectionViewCell: BaseCollectionViewCell {
         return button
     }()
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        configUI()
-        setAutoLayouts()
     }
     
     override func configUI() {
         contentView.addSubViews([noticeLabel, imageView, addButton])
     }
     
-    func setAutoLayouts() {
+    override func render() {
         noticeLabel.snp.makeConstraints {
             $0.centerX.equalTo(contentView)
             $0.top.equalTo(contentView).offset(84)
