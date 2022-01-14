@@ -37,6 +37,4 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
         filterNameLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         filterNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
-    
-  
 }
