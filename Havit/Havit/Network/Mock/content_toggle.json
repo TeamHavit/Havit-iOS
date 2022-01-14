@@ -1,0 +1,9 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "콘텐츠 조회 여부 토글 성공",
+    "data": {
+        "contentId" = 1,
+        "isSeen" = true,
+    }
+}

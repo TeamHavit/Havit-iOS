@@ -95,6 +95,16 @@
 		EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61962791380E00C93C84 /* NetworkRequest.swift */; };
 		EDEF61992791392D00C93C84 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61982791392D00C93C84 /* Requestable.swift */; };
 		EDEF619B2791395800C93C84 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF619A2791395800C93C84 /* APIService.swift */; };
+		EDEF619E27913F4600C93C84 /* save_content.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF619D27913F4600C93C84 /* save_content.json */; };
+		EDEF61A227913FC100C93C84 /* content_toggle.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61A127913FC100C93C84 /* content_toggle.json */; };
+		EDEF61A427913FE000C93C84 /* entire_content.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61A327913FE000C93C84 /* entire_content.json */; };
+		EDEF61A8279141C500C93C84 /* search_content.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61A7279141C500C93C84 /* search_content.json */; };
+		EDEF61AA2791428300C93C84 /* recommend_site.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61A92791428300C93C84 /* recommend_site.json */; };
+		EDEF61AC279142D100C93C84 /* entire_category.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61AB279142D100C93C84 /* entire_category.json */; };
+		EDEF61AE2791433700C93C84 /* category_title.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61AD2791433700C93C84 /* category_title.json */; };
+		EDEF61B02791444700C93C84 /* search_category.json in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61AF2791444700C93C84 /* search_category.json */; };
+		EDEF61B2279144F300C93C84 /* category_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF61B1279144F300C93C84 /* category_icon.json */; };
+		EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61B32791453A00C93C84 /* entire_alarm.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +195,17 @@
 		EDEF61962791380E00C93C84 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		EDEF61982791392D00C93C84 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		EDEF619A2791395800C93C84 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		EDEF619C27913EBA00C93C84 /* content_scrap.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = content_scrap.json; sourceTree = "<group>"; };
+		EDEF619D27913F4600C93C84 /* save_content.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = save_content.json; sourceTree = "<group>"; };
+		EDEF61A127913FC100C93C84 /* content_toggle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = content_toggle.json; sourceTree = "<group>"; };
+		EDEF61A327913FE000C93C84 /* entire_content.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entire_content.json; sourceTree = "<group>"; };
+		EDEF61A7279141C500C93C84 /* search_content.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_content.json; sourceTree = "<group>"; };
+		EDEF61A92791428300C93C84 /* recommend_site.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recommend_site.json; sourceTree = "<group>"; };
+		EDEF61AB279142D100C93C84 /* entire_category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entire_category.json; sourceTree = "<group>"; };
+		EDEF61AD2791433700C93C84 /* category_title.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = category_title.json; sourceTree = "<group>"; };
+		EDEF61AF2791444700C93C84 /* search_category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_category.json; sourceTree = "<group>"; };
+		EDEF61B1279144F300C93C84 /* category_icon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = category_icon.json; sourceTree = "<group>"; };
+		EDEF61B32791453A00C93C84 /* entire_alarm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entire_alarm.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -663,6 +684,17 @@
 		ED443F2C2786A9B20059DE76 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				EDEF61A92791428300C93C84 /* recommend_site.json */,
+				EDEF61AD2791433700C93C84 /* category_title.json */,
+				EDEF61B1279144F300C93C84 /* category_icon.json */,
+				EDEF619D27913F4600C93C84 /* save_content.json */,
+				EDEF619C27913EBA00C93C84 /* content_scrap.json */,
+				EDEF61A127913FC100C93C84 /* content_toggle.json */,
+				EDEF61A327913FE000C93C84 /* entire_content.json */,
+				EDEF61AB279142D100C93C84 /* entire_category.json */,
+				EDEF61A7279141C500C93C84 /* search_content.json */,
+				EDEF61AF2791444700C93C84 /* search_category.json */,
+				EDEF61B32791453A00C93C84 /* entire_alarm.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -801,12 +833,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEF61AC279142D100C93C84 /* entire_category.json in Resources */,
 				ED443EBA278598690059DE76 /* LaunchScreen.storyboard in Resources */,
+				EDEF61A227913FC100C93C84 /* content_toggle.json in Resources */,
+				EDEF61B2279144F300C93C84 /* category_icon.json in Resources */,
 				4D6F9E4A278C8AA800EC074D /* Pretendard-Bold.otf in Resources */,
 				4D6F9E44278C8AA800EC074D /* Pretendard-Light.otf in Resources */,
 				ED443EB7278598690059DE76 /* Assets.xcassets in Resources */,
+				EDEF61A8279141C500C93C84 /* search_content.json in Resources */,
 				4D6F9E41278C8AA800EC074D /* Pretendard-Thin.otf in Resources */,
 				4D6F9E47278C8AA800EC074D /* Pretendard-Black.otf in Resources */,
+				EDEF61AE2791433700C93C84 /* category_title.json in Resources */,
+				EDEF619E27913F4600C93C84 /* save_content.json in Resources */,
+				EDEF61AA2791428300C93C84 /* recommend_site.json in Resources */,
+				EDEF61A427913FE000C93C84 /* entire_content.json in Resources */,
 				4D6F9E3B278C8AA800EC074D /* Pretendard-Regular.otf in Resources */,
 				4D6F9E3E278C8AA800EC074D /* Pretendard-SemiBold.otf in Resources */,
 				4D6F9E38278C8AA800EC074D /* Pretendard-ExtraLight.otf in Resources */,
@@ -894,6 +934,7 @@
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
+				EDEF61B02791444700C93C84 /* search_category.json in Sources */,
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
@@ -903,6 +944,7 @@
 				4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
+				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
