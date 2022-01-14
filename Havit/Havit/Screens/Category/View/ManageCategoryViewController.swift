@@ -38,14 +38,21 @@ class ManageCategoryViewController: BaseViewController {
     override func render() {
     }
 
+    override func configUI() {
+        view.backgroundColor = .white
+    }
+
     private func setNavigationBar() {
         title = "카테고리 수정"
         let appearance = UINavigationBarAppearance()
 
-        appearance.backgroundColor = .havitPurple
         appearance.titleTextAttributes = [
             .font: UIFont.font(.pretendardBold, ofSize: 16)
         ]
+        // 혹시 여기서 네비게이션 바 색깔이 안바뀌는 이유가 뭔지 아시나요.. 다양한 방법을 시도 해봤는데 안되네요 ..ㅜㅜㅜㅜ 
+        UINavigationBar.appearance().backgroundColor = .havitPurple
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: doneButton)
