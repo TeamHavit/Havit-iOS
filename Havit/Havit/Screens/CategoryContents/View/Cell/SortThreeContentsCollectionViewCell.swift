@@ -76,7 +76,7 @@ final class SortThreeContentsCollectionViewCell: BaseCollectionViewCell {
         setAutoLayouts()
     }
     
-    func configUI() {
+     override func configUI() {
         contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
         mainImageView.addSubview(alarmImageView)
     }
