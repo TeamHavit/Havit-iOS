@@ -135,7 +135,7 @@ class CategoryViewController: BaseViewController {
 
         editButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .main)
+                self?.coordinator?.performTransition(to: .manage)
             })
             .disposed(by: disposeBag)
     }
