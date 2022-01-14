@@ -109,6 +109,13 @@ final class WebViewController: BaseViewController {
                 self?.loadWebPage(with: url)
             }
             .disposed(by: disposeBag)
+        
+        reloadUrlBarButton.rx
+            .tap
+            .subscribe { [weak self] _ in
+                self?.webView.reload()
+            }
+            .disposed(by: disposeBag)
     }
     
     private func appendHttpPrefixIfNeeded(to url: String?) -> String? {
