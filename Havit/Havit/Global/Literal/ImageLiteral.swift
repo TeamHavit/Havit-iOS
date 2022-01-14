@@ -56,6 +56,7 @@ enum ImageLiteral {
     static var imgSearch: UIImage { .load(named: "imgSearch")}
     static var imgTextLogo: UIImage { .load(named: "imgTextLogo")}
     static var imgTextLogoGray: UIImage { .load(named: "imgTextLogoGray")}
+    static var imgCategoryTip: UIImage { .load(named: "imgCategoryTip")}
 }
 
 extension UIImage {
