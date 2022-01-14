@@ -14,6 +14,39 @@ final class WebViewController: BaseViewController {
     
     weak var coordinator: WebViewCoordinator?
     private let url: String
+    
+    private let navigationBackBarButton: UIBarButtonItem = {
+        let backButtonImage = UIImage(named: "iconBackBlack")
+        let navigationBackBarButton = UIBarButtonItem(image: backButtonImage,
+                                                      style: .plain,
+                                                      target: nil,
+                                                      action: nil)
+        return navigationBackBarButton
+    }()
+    
+    private let urlTextField: UITextField = {
+        let textField = UITextField()
+        textField.frame = CGRect(origin: .zero,
+                                 size: CGSize(width: .max, height: 33))
+        textField.backgroundColor = .gray000
+        textField.layer.cornerRadius = 4
+        textField.font = .font(.pretendardReular, ofSize: 16)
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.keyboardType = .URL
+        return textField
+    }()
+    
+    private let reloadUrlBarButton: UIBarButtonItem = {
+        let reloadImage = UIImage(named: "iconRefresh")
+        let reloadUrlBarButton = UIBarButtonItem(image: reloadImage,
+                                                 style: .plain,
+                                                 target: nil,
+                                                 action: nil)
+        return reloadUrlBarButton
+    }()
+    
     private lazy var webView: WKWebView = {
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
@@ -45,6 +78,21 @@ final class WebViewController: BaseViewController {
     }
     
     // MARK: - func
+    
+    override func configUI() {
+        setupBaseNavigationBar()
+        setNavigationItem(leftBarButtonItem: navigationBackBarButton,
+                          titleView: urlTextField,
+                          rightBarButtonItem: reloadUrlBarButton)
+    }
+    
+    private func setNavigationItem(leftBarButtonItem: UIBarButtonItem,
+                                   titleView: UIView,
+                                   rightBarButtonItem: UIBarButtonItem) {
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.titleView = titleView
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
     
     private func loadWebPage(with url: String) {
         guard let url = URL(string: url) else {
