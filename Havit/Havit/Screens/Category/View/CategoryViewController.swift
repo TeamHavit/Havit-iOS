@@ -152,9 +152,7 @@ extension CategoryViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
-        cell.updateData(data: categoryList[indexPath.row])
-        categoryCountLabel.text = "전체 \(categoryList.count)"
-        
+        cell.update(data: categoryList[indexPath.row])
         return cell
     }
 }

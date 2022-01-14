@@ -68,7 +68,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - func
 
-    func updateData(data: CategoryListData) {
+    func update(data: CategoryListData) {
         categoryImageView.image = UIImage(named: data.categoryImageName)
         categoryTitleLabel.text = "\(data.categoryTitle)"
     }
