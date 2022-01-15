@@ -111,7 +111,6 @@ class CategoryViewController: BaseViewController {
 
     override func configUI() {
         super.configUI()
-        emptyCategoryView.isHidden = true
         setEmptyView()
 
         view.backgroundColor = .white
@@ -156,11 +155,7 @@ class CategoryViewController: BaseViewController {
     }
 
     private func setEmptyView() {
-        if categoryList.isEmpty {
-            emptyCategoryView.isHidden = false
-        } else {
-            emptyCategoryView.isHidden = true
-        }
+        emptyCategoryView.isHidden = categoryList.isEmpty ? false : true
     }
 }
 
