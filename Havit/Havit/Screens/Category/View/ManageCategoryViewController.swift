@@ -59,6 +59,10 @@ class ManageCategoryViewController: BaseViewController {
         setDelegation()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        setupBaseNavigationBar(backgroundColor: .white)
+    }
+
     override func render() {
         view.addSubViews([categoryCollectionView, noticeIcon, noticeLabel])
 
