@@ -26,6 +26,12 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         view.layer.cornerRadius = 6
         return view
     }()
+    private let notificationLabel: UILabel = {
+        let label = UILabel()
+        label.font = .font(.pretendardReular, ofSize: 14)
+        label.textColor = .white
+        return label
+    }()
 
     // MARK: - init
     
@@ -39,7 +45,9 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
+        sendSubviewToBack(contentView)
         addSubView(notificationView)
+        notificationView.addSubViews([notificationLabel])
         
         notificationView.snp.makeConstraints {
             $0.height.equalTo(44).priority(.high)
@@ -47,10 +55,21 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
             $0.bottom.equalToSuperview().inset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        notificationLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20)
+        }
     }
     
     override func configUI() {
         notificationView.setGradient(start: .havitPurple, end: UIColor(hex: "6A5BFF"))
+    }
+    
+    // MARK: - func
+    
+    func updateNotification(to text: String) {
+        notificationLabel.text = text
     }
 }
 

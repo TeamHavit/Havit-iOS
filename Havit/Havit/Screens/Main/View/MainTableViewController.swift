@@ -105,7 +105,7 @@ extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
             withType: ReachRateNotificationTableViewCell.self, for: indexPath)
-        
+        cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
         return cell
     }
 }
