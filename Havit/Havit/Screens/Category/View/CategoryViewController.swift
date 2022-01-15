@@ -7,8 +7,8 @@
 
 import UIKit
 
-import SnapKit
 import RxCocoa
+import SnapKit
 
 class CategoryViewController: BaseViewController {
 

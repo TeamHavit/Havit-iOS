@@ -7,6 +7,10 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import SnapKit
+
 class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
@@ -117,13 +121,10 @@ class ManageCategoryViewController: BaseViewController {
     }
 
     private func bind() {
-        backButton.rx.tap
-            .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .previous)
-            })
-            .disposed(by: disposeBag)
-
-        doneButton.rx.tap
+        Observable.merge(
+            backButton.rx.tap.map { $0 },
+            doneButton.rx.tap.map { $0 }
+        )
             .bind(onNext: { [weak self] in
                 self?.coordinator?.performTransition(to: .previous)
             })
