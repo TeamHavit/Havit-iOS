@@ -112,7 +112,7 @@ final class WebViewController: BaseViewController {
     private func bindInput() {
         navigationBackBarButton.rx
             .tap
-            .subscribe { [weak self] _ in
+            .bind { [weak self] _ in
                 self?.coordinator?.performTransition(to: .previous)
             }
             .disposed(by: disposeBag)
