@@ -8,9 +8,22 @@
 import Foundation
 
 final class WebViewCoordinator: BaseCoordinator {
-    func start(with url: String) {
-        let webViewController = WebViewController(url: url)
+    
+    enum WebViewTransition {
+        case previous
+    }
+    
+    func start(with urlString: String) {
+        let webViewController = WebViewController(urlString: urlString)
         webViewController.coordinator = self
         navigationController.pushViewController(webViewController, animated: true)
+    }
+    
+    func performTransition(to transition: WebViewTransition) {
+        switch transition {
+        case .previous:
+            parentCoordinator?.didFinish(coordinator: self)
+            navigationController.popViewController(animated: true)
+        }
     }
 }

@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "iconEdit.png",
       "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "iconEdit.png"
     },
     {
       "idiom" : "universal",

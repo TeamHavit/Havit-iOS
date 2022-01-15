@@ -11,6 +11,7 @@ final class CategoryCoordinator: BaseCoordinator {
 
     enum CategoryTransition {
         case main
+        case manage
     }
 
     override func start() {
@@ -24,6 +25,11 @@ final class CategoryCoordinator: BaseCoordinator {
         case .main:
             parentCoordinator?.didFinish(coordinator: self)
             navigationController.popViewController(animated: true)
+        case .manage:
+            removeChildCoordinators()
+            let coordinator = ManageCategoryCoordinator(navigationController: navigationController)
+            start(coordinator: coordinator)
+            
         }
     }
 }
