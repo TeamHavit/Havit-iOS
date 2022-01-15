@@ -90,12 +90,12 @@ final class RateContentView: UIView {
     }
     
     func updateRate(to watched: Int, with total: Int) {
-        let rate: Float = Float(watched / total)
+        let rate: Double = Double(watched) / Double(total)
         
         fractionLabel.text = "\(watched) / \(total)"
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
         progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
-        progressBar.progress = rate
+        progressBar.progress = Float(rate)
     }
 }
