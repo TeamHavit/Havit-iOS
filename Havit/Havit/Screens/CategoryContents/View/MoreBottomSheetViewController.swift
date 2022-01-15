@@ -46,6 +46,7 @@ class MoreBottomSheetViewController: BaseViewController {
     let moreTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(cell: MoreBottomSheetTableViewCell.self, forCellReuseIdentifier: MoreBottomSheetTableViewCell.className)
+        //sortTableView.separatorStyle = .none
         return tableView
     }()
     
@@ -101,11 +102,9 @@ class MoreBottomSheetViewController: BaseViewController {
             $0.leading.trailing.equalTo(view)
             $0.height.equalTo(400)
         }
-        
     }
     
     override func configUI() {
-        //sortTableView.separatorStyle = .none
         view.backgroundColor = .white
     }
     
@@ -125,7 +124,6 @@ extension MoreBottomSheetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: MoreBottomSheetTableViewCell.self, for: indexPath)
         cell.label.text = moreList[indexPath.row]
-        
         return cell
     }
 }

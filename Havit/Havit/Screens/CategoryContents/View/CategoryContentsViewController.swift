@@ -7,17 +7,15 @@
 
 import UIKit
 
-import RxSwift
-import SnapKit
 import BTNavigationDropdownMenu
 import MaterialComponents.MaterialBottomSheet
+import RxSwift
+import SnapKit
 
-class CategoryContentsViewController: BaseViewController {
+final class CategoryContentsViewController: BaseViewController {
     
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
-    
-    var isOpenDropDownView: Bool = false
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -55,6 +53,7 @@ class CategoryContentsViewController: BaseViewController {
         let button = UIButton()
         button.setTitle("수정", for: .normal)
         button.backgroundColor = UIColor.blue
+        button.addTarget(self, action: #selector(showSortBottomSheet(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -84,18 +83,6 @@ class CategoryContentsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
-        sortButton.addTarget(self, action: #selector(showSortBottomSheet(_:)), for: .touchUpInside)
-    }
-    
-    @objc func showSortBottomSheet(_ sender: UIButton) {
-            // 바텀 시트로 쓰일 뷰컨트롤러 생성
-            let vc = SortBottomSheetViewController()
-            
-            // MDC 바텀 시트로 설정
-            let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: vc)
-            
-            // 보여주기
-            present(bottomSheet, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,19 +92,19 @@ class CategoryContentsViewController: BaseViewController {
     
     override func render() {
         
-        // 메인 뷰 생성
+        // 메인 뷰
         self.view.addSubview(mainView)
 
-        // 필터 뷰 생성
+        // 필터 뷰
         self.view.addSubview(filterView)
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
         
-        // 필터 컬렉션 뷰 생성
+        // 필터 컬렉션 뷰
         filterView.addSubview(filterCollectionView)
         
-        // 메인 컨텐츠 뷰 생성
+        // 메인 컨텐츠 뷰 
         mainView.addSubview(contentsCollectionView)
         
         mainView.snp.makeConstraints {
@@ -175,7 +162,6 @@ class CategoryContentsViewController: BaseViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = true
         
-        // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = navigationRightButton
         
         navigationItem.searchController = searchController
@@ -195,6 +181,11 @@ class CategoryContentsViewController: BaseViewController {
         
     }
     
+    @objc func showSortBottomSheet(_ sender: UIButton) {
+        let vc = SortBottomSheetViewController()
+        let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: vc)
+        present(bottomSheet, animated: true, completion: nil)
+    }
 }
 
 extension CategoryContentsViewController: UISearchBarDelegate {

@@ -12,56 +12,56 @@ import SnapKit
 
 final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
-    var mainImageView: UIImageView = {
+     var mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-    var alarmImageView: UIImageView = {
+     var alarmImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-    var titleLabel: UILabel = {
+     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "슈슈슉 이것은 제목입니다 슈슉 슉슉 이것"
         label.numberOfLines = 0
         return label
     }()
     
-    var subtitleLabel: UILabel = {
+     var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "슈슈슉 이것은 제목입니다 슈슉 슉"
         return label
     }()
     
-    var dateLabel: UILabel = {
+     var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "2021. 11. 24"
         return label
     }()
     
-    var linkLabel: UILabel = {
+     var linkLabel: UILabel = {
         let label = UILabel()
         label.text = "www.beansbin.oopy.io"
         return label
     }()
     
-    var moreButton: UIButton = {
+     var moreButton: UIButton = {
         let button = UIButton()
         button.setTitle("...", for: .normal)
         return button
     }()
     
-    var isReadImageView: UIImageView = {
+     var isReadImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-    var alarmLabel: UILabel = {
+     var alarmLabel: UILabel = {
         let label = UILabel()
         label.text = "2021. 11. 17 오전 12:30 알림 예정"
         return label

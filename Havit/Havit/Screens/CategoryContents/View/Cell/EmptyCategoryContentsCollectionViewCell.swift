@@ -16,11 +16,13 @@ final class EmptyCategoryContentsCollectionViewCell: BaseCollectionViewCell {
         label.text = "아직 저장된 콘텐츠가 없습니다."
         return label
     }()
+    
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
+    
     var addButton: UIButton = {
         let button = UIButton()
         button.setTitle("콘텐츠 추가", for: .normal)
@@ -56,5 +58,4 @@ final class EmptyCategoryContentsCollectionViewCell: BaseCollectionViewCell {
             $0.top.equalTo(imageView).offset(24)
         }
     }
-    
 }

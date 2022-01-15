@@ -20,20 +20,15 @@ class SortBottomSheetViewController: BaseViewController {
     }()
     
     let sortTableView: UITableView = {
-        let tableView = UITableView()
-        
+        var tableView = UITableView()
+        tableView.register(cell: SortBottomSheetTableViewCell.self, forCellReuseIdentifier: SortBottomSheetTableViewCell.className)
+        //sortTableView.separatorStyle = .none
         return tableView
     }()
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        sortTableView.delegate = self
-        sortTableView.dataSource = self
-        sortTableView.register(cell: SortBottomSheetTableViewCell.self, forCellReuseIdentifier: SortBottomSheetTableViewCell.className)
-        
+        setDelegations()
     }
     
     override func render() {
@@ -49,14 +44,16 @@ class SortBottomSheetViewController: BaseViewController {
             $0.leading.trailing.equalTo(view)
             $0.height.equalTo(200)
         }
-        
     }
     
     override func configUI() {
-        //sortTableView.separatorStyle = .none
         view.backgroundColor = .white
     }
-
+    
+    func setDelegations() {
+        sortTableView.delegate = self
+        sortTableView.dataSource = self
+    }
 }
 
 extension SortBottomSheetViewController: UITableViewDelegate {
@@ -69,7 +66,6 @@ extension SortBottomSheetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: SortBottomSheetTableViewCell.self, for: indexPath)
         cell.label.text = sortList[indexPath.row]
-        
         return cell
     }
 
