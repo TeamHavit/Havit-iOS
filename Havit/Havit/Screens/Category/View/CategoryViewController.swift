@@ -13,6 +13,8 @@ import RxCocoa
 class CategoryViewController: BaseViewController {
 
     // MARK: - property
+
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: CategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -92,7 +94,6 @@ class CategoryViewController: BaseViewController {
 
         addButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(13)
-            $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
         }
@@ -104,6 +105,7 @@ class CategoryViewController: BaseViewController {
     }
 
     override func configUI() {
+        super.configUI()
         view.backgroundColor = .white
     }
 
@@ -117,6 +119,10 @@ class CategoryViewController: BaseViewController {
         title = "전체 카테고리"
         let font = UIFont.font(.pretendardBold, ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
+
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
+
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
     }
@@ -143,13 +149,14 @@ class CategoryViewController: BaseViewController {
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
+        cell.update(data: categoryList[indexPath.row])
         return cell
     }
 }
