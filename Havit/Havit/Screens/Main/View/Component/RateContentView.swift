@@ -39,9 +39,9 @@ final class RateContentView: UIView {
         bar.progressTintColor = .havitPurple
         return bar
     }()
+    private var timer: Timer?
     private var time: Float = 0.0
     private var progressRate: Float = 0.0
-    private var timer: Timer?
 
     // MARK: - init
     
