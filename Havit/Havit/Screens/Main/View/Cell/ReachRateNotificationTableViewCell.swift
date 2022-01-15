@@ -32,6 +32,11 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         label.textColor = .white
         return label
     }()
+    private let closeButton: UIButton = {
+        let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 16, height: 16)))
+        button.setImage(ImageLiteral.iconRounddelete, for: .normal)
+        return button
+    }()
 
     // MARK: - init
     
@@ -46,8 +51,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     
     override func render() {
         sendSubviewToBack(contentView)
-        addSubView(notificationView)
-        notificationView.addSubViews([notificationLabel])
+        addSubViews([notificationView, notificationLabel, closeButton])
         
         notificationView.snp.makeConstraints {
             $0.height.equalTo(44).priority(.high)
@@ -57,8 +61,13 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         }
         
         notificationLabel.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(20)
+            $0.centerY.equalTo(notificationView)
+            $0.leading.equalToSuperview().inset(36)
+        }
+        
+        closeButton.snp.makeConstraints {
+            $0.centerY.equalTo(notificationView)
+            $0.trailing.equalToSuperview().inset(29)
         }
     }
     
