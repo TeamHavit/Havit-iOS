@@ -28,7 +28,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
 
-    private let arrowImageView: UIImageView = {
+    private lazy var arrowImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.iconGoGray
         return image
