@@ -11,7 +11,7 @@ _**기억하고 싶은 모든 콘텐츠를 내 손 안에, HAVIT**_
 
 ### 🛠 Development Environment
 
-<img width="77" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/iOS-15.0+-silver"> <img width="85" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/Xcode-13.2.1-blue">
+<img width="77" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/iOS-15.0+-silver"> <img width="95" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/Xcode-13.2.1-blue">
 
 ### 🎁 Library
 
@@ -57,8 +57,8 @@ included:
   - Havit
 excluded:
   # AppDelegate, SceneDelegate file 무시
-  - Havit-iOS/Havit/Havit/Global/Supports/AppDelegate.swift
-  - Havit-iOS/Havit/Havit/Global/Supports/SceneDelegate.swift
+  - Havit/Global/Supports/AppDelegate.swift
+  - Havit/Global/Supports/SceneDelegate.swift
 
 identifier_name:
   excluded:
@@ -84,7 +84,6 @@ hotfix/11-main-activty-bug
 ```
 Havit-iOS
   |
-  |── Shared
   |── Share-Extension
   └── Havit
         |── Global
