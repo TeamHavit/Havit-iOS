@@ -30,5 +30,4 @@ class SortBottomSheetTableViewCell: BaseTableViewCell {
             $0.bottom.equalTo(contentView).offset(15)
         }
     }
-
 }
