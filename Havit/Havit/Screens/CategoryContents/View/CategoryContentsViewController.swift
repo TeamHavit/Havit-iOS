@@ -13,14 +13,14 @@ import RxSwift
 import SnapKit
 
 final class CategoryContentsViewController: BaseViewController {
-    enum ShowSort: String {
+    enum SortType {
         case sort1, sort2, sort3
     }
     
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
     
-    var sortNum: ShowSort = ShowSort.sort1
+    var sortNum: SortType = .sort1
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -92,7 +92,6 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func render() {
@@ -113,25 +112,22 @@ final class CategoryContentsViewController: BaseViewController {
         mainView.addSubview(contentsCollectionView)
         
         mainView.snp.makeConstraints {
-            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.bottom.trailing.top.equalTo(view.safeAreaLayoutGuide)
         }
 
         filterView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(mainView).offset(0)
+            $0.leading.trailing.equalTo(mainView)
             $0.top.equalTo(mainView).offset(17)
             $0.height.equalTo(67)
         }
 
         totalLabel.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(16)
-            $0.top.equalTo(filterView).offset(0)
+            $0.top.equalTo(filterView)
         }
 
         changeShowButton.snp.makeConstraints {
-            $0.top.equalTo(filterView).offset(0)
+            $0.top.equalTo(filterView)
             $0.trailing.equalTo(filterView).offset(-16)
             $0.width.equalTo(18)
             $0.height.equalTo(18)
@@ -145,7 +141,7 @@ final class CategoryContentsViewController: BaseViewController {
         }
 
         filterCollectionView.snp.makeConstraints {
-            $0.leading.equalTo(filterView).offset(0)
+            $0.leading.equalTo(filterView)
             $0.bottom.equalTo(filterView).offset(-9)
             $0.width.equalTo(250)
             $0.height.equalTo(31)
@@ -153,13 +149,14 @@ final class CategoryContentsViewController: BaseViewController {
 
         contentsCollectionView.snp.makeConstraints {
             $0.top.equalTo(filterView).offset(67)
-            $0.leading.equalTo(mainView).offset(0)
-            $0.trailing.equalTo(mainView).offset(0)
-            $0.bottom.equalTo(mainView).offset(0)
+            $0.leading.equalTo(mainView)
+            $0.trailing.equalTo(mainView)
+            $0.bottom.equalTo(mainView)
         }
     }
     
     override func configUI() {
+        super.configUI()
         setNavigationItems()
     }
     
@@ -173,7 +170,7 @@ final class CategoryContentsViewController: BaseViewController {
         navigationItem.titleView = menuView
     }
     
-    func setDelegations() {
+    private func setDelegations() {
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         contentsCollectionView.delegate = self
@@ -226,15 +223,15 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
         case contentsCollectionView:
             switch sortNum {
             case .sort1:
-                let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell.className, for: indexPath) as! ContentsCollectionViewCell
+                let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
             case .sort2:
-                let cell: SortTwoContentsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SortTwoContentsCollectionViewCell.className, for: indexPath) as! SortTwoContentsCollectionViewCell
+                let cell: SortTwoContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
             case .sort3:
-                let cell: SortThreeContentsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SortThreeContentsCollectionViewCell.className, for: indexPath) as! SortThreeContentsCollectionViewCell
+                let cell: SortThreeContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
             }
@@ -261,11 +258,12 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            if sortNum == .sort1 {
+            switch sortNum {
+            case .sort1:
                 return CGSize(width: view.frame.width, height: 139)
-            } else if sortNum == .sort2 {
+            case .sort2:
                 return CGSize(width: (view.frame.width / 2) - 9, height:253)
-            } else {
+            case .sort3:
                 return CGSize(width: view.frame.width, height: 290)
             }
         default:

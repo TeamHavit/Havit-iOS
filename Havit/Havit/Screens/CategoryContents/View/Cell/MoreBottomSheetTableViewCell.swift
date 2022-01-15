@@ -27,13 +27,13 @@ class MoreBottomSheetTableViewCell: BaseTableViewCell {
         contentView.addSubview(label)
         
         cellImageView.snp.makeConstraints {
-            $0.top.bottom.equalTo(contentView).offset(10)
-            $0.leading.equalTo(contentView).offset(16)
+            $0.top.bottom.equalTo(contentView).inset(10)
+            $0.leading.equalTo(contentView).inset(16)
         }
         
         label.snp.makeConstraints {
             $0.leading.equalTo(contentView).offset(7)
-            $0.top.bottom.equalTo(contentView).offset(14)
+            $0.top.bottom.equalTo(contentView).inset(14)
         }
     }
 

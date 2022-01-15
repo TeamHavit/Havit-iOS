@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 class MoreBottomSheetViewController: BaseViewController {
 
     // MARK: - Property
@@ -45,7 +47,7 @@ class MoreBottomSheetViewController: BaseViewController {
     
     let moreTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(cell: MoreBottomSheetTableViewCell.self, forCellReuseIdentifier: MoreBottomSheetTableViewCell.className)
+        tableView.register(cell: MoreBottomSheetTableViewCell.self)
         // sortTableView.separatorStyle = .none
         return tableView
     }()
@@ -57,16 +59,13 @@ class MoreBottomSheetViewController: BaseViewController {
     
     override func render() {
         view.addSubViews([titleLabel, topView, moreTableView])
-        topView.addSubview(topImageView)
-        topView.addSubview(topTitleLabel)
-        topView.addSubview(topDateLabel)
-        topView.addSubview(topLinkLabel)
+        topView.addSubViews([topImageView, topTitleLabel, topDateLabel, topLinkLabel])
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalTo(view).offset(148)
             $0.top.equalTo(view).offset(80)
         }
-        
+
         topView.snp.makeConstraints {
             $0.leading.equalTo(view)
             $0.top.equalTo(titleLabel)
@@ -108,7 +107,7 @@ class MoreBottomSheetViewController: BaseViewController {
         view.backgroundColor = .white
     }
     
-    func setDelegations() {
+    private func setDelegations() {
         moreTableView.delegate = self
         moreTableView.dataSource = self
     }
@@ -116,7 +115,7 @@ class MoreBottomSheetViewController: BaseViewController {
 
 extension MoreBottomSheetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return moreList.count
     }
 }
 

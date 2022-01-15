@@ -50,7 +50,7 @@ class SortBottomSheetViewController: BaseViewController {
         view.backgroundColor = .white
     }
     
-    func setDelegations() {
+    private func setDelegations() {
         sortTableView.delegate = self
         sortTableView.dataSource = self
     }
@@ -58,7 +58,7 @@ class SortBottomSheetViewController: BaseViewController {
 
 extension SortBottomSheetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return sortList.count
     }
 }
 

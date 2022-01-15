@@ -11,56 +11,56 @@ import SnapKit
 
 final class SortTwoContentsCollectionViewCell: BaseCollectionViewCell {
     
-    var mainImageView: UIImageView = {
+    private var mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-    var alarmImageView: UIImageView = {
+    private var alarmImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "슈슈슉 이것은 제목입니다 슈슉 슉슉 이것"
         label.numberOfLines = 0
         return label
     }()
     
-    var subtitleLabel: UILabel = {
+    private var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "슈슈슉 이것은 제목입니다 슈슉 슉"
         return label
     }()
     
-    var dateLabel: UILabel = {
+    private var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "2021. 11. 24"
         return label
     }()
     
-    var linkLabel: UILabel = {
+    private var linkLabel: UILabel = {
         let label = UILabel()
         label.text = "www.beansbin.oopy.io"
         return label
     }()
     
-    var moreButton: UIButton = {
+    private var moreButton: UIButton = {
         let button = UIButton()
         button.setTitle("...", for: .normal)
         return button
     }()
     
-    var isReadImageView: UIImageView = {
+    private var isReadImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-    var alarmLabel: UILabel = {
+    private var alarmLabel: UILabel = {
         let label = UILabel()
         label.text = "2021. 11. 17 오전 12:30 알림 예정"
         return label
@@ -81,31 +81,31 @@ final class SortTwoContentsCollectionViewCell: BaseCollectionViewCell {
         
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(16)
-            $0.leading.equalTo(contentView).offset(0)
-            $0.trailing.equalTo(contentView).offset(0)
+            $0.leading.equalTo(contentView)
+            $0.trailing.equalTo(contentView)
             $0.height.equalTo(109)
         }
         
         alarmImageView.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(0)
-            $0.top.equalTo(mainImageView).offset(0)
+            $0.leading.equalTo(mainImageView)
+            $0.top.equalTo(mainImageView)
             $0.width.equalTo(28)
             $0.height.equalTo(28)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView).offset(0)
+            $0.leading.equalTo(contentView)
             $0.top.equalTo(mainImageView).offset(10)
-            $0.trailing.equalTo(moreButton).offset(0)
+            $0.trailing.equalTo(moreButton)
         }
         
         subtitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView).offset(0)
+            $0.leading.equalTo(contentView)
             $0.top.equalTo(titleLabel).offset(5)
         }
         
         linkLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView).offset(0)
+            $0.leading.equalTo(contentView)
             $0.top.equalTo(subtitleLabel).offset(8)
         }
         
@@ -117,17 +117,17 @@ final class SortTwoContentsCollectionViewCell: BaseCollectionViewCell {
         }
         
         dateLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView).offset(0)
+            $0.leading.equalTo(contentView)
             $0.top.equalTo(linkLabel).offset(5)
         }
         
         alarmLabel.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(0)
-            $0.top.equalTo(mainImageView).offset(0)
+            $0.leading.equalTo(mainImageView)
+            $0.top.equalTo(mainImageView)
         }
         
         isReadImageView.snp.makeConstraints {
-            $0.trailing.equalTo(contentView).offset(0)
+            $0.trailing.equalTo(contentView)
             $0.bottom.equalTo(mainImageView).offset(-5)
             $0.width.equalTo(31)
             $0.height.equalTo(42)
