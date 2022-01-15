@@ -81,6 +81,7 @@ class MainTableViewController: BaseViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.register(cell: ReachRateNotificationTableViewCell.self)
         tableView.register(cell: ReachRateTableViewCell.self)
+        tableView.register(cell: CategoryListTableViewCell.self)
         return tableView
     }()
     private let headerView = MainSearchHeaderView()
@@ -134,7 +135,16 @@ extension MainTableViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
         case .category:
-            return UITableViewCell()
+            let row = CategorySection.init(rawValue: indexPath.row)
+            
+            switch row {
+            case .category:
+                let cell: CategoryListTableViewCell = tableView.dequeueReusableCell(
+                    withType: CategoryListTableViewCell.self, for: indexPath)
+                return cell
+            default:
+                return UITableViewCell()
+            }
         case .none:
             return UITableViewCell()
         }
