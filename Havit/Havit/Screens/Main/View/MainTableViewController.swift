@@ -98,7 +98,7 @@ extension MainTableViewController: UITableViewDataSource {
         
         switch section {
         case .reach:
-            rowCount = isDeleted ? min(rowCount - 1, 0) : rowCount
+            rowCount = isDeleted ? max(rowCount - 1, 0) : rowCount
         default:
             break
         }
@@ -173,7 +173,8 @@ extension MainTableViewController: UITableViewDelegate {
         let notificationFrame = tableView.rectForRow(at: IndexPath(row: 0, section: 0))
         let rateFrame = tableView.rectForRow(at: IndexPath(row: 1, section: 0))
         let sectionHeight = notificationFrame.height + rateFrame.height
+        let isScrolledOverReachSection = offsetY >= sectionHeight
         
-        headerView.updateBackgroundColor(to: (offsetY >= sectionHeight) ? .whiteGray : .clear)
+        headerView.updateBackgroundColor(to: isScrolledOverReachSection ? .whiteGray : .clear)
     }
 }
