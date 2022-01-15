@@ -51,6 +51,12 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        categoryImageView.image = nil
+        categoryTitleLabel.text = ""
+        backgroundColor = .purpleCategory
+    }
+
     // MARK: - life cycle
 
     override func render() {
