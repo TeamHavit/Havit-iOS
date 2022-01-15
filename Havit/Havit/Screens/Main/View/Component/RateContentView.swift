@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxSwift
 import SnapKit
 
 final class RateContentView: UIView {
@@ -38,6 +39,9 @@ final class RateContentView: UIView {
         bar.progressTintColor = .havitPurple
         return bar
     }()
+    private var time: Float = 0.0
+    private var progressRate: Float = 0.0
+    private var timer: Timer?
 
     // MARK: - init
     
@@ -88,17 +92,32 @@ final class RateContentView: UIView {
         makeShadow(.lightGray, 0.2, CGSize(width: 0, height: 5), 3)
     }
     
+    private func setProgressTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(animateProgressBar), userInfo: nil, repeats: true)
+    }
+    
+    @objc
+    private func animateProgressBar() {
+        time += 0.1
+        progressBar.setProgress(time, animated: true)
+        if time >= progressRate {
+            timer!.invalidate()
+        }
+    }
+    
     func updateName(to name: String) {
         nameLabel.text = "\(name)님의 도달률"
     }
     
     func updateRate(to watched: Int, with total: Int) {
         let rate: Double = Double(watched) / Double(total)
+        progressRate = Float(rate)
         
         fractionLabel.text = "\(watched) / \(total)"
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
         progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
-        progressBar.progress = Float(rate)
+        
+        setProgressTimer()
     }
 }
