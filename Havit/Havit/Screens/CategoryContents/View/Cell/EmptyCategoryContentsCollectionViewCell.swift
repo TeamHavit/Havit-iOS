@@ -35,11 +35,7 @@ final class EmptyCategoryContentsCollectionViewCell: BaseCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
     }
-    
-    override func configUI() {
-        
-    }
-    
+
     override func render() {
         contentView.addSubViews([noticeLabel, imageView, addButton])
         

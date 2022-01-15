@@ -68,13 +68,14 @@ class CategoryContentsViewController: BaseViewController {
     }()
     
     var filterCollectionView: UICollectionView = {
-        var collectionView = UICollectionView()
+        var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.backgroundColor = .blue
         collectionView.register(cell: CategoryFilterCollectionViewCell.self)
         return collectionView
     }()
+    
     var contentsCollectionView: UICollectionView = {
-        var collectionView = UICollectionView()
+        var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.backgroundColor = .green
         collectionView.register(cell: SortTwoContentsCollectionViewCell.self)
         return collectionView
@@ -83,10 +84,7 @@ class CategoryContentsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
-    }
-    
-    override func configUI() {
-        setNavigationItems()
+        sortButton.addTarget(self, action: #selector(showSortBottomSheet(_:)), for: .touchUpInside)
     }
     
     @objc func showSortBottomSheet(_ sender: UIButton) {
@@ -117,17 +115,16 @@ class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(sortButton)
         
         // 필터 컬렉션 뷰 생성
-      
         filterView.addSubview(filterCollectionView)
         
         // 메인 컨텐츠 뷰 생성
         mainView.addSubview(contentsCollectionView)
         
         mainView.snp.makeConstraints {
-            $0.leading.equalTo(view)
-            $0.bottom.equalTo(view)
-            $0.trailing.equalTo(view)
-            $0.top.equalTo(view).offset(17)
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
 
         filterView.snp.makeConstraints {
@@ -170,6 +167,9 @@ class CategoryContentsViewController: BaseViewController {
         }
     }
     
+    override func configUI() {
+        setNavigationItems()
+    }
     
     func setNavigationItems() {
         searchController.hidesNavigationBarDuringPresentation = false
@@ -182,7 +182,6 @@ class CategoryContentsViewController: BaseViewController {
         let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
         let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, viewController: self, containerView: self.navigationController!.view, title: BTTitle.title("카테고리"), items: items)
         navigationItem.titleView = menuView
-    
     }
     
     func setDelegations() {

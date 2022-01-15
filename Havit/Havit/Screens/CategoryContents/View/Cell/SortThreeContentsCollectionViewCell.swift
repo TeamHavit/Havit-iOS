@@ -75,10 +75,6 @@ final class SortThreeContentsCollectionViewCell: BaseCollectionViewCell {
         super.init(frame: .zero)
     }
     
-     override func configUI() {
-       
-    }
-    
     override func render() {
         contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
         mainImageView.addSubview(alarmImageView)
