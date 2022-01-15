@@ -97,4 +97,11 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             }
         }
     }
+
+    // MARK: - func
+
+    func update(data: CategoryListData) {
+        categoryImageView.image = UIImage(named: data.categoryImageName)
+        categoryTitleLabel.text = "\(data.categoryTitle)"
+    }
 }

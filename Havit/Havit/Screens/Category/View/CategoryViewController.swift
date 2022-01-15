@@ -14,6 +14,7 @@ class CategoryViewController: BaseViewController {
 
     // MARK: - property
 
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: CategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -92,7 +93,6 @@ class CategoryViewController: BaseViewController {
 
         addButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(13)
-            $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
         }
@@ -104,6 +104,7 @@ class CategoryViewController: BaseViewController {
     }
 
     override func configUI() {
+        super.configUI()
         view.backgroundColor = .white
         setNavigationItem()
         bind()
@@ -147,13 +148,14 @@ class CategoryViewController: BaseViewController {
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
+        cell.update(data: categoryList[indexPath.row])
         cell.configure(type: .category)
         return cell
     }
