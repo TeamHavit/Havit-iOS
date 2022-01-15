@@ -66,22 +66,23 @@ final class SortThreeContentsCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        configUI()
-        setAutoLayouts()
     }
     
      override func configUI() {
-        contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
-        mainImageView.addSubview(alarmImageView)
+       
     }
     
-    func setAutoLayouts() {
+    override func render() {
+        contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView])
+        mainImageView.addSubview(alarmImageView)
+        
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(17)
             $0.leading.equalTo(contentView).offset(16)
@@ -90,8 +91,8 @@ final class SortThreeContentsCollectionViewCell: BaseCollectionViewCell {
         }
         
         alarmImageView.snp.makeConstraints {
-            $0.leading.equalTo(mainImageView).offset(0)
-            $0.top.equalTo(mainImageView).offset(0)
+            $0.leading.equalTo(mainImageView)
+            $0.top.equalTo(mainImageView)
             $0.width.equalTo(28)
             $0.height.equalTo(28)
         }

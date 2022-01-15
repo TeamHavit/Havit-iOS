@@ -1,0 +1,23 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "카테고리 이미지 조회 성공",
+    "data": [
+        {
+            "id": 1,
+            "image": "https://sample.com"
+        },
+        {
+            "id": 2,
+            "image": "https://sample.com"
+        },
+        {
+            "id": 3,
+            "image": "https://sample.com"
+        },
+        {
+            "id": 4,
+            "image": "https://sample.com"
+        }
+    ]
+}

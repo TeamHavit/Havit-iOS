@@ -22,6 +22,7 @@ class CategoryContentsViewController: BaseViewController {
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
+        searchController.hidesNavigationBarDuringPresentation = false
         return searchController
     }()
     
@@ -66,19 +67,26 @@ class CategoryContentsViewController: BaseViewController {
         
     }()
     
-    var filterCollectionView: UICollectionView!
-    var contentsCollectionView: UICollectionView!
-    
-    // MARK: - View life Cycle
+    var filterCollectionView: UICollectionView = {
+        var collectionView = UICollectionView()
+        collectionView.backgroundColor = .blue
+        collectionView.register(cell: CategoryFilterCollectionViewCell.self)
+        return collectionView
+    }()
+    var contentsCollectionView: UICollectionView = {
+        var collectionView = UICollectionView()
+        collectionView.backgroundColor = .green
+        collectionView.register(cell: SortTwoContentsCollectionViewCell.self)
+        return collectionView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionViews()
+        setDelegations()
+    }
+    
+    override func configUI() {
         setNavigationItems()
-        setAutoLayouts()
-        view.backgroundColor = .red
-        
-        sortButton.addTarget(self, action: #selector(showSortBottomSheet(_:)), for: .touchUpInside)
     }
     
     @objc func showSortBottomSheet(_ sender: UIButton) {
@@ -97,12 +105,7 @@ class CategoryContentsViewController: BaseViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    override func configUI() {
-        
-        // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
-        
-        // 검색 뷰 생성
-        
+    override func render() {
         
         // 메인 뷰 생성
         self.view.addSubview(mainView)
@@ -112,21 +115,19 @@ class CategoryContentsViewController: BaseViewController {
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
-    }
-    
-    func setAutoLayouts() {
         
-//        searchController.searchBar.snp.makeConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-//            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-//        }
+        // 필터 컬렉션 뷰 생성
+      
+        filterView.addSubview(filterCollectionView)
+        
+        // 메인 컨텐츠 뷰 생성
+        mainView.addSubview(contentsCollectionView)
         
         mainView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.leading.equalTo(view)
+            $0.bottom.equalTo(view)
+            $0.trailing.equalTo(view)
+            $0.top.equalTo(view).offset(17)
         }
 
         filterView.snp.makeConstraints {
@@ -184,22 +185,11 @@ class CategoryContentsViewController: BaseViewController {
     
     }
     
-    func setCollectionViews() {
-        // 필터 컬렉션 뷰 생성
-        filterCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        filterCollectionView.backgroundColor = .blue
+    func setDelegations() {
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
-        filterCollectionView.register(cell: CategoryFilterCollectionViewCell.self)
-        filterView.addSubview(filterCollectionView)
-        
-        // 메인 컨텐츠 뷰 생성
-        contentsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        contentsCollectionView.backgroundColor = .green
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
-        contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
-        mainView.addSubview(contentsCollectionView)
     }
     
     @objc func goToCategoryCorrection(_: UIButton) {
