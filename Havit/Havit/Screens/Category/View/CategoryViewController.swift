@@ -106,6 +106,7 @@ class CategoryViewController: BaseViewController {
     override func configUI() {
         super.configUI()
         view.backgroundColor = .white
+        setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, shadowImage: UIImage(), isTranslucent: false)
         setNavigationItem()
         bind()
     }

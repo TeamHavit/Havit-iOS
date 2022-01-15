@@ -14,6 +14,6 @@ struct CategoryListData {
 
 extension CategoryListData {
     static let dummy: [CategoryListData] = (0...12).map { index in
-        CategoryListData(categoryImageName: "category_icon", categoryTitle: "UX/UI 아티클 \(index)")
+        CategoryListData(categoryImageName: "imgCategoryNone", categoryTitle: "UX/UI 아티클 \(index)")
     }
 }
