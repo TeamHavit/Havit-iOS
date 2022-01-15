@@ -79,8 +79,8 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     
     override func configUI() {
         backgroundColor = .clear
-        notificationView.setGradient([UIColor.havitPurple.cgColor,
-                                      UIColor(hex: "6A5BFF").cgColor])
+        notificationView.setGradient(colors: [UIColor.havitPurple.cgColor,
+                                              UIColor(hex: "6A5BFF").cgColor])
     }
     
     // MARK: - func

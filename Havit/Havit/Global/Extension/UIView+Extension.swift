@@ -21,10 +21,10 @@ extension UIView {
     }
     
     @discardableResult
-    func setGradient(_ colors: [CGColor],
-                     _ locations: [NSNumber] = [0.0, 1.0],
-                     _ startPoint: CGPoint = CGPoint(x: 0.0, y: 0.0),
-                     _ endPoint: CGPoint = CGPoint(x: 1.0, y: 0.0)) -> Self {
+    func setGradient(colors: [CGColor],
+                     locations: [NSNumber] = [0.0, 1.0],
+                     startPoint: CGPoint = CGPoint(x: 0.0, y: 0.0),
+                     endPoint: CGPoint = CGPoint(x: 1.0, y: 0.0)) -> Self {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.colors = colors
         gradient.locations = locations
