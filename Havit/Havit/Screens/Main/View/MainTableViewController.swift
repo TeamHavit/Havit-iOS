@@ -112,9 +112,11 @@ extension MainTableViewController: UITableViewDataSource {
         switch section {
         case .reach:
             let row = ReachSection.init(rawValue: indexPath.row)
+            guard var rowValue = row?.rawValue else { return UITableViewCell() }
+            rowValue = isDeleted ? rowValue + 1 : rowValue
             
-            switch row {
-            case .notification:
+            switch rowValue {
+            case 0:
                 let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
                     withType: ReachRateNotificationTableViewCell.self, for: indexPath)
                 cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
@@ -123,12 +125,12 @@ extension MainTableViewController: UITableViewDataSource {
                     tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue, section: Section.reach.rawValue)], with: .fade)
                 }
                 return cell
-            case .progress:
+            case 1:
                 let cell: ReachRateTableViewCell = tableView.dequeueReusableCell(
                     withType: ReachRateTableViewCell.self, for: indexPath)
                 cell.updateData(name: "박태준", watched: 62, total: 145)
                 return cell
-            case .none:
+            default:
                 return UITableViewCell()
             }
         case .category:

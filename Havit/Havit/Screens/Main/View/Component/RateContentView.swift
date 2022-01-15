@@ -49,6 +49,7 @@ final class RateContentView: UIView {
         super.init(frame: frame)
         render()
         configUI()
+        setProgressTimer()
     }
     
     @available(*, unavailable)
@@ -117,7 +118,5 @@ final class RateContentView: UIView {
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
         progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
-        
-        setProgressTimer()
     }
 }
