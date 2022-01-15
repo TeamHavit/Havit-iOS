@@ -62,14 +62,15 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        notificationLabel.snp.makeConstraints {
-            $0.centerY.equalTo(notificationView)
-            $0.leading.equalToSuperview().inset(36)
-        }
-        
         closeButton.snp.makeConstraints {
             $0.centerY.equalTo(notificationView)
             $0.trailing.equalToSuperview().inset(29)
+        }
+        
+        notificationLabel.snp.makeConstraints {
+            $0.centerY.equalTo(notificationView)
+            $0.leading.equalToSuperview().inset(36)
+            $0.trailing.equalTo(closeButton.snp.leading).offset(-5)
         }
     }
     
