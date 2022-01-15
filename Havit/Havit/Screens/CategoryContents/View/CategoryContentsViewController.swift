@@ -14,13 +14,13 @@ import SnapKit
 
 final class CategoryContentsViewController: BaseViewController {
     enum ShowSort: String {
-        case Sort1, Sort2, Sort3
+        case sort1, sort2, sort3
     }
     
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
     
-    var sortNum: ShowSort = ShowSort.Sort1
+    var sortNum: ShowSort = ShowSort.sort1
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -59,7 +59,7 @@ final class CategoryContentsViewController: BaseViewController {
         let button = UIButton()
         button.setTitle("수정", for: .normal)
         button.backgroundColor = UIColor.blue
-        button.addTarget(self, action: #selector(showSortBottomSheet(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showSortBottomSheetViewController(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -164,10 +164,8 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     func setNavigationItems() {
-        searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = true
-        
-        self.navigationItem.rightBarButtonItem = navigationRightButton
+        navigationItem.rightBarButtonItem = navigationRightButton
         
         navigationItem.searchController = searchController
         let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
@@ -186,23 +184,23 @@ final class CategoryContentsViewController: BaseViewController {
         
     }
     
-    @objc func showSortBottomSheet(_ sender: UIButton) {
-        let vc = SortBottomSheetViewController()
-        let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: vc)
+    @objc func showSortBottomSheetViewController(_ sender: UIButton) {
+        let viewController = SortBottomSheetViewController()
+        let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: viewController)
         present(bottomSheet, animated: true, completion: nil)
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {
         print("change!")
         switch sortNum {
-        case .Sort1:
-            sortNum = .Sort2
+        case .sort1:
+            sortNum = .sort2
             contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
-        case .Sort2:
-            sortNum = .Sort3
+        case .sort2:
+            sortNum = .sort3
             contentsCollectionView.register(cell: SortThreeContentsCollectionViewCell.self)
-        case .Sort3:
-            sortNum = .Sort1
+        case .sort3:
+            sortNum = .sort1
             contentsCollectionView.register(cell: ContentsCollectionViewCell.self)
         }
         contentsCollectionView.reloadData()
@@ -227,21 +225,20 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             return cell
         case contentsCollectionView:
             switch sortNum {
-            case .Sort1:
+            case .sort1:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentsCollectionViewCell.className, for: indexPath) as! ContentsCollectionViewCell
                 cell.backgroundColor = .white
                 return cell
-            case .Sort2:
+            case .sort2:
                 let cell: SortTwoContentsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SortTwoContentsCollectionViewCell.className, for: indexPath) as! SortTwoContentsCollectionViewCell
                 cell.backgroundColor = .white
                 return cell
-            case .Sort3:
+            case .sort3:
                 let cell: SortThreeContentsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SortThreeContentsCollectionViewCell.className, for: indexPath) as! SortThreeContentsCollectionViewCell
                 cell.backgroundColor = .white
                 return cell
             }
         default:
-            print("?????????")
             return UICollectionViewCell()
         }
     }
@@ -264,9 +261,9 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            if sortNum == .Sort1 {
+            if sortNum == .sort1 {
                 return CGSize(width: view.frame.width, height: 139)
-            } else if sortNum == .Sort2 {
+            } else if sortNum == .sort2 {
                 return CGSize(width: (view.frame.width / 2) - 9, height:253)
             } else {
                 return CGSize(width: view.frame.width, height: 290)

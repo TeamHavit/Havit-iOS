@@ -9,10 +9,10 @@ import UIKit
 
 import SnapKit
 
-let sortList = ["최신순", "과거순", "최근 조회순"]
-
 class SortBottomSheetViewController: BaseViewController {
     // MARK: - Property
+    let sortList = ["최신순", "과거순", "최근 조회순"]
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "정렬"

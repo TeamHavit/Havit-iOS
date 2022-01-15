@@ -7,11 +7,11 @@
 
 import UIKit
 
-let moreList = ["제목 수정", "공유", "카테고리 이동"]
-
 class MoreBottomSheetViewController: BaseViewController {
 
     // MARK: - Property
+    let moreList = ["제목 수정", "공유", "카테고리 이동"]
+    
     let titleLabel: UILabel  = {
         let label = UILabel()
         label.text = "더보기"
