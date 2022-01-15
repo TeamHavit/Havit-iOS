@@ -111,31 +111,29 @@ extension MainTableViewController: UITableViewDataSource {
         
         switch section {
         case .reach:
-            let row = ReachSection.init(rawValue: indexPath.row)
-            
-            switch row {
-            case .notification:
-                let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
-                    withType: ReachRateNotificationTableViewCell.self, for: indexPath)
-                cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
-                cell.rx.didTapCloseButton
-                    .bind(onNext: { [weak self] in
-                        self?.isDeleted = true
-                        tableView.deleteRows(
-                            at: [IndexPath.init(row: ReachSection.notification.rawValue,
-                                                section: Section.reach.rawValue)],
-                            with: .fade
-                        )
-                    })
-                    .disposed(by: disposeBag)
-                return cell
-            case .progress:
+            if indexPath.row == 0 {
+                if isDeleted {
+                    let cell: ReachRateTableViewCell = tableView.dequeueReusableCell(
+                        withType: ReachRateTableViewCell.self, for: indexPath)
+                    cell.updateData(name: "박태준", watched: 62, total: 145)
+                    return cell
+                } else {
+                    let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
+                        withType: ReachRateNotificationTableViewCell.self, for: indexPath)
+                    cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
+                    cell.rx.didTapCloseButton
+                        .bind(onNext: { [weak self] in
+                            self?.isDeleted = true
+                            tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue, section: Section.reach.rawValue)], with: .fade)
+                        })
+                        .disposed(by: disposeBag)
+                    return cell
+                }
+            } else {
                 let cell: ReachRateTableViewCell = tableView.dequeueReusableCell(
                     withType: ReachRateTableViewCell.self, for: indexPath)
                 cell.updateData(name: "박태준", watched: 62, total: 145)
                 return cell
-            case .none:
-                return UITableViewCell()
             }
         case .category:
             return UITableViewCell()
