@@ -94,11 +94,11 @@ extension MainTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = Section.init(rawValue: section)
-        var rowCount = section?.numberOfRows ?? 0
+        guard var rowCount = section?.numberOfRows else { return 0 }
         
         switch section {
         case .reach:
-            rowCount = isDeleted ? rowCount - 1 : rowCount
+            rowCount = isDeleted ? min(rowCount - 1, 0) : rowCount
         default:
             break
         }
