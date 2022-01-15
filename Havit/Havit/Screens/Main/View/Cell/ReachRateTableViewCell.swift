@@ -14,10 +14,10 @@ final class ReachRateTableViewCell: BaseTableViewCell {
     private let rateContentView = RateContentView()
     private let unwatchedButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
-        let button = UIButton()
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 11, bottom: 6, trailing: 11)
         configuration.attributedTitle = AttributedString("봐야 하는 콘텐츠", attributes: AttributeContainer([.font: UIFont.font(.pretendardMedium, ofSize: 12),
                                 .foregroundColor: UIColor.gray003]))
+        let button = UIButton()
         button.configuration = configuration
         button.layer.cornerRadius = 4
         button.layer.borderColor = UIColor.purple002.cgColor
