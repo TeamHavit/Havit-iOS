@@ -89,7 +89,7 @@ final class RateContentView: UIView {
     private func configUI() {
         backgroundColor = .white
         layer.cornerRadius = 6
-        makeShadow(.lightGray, 0.2, CGSize(width: 0, height: 5), 3)
+        makeShadow(.gray002, 0.2, CGSize(width: 0, height: 5), 5)
     }
     
     private func setProgressTimer() {
