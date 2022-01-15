@@ -16,7 +16,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
 
-    private lazy var categoryImageView: UIImageView = {
+    private let categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
         return image
@@ -34,7 +34,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         return image
     }()
 
-    private let editButton: UIButton = {
+    private lazy var editButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiteral.iconCategoryEdit, for: .normal)
         return button
