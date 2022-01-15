@@ -68,15 +68,15 @@ class ManageCategoryViewController: BaseViewController {
 
         noticeIcon.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(29)
-            $0.trailing.equalTo(noticeLabel.snp.leading).offset(-5)
+            $0.leading.equalToSuperview().inset(26)
             $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-15)
+            $0.width.height.equalTo(12)
         }
 
         noticeLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(26)
             $0.leading.equalTo(noticeIcon.snp.trailing).offset(5)
             $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-13)
-            $0.centerX.equalToSuperview()
         }
 
         categoryCollectionView.snp.makeConstraints {
@@ -111,7 +111,6 @@ class ManageCategoryViewController: BaseViewController {
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: doneButton)
     }
 
-    // 이 함수가 앞에 categoryVC에도 똑같이 정의되어있는데 혹시 가져와서 쓸 쑤 있는 방법이 있을까요??
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
         button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         return UIBarButtonItem(customView: button)

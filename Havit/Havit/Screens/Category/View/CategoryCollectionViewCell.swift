@@ -16,7 +16,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
 
-    private let categoryImageView: UIImageView = {
+    private lazy var categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
         return image
