@@ -68,5 +68,4 @@ extension SortBottomSheetViewController: UITableViewDataSource {
         cell.label.text = sortList[indexPath.row]
         return cell
     }
-
 }
