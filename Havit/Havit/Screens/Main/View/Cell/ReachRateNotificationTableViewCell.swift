@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class ReachRateNotificationTableViewCell: BaseTableViewCell {
@@ -32,7 +34,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         label.textColor = .white
         return label
     }()
-    private let closeButton: UIButton = {
+    fileprivate let closeButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 16, height: 16)))
         button.setImage(ImageLiteral.iconRounddelete, for: .normal)
         return button
@@ -72,7 +74,9 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     }
     
     override func configUI() {
-        notificationView.setGradient(start: .havitPurple, end: UIColor(hex: "6A5BFF"))
+        backgroundColor = .clear
+        notificationView.setGradient([UIColor.havitPurple.cgColor,
+                                      UIColor(hex: "6A5BFF").cgColor])
     }
     
     // MARK: - func
@@ -82,14 +86,10 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     }
 }
 
-private extension UIView {
-    func setGradient(start startColor: UIColor, end endColor: UIColor) {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [startColor.cgColor, endColor.cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.frame = bounds
-        layer.addSublayer(gradient)
+extension Reactive where Base: ReachRateNotificationTableViewCell {
+    var didTapCloseButton: Observable<Void> {
+        base
+            .closeButton.rx.tap
+            .asObservable()
     }
 }

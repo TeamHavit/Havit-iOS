@@ -91,6 +91,8 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: ReachRateNotificationTableViewCell.self)
         return tableView
     }()
+    
+    var isDeleted: Bool = false
 }
 
 extension MainTableViewController: UITableViewDataSource {
@@ -99,13 +101,33 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Section.init(rawValue: section)?.numberOfRows ?? 0
+        let section = Section.init(rawValue: section)
+        var rowCount = section?.numberOfRows ?? 0
+        
+        switch section {
+        case .reach:
+            rowCount = isDeleted ? rowCount - 1 : rowCount
+        default:
+            break
+        }
+        
+        return rowCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
             withType: ReachRateNotificationTableViewCell.self, for: indexPath)
         cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
+        cell.rx.didTapCloseButton
+            .bind(onNext: { [weak self] in
+                self?.isDeleted = true
+                tableView.deleteRows(
+                    at: [IndexPath.init(row: ReachSection.notification.rawValue,
+                                        section: Section.reach.rawValue)],
+                    with: .fade
+                )
+            })
+            .disposed(by: disposeBag)
         return cell
     }
 }

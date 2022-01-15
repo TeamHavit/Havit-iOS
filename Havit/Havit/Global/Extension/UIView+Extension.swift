@@ -20,6 +20,21 @@ extension UIView {
         return self
     }
     
+    @discardableResult
+    func setGradient(_ colors: [CGColor],
+                     _ locations: [NSNumber] = [0.0, 1.0],
+                     _ startPoint: CGPoint = CGPoint(x: 0.0, y: 0.0),
+                     _ endPoint: CGPoint = CGPoint(x: 1.0, y: 0.0)) -> Self {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = colors
+        gradient.locations = locations
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
+        gradient.frame = self.bounds
+        layer.addSublayer(gradient)
+        return self
+    }
+    
     func addSubView<T: UIView>(_ subview: T, completionHandler closure: ((T) -> Void)? = nil) {
         addSubview(subview)
         closure?(subview)
