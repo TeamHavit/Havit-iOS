@@ -45,7 +45,6 @@ enum ImageLiteral {
     static var iconSearch: UIImage { .load(named: "iconSearch")}
     static var iconShare: UIImage { .load(named: "iconShare")}
     static var iconUpdown: UIImage { .load(named: "iconUpdown")}
-    static var iconRounddelete: UIImage { .load(named: "iconRounddelete")}
     
     static var imgCategoryNone: UIImage { .load(named: "imgCategoryNone")}
     static var imgDummyContent: UIImage { .load(named: "imgDummyContent")}
