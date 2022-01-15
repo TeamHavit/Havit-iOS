@@ -41,15 +41,6 @@ class MainTableViewController: BaseViewController {
             }
         }
         
-        var headerView: UIView {
-            switch self {
-            case .category:
-                return MainSearchHeaderView()
-            default:
-                return UIView()
-            }
-        }
-        
         var headerHeight: CGFloat {
             switch self {
             case .category:
@@ -92,8 +83,8 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: ReachRateTableViewCell.self)
         return tableView
     }()
-    
-    var isDeleted: Bool = false
+    private let headerView = MainSearchHeaderView()
+    private var isDeleted: Bool = false
 }
 
 extension MainTableViewController: UITableViewDataSource {
@@ -141,7 +132,7 @@ extension MainTableViewController: UITableViewDataSource {
             case .progress:
                 let cell: ReachRateTableViewCell = tableView.dequeueReusableCell(
                     withType: ReachRateTableViewCell.self, for: indexPath)
-                cell.updateData(name: "윤아", watched: 30, total: 160)
+                cell.updateData(name: "박태준", watched: 62, total: 145)
                 return cell
             case .none:
                 return UITableViewCell()
@@ -160,7 +151,13 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return Section.init(rawValue: section)?.headerView
+        let section = Section.init(rawValue: section)
+        switch section {
+        case .category:
+            return headerView
+        default:
+            return UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -173,5 +170,14 @@ extension MainTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return Section.init(rawValue: section)?.footerHeight ?? .zero
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let notificationFrame = tableView.rectForRow(at: IndexPath(row: 0, section: 0))
+        let rateFrame = tableView.rectForRow(at: IndexPath(row: 1, section: 0))
+        let sectionHeight = notificationFrame.height + rateFrame.height
+        
+        headerView.updateBackgroundColor(to: (offsetY >= sectionHeight) ? .whiteGray : .clear)
     }
 }

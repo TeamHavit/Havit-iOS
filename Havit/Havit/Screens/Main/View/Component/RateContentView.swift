@@ -67,22 +67,23 @@ final class RateContentView: UIView {
         }
         
         progressBar.snp.makeConstraints {
-            $0.top.equalTo(fractionLabel.snp.bottom).offset(9)
+            $0.top.equalTo(fractionLabel.snp.bottom).offset(5)
             $0.leading.equalTo(nameLabel)
+            $0.height.equalTo(5)
         }
         
         progressLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(17)
-            $0.bottom.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(10)
             $0.leading.equalTo(progressBar.snp.trailing).offset(3)
-            $0.width.equalTo(69).priority(.high)
+            $0.width.equalTo(87).priority(.high)
         }
     }
     
     private func configUI() {
         backgroundColor = .white
         layer.cornerRadius = 6
-        makeShadow(.black, 0.8, CGSize(width: UIScreen.main.bounds.width, height: 3), 3)
+        makeShadow(.lightGray, 0.2, CGSize(width: 0, height: 5), 3)
     }
     
     func updateName(to name: String) {

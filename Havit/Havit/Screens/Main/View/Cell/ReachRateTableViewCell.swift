@@ -35,6 +35,10 @@ final class ReachRateTableViewCell: BaseTableViewCell {
         }
     }
     
+    override func configUI() {
+        backgroundColor = .clear
+    }
+    
     // MARK: - func
     
     func updateData(name: String, watched: Int, total: Int) {
