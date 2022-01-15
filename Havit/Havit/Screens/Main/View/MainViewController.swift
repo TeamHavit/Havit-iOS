@@ -38,6 +38,7 @@ final class MainViewController: MainTableViewController {
     }
     
     override func configUI() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .whiteGray
     }
 }
