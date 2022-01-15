@@ -36,7 +36,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         label.textColor = .white
         return label
     }()
-    fileprivate let closeButton: UIButton = {
+    private let closeButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 16, height: 16)))
         button.backgroundColor = .purple002
         return button
