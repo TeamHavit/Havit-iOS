@@ -31,7 +31,14 @@ final class ReachRateTableViewCell: BaseTableViewCell {
             $0.top.equalToSuperview().inset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(2)
-            $0.width.equalTo(109)
+            $0.height.equalTo(109).priority(.high)
         }
+    }
+    
+    // MARK: - func
+    
+    func updateData(name: String, watched: Int, total: Int) {
+        rateContentView.updateName(to: name)
+        rateContentView.updateRate(to: watched, with: total)
     }
 }

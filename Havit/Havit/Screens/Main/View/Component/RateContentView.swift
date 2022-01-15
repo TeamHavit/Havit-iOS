@@ -75,7 +75,7 @@ final class RateContentView: UIView {
             $0.trailing.equalToSuperview().inset(17)
             $0.bottom.equalToSuperview().inset(16)
             $0.leading.equalTo(progressBar.snp.trailing).offset(3)
-            $0.width.equalTo(69)
+            $0.width.equalTo(69).priority(.high)
         }
     }
     
@@ -94,7 +94,7 @@ final class RateContentView: UIView {
         
         fractionLabel.text = "\(watched) / \(total)"
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
-        progressLabel.text = String(floor(rate * 100))
+        progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
         progressBar.progress = rate
     }
