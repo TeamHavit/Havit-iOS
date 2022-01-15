@@ -46,7 +46,7 @@ class MoreBottomSheetViewController: BaseViewController {
     let moreTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(cell: MoreBottomSheetTableViewCell.self, forCellReuseIdentifier: MoreBottomSheetTableViewCell.className)
-        //sortTableView.separatorStyle = .none
+        // sortTableView.separatorStyle = .none
         return tableView
     }()
     

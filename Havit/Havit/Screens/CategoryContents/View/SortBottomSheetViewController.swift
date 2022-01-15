@@ -22,7 +22,7 @@ class SortBottomSheetViewController: BaseViewController {
     let sortTableView: UITableView = {
         var tableView = UITableView()
         tableView.register(cell: SortBottomSheetTableViewCell.self, forCellReuseIdentifier: SortBottomSheetTableViewCell.className)
-        //sortTableView.separatorStyle = .none
+        // sortTableView.separatorStyle = .none
         return tableView
     }()
 
