@@ -49,7 +49,7 @@ final class RateContentView: UIView {
         super.init(frame: frame)
         render()
         configUI()
-//        setProgressTimer()
+        setProgressTimer()
     }
     
     @available(*, unavailable)
