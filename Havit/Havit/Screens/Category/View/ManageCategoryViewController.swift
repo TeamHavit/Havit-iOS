@@ -88,7 +88,7 @@ class ManageCategoryViewController: BaseViewController {
     override func configUI() {
         view.backgroundColor = .white
         setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, shadowImage: UIImage(), isTranslucent: false, tintColor: .white)
-        setNavigationBar()
+        setNavigationItem()
         bind()
     }
 
@@ -99,7 +99,7 @@ class ManageCategoryViewController: BaseViewController {
         categoryCollectionView.dataSource = self
     }
 
-    private func setNavigationBar() {
+    private func setNavigationItem() {
         title = "카테고리 수정"
         let appearance = UINavigationBarAppearance()
 

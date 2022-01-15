@@ -105,7 +105,7 @@ class CategoryViewController: BaseViewController {
 
     override func configUI() {
         view.backgroundColor = .white
-        setNavigationBar()
+        setNavigationItem()
         bind()
     }
 
@@ -116,10 +116,11 @@ class CategoryViewController: BaseViewController {
         categoryCollectionView.dataSource = self
     }
 
-    private func setNavigationBar() {
+    private func setNavigationItem() {
         title = "전체 카테고리"
         let font = UIFont.font(.pretendardBold, ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
+        
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
     }
