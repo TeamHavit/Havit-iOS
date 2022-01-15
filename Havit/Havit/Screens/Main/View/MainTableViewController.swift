@@ -128,7 +128,7 @@ extension MainTableViewController: UITableViewDataSource {
             case 1:
                 let cell: ReachRateTableViewCell = tableView.dequeueReusableCell(
                     withType: ReachRateTableViewCell.self, for: indexPath)
-                cell.updateData(name: "박태준", watched: 62, total: 145)
+                cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
                 return cell
             default:
                 return UITableViewCell()

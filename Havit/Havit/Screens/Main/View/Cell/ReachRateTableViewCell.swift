@@ -58,8 +58,8 @@ final class ReachRateTableViewCell: BaseTableViewCell {
     
     // MARK: - func
     
-    func updateData(name: String, watched: Int, total: Int) {
+    func updateData(name: String, watchedCount: Int, totalCount: Int) {
         rateContentView.updateName(to: name)
-        rateContentView.updateRate(to: watched, with: total)
+        rateContentView.updateRate(to: watchedCount, with: totalCount)
     }
 }
