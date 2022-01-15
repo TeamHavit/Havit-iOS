@@ -20,6 +20,8 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         }()
     }
     
+    var didTapCloseButton: (() -> Void)?
+    
     // MARK: - property
     
     private let notificationView: UIView = {
@@ -44,6 +46,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bind()
     }
     
     @available(*, unavailable)
@@ -82,15 +85,15 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     
     // MARK: - func
     
+    func bind() {
+        closeButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.didTapCloseButton?()
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func updateNotification(to text: String) {
         notificationLabel.text = text
-    }
-}
-
-extension Reactive where Base: ReachRateNotificationTableViewCell {
-    var didTapCloseButton: Observable<Void> {
-        base
-            .closeButton.rx.tap
-            .asObservable()
     }
 }

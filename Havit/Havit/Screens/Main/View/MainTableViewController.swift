@@ -121,12 +121,10 @@ extension MainTableViewController: UITableViewDataSource {
                     let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
                         withType: ReachRateNotificationTableViewCell.self, for: indexPath)
                     cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
-                    cell.rx.didTapCloseButton
-                        .bind(onNext: { [weak self] in
-                            self?.isDeleted = true
-                            tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue, section: Section.reach.rawValue)], with: .fade)
-                        })
-                        .disposed(by: disposeBag)
+                    cell.didTapCloseButton = {
+                        self.isDeleted = true
+                        tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue, section: Section.reach.rawValue)], with: .fade)
+                    }
                     return cell
                 }
             } else {
