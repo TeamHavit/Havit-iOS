@@ -320,7 +320,7 @@
 		3BBB51D2279062910098A835 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3BBB51D3279062910098A835 /* WebKit.framework */,		
+				3BBB51D3279062910098A835 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -344,7 +344,6 @@
 				4F4545DE2790B69600A9E3B1 /* ShareExtension */,
 				ED443EAB278598670059DE76 /* Products */,
 				3BBB51D2279062910098A835 /* Frameworks */,
-				4F4545F22791BFA500A9E3B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,7 +422,7 @@
 				ED443EF027869C960059DE76 /* Foundation */,
 				ED443F2C2786A9B20059DE76 /* Mock */,
 				ED443EEF27869C910059DE76 /* API */,
-				ED443EEE27869C890059DE76 /* APIService */,
+				EDEF61B927927AB400C93C84 /* APIService */,
 				ED443EED27869C860059DE76 /* Model */,
 			);
 			path = Network;
@@ -544,13 +543,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		ED443EEE27869C890059DE76 /* APIService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APIService;
 			sourceTree = "<group>";
 		};
 		ED443EEF27869C910059DE76 /* API */ = {
@@ -831,6 +823,13 @@
 				EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		EDEF61B927927AB400C93C84 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
