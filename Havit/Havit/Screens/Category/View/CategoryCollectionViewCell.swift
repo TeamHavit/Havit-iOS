@@ -7,12 +7,18 @@
 
 import UIKit
 
+enum CategoryCollectionViewCellType {
+    case category
+    case manage
+}
+
 class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
+
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "category_icon")
+        image.image = ImageLiteral.imgCategoryNone
         return image
     }()
 
@@ -22,13 +28,20 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
 
-    private let arrowImageView: UIImageView = {
+    private lazy var arrowImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "go_gray2")
+        image.image = ImageLiteral.iconGoGray
         return image
     }()
 
+    private lazy var editButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiteral.iconCategoryEdit, for: .normal)
+        return button
+    }()
+
     // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -39,12 +52,14 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     }
 
     // MARK: - life cycle
+
     override func render() {
-        self.addSubViews([categoryImageView, categoryTitleLabel, arrowImageView])
+        self.addSubViews([categoryImageView, categoryTitleLabel])
 
         categoryImageView.snp.makeConstraints {
             $0.top.leading.bottom.equalToSuperview().inset(7)
             $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-7)
+            $0.width.height.equalTo(42)
         }
 
         categoryTitleLabel.snp.makeConstraints {
@@ -52,18 +67,35 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             $0.leading.equalTo(categoryImageView.snp.trailing).offset(7)
             $0.bottom.equalToSuperview().inset(19)
         }
-
-        arrowImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(13)
-            $0.trailing.equalToSuperview().inset(11)
-            $0.bottom.equalToSuperview().inset(15)
-            $0.width.height.equalTo(28)
-        }
     }
 
     override func configUI() {
         self.backgroundColor = .purpleCategory
         layer.cornerRadius = 6
+    }
+
+    // MARK: - func
+
+    func configure(type: CategoryCollectionViewCellType) {
+        switch type {
+        case .category:
+            self.addSubView(arrowImageView)
+
+            arrowImageView.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(13)
+                $0.trailing.equalToSuperview().inset(11)
+                $0.bottom.equalToSuperview().inset(15)
+                $0.width.height.equalTo(28)
+            }
+        case .manage:
+            self.addSubView(editButton)
+
+            editButton.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(14)
+                $0.trailing.equalToSuperview().inset(12)
+                $0.bottom.equalToSuperview().inset(14)
+            }
+        }
     }
 
     // MARK: - func

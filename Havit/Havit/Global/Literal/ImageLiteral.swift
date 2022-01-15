@@ -57,6 +57,9 @@ enum ImageLiteral {
     static var imgTextLogo: UIImage { .load(named: "imgTextLogo")}
     static var imgTextLogoGray: UIImage { .load(named: "imgTextLogoGray")}
     static var imgCategoryTip: UIImage { .load(named: "imgCategoryTip")}
+    static var iconBackWhite: UIImage { .load(named: "iconBackWhite")}
+    static var iconNoticeGray: UIImage { .load(named: "iconNoticeGray")}
+    static var iconCategoryEdit: UIImage { .load(named: "iconCategoryEdit")}
 }
 
 extension UIImage {

@@ -1,21 +1,21 @@
 //
-//  CategoryViewController.swift
+//  ManageCategoryViewController.swift
 //  Havit
 //
-//  Created by SHIN YOON AH on 2022/01/06.
+//  Created by 김수연 on 2022/01/14.
 //
 
 import UIKit
 
 import RxCocoa
+import RxSwift
 import SnapKit
 
-class CategoryViewController: BaseViewController {
+class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
-
-    private var categoryList: [CategoryListData] = CategoryListData.dummy
-    weak var coordinator: CategoryCoordinator?
+    
+    weak var coordinator: ManageCategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,52 +28,32 @@ class CategoryViewController: BaseViewController {
         return collectionView
     }()
 
-    private let categoryCountLabel: UILabel = {
-        let label = UILabel()
-        label.font = .font(.pretendardReular, ofSize: 13)
-        label.text = "전체 0"
-        label.textColor = .gray003
-
-        return label
-    }()
-
-    // 📌 카테고리 추가 버튼은 재사용될 것 같아서 나중에 따로 빼면 좋을 것 같아요 !
-    private let addButton: UIButton = {
-        var configuration = UIButton.Configuration.plain()
-
-        var container = AttributeContainer()
-        container.font = .font(.pretendardSemibold, ofSize: 12)
-
-        configuration.attributedTitle = AttributedString("카테고리 추가", attributes: container)
-
-        configuration.baseForegroundColor = UIColor.purpleText
-        configuration.image = ImageLiteral.iconCategoryAdd
-
-        configuration.background.cornerRadius = 23
-        configuration.background.strokeColor = UIColor.purpleLight
-        configuration.background.strokeWidth = 1
-
-        configuration.imagePadding = 2
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 10, bottom: 3, trailing: 10)
-        configuration.imagePlacement = .leading
-
-        let button = UIButton(configuration: configuration, primaryAction: nil)
-
-        return button
-    }()
-
     private let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(ImageLiteral.btnBackBlack, for: .normal)
+        button.setImage(ImageLiteral.iconBackWhite, for: .normal)
         return button
     }()
 
-    private let editButton: UIButton = {
+    private let doneButton: UIButton = {
         let button = UIButton()
-        button.setTitle("수정", for: .normal)
+        button.setTitle("완료", for: .normal)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 14)
-        button.setTitleColor(UIColor.gray003, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
+    }()
+
+    private let noticeIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = ImageLiteral.iconNoticeGray
+        return image
+    }()
+
+    private let noticeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "카테고리를 누른 뒤 위아래로 드래그하여 순서를 바꿀 수 있습니다"
+        label.font = .font(.pretendardReular, ofSize: 12)
+        label.textColor = .gray002
+        return label
     }()
 
     // MARK: - life cycle
@@ -82,19 +62,25 @@ class CategoryViewController: BaseViewController {
         super.viewDidLoad()
         setDelegation()
     }
-    
-    override func render() {
-        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
 
-        categoryCountLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(22)
-            $0.leading.equalToSuperview().inset(18)
+    override func viewWillDisappear(_ animated: Bool) {
+        setupBaseNavigationBar(backgroundColor: .white)
+    }
+
+    override func render() {
+        view.addSubViews([categoryCollectionView, noticeIcon, noticeLabel])
+
+        noticeIcon.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(29)
+            $0.leading.equalToSuperview().inset(26)
+            $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-15)
+            $0.width.height.equalTo(12)
         }
 
-        addButton.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(13)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
+        noticeLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(26)
+            $0.leading.equalTo(noticeIcon.snp.trailing).offset(5)
+            $0.bottom.equalTo(categoryCollectionView.snp.top).inset(-13)
         }
 
         categoryCollectionView.snp.makeConstraints {
@@ -104,26 +90,29 @@ class CategoryViewController: BaseViewController {
     }
 
     override func configUI() {
-        super.configUI()
         view.backgroundColor = .white
+        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, shadowImage: UIImage(), isTranslucent: false, tintColor: .white)
         setNavigationItem()
         bind()
     }
 
     // MARK: - func
-    
+
     private func setDelegation() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
     }
 
     private func setNavigationItem() {
-        title = "전체 카테고리"
-        let font = UIFont.font(.pretendardBold, ofSize: 16)
-        navigationController?.navigationBar.titleTextAttributes = [.font: font]
-        
+        title = "카테고리 수정"
+        let appearance = UINavigationBarAppearance()
+
+        appearance.titleTextAttributes = [
+            .font: UIFont.font(.pretendardBold, ofSize: 16)
+        ]
+
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
-        navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
+        navigationItem.rightBarButtonItem = makeBarButtonItem(with: doneButton)
     }
 
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
@@ -132,36 +121,32 @@ class CategoryViewController: BaseViewController {
     }
 
     private func bind() {
-        backButton.rx.tap
+        Observable.merge(
+            backButton.rx.tap.map { $0 },
+            doneButton.rx.tap.map { $0 }
+        )
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .main)
-            })
-            .disposed(by: disposeBag)
-
-        editButton.rx.tap
-            .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .manage)
+                self?.coordinator?.performTransition(to: .previous)
             })
             .disposed(by: disposeBag)
     }
 }
 
-extension CategoryViewController: UICollectionViewDataSource {
+extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryList.count
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
-
-        cell.update(data: categoryList[indexPath.row])
-        cell.configure(type: .category)
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
+        
+        cell.configure(type: .manage)
         return cell
     }
 }
 
-extension CategoryViewController: UICollectionViewDelegateFlowLayout {
+extension ManageCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
