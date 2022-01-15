@@ -102,13 +102,13 @@ class CategoryContentsViewController: BaseViewController {
         // 네비게이션바 생성하기 (메인화면에서 Coordinator로 진입)
         
         // 검색 뷰 생성
-        self.view.addSubview(searchController.searchBar)
+        
         
         // 메인 뷰 생성
         self.view.addSubview(mainView)
 
         // 필터 뷰 생성
-        mainView.addSubview(filterView)
+        self.view.addSubview(filterView)
         filterView.addSubview(totalLabel)
         filterView.addSubview(changeShowButton)
         filterView.addSubview(sortButton)
@@ -116,14 +116,14 @@ class CategoryContentsViewController: BaseViewController {
     
     func setAutoLayouts() {
         
-        searchController.searchBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-        }
+//        searchController.searchBar.snp.makeConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+//            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+//        }
         
         mainView.snp.makeConstraints {
-            $0.top.equalTo(searchController.searchBar).offset(56)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -177,8 +177,9 @@ class CategoryContentsViewController: BaseViewController {
         // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = navigationRightButton
         
+        navigationItem.searchController = searchController
         let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
-        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
+        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, viewController: self, containerView: self.navigationController!.view, title: BTTitle.title("카테고리"), items: items)
         navigationItem.titleView = menuView
     
     }

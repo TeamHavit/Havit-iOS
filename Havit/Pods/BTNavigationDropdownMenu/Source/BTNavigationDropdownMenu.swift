@@ -224,6 +224,8 @@ open class BTNavigationDropdownMenu: UIView {
     open var isShown: Bool!
 
     fileprivate weak var navigationController: UINavigationController?
+    fileprivate var viewController = UIViewController()
+    fileprivate var searchController = UISearchController()
     fileprivate var configuration = BTConfiguration()
     fileprivate var topSeparator: UIView!
     fileprivate var menuButton: UIButton!
@@ -248,9 +250,9 @@ open class BTNavigationDropdownMenu: UIView {
         - title: A string to define title to be displayed.
         - items: The array of items to select
      */
-    public convenience init(navigationController: UINavigationController? = nil, containerView: UIView = UIApplication.shared.keyWindow!, title: String, items: [String]) {
+    public convenience init(navigationController: UINavigationController? = nil, viewController: UIViewController, containerView: UIView = UIApplication.shared.keyWindow!, title: String, items: [String]) {
 
-        self.init(navigationController: navigationController, containerView: containerView, title: BTTitle.title(title), items: items)
+        self.init(navigationController: navigationController, viewController: viewController, containerView: containerView, title: BTTitle.title(title), items: items)
     }
 
     /**
@@ -265,11 +267,25 @@ open class BTNavigationDropdownMenu: UIView {
         - title: An enum to define title to be displayed, can be a string or index of items.
         - items: The array of items to select
      */
-    public init(navigationController: UINavigationController? = nil, containerView: UIView = UIApplication.shared.keyWindow!, title: BTTitle, items: [String]) {
+    public init(navigationController: UINavigationController? = nil, viewController: UIViewController, containerView: UIView = UIApplication.shared.keyWindow!, title: BTTitle, items: [String]) {
         // Key window
         guard let window = UIApplication.shared.keyWindow else {
             super.init(frame: CGRect.zero)
             return
+        }
+        
+        self.viewController = viewController
+        if #available(iOS 11.0, *) {
+            self.searchController = (viewController.navigationItem.searchController)!
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        if #available(iOS 11.0, *) {
+            //navigationItem.searchController = nil
+            // viewController.navigationItem.searchController = nil
+        } else {
+            // Fallback on earlier versions
         }
 
         // Navigation controller
@@ -377,6 +393,11 @@ open class BTNavigationDropdownMenu: UIView {
     }
 
     override open func layoutSubviews() {
+        if #available(iOS 11.0, *) {
+            // self.navigationItem.searchController = nil
+        } else {
+            // Fallback on earlier versions
+        }
         self.menuTitle.sizeToFit()
         self.menuTitle.center = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
         self.menuTitle.textColor = self.configuration.menuTitleColor
@@ -432,7 +453,11 @@ open class BTNavigationDropdownMenu: UIView {
     }
 
     func showMenu() {
-        self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.maxY
+        if #available(iOS 11.0, *) {
+            self.menuWrapper.frame.origin.y = self.navigationController!.navigationBar.frame.maxY - (self.viewController.navigationItem.searchController?.searchBar.frame.height)!
+        } else {
+            // Fallback on earlier versions
+        }
 
         self.isShown = true
 
