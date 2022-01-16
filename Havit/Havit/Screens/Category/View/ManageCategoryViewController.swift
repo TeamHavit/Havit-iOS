@@ -140,24 +140,31 @@ class ManageCategoryViewController: BaseViewController {
 
     @objc
     private func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
-        guard let startIndexPath = categoryCollectionView.indexPathForItem(at: gesture.location(in: categoryCollectionView)) else {
-            return
-        }
-        guard let cell = categoryCollectionView.cellForItem(at: startIndexPath) else { return }
-
+        let startIndexPath = categoryCollectionView.indexPathForItem(at: gesture.location(in: categoryCollectionView))
+        let cell = cellForItemAt(at: startIndexPath)
         switch gesture.state {
         case .began:
-            cell.backgroundColor = .purple002
+            guard let startIndexPath = startIndexPath else {
+                break
+            }
+            cell?.backgroundColor = .purple002
             categoryCollectionView.beginInteractiveMovementForItem(at: startIndexPath)
         case .changed:
             categoryCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: categoryCollectionView))
         case .ended:
-            cell.backgroundColor = .purpleCategory
+            cell?.backgroundColor = .purpleCategory
             categoryCollectionView.endInteractiveMovement()
         default:
-            cell.backgroundColor = .purpleCategory
+            cell?.backgroundColor = .purpleCategory
             categoryCollectionView.cancelInteractiveMovement()
         }
+    }
+
+    private func cellForItemAt(at indexPath: IndexPath?) -> UICollectionViewCell? {
+        guard let indexPath = indexPath else {
+            return nil
+        }
+        return categoryCollectionView.cellForItem(at: indexPath)
     }
 }
 
