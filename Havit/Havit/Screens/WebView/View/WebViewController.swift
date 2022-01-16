@@ -8,23 +8,70 @@
 import UIKit
 import WebKit
 
+import RxCocoa
+import RxSwift
+
 final class WebViewController: BaseViewController {
+    
+    enum Size {
+        static let urlTextFieldWidth: CGFloat = {
+            let viewWidth = UIScreen.main.bounds.width
+            let barButtonWidth: CGFloat = 44
+            return viewWidth - (barButtonWidth * 2)
+        }()
+        static let urlTextFieldHeight: CGFloat = 33
+    }
     
     // MARK: - property
     
     weak var coordinator: WebViewCoordinator?
-    private let url: String
+    private let viewModel: WebViewModel
+    
+    private let navigationBackBarButton: UIBarButtonItem = {
+        let backButtonImage = UIImage(named: "iconBackBlack")
+        let navigationBackBarButton = UIBarButtonItem(image: backButtonImage,
+                                                      style: .plain,
+                                                      target: nil,
+                                                      action: nil)
+        return navigationBackBarButton
+    }()
+    
+    private let urlTextField: UITextField = {
+        let textField = UITextField()
+        textField.frame = CGRect(origin: .zero,
+                                 size: CGSize(width: Size.urlTextFieldWidth,
+                                              height: Size.urlTextFieldHeight))
+        textField.backgroundColor = .gray000
+        textField.layer.cornerRadius = 4
+        textField.font = .font(.pretendardReular, ofSize: 16)
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.keyboardType = .URL
+        return textField
+    }()
+    
+    private let reloadUrlBarButton: UIBarButtonItem = {
+        let reloadImage = UIImage(named: "iconRefresh")
+        let reloadUrlBarButton = UIBarButtonItem(image: reloadImage,
+                                                 style: .plain,
+                                                 target: nil,
+                                                 action: nil)
+        return reloadUrlBarButton
+    }()
+    
     private lazy var webView: WKWebView = {
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
         webView.uiDelegate = self
+        webView.navigationDelegate = self
         return webView
     }()
     
     // MARK: - init
     
-    init(url: String) {
-        self.url = url
+    init(urlString: String) {
+        viewModel = WebViewModel(urlString: urlString)
         super.init()
     }
 
@@ -41,17 +88,57 @@ final class WebViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadWebPage(with: url)
+        bindInput()
+        bindOutput()
     }
     
     // MARK: - func
     
-    private func loadWebPage(with url: String) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        let urlRequest = URLRequest(url: url)
-        webView.load(urlRequest)
+    override func configUI() {
+        setupBaseNavigationBar()
+        setNavigationItem(leftBarButtonItem: navigationBackBarButton,
+                          titleView: urlTextField,
+                          rightBarButtonItem: reloadUrlBarButton)
+    }
+    
+    private func setNavigationItem(leftBarButtonItem: UIBarButtonItem,
+                                   titleView: UIView,
+                                   rightBarButtonItem: UIBarButtonItem) {
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.titleView = titleView
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    private func bindInput() {
+        navigationBackBarButton.rx
+            .tap
+            .bind { [weak self] _ in
+                self?.coordinator?.performTransition(to: .previous)
+            }
+            .disposed(by: disposeBag)
+        
+        urlTextField.rx
+            .controlEvent(.editingDidEndOnExit)
+            .map { [weak self] _ in
+                self?.urlTextField.text
+            }
+            .bind(to: viewModel.urlString)
+            .disposed(by: disposeBag)
+        
+        reloadUrlBarButton.rx
+            .tap
+            .bind { [weak self] _ in
+                self?.webView.reload()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindOutput() {
+        viewModel.urlRequest
+            .bind { [weak self] urlRequest in
+                self?.webView.load(urlRequest)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -90,5 +177,15 @@ extension WebViewController: WKUIDelegate {
             alertController.addAction(alertAction)
         }
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension WebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        setUrlTextFieldText(with: webView.url?.description)
+    }
+    
+    private func setUrlTextFieldText(with url: String?) {
+        urlTextField.text = url
     }
 }

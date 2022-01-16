@@ -93,7 +93,7 @@ class ManageCategoryViewController: BaseViewController {
 
     override func configUI() {
         view.backgroundColor = .white
-        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, shadowImage: UIImage(), isTranslucent: false, tintColor: .white)
+        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, isTranslucent: false, tintColor: .white)
         setNavigationItem()
         bind()
     }
