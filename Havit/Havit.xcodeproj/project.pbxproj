@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152B1042279464B200107DA8 /* BTNavigationDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B1040279464B200107DA8 /* BTNavigationDropdownMenu.swift */; };
+		152B1043279464B200107DA8 /* BTTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B1041279464B200107DA8 /* BTTitle.swift */; };
+		152B1049279464C300107DA8 /* BTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B1045279464C300107DA8 /* BTTableViewCell.swift */; };
+		152B104A279464C300107DA8 /* BTTableCellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B1046279464C300107DA8 /* BTTableCellContentView.swift */; };
+		152B104B279464C300107DA8 /* BTTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B1047279464C300107DA8 /* BTTableView.swift */; };
+		152B104C279464C300107DA8 /* BTConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B1048279464C300107DA8 /* BTConfiguration.swift */; };
 		15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */; };
 		15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */; };
 		15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */; };
@@ -218,6 +224,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		152B1040279464B200107DA8 /* BTNavigationDropdownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTNavigationDropdownMenu.swift; sourceTree = "<group>"; };
+		152B1041279464B200107DA8 /* BTTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTTitle.swift; sourceTree = "<group>"; };
+		152B1045279464C300107DA8 /* BTTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTTableViewCell.swift; sourceTree = "<group>"; };
+		152B1046279464C300107DA8 /* BTTableCellContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTTableCellContentView.swift; sourceTree = "<group>"; };
+		152B1047279464C300107DA8 /* BTTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTTableView.swift; sourceTree = "<group>"; };
+		152B1048279464C300107DA8 /* BTConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConfiguration.swift; sourceTree = "<group>"; };
 		15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -362,6 +374,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152B103F2794645400107DA8 /* CustomBTNavigationDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				152B1040279464B200107DA8 /* BTNavigationDropdownMenu.swift */,
+				152B1041279464B200107DA8 /* BTTitle.swift */,
+				152B1044279464C300107DA8 /* Internal */,
+			);
+			path = CustomBTNavigationDropDownMenu;
+			sourceTree = "<group>";
+		};
+		152B1044279464C300107DA8 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				152B1045279464C300107DA8 /* BTTableViewCell.swift */,
+				152B1046279464C300107DA8 /* BTTableCellContentView.swift */,
+				152B1047279464C300107DA8 /* BTTableView.swift */,
+				152B1048279464C300107DA8 /* BTConfiguration.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		155D4F86279098360069F035 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +442,7 @@
 		ED443EA1278598670059DE76 = {
 			isa = PBXGroup;
 			children = (
+				152B103F2794645400107DA8 /* CustomBTNavigationDropDownMenu */,
 				ED443EAC278598670059DE76 /* Havit */,
 				ED443EC3278598690059DE76 /* HavitTests */,
 				ED443ECD278598690059DE76 /* HavitUITests */,
@@ -1240,17 +1274,21 @@
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
 				ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */,
+				152B104B279464C300107DA8 /* BTTableView.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
 				4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */,
+				152B104A279464C300107DA8 /* BTTableCellContentView.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
+				152B1042279464B200107DA8 /* BTNavigationDropdownMenu.swift in Sources */,
 				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
+				152B1049279464C300107DA8 /* BTTableViewCell.swift in Sources */,
 				EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
 				4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */,
@@ -1258,6 +1296,7 @@
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
 				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
+				152B104C279464C300107DA8 /* BTConfiguration.swift in Sources */,
 				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
@@ -1270,6 +1309,7 @@
 				ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */,
 				EDDE099B2790789B0093B83F /* BaseTableViewCell.swift in Sources */,
 				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
+				152B1043279464B200107DA8 /* BTTitle.swift in Sources */,
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */,
 				EDEF6191279136DD00C93C84 /* HttpMethod.swift in Sources */,

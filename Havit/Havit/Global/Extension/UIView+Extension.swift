@@ -29,4 +29,17 @@ extension UIView {
         subviews.forEach { addSubview($0) }
         closure?(subviews)
     }
+    
+    // MARK: - CustomBTNavigationDropDownMenu
+    struct Static {
+        static var key = "key"
+    }
+    var viewIdentifier: String? {
+        get {
+            return objc_getAssociatedObject( self, &Static.key ) as? String
+        }
+        set {
+            objc_setAssociatedObject(self, &Static.key, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
 }
