@@ -20,7 +20,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             return CGFloat(width)
         }()
     }
-
+    
     // MARK: - property
     
     private let titleLabel: UILabel = {
@@ -36,13 +36,11 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return button
     }()
     private lazy var categoryCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = MainCategoryCollectionViewFlowLayout(row: 2, column: 1)
         flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
-        flowLayout.minimumInteritemSpacing = 5
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.decelerationRate = .fast
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.register(cell: CategoryListCollectionViewCell.self)
@@ -91,12 +89,21 @@ final class CategoryListTableViewCell: BaseTableViewCell {
 
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if categorys.count % 6 != 0 {
+            return categorys.count + (categorys.count % 6)
+        }
         return categorys.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if categorys.count > indexPath.item {
+            let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.titleLabel.text = categorys[indexPath.item]
+            return cell
+        }
+        
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.titleLabel.text = categorys[indexPath.item]
+        cell.backgroundColor = .clear
         return cell
     }
 }
