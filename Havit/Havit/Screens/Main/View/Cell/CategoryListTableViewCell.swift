@@ -36,8 +36,11 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return button
     }()
     private lazy var categoryCollectionView: UICollectionView = {
-        let flowLayout = MainCategoryCollectionViewFlowLayout(row: 2, column: 1)
+        let flowLayout = MainCategoryCollectionViewFlowLayout(row: 2, column: 3)
         flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false

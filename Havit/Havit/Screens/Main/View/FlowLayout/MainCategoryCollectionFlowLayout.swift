@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
@@ -53,17 +54,19 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let isPageWidthZero = (pageWidth == .zero)
         let isPageHeightZero = (pageHeight == .zero)
         if isPageWidthZero {
-            pageWidth = self.collectionView?.frame.width ?? UIScreen.main.bounds.size.width
+            pageWidth = collectionView?.frame.width ?? UIScreen.main.bounds.size.width
         }
         if isPageHeightZero {
-            pageHeight = self.collectionView?.frame.height ?? UIScreen.main.bounds.size.height
+            pageHeight = collectionView?.frame.height ?? UIScreen.main.bounds.size.height
         }
         
         let rowWidth: CGFloat = pageWidth - self.minimumInteritemSpacing * CGFloat(row - 1)
         let rowHeight: CGFloat = pageHeight - self.minimumLineSpacing * CGFloat(column - 1)
         let itemSizeWidth: CGFloat = rowWidth / CGFloat(row)
         let itemSizeHeight: CGFloat = rowHeight / CGFloat(column)
-        self.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
+        let rightEdgeInset = sectionInset.right
+        let topEdgeInset = sectionInset.top
+        self.itemSize = CGSize(width: itemSizeWidth - rightEdgeInset, height: itemSizeHeight - topEdgeInset)
         
         let itemCount: Int = self.collectionView?.numberOfItems(inSection: 0) ?? 0
         if itemCount > 0 {
@@ -99,7 +102,7 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         @unknown default:
             break
         }
-        attribute.frame = CGRect(x: originX, y: originY, width: itemSize.width, height: itemSize.height)
+        attribute.frame = CGRect(x: originX + sectionInset.right, y: originY, width: itemSize.width, height: itemSize.height)
         
         return attribute
     }
