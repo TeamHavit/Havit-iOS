@@ -10,7 +10,7 @@ import Foundation
 final class CategoryContentsCoordinator: BaseCoordinator {
 
     enum CategoryContentsTransition {
-        case main
+        case pop
     }
 
     override func start() {
@@ -19,9 +19,9 @@ final class CategoryContentsCoordinator: BaseCoordinator {
         navigationController.pushViewController(categoryContents, animated: true)
     }
 
-    func performTransition(to transition: CategoryContentsTransition) {
+    func previous(to transition: CategoryContentsTransition) {
         switch transition {
-        case .main:
+        case .pop:
             parentCoordinator?.didFinish(coordinator: self)
             navigationController.popViewController(animated: true)
         }

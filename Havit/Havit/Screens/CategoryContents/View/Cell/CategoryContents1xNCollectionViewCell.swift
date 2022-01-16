@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class SortThreeContentsCollectionViewCell: BaseCollectionViewCell {
+final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
     
     private var mainImageView: UIImageView = {
         let imageView = UIImageView()
