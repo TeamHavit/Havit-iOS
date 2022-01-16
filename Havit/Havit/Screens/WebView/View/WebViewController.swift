@@ -168,6 +168,17 @@ final class WebViewController: BaseViewController {
                 self?.present(activityViewController, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        toolbar.safariBarButton.rx
+            .tap
+            .compactMap { [weak self] in
+                self?.webView.url
+            }
+            .filter(UIApplication.shared.canOpenURL)
+            .bind { url in
+                UIApplication.shared.open(url, options: [:])
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
