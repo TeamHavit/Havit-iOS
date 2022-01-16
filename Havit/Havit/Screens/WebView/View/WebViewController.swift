@@ -10,6 +10,7 @@ import WebKit
 
 import RxCocoa
 import RxSwift
+import SnapKit
 
 final class WebViewController: BaseViewController {
     
@@ -68,6 +69,8 @@ final class WebViewController: BaseViewController {
         return webView
     }()
     
+    private let toolbar = WebViewToolbar()
+    
     // MARK: - init
     
     init(urlString: String) {
@@ -82,10 +85,6 @@ final class WebViewController: BaseViewController {
     
     // MARK: - life cycle
     
-    override func loadView() {
-        view = webView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindInput()
@@ -93,6 +92,19 @@ final class WebViewController: BaseViewController {
     }
     
     // MARK: - func
+    
+    override func render() {
+        view.addSubview(toolbar)
+        toolbar.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        view.addSubview(webView)
+        webView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(toolbar.snp.top)
+        }
+    }
     
     override func configUI() {
         setupBaseNavigationBar()
