@@ -144,6 +144,10 @@ final class WebViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
        
+        bindToolbarInput()
+    }
+    
+    private func bindToolbarInput() {
         toolbar.backBarButton.rx
             .tap
             .bind { [weak self] _ in
