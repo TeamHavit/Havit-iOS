@@ -12,13 +12,13 @@ import SnapKit
 
 final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
-     private var mainImageView: UIImageView = {
+     private let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView
     }()
     
-     private var alarmImageView: UIImageView = {
+     private let alarmImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage()
         return imageView

@@ -13,13 +13,13 @@ import SnapKit
 
 final class CategoryContentsViewController: BaseViewController {
     enum SortType {
-        case sort1, sort2, sort3
+        case sort, sort2xN, sort1xN
     }
     
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
     
-    var sortNum: SortType = .sort1
+    var sortType: SortType = .sort
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -81,16 +81,14 @@ final class CategoryContentsViewController: BaseViewController {
         var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.backgroundColor = .green
         collectionView.register(cell: ContentsCollectionViewCell.self)
+        collectionView.register(cell: CategoryContents2xNCollectionViewCell.self)
+        collectionView.register(cell: CategoryContents1xNCollectionViewCell.self)
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     override func render() {
@@ -156,10 +154,10 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func configUI() {
         super.configUI()
-        setNavigationItems()
+        setNavigationItem()
     }
     
-    func setNavigationItems() {
+    func setNavigationItem() {
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.rightBarButtonItem = navigationRightButton
         
@@ -196,7 +194,7 @@ final class CategoryContentsViewController: BaseViewController {
 
            let view = UIView(frame: CGRect(x: 8.0, y: 8.0, width: actionSheet.view.bounds.size.width - 8.0 * 4.5, height: 120.0))
         view.backgroundColor = UIColor.green
-           actionSheet.view.addSubview(view)
+        actionSheet.view.addSubview(view)
 
         actionSheet.addAction(UIAlertAction(title: "제목 수정", style: .default, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "공유", style: .default, handler: nil))
@@ -207,16 +205,15 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {
-        print("change!")
-        switch sortNum {
-        case .sort1:
-            sortNum = .sort2
-            contentsCollectionView.register(cell: SortTwoContentsCollectionViewCell.self)
-        case .sort2:
-            sortNum = .sort3
-            contentsCollectionView.register(cell: SortThreeContentsCollectionViewCell.self)
-        case .sort3:
-            sortNum = .sort1
+        switch sortType {
+        case .sort:
+            sortType = .sort2xN
+            contentsCollectionView.register(cell: CategoryContents2xNCollectionViewCell.self)
+        case .sort2xN:
+            sortType = .sort1xN
+            contentsCollectionView.register(cell: CategoryContents1xNCollectionViewCell.self)
+        case .sort1xN:
+            sortType = .sort
             contentsCollectionView.register(cell: ContentsCollectionViewCell.self)
         }
         contentsCollectionView.reloadData()
@@ -240,17 +237,17 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             
             return cell
         case contentsCollectionView:
-            switch sortNum {
-            case .sort1:
+            switch sortType {
+            case .sort:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
-            case .sort2:
-                let cell: SortTwoContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            case .sort2xN:
+                let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
-            case .sort3:
-                let cell: SortThreeContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            case .sort1xN:
+                let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
             }
@@ -277,12 +274,12 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            switch sortNum {
-            case .sort1:
+            switch sortType {
+            case .sort:
                 return CGSize(width: view.frame.width, height: 139)
-            case .sort2:
+            case .sort2xN:
                 return CGSize(width: (view.frame.width / 2) - 9, height:253)
-            case .sort3:
+            case .sort1xN:
                 return CGSize(width: view.frame.width, height: 290)
             }
         default:
