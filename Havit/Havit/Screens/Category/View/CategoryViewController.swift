@@ -14,7 +14,7 @@ class CategoryViewController: BaseViewController {
 
     // MARK: - property
 
-    private var categoryList: [CategoryListData] = [] // CategoryListData.dummy
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: CategoryCoordinator?
     private let emptyCategoryView = EmptyCategoryView()
 
@@ -114,7 +114,7 @@ class CategoryViewController: BaseViewController {
         setEmptyView()
 
         view.backgroundColor = .white
-        setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, shadowImage: UIImage(), isTranslucent: false)
+        setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, isTranslucent: false)
         setNavigationItem()
         bind()
     }
