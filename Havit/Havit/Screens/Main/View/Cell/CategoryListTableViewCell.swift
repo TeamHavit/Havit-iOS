@@ -11,27 +11,19 @@ import SnapKit
 
 final class CategoryListTableViewCell: BaseTableViewCell {
     
-    private enum Size {
-        static let cellHeight: CGFloat = 106
-        static let cellWidth: CGFloat = {
-            let margin = 16 * 2
-            let spacing = 5
-            let width = (Int(UIScreen.main.bounds.size.width) - margin - spacing) / 2
-            return CGFloat(width)
-        }()
-    }
-    
     // MARK: - property
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .font(.pretendardSemibold, ofSize: 17)
         label.textColor = .primaryBlack
+        label.text = "홍승현님의 카테고리"
         return label
     }()
     private let overallButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .font(.pretendardReular, ofSize: 12)
+        button.setTitle("전체보기", for: .normal)
         button.setTitleColor(.gray003, for: .normal)
         return button
     }()
@@ -101,7 +93,6 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if categorys.count > indexPath.item {
             let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.titleLabel.text = categorys[indexPath.item]
             return cell
         }
         

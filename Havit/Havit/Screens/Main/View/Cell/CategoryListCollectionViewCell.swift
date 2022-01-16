@@ -9,22 +9,19 @@ import UIKit
 
 final class CategoryListCollectionViewCell: BaseCollectionViewCell {
     
-    let titleLabel = UILabel()
-    
     // MARK: - init
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         backgroundColor = .red
-        
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        backgroundColor = .red
     }
     
 }

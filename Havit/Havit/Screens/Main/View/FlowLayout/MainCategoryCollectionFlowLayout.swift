@@ -102,7 +102,7 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         @unknown default:
             break
         }
-        attribute.frame = CGRect(x: originX + sectionInset.right, y: originY, width: itemSize.width, height: itemSize.height)
+        attribute.frame = CGRect(x: originX + sectionInset.right, y: originY + sectionInset.top, width: itemSize.width, height: itemSize.height)
         
         return attribute
     }
