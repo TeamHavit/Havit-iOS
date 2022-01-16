@@ -157,6 +157,17 @@ final class WebViewController: BaseViewController {
                 self?.webView.goForward()
             }
             .disposed(by: disposeBag)
+        
+        toolbar.shareBarButton.rx
+            .tap
+            .compactMap { [weak self] in
+                self?.webView.url
+            }
+            .bind { [weak self] url in
+                let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self?.present(activityViewController, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
