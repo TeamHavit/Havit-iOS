@@ -918,7 +918,6 @@
 				ED443EA7278598670059DE76 /* Frameworks */,
 				ED443EA8278598670059DE76 /* Resources */,
 				4F49E441278D8448003E730B /* SwiftLint */,
-				9069918AAC8AEA9708D6B677 /* [CP] Embed Pods Frameworks */,
 				4F4545E72790B69600A9E3B1 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -964,7 +963,6 @@
 				ED443EC6278598690059DE76 /* Sources */,
 				ED443EC7278598690059DE76 /* Frameworks */,
 				ED443EC8278598690059DE76 /* Resources */,
-				27E4B68EB66EFF2D8E84182D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1012,9 +1010,9 @@
 			);
 			mainGroup = ED443EA1278598670059DE76;
 			packageReferences = (
-				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
 				ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
 			);
 			productRefGroup = ED443EAB278598670059DE76 /* Products */;
 			projectDirPath = "";
@@ -1119,23 +1117,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		27E4B68EB66EFF2D8E84182D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Havit-HavitUITests/Pods-Havit-HavitUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4F49E441278D8448003E730B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1153,23 +1134,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  \nfi\n";
-		};
-		9069918AAC8AEA9708D6B677 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Havit/Pods-Havit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		AAA1F7F1C6A54C8DE976C4C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1703,7 +1667,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1719,7 +1683,7 @@
 				minimumVersion = 6.5.0;
 			};
 		};
-		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -1732,7 +1696,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		4F4545F32791BFBF00A9E3B1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 		4F4545F52791BFBF00A9E3B1 /* IQKeyboardManagerSwift */ = {
@@ -1742,22 +1706,22 @@
 		};
 		4F4545F72791BFBF00A9E3B1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxCocoa;
 		};
 		4F4545F92791BFBF00A9E3B1 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxRelay;
 		};
 		4F4545FB2791BFBF00A9E3B1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxSwift;
 		};
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 		ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */ = {
@@ -1767,12 +1731,12 @@
 		};
 		ED443F3D2786B5840059DE76 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxCocoa;
 		};
 		ED443F3F2786B5840059DE76 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

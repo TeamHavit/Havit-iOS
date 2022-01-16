@@ -7,318 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		015511D4ACD183CB78F8F0F79FCF3F01 /* MDCBottomSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EC4E41856F71B9FED6EB8EB536CD01 /* MDCBottomSheetController.m */; };
-		01D3795C8524AC424D5DDDF96603D0E1 /* Pods-Havit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE3000AD9848305303F20F569BAA0D /* Pods-Havit-dummy.m */; };
-		045B17ADCA714417CCF0DCC9D9096D24 /* MDCDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F48AB8BE410D804113D73287D9C0D /* MDCDraggableView.m */; };
-		066439D717AE4BC003363486E27C707A /* MDCTriangleEdgeTreatment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE621D3C2B50EBDAA53ABD55BC199B7A /* MDCTriangleEdgeTreatment.m */; };
-		0768B68EC675EBCCABB024A9FB318444 /* MaterialColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F22FD4BA030ED3FB370B9DC6EA37561 /* MaterialColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C37B0200D3167DAA74970F517C9C7AD /* BTNavigationDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EAD721ADE6F88937549E1C5CB80390 /* BTNavigationDropdownMenu.swift */; };
-		19F431D12744F02779B1FCA82579DDD6 /* MDCShapeGenerating.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D4DA7C648913A2C2A5848146FBA9F4B /* MDCShapeGenerating.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A304FAEF5CF0C1E8622E908555FE490 /* MDCCurvedCornerTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = D7B6ACE7AC827A627BFBEFD37BE08018 /* MDCCurvedCornerTreatment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A6CEDB0E42E0DEA22512AE2D91707C8 /* MDCSlantedRectShapeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA6BF3C62922B3C582857AA1D601690 /* MDCSlantedRectShapeGenerator.m */; };
-		1B304B7C5104F9421117AFEB21453F67 /* UIColor+MaterialDynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = 715CEC8C9EE5E2938367641ADB045A1E /* UIColor+MaterialDynamic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FAD4E63A3450ED96FE529C28B4AE6C2 /* Pods-HavitTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4B1BE59D4952AABC20EDC81D46342E /* Pods-HavitTests-dummy.m */; };
-		23AD7797186955B046EA44B8636C1AC3 /* MaterialBottomSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 444A006691F4C8A8396E7E8538B705E1 /* MaterialBottomSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25A90CB838F94F6308EA293F3047C42E /* MDCAvailability.h in Headers */ = {isa = PBXBuildFile; fileRef = D111FC3C41874729ECB3B4E13F465518 /* MDCAvailability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A00198B4641725EC612125584590BA5 /* MDCSheetBehavior.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A157E674073FD2CA86091BC0F8EA19 /* MDCSheetBehavior.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2B08C5A22A776EDEB74DB4B835A19B1D /* MaterialElevation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F6E1EA6056EE81E80D228CC83CB4BE1 /* MaterialElevation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C0CEBFD92AF5FE06B0F5D47D68FB86B /* MDCBottomSheetController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7477B69DF3447200D32CE66915292FDA /* MDCBottomSheetController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E2BD5BB87E4AC41401353835E7F7914 /* MDCSheetBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D711206138A10E8FE87A59FDCD3EAC /* MDCSheetBehavior.m */; };
-		303B8646250CB4D730351C7D5A31EE51 /* BTConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F3A93FA80805750D29EC0B48D1861D /* BTConfiguration.swift */; };
-		34D352F0915CF9F8500B1D5A94AF36C6 /* UIApplication+MDCAppExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B80108CE2B94DC7CAC90F46E9F12AA4 /* UIApplication+MDCAppExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		357A8A169BB53A5F85A3B2EA04A54F0F /* MDCCurvedRectShapeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA3381E9E086BDD3FF08526CAAC413F /* MDCCurvedRectShapeGenerator.m */; };
-		3873F4D2DBAA04C02ADADDDE71898F31 /* MDCSheetState.h in Headers */ = {isa = PBXBuildFile; fileRef = 78E98BB6569576BAB5B81E74FDEE5421 /* MDCSheetState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F035D81FAF81A41E9E58238265A0051 /* MDCRoundedCornerTreatment.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBD8E26EA343DB451424FD93A01BBFA /* MDCRoundedCornerTreatment.m */; };
-		3FF765F75F1270082F2EE95FDA9EF8BA /* MDCRectangleShapeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA1F486E4F3080784F5FFD8E06C894 /* MDCRectangleShapeGenerator.m */; };
-		41EC1065752BAACEE3C4EDC8CABB900B /* MaterialKeyboardWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2EC2EF81F683D2F89DD41FA520D15 /* MaterialKeyboardWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46495406605D108F4CD12BDE5A4B6AF2 /* MDCSheetContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9AD24051E2D69F5C849948EDD8211 /* MDCSheetContainerView.m */; };
-		4958DBF1C53FFBB5924C6F3C91B9F7A9 /* MDCShapedShadowLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = A7F1F219160491223CA00E8B615E09F3 /* MDCShapedShadowLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A76ABED65F7F6BAC8338E6A602C1AB3 /* UIView+MaterialElevationResponding.h in Headers */ = {isa = PBXBuildFile; fileRef = B00E53EF2F05E235CDE0E6BAD22D1389 /* UIView+MaterialElevationResponding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4AA5A3AB7E5706AE49BC082370D04322 /* Pods-Havit-HavitUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A35E73580573433A85EB9525A0313D6C /* Pods-Havit-HavitUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4EC8090B180710C479A3B21CD72FB213 /* MDCBottomSheetPresentationControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 50C5CFFFE629D07D9E7324FFADBC1E34 /* MDCBottomSheetPresentationControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		51EBF4ED4DA88FCB58F2CAC291D1079A /* MDCRoundedCornerTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D44D38C23CF1D861C96D4D6F0901C8 /* MDCRoundedCornerTreatment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		528D55FC297AD93F1463CAC1B0CCD1CD /* MDCShadowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1F9B9A3378BEA5D70812C2462A7425 /* MDCShadowLayer.m */; };
-		55BF7A752C508BF04180926F3F4F5997 /* BTNavigationDropdownMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38326DBB9379F58FEFDC257981CC87D3 /* BTNavigationDropdownMenu-dummy.m */; };
-		592002A7F1B30C9E5A6A2D3624E6642D /* MaterialShapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E5098F05069C2F1322C234AFAEA7BBB /* MaterialShapes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62A95262A25CE34C27B3FD2B1969277C /* MDCElevatable.h in Headers */ = {isa = PBXBuildFile; fileRef = 39DA80C348911BE9332D1B03A935F87A /* MDCElevatable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6405BD19B64526727E8F957BA9DB148F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */; };
-		647C3DF4DD99EF544435173281FF6E92 /* UIColor+MaterialBlending.h in Headers */ = {isa = PBXBuildFile; fileRef = 701965C74B08A49EA99C052449595CFD /* UIColor+MaterialBlending.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		68D1C976F2E0B7ACB1000C5FB3ADA5E1 /* UIColor+MaterialBlending.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FF78EA3E51494156AB29A8FDE15BEC /* UIColor+MaterialBlending.m */; };
-		6BC96BCB3EF130F53BB9A78D7E2EFB9E /* UIViewController+MaterialBottomSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 006C546BA9EBCDD7257EB6F5FC002348 /* UIViewController+MaterialBottomSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F3E35952D17589EA939B24A4798FDF0 /* UIColor+MaterialDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA9A0BB7AF3429C07F9CA9CC3B42762 /* UIColor+MaterialDynamic.m */; };
-		755C746FDAE14B210502ED9FBCF2CDD3 /* Pods-Havit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 585CD5939415352A6F0CCF3CB2AED9C8 /* Pods-Havit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		79709A0F4E6BFCEF9D0E853CD6807959 /* MDCKeyboardWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EE596EE10AC033D5EA05B845C9286B77 /* MDCKeyboardWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7BD813EB53FFD5E61D3E8D17FDEF5762 /* MaterialApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = D0597E1E7B5C37AF0C3EDA8350DA223E /* MaterialApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D3E486DB6C65975B839986EBFD38318 /* MDCPillShapeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D1CB0459DD1EF9A989423463B0C084 /* MDCPillShapeGenerator.m */; };
-		7F98776A7962572395F923703553ABAA /* MDCKeyboardWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D4C3B72C2B0A9C090D63E95CCE42DF /* MDCKeyboardWatcher.m */; };
-		81F6B3871E03BF241CB40023C4442227 /* MDCElevationOverriding.h in Headers */ = {isa = PBXBuildFile; fileRef = E750AFBE664FEBA34CABE1042A14CED1 /* MDCElevationOverriding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8226EF38F2234303BB738273DD72DF7A /* MDCRectangleShapeGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D68428B1213DCBC6F1AE1C52E8DCF2F /* MDCRectangleShapeGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83BA64B1B6C5CB7E0F0FDF3FB8AD734F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */; };
-		83E77B4563193B5EF5BCD5BA674DC997 /* MDCSheetContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DE2BC211335A19775CCC33C5A82201 /* MDCSheetContainerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		84B037D3215B9BD0863CAE3BB692CAE2 /* MDCShapedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B61AA7B2D128A33AA154A2C50D8FCF /* MDCShapedView.m */; };
-		8607B06ECC453ABECA0C6F9E92395376 /* MaterialShadowElevations.h in Headers */ = {isa = PBXBuildFile; fileRef = DACDA663086E750F1897FCAF0EC3A2EB /* MaterialShadowElevations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		876172730021808EDD4336A9C3057ABF /* BTTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E81EEF9831B5F90E3959CF0A2D744 /* BTTableView.swift */; };
-		87E4A53B714A12498CE600B77686C8A8 /* MDCBottomSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B36FD04A2D005293D90A8FF118EF36 /* MDCBottomSheetPresentationController.m */; };
-		888032AC899C87D4E12B1993502699F2 /* MDCCutCornerTreatment.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A4FB2D69BE0F9B22CF37CC9A97153C /* MDCCutCornerTreatment.m */; };
-		889FD7B6C2C8CD0E91C35B43074B0752 /* MaterialComponents-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC309C4464C0D81DA70E48406B2B7ABC /* MaterialComponents-dummy.m */; };
-		8DC48F8F5F7B03BDF176AFD6A6C286CD /* MDCEdgeTreatment.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B40F730A89ECB116A9769ABB453E7 /* MDCEdgeTreatment.m */; };
-		9359F19224DA2E55485BDC2CA57919BA /* MDCDraggableViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 398AE6C21E407E2E28189C71DE9942C8 /* MDCDraggableViewDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9406299AFB3E995D047529C304D4A195 /* MaterialShadowLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6863A1EE92BBF8D54B8A3ED23A366 /* MaterialShadowLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		956C5BD069E8443427D2E8706D74DEC7 /* BTNavigationDropdownMenu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FF76808B5CBC38970B37206E2B1A8C65 /* BTNavigationDropdownMenu.bundle */; };
-		958CEC0A17E65944F5C8A5500DE7FD00 /* MaterialComponents-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBAF42C4581DFED5EF9F0E34B40C7D39 /* MaterialComponents-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95D5BD0113DFC666346BDC9EE60E8D8D /* MDCShadowLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 54EC8FDBE1A0C96A66AAFFA0FD6A70DF /* MDCShadowLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99E15058FFF8DDEFDE915CFCB913A34B /* MDCShapedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E701702E86982C5EB1BCF8EAAABD656 /* MDCShapedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DC842FFE7C8DCB96E49F06BF7975DAE /* MDCShapeMediator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5407CB56306210D00FE40FDBCFFABCCD /* MDCShapeMediator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9EBA3162E0BFA77C454865EF907619DA /* MDCTriangleEdgeTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 979A8E6D34FDBE91B3152ACC7091E093 /* MDCTriangleEdgeTreatment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9EFAA5D8C55A613F296A1335A0B9A826 /* BTNavigationDropdownMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78B592BD0480225A109D738D08158767 /* BTNavigationDropdownMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1C152BD9F0F1606B6D90EAC1DF82700 /* MDCBottomSheetTransitionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FFD3CD183DCF85A385F219D1E91029D /* MDCBottomSheetTransitionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A27481E0C1947D76287FBB49CE42B06B /* MDCCornerTreatment+CornerTypeInitalizer.h in Headers */ = {isa = PBXBuildFile; fileRef = B3EF59C85D2D45C7C55F59F391E23EBB /* MDCCornerTreatment+CornerTypeInitalizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5951056C78026270D265B1A05FB77A0 /* MDCBottomSheetControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC9A3D20ACDA70B551F0E6F699B0556 /* MDCBottomSheetControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A67FEE8FD423E6C4A8EDA4F5DF3A9A80 /* MaterialMathDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE3A325D4EB36A9F90F011015E218DB /* MaterialMathDummy.m */; };
-		A8A9071E31DCB75622DA04C3ED40B98F /* MDCCornerTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C2A9A9F4F14E92420183B88E89C7AEF /* MDCCornerTreatment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8F0EC87E16102BC801E1429E3A259AA /* UIViewController+MaterialBottomSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C44D9C85E456745C97AFCBC9E80F77 /* UIViewController+MaterialBottomSheet.m */; };
-		AB80344757F1BF9A274B8CEE167E3F30 /* MDCBottomSheetPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E6D2CCC01BAE2277AA6FEC1A68C72C1 /* MDCBottomSheetPresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABEFEA99DE7320CC9D1D36002D45D83E /* MaterialMath.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D4CDFEE1E38EE37D0EE1ACC23ED90C /* MaterialMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD6206FA289B4651BB747798FD46B7B8 /* MDCPillShapeGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6847EB783D58707214F18EAF7133C0E1 /* MDCPillShapeGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AEA4C533A1816135DE63D76DC410A423 /* BTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB0EA70482A20BA17FB8129DD77A06 /* BTTableViewCell.swift */; };
-		AF5CD2B404844171A89E1EEE8E8F5795 /* BTTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4546B8C3CFC24C5621CA65CD4FD17 /* BTTitle.swift */; };
-		B02239DDA4392A42E0A7F2DEE9DF09E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */; };
-		B382ED925D539434103D3DA8B1BEA917 /* MDCPathGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 17A9830B19F45A2E603D9C4667098EC9 /* MDCPathGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4F4CB89BD4FF9D22964FB5EFDD65C0F /* MDCCutCornerTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFE8F05793741F7AA2C05FD57FAF204 /* MDCCutCornerTreatment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B5865268D0C8941A7FD48A91ECE400D6 /* MDCSlantedRectShapeGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 42268B63BC1C7D1AA946462B022ACDF3 /* MDCSlantedRectShapeGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B63C7F92C82593FA45FE0B2D94E188B4 /* MaterialShadowElevationsDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF99ABC4A922755736B8D82B196A95 /* MaterialShadowElevationsDummy.m */; };
-		B9CAB291CFD4B2AD9E735D1CFF78BCDB /* BTTableCellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3B37B66FB9FD4ECFEA732C2E28EE /* BTTableCellContentView.swift */; };
-		BAA19917A9D659B3AE6AC41D3D4870EE /* MaterialAvailability.h in Headers */ = {isa = PBXBuildFile; fileRef = D799D16A42D8C26487170B7B68BE6C71 /* MaterialAvailability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BAB06A62079EBC50FC3883D96ABFE581 /* UIColor+MaterialElevation.h in Headers */ = {isa = PBXBuildFile; fileRef = B332865E38B4D9D48AE0582E54C80825 /* UIColor+MaterialElevation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB255A0FFF1488578DAA5A3ED7B3580E /* Pods-Havit-HavitUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C503B3F06E3329517D4BB8E7976D274 /* Pods-Havit-HavitUITests-dummy.m */; };
-		BBF5E9A50B05DA9EA5A46F3838FA31AD /* MDCDraggableView.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE54559E81AFAF30C0F1FDD5FDCCD3D /* MDCDraggableView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C20F02D75944F3205EBF3066AF22EE03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */; };
-		C8B94A2D7B8639EAE6A57753CB5DB17B /* MDCSheetContainerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E6D14BEF8F7AB4AC4B0C9484675E75D5 /* MDCSheetContainerViewDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CA73DDDB149041B138811BE98924C594 /* UIApplication+MDCAppExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9643CAED62FA492FBE4B8FB44A518283 /* UIApplication+MDCAppExtensions.m */; };
-		CD92BA88DEFD6A7AA9D456E598EEB365 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */; };
-		D2DA847A5AFB71B24633A81F490B05EC /* UIColor+MaterialElevation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FFFEA197816CCF211525CE4845FDE /* UIColor+MaterialElevation.m */; };
-		D46AD0CE508E5D8A5FC7F184DBBB1EAE /* MDCPathGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 024A0F276F73E2D96F6949C88BE730CF /* MDCPathGenerator.m */; };
-		D7DFC8407A67FE6F417824532A1351DA /* MaterialShapeLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C234B508567F15D9CA49764CBED6FBB0 /* MaterialShapeLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF469589BC3403B2A47C6AD8B2BBE3DA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB655F8A3B9F0C3DB37D349580B2779 /* WebKit.framework */; };
-		E06FD07F020F4CD17109D4EFA1EDD6CE /* MDCCurvedCornerTreatment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA80BE4A6C27D1F16F597217EB1D36B /* MDCCurvedCornerTreatment.m */; };
-		E593E1AFC525348B0FA77DFE813F2350 /* MDCCornerTreatment+CornerTypeInitalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BD09509D926815C03C600251EFC959 /* MDCCornerTreatment+CornerTypeInitalizer.m */; };
-		E9D24B4691FEF6E79A0F60C321DEF39D /* MDCEdgeTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 704059214DDFA134D3D66AE04A893F6D /* MDCEdgeTreatment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EBF5AB7255E72DB80DF0BA04CED4C295 /* MDCShapedShadowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 357B4D2FD5F7B816F5C64E783274CA4C /* MDCShapedShadowLayer.m */; };
-		ED5B7134348145D025C2B7AEC4A896ED /* UIView+MaterialElevationResponding.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F39EF03D05EF80E75BB2E829766FFF /* UIView+MaterialElevationResponding.m */; };
-		F0248FE5D326DFFB7E1DDBB65402DB2D /* Pods-HavitTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3174D24390D0BFDB2930DB11164B873 /* Pods-HavitTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F3BDE36034A5B362EB1A883020B238BC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00658B98FCC6323DABB2A24C3C501E6 /* UIViewController+Extension.swift */; };
-		F5C699B3399E7BF36A74BB4C56A46FD4 /* MDCBottomSheetTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D06DC96AA3CAAC450D313CE14295A /* MDCBottomSheetTransitionController.m */; };
-		F5D92BD96561735261424D962B1582BF /* MDCShapeMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F29C6524FF6D1A708A5BF2BAA6311 /* MDCShapeMediator.m */; };
-		F7C0111A3F4BC4F99E6A06537E88D1D9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F1433B0AB3662C3F5743F05539E4D /* UIView+Extension.swift */; };
-		FB71B976745977B39DA0BC1B4766782A /* MDCCurvedRectShapeGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 65EDAD07FDAD7DC812AAE2055DB64C5A /* MDCCurvedRectShapeGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC57BC309245609B0F44DFB1968D979D /* MDCMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 592D926B2A6AEAF9531BECCFF892AC65 /* MDCMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FCBF6565CA4D10B61B1EBEAA81B4EE6B /* MDCShadowElevations.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F4B4338787B564742110636184F66A /* MDCShadowElevations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FE8C606CC7BB9361045058A446FCAA0A /* MDCCornerTreatment.m in Sources */ = {isa = PBXBuildFile; fileRef = 680A7C5B8559E04BE154B874CCE52FE6 /* MDCCornerTreatment.m */; };
+		06F32E914A3F210DED256E1F69A37F93 /* Pods-Havit-HavitUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F543368323902F0D95C53598324E5B /* Pods-Havit-HavitUITests-dummy.m */; };
+		17507B81EBD57E935664A4B3DF2DADE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		1FAD4E63A3450ED96FE529C28B4AE6C2 /* Pods-HavitTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F94BE948EA0F3E208FE9B3C39F66D27C /* Pods-HavitTests-dummy.m */; };
+		2F5780BF8C08D9E78CFBBFE7CA96AFAD /* Pods-Havit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26AC1DA07B6B5DAB5A4330977C08ABBA /* Pods-Havit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6405BD19B64526727E8F957BA9DB148F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		9FE8F64D0994087E6006E8AF3E1A4964 /* Pods-Havit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4283C0DE8776E6D9DFE252FDE30875D /* Pods-Havit-dummy.m */; };
+		C0C2810B0B6408B605E340F8FC907256 /* Pods-Havit-HavitUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AFA6B98B28B8B38CC480ECE1AD97122 /* Pods-Havit-HavitUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBDC95AEA1006BA0702E029A9E72FA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F0248FE5D326DFFB7E1DDBB65402DB2D /* Pods-HavitTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8A6A7DF7E203634CFA1C288BEDF1555 /* Pods-HavitTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		017100E3776B8A9454059629EAE0127A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B4723B5744013DF08BE3A5FEAA286944;
-			remoteInfo = MaterialComponents;
-		};
-		465F55FED59236BA24EEC42E032C4BC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B4723B5744013DF08BE3A5FEAA286944;
-			remoteInfo = MaterialComponents;
-		};
-		53E96C9AFE07A2543C765E71216835C3 /* PBXContainerItemProxy */ = {
+		E55477165A53AC62D447F22044F1D357 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 087E27F63C274D959A1EFA0E70D18169;
 			remoteInfo = "Pods-Havit";
 		};
-		6A420991B60A5EAD85068659AF90BCB5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E5F1E6214A6184999F9D513F4A0E9682;
-			remoteInfo = BTNavigationDropdownMenu;
-		};
-		C312AF5EB8C0363831BAD37B89A611D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E5F1E6214A6184999F9D513F4A0E9682;
-			remoteInfo = BTNavigationDropdownMenu;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		006C546BA9EBCDD7257EB6F5FC002348 /* UIViewController+MaterialBottomSheet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MaterialBottomSheet.h"; path = "components/BottomSheet/src/UIViewController+MaterialBottomSheet.h"; sourceTree = "<group>"; };
-		024A0F276F73E2D96F6949C88BE730CF /* MDCPathGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCPathGenerator.m; path = components/Shapes/src/MDCPathGenerator.m; sourceTree = "<group>"; };
-		03457C6F61E389E41987A52791487970 /* Pods-Havit-HavitUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-HavitUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		06BD09509D926815C03C600251EFC959 /* MDCCornerTreatment+CornerTypeInitalizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MDCCornerTreatment+CornerTypeInitalizer.m"; path = "components/ShapeLibrary/src/MDCCornerTreatment+CornerTypeInitalizer.m"; sourceTree = "<group>"; };
-		08A4FB2D69BE0F9B22CF37CC9A97153C /* MDCCutCornerTreatment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCCutCornerTreatment.m; path = components/ShapeLibrary/src/MDCCutCornerTreatment.m; sourceTree = "<group>"; };
-		0A4F1433B0AB3662C3F5743F05539E4D /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "Source/Extension/UIView+Extension.swift"; sourceTree = "<group>"; };
-		0BAF99ABC4A922755736B8D82B196A95 /* MaterialShadowElevationsDummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MaterialShadowElevationsDummy.m; path = components/ShadowElevations/src/MaterialShadowElevationsDummy.m; sourceTree = "<group>"; };
-		0D22B63EF5680C8A9B865332B5A53779 /* MaterialComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MaterialComponents.release.xcconfig; sourceTree = "<group>"; };
-		0D5EAE1E4A0BFAE6D7D64DE0A265B281 /* BTNavigationDropdownMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BTNavigationDropdownMenu.release.xcconfig; sourceTree = "<group>"; };
-		0E6D2CCC01BAE2277AA6FEC1A68C72C1 /* MDCBottomSheetPresentationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCBottomSheetPresentationController.h; path = components/BottomSheet/src/MDCBottomSheetPresentationController.h; sourceTree = "<group>"; };
-		0EA3381E9E086BDD3FF08526CAAC413F /* MDCCurvedRectShapeGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCCurvedRectShapeGenerator.m; path = components/ShapeLibrary/src/MDCCurvedRectShapeGenerator.m; sourceTree = "<group>"; };
-		107A3B37B66FB9FD4ECFEA732C2E28EE /* BTTableCellContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTTableCellContentView.swift; path = Source/Internal/BTTableCellContentView.swift; sourceTree = "<group>"; };
-		12898C295B7D91E6EC7619A8D6CBF1C0 /* Pods-HavitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HavitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		13D4C3B72C2B0A9C090D63E95CCE42DF /* MDCKeyboardWatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCKeyboardWatcher.m; path = components/private/KeyboardWatcher/src/MDCKeyboardWatcher.m; sourceTree = "<group>"; };
-		17A9830B19F45A2E603D9C4667098EC9 /* MDCPathGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCPathGenerator.h; path = components/Shapes/src/MDCPathGenerator.h; sourceTree = "<group>"; };
-		1C7F48AB8BE410D804113D73287D9C0D /* MDCDraggableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCDraggableView.m; path = components/BottomSheet/src/private/MDCDraggableView.m; sourceTree = "<group>"; };
-		1D56FF091B6A5B54D7D0C449BC659512 /* BTNavigationDropdownMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BTNavigationDropdownMenu.debug.xcconfig; sourceTree = "<group>"; };
-		1E27673A7B6A48CAF65B1010716A294E /* Pods-Havit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit.debug.xcconfig"; sourceTree = "<group>"; };
-		1EF2EC2EF81F683D2F89DD41FA520D15 /* MaterialKeyboardWatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialKeyboardWatcher.h; path = components/private/KeyboardWatcher/src/MaterialKeyboardWatcher.h; sourceTree = "<group>"; };
-		1FC8DE8BCB85FF0334AB38F01249A35A /* Pods-HavitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HavitTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		21EAD721ADE6F88937549E1C5CB80390 /* BTNavigationDropdownMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTNavigationDropdownMenu.swift; path = Source/BTNavigationDropdownMenu.swift; sourceTree = "<group>"; };
-		22852AFA48F4A39F22A87EA69BEACCB4 /* Pods-HavitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HavitTests.release.xcconfig"; sourceTree = "<group>"; };
-		2583F65D69D5021A196D1114DB23E6F3 /* Pods-Havit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit.release.xcconfig"; sourceTree = "<group>"; };
-		2A3F6CD256D4F06211BEE06266CC5161 /* Pods_Havit_HavitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Havit_HavitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A8D06DC96AA3CAAC450D313CE14295A /* MDCBottomSheetTransitionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCBottomSheetTransitionController.m; path = components/BottomSheet/src/MDCBottomSheetTransitionController.m; sourceTree = "<group>"; };
-		2B10F477A6E95442C867907F1C00EA13 /* BTNavigationDropdownMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BTNavigationDropdownMenu-prefix.pch"; sourceTree = "<group>"; };
-		2BA6BF3C62922B3C582857AA1D601690 /* MDCSlantedRectShapeGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCSlantedRectShapeGenerator.m; path = components/ShapeLibrary/src/MDCSlantedRectShapeGenerator.m; sourceTree = "<group>"; };
-		2BB655F8A3B9F0C3DB37D349580B2779 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
-		2E701702E86982C5EB1BCF8EAAABD656 /* MDCShapedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCShapedView.h; path = components/Shapes/src/MDCShapedView.h; sourceTree = "<group>"; };
-		2F6E1EA6056EE81E80D228CC83CB4BE1 /* MaterialElevation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialElevation.h; path = components/Elevation/src/MaterialElevation.h; sourceTree = "<group>"; };
-		2F98D1FBD8A28CC9E6C013DE3AC6589B /* Pods-Havit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Havit-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2FFD3CD183DCF85A385F219D1E91029D /* MDCBottomSheetTransitionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCBottomSheetTransitionController.h; path = components/BottomSheet/src/MDCBottomSheetTransitionController.h; sourceTree = "<group>"; };
-		3222A60447324F893C3B3DB188C32BBB /* BTNavigationDropdownMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BTNavigationDropdownMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		34C44D9C85E456745C97AFCBC9E80F77 /* UIViewController+MaterialBottomSheet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MaterialBottomSheet.m"; path = "components/BottomSheet/src/UIViewController+MaterialBottomSheet.m"; sourceTree = "<group>"; };
-		357B4D2FD5F7B816F5C64E783274CA4C /* MDCShapedShadowLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCShapedShadowLayer.m; path = components/Shapes/src/MDCShapedShadowLayer.m; sourceTree = "<group>"; };
-		38326DBB9379F58FEFDC257981CC87D3 /* BTNavigationDropdownMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BTNavigationDropdownMenu-dummy.m"; sourceTree = "<group>"; };
-		398AE6C21E407E2E28189C71DE9942C8 /* MDCDraggableViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCDraggableViewDelegate.h; path = components/BottomSheet/src/private/MDCDraggableViewDelegate.h; sourceTree = "<group>"; };
-		39DA80C348911BE9332D1B03A935F87A /* MDCElevatable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCElevatable.h; path = components/Elevation/src/MDCElevatable.h; sourceTree = "<group>"; };
-		3BC9A3D20ACDA70B551F0E6F699B0556 /* MDCBottomSheetControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCBottomSheetControllerDelegate.h; path = components/BottomSheet/src/MDCBottomSheetControllerDelegate.h; sourceTree = "<group>"; };
-		3DBB0EA70482A20BA17FB8129DD77A06 /* BTTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTTableViewCell.swift; path = Source/Internal/BTTableViewCell.swift; sourceTree = "<group>"; };
-		3E5098F05069C2F1322C234AFAEA7BBB /* MaterialShapes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialShapes.h; path = components/Shapes/src/MaterialShapes.h; sourceTree = "<group>"; };
-		3F22FD4BA030ED3FB370B9DC6EA37561 /* MaterialColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialColor.h; path = components/private/Color/src/MaterialColor.h; sourceTree = "<group>"; };
-		40E59FA836E2D60D822227B35A245AED /* Pods-Havit-HavitUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-HavitUITests-Info.plist"; sourceTree = "<group>"; };
-		41C6863A1EE92BBF8D54B8A3ED23A366 /* MaterialShadowLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialShadowLayer.h; path = components/ShadowLayer/src/MaterialShadowLayer.h; sourceTree = "<group>"; };
-		42268B63BC1C7D1AA946462B022ACDF3 /* MDCSlantedRectShapeGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCSlantedRectShapeGenerator.h; path = components/ShapeLibrary/src/MDCSlantedRectShapeGenerator.h; sourceTree = "<group>"; };
-		43942F2449E6FBB20B6A735710DED29A /* Pods_HavitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HavitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		444A006691F4C8A8396E7E8538B705E1 /* MaterialBottomSheet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialBottomSheet.h; path = components/BottomSheet/src/MaterialBottomSheet.h; sourceTree = "<group>"; };
-		4581A962906536AD8B9A7E6FA976B784 /* Pods-Havit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-acknowledgements.plist"; sourceTree = "<group>"; };
-		48D711206138A10E8FE87A59FDCD3EAC /* MDCSheetBehavior.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCSheetBehavior.m; path = components/BottomSheet/src/private/MDCSheetBehavior.m; sourceTree = "<group>"; };
-		4A976504774F5C2DB282B9AE860456AB /* BTNavigationDropdownMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BTNavigationDropdownMenu-Info.plist"; sourceTree = "<group>"; };
-		4E7FFFEA197816CCF211525CE4845FDE /* UIColor+MaterialElevation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MaterialElevation.m"; path = "components/Elevation/src/UIColor+MaterialElevation.m"; sourceTree = "<group>"; };
-		50C5CFFFE629D07D9E7324FFADBC1E34 /* MDCBottomSheetPresentationControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCBottomSheetPresentationControllerDelegate.h; path = components/BottomSheet/src/MDCBottomSheetPresentationControllerDelegate.h; sourceTree = "<group>"; };
-		52AA1F486E4F3080784F5FFD8E06C894 /* MDCRectangleShapeGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCRectangleShapeGenerator.m; path = components/Shapes/src/MDCRectangleShapeGenerator.m; sourceTree = "<group>"; };
-		5407CB56306210D00FE40FDBCFFABCCD /* MDCShapeMediator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCShapeMediator.h; path = components/Shapes/src/MDCShapeMediator.h; sourceTree = "<group>"; };
-		54EC8FDBE1A0C96A66AAFFA0FD6A70DF /* MDCShadowLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCShadowLayer.h; path = components/ShadowLayer/src/MDCShadowLayer.h; sourceTree = "<group>"; };
-		572A0A6DF55ADF1C5F79383708148EF4 /* Pods-Havit-HavitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Havit-HavitUITests.modulemap"; sourceTree = "<group>"; };
-		58305EC759E43A04DC6FE7EBFB097C8A /* Pods-Havit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-Info.plist"; sourceTree = "<group>"; };
-		585CD5939415352A6F0CCF3CB2AED9C8 /* Pods-Havit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Havit-umbrella.h"; sourceTree = "<group>"; };
-		592D926B2A6AEAF9531BECCFF892AC65 /* MDCMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCMath.h; path = components/private/Math/src/MDCMath.h; sourceTree = "<group>"; };
-		5BAA3E0B8C1B3538D7867D581BEC85C0 /* BTNavigationDropdownMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BTNavigationDropdownMenu.modulemap; sourceTree = "<group>"; };
-		5C93D9D2ECA9466C70A353CCD1DD83C7 /* Pods-Havit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Havit.modulemap"; sourceTree = "<group>"; };
-		60A157E674073FD2CA86091BC0F8EA19 /* MDCSheetBehavior.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCSheetBehavior.h; path = components/BottomSheet/src/private/MDCSheetBehavior.h; sourceTree = "<group>"; };
-		65EDAD07FDAD7DC812AAE2055DB64C5A /* MDCCurvedRectShapeGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCCurvedRectShapeGenerator.h; path = components/ShapeLibrary/src/MDCCurvedRectShapeGenerator.h; sourceTree = "<group>"; };
-		67F39EF03D05EF80E75BB2E829766FFF /* UIView+MaterialElevationResponding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MaterialElevationResponding.m"; path = "components/Elevation/src/UIView+MaterialElevationResponding.m"; sourceTree = "<group>"; };
-		680A7C5B8559E04BE154B874CCE52FE6 /* MDCCornerTreatment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCCornerTreatment.m; path = components/Shapes/src/MDCCornerTreatment.m; sourceTree = "<group>"; };
-		6847EB783D58707214F18EAF7133C0E1 /* MDCPillShapeGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCPillShapeGenerator.h; path = components/ShapeLibrary/src/MDCPillShapeGenerator.h; sourceTree = "<group>"; };
-		689170D75D805C9C147240480F779CE7 /* Pods-Havit-HavitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Havit-HavitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6D5803E65CCB6AFA0B053078FAF38580 /* Pods-Havit-HavitUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Havit-HavitUITests-frameworks.sh"; sourceTree = "<group>"; };
-		6E3D4B6B554B1BC91F9AE924CE927CB7 /* MaterialComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MaterialComponents.modulemap; sourceTree = "<group>"; };
-		6FA80BE4A6C27D1F16F597217EB1D36B /* MDCCurvedCornerTreatment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCCurvedCornerTreatment.m; path = components/ShapeLibrary/src/MDCCurvedCornerTreatment.m; sourceTree = "<group>"; };
-		701965C74B08A49EA99C052449595CFD /* UIColor+MaterialBlending.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+MaterialBlending.h"; path = "components/private/Color/src/UIColor+MaterialBlending.h"; sourceTree = "<group>"; };
-		704059214DDFA134D3D66AE04A893F6D /* MDCEdgeTreatment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCEdgeTreatment.h; path = components/Shapes/src/MDCEdgeTreatment.h; sourceTree = "<group>"; };
-		715CEC8C9EE5E2938367641ADB045A1E /* UIColor+MaterialDynamic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+MaterialDynamic.h"; path = "components/private/Color/src/UIColor+MaterialDynamic.h"; sourceTree = "<group>"; };
-		73B36FD04A2D005293D90A8FF118EF36 /* MDCBottomSheetPresentationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCBottomSheetPresentationController.m; path = components/BottomSheet/src/MDCBottomSheetPresentationController.m; sourceTree = "<group>"; };
-		7477B69DF3447200D32CE66915292FDA /* MDCBottomSheetController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCBottomSheetController.h; path = components/BottomSheet/src/MDCBottomSheetController.h; sourceTree = "<group>"; };
-		78B592BD0480225A109D738D08158767 /* BTNavigationDropdownMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BTNavigationDropdownMenu-umbrella.h"; sourceTree = "<group>"; };
-		78E98BB6569576BAB5B81E74FDEE5421 /* MDCSheetState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCSheetState.h; path = components/BottomSheet/src/MDCSheetState.h; sourceTree = "<group>"; };
-		7A044578CD6A0D71BE85C6F7081CC77F /* Pods-Havit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Havit-frameworks.sh"; sourceTree = "<group>"; };
-		7C503B3F06E3329517D4BB8E7976D274 /* Pods-Havit-HavitUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Havit-HavitUITests-dummy.m"; sourceTree = "<group>"; };
-		7D68428B1213DCBC6F1AE1C52E8DCF2F /* MDCRectangleShapeGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCRectangleShapeGenerator.h; path = components/Shapes/src/MDCRectangleShapeGenerator.h; sourceTree = "<group>"; };
-		813759841086796D59B23D7324FEBB78 /* MaterialComponents-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MaterialComponents-prefix.pch"; sourceTree = "<group>"; };
-		82020EFE4FCB7B33818765D78E0F4EF8 /* Pods-Havit-HavitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit-HavitUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8C2A9A9F4F14E92420183B88E89C7AEF /* MDCCornerTreatment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCCornerTreatment.h; path = components/Shapes/src/MDCCornerTreatment.h; sourceTree = "<group>"; };
-		8CE3A325D4EB36A9F90F011015E218DB /* MaterialMathDummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MaterialMathDummy.m; path = components/private/Math/src/MaterialMathDummy.m; sourceTree = "<group>"; };
-		8D4DA7C648913A2C2A5848146FBA9F4B /* MDCShapeGenerating.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCShapeGenerating.h; path = components/Shapes/src/MDCShapeGenerating.h; sourceTree = "<group>"; };
-		8FA9AD24051E2D69F5C849948EDD8211 /* MDCSheetContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCSheetContainerView.m; path = components/BottomSheet/src/private/MDCSheetContainerView.m; sourceTree = "<group>"; };
-		8FFE8F05793741F7AA2C05FD57FAF204 /* MDCCutCornerTreatment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCCutCornerTreatment.h; path = components/ShapeLibrary/src/MDCCutCornerTreatment.h; sourceTree = "<group>"; };
-		9643CAED62FA492FBE4B8FB44A518283 /* UIApplication+MDCAppExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+MDCAppExtensions.m"; path = "components/private/Application/src/UIApplication+MDCAppExtensions.m"; sourceTree = "<group>"; };
-		965AC86B5A3E04F0110F2C728AB9D325 /* Pods_Havit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Havit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		979A8E6D34FDBE91B3152ACC7091E093 /* MDCTriangleEdgeTreatment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTriangleEdgeTreatment.h; path = components/ShapeLibrary/src/MDCTriangleEdgeTreatment.h; sourceTree = "<group>"; };
-		99EA03BD988E4AB252C3470F10C6D1F7 /* Pods-HavitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HavitTests-Info.plist"; sourceTree = "<group>"; };
-		9B80108CE2B94DC7CAC90F46E9F12AA4 /* UIApplication+MDCAppExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+MDCAppExtensions.h"; path = "components/private/Application/src/UIApplication+MDCAppExtensions.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F4F62C6CF69452B6EAA79BAF903082C /* MaterialComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MaterialComponents.debug.xcconfig; sourceTree = "<group>"; };
-		A0D1CB0459DD1EF9A989423463B0C084 /* MDCPillShapeGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCPillShapeGenerator.m; path = components/ShapeLibrary/src/MDCPillShapeGenerator.m; sourceTree = "<group>"; };
-		A0F3315BEC9B37261980D59F755DDC8B /* Pods-HavitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HavitTests.modulemap"; sourceTree = "<group>"; };
-		A1DDC108EC4E4349B7A46CB0D1DE13D0 /* Pods-HavitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HavitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A2DE2BC211335A19775CCC33C5A82201 /* MDCSheetContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCSheetContainerView.h; path = components/BottomSheet/src/private/MDCSheetContainerView.h; sourceTree = "<group>"; };
-		A34157B3708EDB7D17422B3D92F591D2 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A35E73580573433A85EB9525A0313D6C /* Pods-Havit-HavitUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Havit-HavitUITests-umbrella.h"; sourceTree = "<group>"; };
-		A4B61AA7B2D128A33AA154A2C50D8FCF /* MDCShapedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCShapedView.m; path = components/Shapes/src/MDCShapedView.m; sourceTree = "<group>"; };
-		A4EC4E41856F71B9FED6EB8EB536CD01 /* MDCBottomSheetController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCBottomSheetController.m; path = components/BottomSheet/src/MDCBottomSheetController.m; sourceTree = "<group>"; };
-		A6F4B4338787B564742110636184F66A /* MDCShadowElevations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCShadowElevations.h; path = components/ShadowElevations/src/MDCShadowElevations.h; sourceTree = "<group>"; };
-		A7F1F219160491223CA00E8B615E09F3 /* MDCShapedShadowLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCShapedShadowLayer.h; path = components/Shapes/src/MDCShapedShadowLayer.h; sourceTree = "<group>"; };
-		A84F29C6524FF6D1A708A5BF2BAA6311 /* MDCShapeMediator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCShapeMediator.m; path = components/Shapes/src/MDCShapeMediator.m; sourceTree = "<group>"; };
-		A8F3A93FA80805750D29EC0B48D1861D /* BTConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTConfiguration.swift; path = Source/Internal/BTConfiguration.swift; sourceTree = "<group>"; };
-		AA1F9B9A3378BEA5D70812C2462A7425 /* MDCShadowLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCShadowLayer.m; path = components/ShadowLayer/src/MDCShadowLayer.m; sourceTree = "<group>"; };
-		ACBD8E26EA343DB451424FD93A01BBFA /* MDCRoundedCornerTreatment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCRoundedCornerTreatment.m; path = components/ShapeLibrary/src/MDCRoundedCornerTreatment.m; sourceTree = "<group>"; };
-		AD3D8CBE61D01600A0BAB495FAB2C4D5 /* Pods-Havit-HavitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit-HavitUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AEF4546B8C3CFC24C5621CA65CD4FD17 /* BTTitle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTTitle.swift; path = Source/BTTitle.swift; sourceTree = "<group>"; };
-		B00E53EF2F05E235CDE0E6BAD22D1389 /* UIView+MaterialElevationResponding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MaterialElevationResponding.h"; path = "components/Elevation/src/UIView+MaterialElevationResponding.h"; sourceTree = "<group>"; };
-		B332865E38B4D9D48AE0582E54C80825 /* UIColor+MaterialElevation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+MaterialElevation.h"; path = "components/Elevation/src/UIColor+MaterialElevation.h"; sourceTree = "<group>"; };
-		B3EF59C85D2D45C7C55F59F391E23EBB /* MDCCornerTreatment+CornerTypeInitalizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MDCCornerTreatment+CornerTypeInitalizer.h"; path = "components/ShapeLibrary/src/MDCCornerTreatment+CornerTypeInitalizer.h"; sourceTree = "<group>"; };
-		B3FF78EA3E51494156AB29A8FDE15BEC /* UIColor+MaterialBlending.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MaterialBlending.m"; path = "components/private/Color/src/UIColor+MaterialBlending.m"; sourceTree = "<group>"; };
-		BBBE3000AD9848305303F20F569BAA0D /* Pods-Havit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Havit-dummy.m"; sourceTree = "<group>"; };
-		C234B508567F15D9CA49764CBED6FBB0 /* MaterialShapeLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialShapeLibrary.h; path = components/ShapeLibrary/src/MaterialShapeLibrary.h; sourceTree = "<group>"; };
-		C3174D24390D0BFDB2930DB11164B873 /* Pods-HavitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HavitTests-umbrella.h"; sourceTree = "<group>"; };
-		C3D44D38C23CF1D861C96D4D6F0901C8 /* MDCRoundedCornerTreatment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCRoundedCornerTreatment.h; path = components/ShapeLibrary/src/MDCRoundedCornerTreatment.h; sourceTree = "<group>"; };
-		C3D4CDFEE1E38EE37D0EE1ACC23ED90C /* MaterialMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialMath.h; path = components/private/Math/src/MaterialMath.h; sourceTree = "<group>"; };
-		CC309C4464C0D81DA70E48406B2B7ABC /* MaterialComponents-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MaterialComponents-dummy.m"; sourceTree = "<group>"; };
-		CE621D3C2B50EBDAA53ABD55BC199B7A /* MDCTriangleEdgeTreatment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCTriangleEdgeTreatment.m; path = components/ShapeLibrary/src/MDCTriangleEdgeTreatment.m; sourceTree = "<group>"; };
-		D0597E1E7B5C37AF0C3EDA8350DA223E /* MaterialApplication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialApplication.h; path = components/private/Application/src/MaterialApplication.h; sourceTree = "<group>"; };
-		D111FC3C41874729ECB3B4E13F465518 /* MDCAvailability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCAvailability.h; path = components/Availability/src/MDCAvailability.h; sourceTree = "<group>"; };
-		D6375E397201BEBF4AE38D680251E4E0 /* MaterialComponents-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MaterialComponents-Info.plist"; sourceTree = "<group>"; };
-		D799D16A42D8C26487170B7B68BE6C71 /* MaterialAvailability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialAvailability.h; path = components/Availability/src/MaterialAvailability.h; sourceTree = "<group>"; };
-		D7B6ACE7AC827A627BFBEFD37BE08018 /* MDCCurvedCornerTreatment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCCurvedCornerTreatment.h; path = components/ShapeLibrary/src/MDCCurvedCornerTreatment.h; sourceTree = "<group>"; };
-		DA4B1BE59D4952AABC20EDC81D46342E /* Pods-HavitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HavitTests-dummy.m"; sourceTree = "<group>"; };
-		DACDA663086E750F1897FCAF0EC3A2EB /* MaterialShadowElevations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialShadowElevations.h; path = components/ShadowElevations/src/MaterialShadowElevations.h; sourceTree = "<group>"; };
-		DD2B40F730A89ECB116A9769ABB453E7 /* MDCEdgeTreatment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCEdgeTreatment.m; path = components/Shapes/src/MDCEdgeTreatment.m; sourceTree = "<group>"; };
-		E6D14BEF8F7AB4AC4B0C9484675E75D5 /* MDCSheetContainerViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCSheetContainerViewDelegate.h; path = components/BottomSheet/src/private/MDCSheetContainerViewDelegate.h; sourceTree = "<group>"; };
-		E750AFBE664FEBA34CABE1042A14CED1 /* MDCElevationOverriding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCElevationOverriding.h; path = components/Elevation/src/MDCElevationOverriding.h; sourceTree = "<group>"; };
-		E76E81EEF9831B5F90E3959CF0A2D744 /* BTTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BTTableView.swift; path = Source/Internal/BTTableView.swift; sourceTree = "<group>"; };
-		EBAF42C4581DFED5EF9F0E34B40C7D39 /* MaterialComponents-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MaterialComponents-umbrella.h"; sourceTree = "<group>"; };
-		EE596EE10AC033D5EA05B845C9286B77 /* MDCKeyboardWatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCKeyboardWatcher.h; path = components/private/KeyboardWatcher/src/MDCKeyboardWatcher.h; sourceTree = "<group>"; };
-		F00658B98FCC6323DABB2A24C3C501E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "Source/Extension/UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		FCE54559E81AFAF30C0F1FDD5FDCCD3D /* MDCDraggableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCDraggableView.h; path = components/BottomSheet/src/private/MDCDraggableView.h; sourceTree = "<group>"; };
-		FF76808B5CBC38970B37206E2B1A8C65 /* BTNavigationDropdownMenu.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = BTNavigationDropdownMenu.bundle; path = Source/BTNavigationDropdownMenu.bundle; sourceTree = "<group>"; };
-		FFA9A0BB7AF3429C07F9CA9CC3B42762 /* UIColor+MaterialDynamic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MaterialDynamic.m"; path = "components/private/Color/src/UIColor+MaterialDynamic.m"; sourceTree = "<group>"; };
+		11CA3A13BE83C28B34506AEF4687512B /* Pods-Havit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit.debug.xcconfig"; sourceTree = "<group>"; };
+		20CE9DE9843EA2F4FB0CEFA744F705FE /* Pods-Havit-HavitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit-HavitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		250D2D2DBCD31097E637D7B379C51290 /* Pods-Havit-HavitUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-HavitUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		26AC1DA07B6B5DAB5A4330977C08ABBA /* Pods-Havit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Havit-umbrella.h"; sourceTree = "<group>"; };
+		2A3F6CD256D4F06211BEE06266CC5161 /* Pods_Havit_HavitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Havit_HavitUITests.framework; path = "Pods-Havit-HavitUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30A0526C054D1DF55BDE602AD2EDD861 /* Pods-Havit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-acknowledgements.plist"; sourceTree = "<group>"; };
+		31BF8490B5ADA12184BB664325112698 /* Pods-Havit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-Info.plist"; sourceTree = "<group>"; };
+		3D3AA60C23F2ECE3FA4D37A2E42260A2 /* Pods-Havit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Havit-acknowledgements.markdown"; sourceTree = "<group>"; };
+		405CF9A656D27EE1D3FF178A3CDC5480 /* Pods-HavitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HavitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		43942F2449E6FBB20B6A735710DED29A /* Pods_HavitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HavitTests.framework; path = "Pods-HavitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FCEA7682B6AF0730EF193830CEE3CC9 /* Pods-HavitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HavitTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		78F543368323902F0D95C53598324E5B /* Pods-Havit-HavitUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Havit-HavitUITests-dummy.m"; sourceTree = "<group>"; };
+		86DFB96B06504D6ACF2AD9D451094A23 /* Pods-Havit-HavitUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Havit-HavitUITests-Info.plist"; sourceTree = "<group>"; };
+		88F17D496B0FB10DB1D7B7DF91FF7977 /* Pods-HavitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HavitTests.modulemap"; sourceTree = "<group>"; };
+		965AC86B5A3E04F0110F2C728AB9D325 /* Pods_Havit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Havit.framework; path = "Pods-Havit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AFA6B98B28B8B38CC480ECE1AD97122 /* Pods-Havit-HavitUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Havit-HavitUITests-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F78CF0D9EC4822C5A361D17CCF76156 /* Pods-Havit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Havit.modulemap"; sourceTree = "<group>"; };
+		A0051C52FE05F4C7CF5B082107A2455F /* Pods-HavitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HavitTests.release.xcconfig"; sourceTree = "<group>"; };
+		A6D59C6378D9980689F997B7306AB33A /* Pods-Havit-HavitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Havit-HavitUITests.modulemap"; sourceTree = "<group>"; };
+		A8AD88208B847B1BF678D34AA06F80EE /* Pods-HavitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HavitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B8A6A7DF7E203634CFA1C288BEDF1555 /* Pods-HavitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HavitTests-umbrella.h"; sourceTree = "<group>"; };
+		BEED345934FE60808117FC25265493A3 /* Pods-HavitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HavitTests-Info.plist"; sourceTree = "<group>"; };
+		C6F5D36D1972F3422341672532EF42B4 /* Pods-Havit-HavitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Havit-HavitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E9905F5CCF36B62B54BC96A2CDA2B6EE /* Pods-Havit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit.release.xcconfig"; sourceTree = "<group>"; };
+		F426670D9B70DB2BFD9EC13973C5CDBB /* Pods-Havit-HavitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Havit-HavitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4283C0DE8776E6D9DFE252FDE30875D /* Pods-Havit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Havit-dummy.m"; sourceTree = "<group>"; };
+		F94BE948EA0F3E208FE9B3C39F66D27C /* Pods-HavitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HavitTests-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		07BBFCA3294D3863B9560756642645E7 /* Frameworks */ = {
+		A2626BAA837D4BA009D0D971A59B0872 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B02239DDA4392A42E0A7F2DEE9DF09E3 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1E2114667681313F1B58C5C5DE78753 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CD92BA88DEFD6A7AA9D456E598EEB365 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BED3178971CB04BB3492FDF570011C51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				83BA64B1B6C5CB7E0F0FDF3FB8AD734F /* Foundation.framework in Frameworks */,
-				DF469589BC3403B2A47C6AD8B2BBE3DA /* WebKit.framework in Frameworks */,
+				17507B81EBD57E935664A4B3DF2DADE6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,53 +77,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF67B79FE19A3C650E4ABDC8780D3610 /* Frameworks */ = {
+		E292B710783933DD5F2572DE37B67788 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20F02D75944F3205EBF3066AF22EE03 /* Foundation.framework in Frameworks */,
+				CBDC95AEA1006BA0702E029A9E72FA47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		3ADD150769639A470E9E3237A01A262B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4666CE1A84ECF5C342FAD3C508C69DE /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		19428E5935661ED4F0592291E2A65729 /* Elevation */ = {
-			isa = PBXGroup;
-			children = (
-				2F6E1EA6056EE81E80D228CC83CB4BE1 /* MaterialElevation.h */,
-				39DA80C348911BE9332D1B03A935F87A /* MDCElevatable.h */,
-				E750AFBE664FEBA34CABE1042A14CED1 /* MDCElevationOverriding.h */,
-				B332865E38B4D9D48AE0582E54C80825 /* UIColor+MaterialElevation.h */,
-				4E7FFFEA197816CCF211525CE4845FDE /* UIColor+MaterialElevation.m */,
-				B00E53EF2F05E235CDE0E6BAD22D1389 /* UIView+MaterialElevationResponding.h */,
-				67F39EF03D05EF80E75BB2E829766FFF /* UIView+MaterialElevationResponding.m */,
-			);
-			name = Elevation;
-			sourceTree = "<group>";
-		};
-		29A73910D6A1CEF290240D2ADBB3FA14 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D73FD0CEBA110C9D1D8C32E20E69F3CF /* BTNavigationDropdownMenu */,
-				645EF758AE4EE720ADA351158CACE0D4 /* MaterialComponents */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		30CA6BC520FBADE65F03B260714B22D3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3222A60447324F893C3B3DB188C32BBB /* BTNavigationDropdownMenu.framework */,
-				A34157B3708EDB7D17422B3D92F591D2 /* MaterialComponents.framework */,
 				965AC86B5A3E04F0110F2C728AB9D325 /* Pods_Havit.framework */,
 				2A3F6CD256D4F06211BEE06266CC5161 /* Pods_Havit_HavitUITests.framework */,
 				43942F2449E6FBB20B6A735710DED29A /* Pods_HavitTests.framework */,
@@ -384,245 +98,51 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E2D7B645E8F3E8561DE01F4771544FC /* private */ = {
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F9CF66CD3DC71A0CD1F2FA568F74A518 /* Application */,
-				46CFBC1D9B4026102318E60E01E381CA /* Color */,
-				53566918FA7A3095995FD04ED6BA3576 /* KeyboardWatcher */,
-				4F1DE756813EC4D44E619B074857B4D2 /* Math */,
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
-			name = private;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		46CFBC1D9B4026102318E60E01E381CA /* Color */ = {
+		59FB73F294F77D4ED51588673D0395A0 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3F22FD4BA030ED3FB370B9DC6EA37561 /* MaterialColor.h */,
-				701965C74B08A49EA99C052449595CFD /* UIColor+MaterialBlending.h */,
-				B3FF78EA3E51494156AB29A8FDE15BEC /* UIColor+MaterialBlending.m */,
-				715CEC8C9EE5E2938367641ADB045A1E /* UIColor+MaterialDynamic.h */,
-				FFA9A0BB7AF3429C07F9CA9CC3B42762 /* UIColor+MaterialDynamic.m */,
-			);
-			name = Color;
-			sourceTree = "<group>";
-		};
-		4F1DE756813EC4D44E619B074857B4D2 /* Math */ = {
-			isa = PBXGroup;
-			children = (
-				C3D4CDFEE1E38EE37D0EE1ACC23ED90C /* MaterialMath.h */,
-				8CE3A325D4EB36A9F90F011015E218DB /* MaterialMathDummy.m */,
-				592D926B2A6AEAF9531BECCFF892AC65 /* MDCMath.h */,
-			);
-			name = Math;
-			sourceTree = "<group>";
-		};
-		4FED04363E2E614F1AC50EE0A8ED9FBA /* Availability */ = {
-			isa = PBXGroup;
-			children = (
-				D799D16A42D8C26487170B7B68BE6C71 /* MaterialAvailability.h */,
-				D111FC3C41874729ECB3B4E13F465518 /* MDCAvailability.h */,
-			);
-			name = Availability;
-			sourceTree = "<group>";
-		};
-		53566918FA7A3095995FD04ED6BA3576 /* KeyboardWatcher */ = {
-			isa = PBXGroup;
-			children = (
-				1EF2EC2EF81F683D2F89DD41FA520D15 /* MaterialKeyboardWatcher.h */,
-				EE596EE10AC033D5EA05B845C9286B77 /* MDCKeyboardWatcher.h */,
-				13D4C3B72C2B0A9C090D63E95CCE42DF /* MDCKeyboardWatcher.m */,
-			);
-			name = KeyboardWatcher;
-			sourceTree = "<group>";
-		};
-		5368ACFAAB6EB0ED099C66ACAC27FDE5 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A9F1E394DFF37EF9A589B2DD3D72BBF1 /* Pods-Havit */,
-				CCB20BF84FCC50DE2D51AAE5B74DEA1E /* Pods-Havit-HavitUITests */,
-				DB963F262D069659A917FECB6D9413CE /* Pods-HavitTests */,
+				73E2526009E87E6434C56C2A27175A24 /* Pods-Havit */,
+				7EE3EA1C80D590B9B6BF1DE84E24165C /* Pods-Havit-HavitUITests */,
+				D546B727CF3F059057D5B8E69D69F3F4 /* Pods-HavitTests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		645EF758AE4EE720ADA351158CACE0D4 /* MaterialComponents */ = {
+		73E2526009E87E6434C56C2A27175A24 /* Pods-Havit */ = {
 			isa = PBXGroup;
 			children = (
-				4FED04363E2E614F1AC50EE0A8ED9FBA /* Availability */,
-				A7A35809811B8135CFF29F3E7D87D9DF /* BottomSheet */,
-				19428E5935661ED4F0592291E2A65729 /* Elevation */,
-				3E2D7B645E8F3E8561DE01F4771544FC /* private */,
-				9049BF2903AD83F58E959D9E65F69041 /* ShadowElevations */,
-				A1FA0EA54CE1052C7B554AA6084090FA /* ShadowLayer */,
-				8359EACDC8E943C850E004A2F1149467 /* ShapeLibrary */,
-				CC0689310C44F1BAB29364911464B0AF /* Shapes */,
-				6A61D024D47565B947859B356A62A957 /* Support Files */,
-			);
-			path = MaterialComponents;
-			sourceTree = "<group>";
-		};
-		6A61D024D47565B947859B356A62A957 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6E3D4B6B554B1BC91F9AE924CE927CB7 /* MaterialComponents.modulemap */,
-				CC309C4464C0D81DA70E48406B2B7ABC /* MaterialComponents-dummy.m */,
-				D6375E397201BEBF4AE38D680251E4E0 /* MaterialComponents-Info.plist */,
-				813759841086796D59B23D7324FEBB78 /* MaterialComponents-prefix.pch */,
-				EBAF42C4581DFED5EF9F0E34B40C7D39 /* MaterialComponents-umbrella.h */,
-				9F4F62C6CF69452B6EAA79BAF903082C /* MaterialComponents.debug.xcconfig */,
-				0D22B63EF5680C8A9B865332B5A53779 /* MaterialComponents.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MaterialComponents";
-			sourceTree = "<group>";
-		};
-		6F2D6BA9B006ACB3D9212C9C35E42E21 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5BAA3E0B8C1B3538D7867D581BEC85C0 /* BTNavigationDropdownMenu.modulemap */,
-				38326DBB9379F58FEFDC257981CC87D3 /* BTNavigationDropdownMenu-dummy.m */,
-				4A976504774F5C2DB282B9AE860456AB /* BTNavigationDropdownMenu-Info.plist */,
-				2B10F477A6E95442C867907F1C00EA13 /* BTNavigationDropdownMenu-prefix.pch */,
-				78B592BD0480225A109D738D08158767 /* BTNavigationDropdownMenu-umbrella.h */,
-				1D56FF091B6A5B54D7D0C449BC659512 /* BTNavigationDropdownMenu.debug.xcconfig */,
-				0D5EAE1E4A0BFAE6D7D64DE0A265B281 /* BTNavigationDropdownMenu.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/BTNavigationDropdownMenu";
-			sourceTree = "<group>";
-		};
-		8359EACDC8E943C850E004A2F1149467 /* ShapeLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				C234B508567F15D9CA49764CBED6FBB0 /* MaterialShapeLibrary.h */,
-				B3EF59C85D2D45C7C55F59F391E23EBB /* MDCCornerTreatment+CornerTypeInitalizer.h */,
-				06BD09509D926815C03C600251EFC959 /* MDCCornerTreatment+CornerTypeInitalizer.m */,
-				D7B6ACE7AC827A627BFBEFD37BE08018 /* MDCCurvedCornerTreatment.h */,
-				6FA80BE4A6C27D1F16F597217EB1D36B /* MDCCurvedCornerTreatment.m */,
-				65EDAD07FDAD7DC812AAE2055DB64C5A /* MDCCurvedRectShapeGenerator.h */,
-				0EA3381E9E086BDD3FF08526CAAC413F /* MDCCurvedRectShapeGenerator.m */,
-				8FFE8F05793741F7AA2C05FD57FAF204 /* MDCCutCornerTreatment.h */,
-				08A4FB2D69BE0F9B22CF37CC9A97153C /* MDCCutCornerTreatment.m */,
-				6847EB783D58707214F18EAF7133C0E1 /* MDCPillShapeGenerator.h */,
-				A0D1CB0459DD1EF9A989423463B0C084 /* MDCPillShapeGenerator.m */,
-				C3D44D38C23CF1D861C96D4D6F0901C8 /* MDCRoundedCornerTreatment.h */,
-				ACBD8E26EA343DB451424FD93A01BBFA /* MDCRoundedCornerTreatment.m */,
-				42268B63BC1C7D1AA946462B022ACDF3 /* MDCSlantedRectShapeGenerator.h */,
-				2BA6BF3C62922B3C582857AA1D601690 /* MDCSlantedRectShapeGenerator.m */,
-				979A8E6D34FDBE91B3152ACC7091E093 /* MDCTriangleEdgeTreatment.h */,
-				CE621D3C2B50EBDAA53ABD55BC199B7A /* MDCTriangleEdgeTreatment.m */,
-			);
-			name = ShapeLibrary;
-			sourceTree = "<group>";
-		};
-		89FD49344A4EDEEA7AB7A6BD0ECE3C9B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FF76808B5CBC38970B37206E2B1A8C65 /* BTNavigationDropdownMenu.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		9049BF2903AD83F58E959D9E65F69041 /* ShadowElevations */ = {
-			isa = PBXGroup;
-			children = (
-				DACDA663086E750F1897FCAF0EC3A2EB /* MaterialShadowElevations.h */,
-				0BAF99ABC4A922755736B8D82B196A95 /* MaterialShadowElevationsDummy.m */,
-				A6F4B4338787B564742110636184F66A /* MDCShadowElevations.h */,
-			);
-			name = ShadowElevations;
-			sourceTree = "<group>";
-		};
-		A1FA0EA54CE1052C7B554AA6084090FA /* ShadowLayer */ = {
-			isa = PBXGroup;
-			children = (
-				41C6863A1EE92BBF8D54B8A3ED23A366 /* MaterialShadowLayer.h */,
-				54EC8FDBE1A0C96A66AAFFA0FD6A70DF /* MDCShadowLayer.h */,
-				AA1F9B9A3378BEA5D70812C2462A7425 /* MDCShadowLayer.m */,
-			);
-			name = ShadowLayer;
-			sourceTree = "<group>";
-		};
-		A7A35809811B8135CFF29F3E7D87D9DF /* BottomSheet */ = {
-			isa = PBXGroup;
-			children = (
-				444A006691F4C8A8396E7E8538B705E1 /* MaterialBottomSheet.h */,
-				7477B69DF3447200D32CE66915292FDA /* MDCBottomSheetController.h */,
-				A4EC4E41856F71B9FED6EB8EB536CD01 /* MDCBottomSheetController.m */,
-				3BC9A3D20ACDA70B551F0E6F699B0556 /* MDCBottomSheetControllerDelegate.h */,
-				0E6D2CCC01BAE2277AA6FEC1A68C72C1 /* MDCBottomSheetPresentationController.h */,
-				73B36FD04A2D005293D90A8FF118EF36 /* MDCBottomSheetPresentationController.m */,
-				50C5CFFFE629D07D9E7324FFADBC1E34 /* MDCBottomSheetPresentationControllerDelegate.h */,
-				2FFD3CD183DCF85A385F219D1E91029D /* MDCBottomSheetTransitionController.h */,
-				2A8D06DC96AA3CAAC450D313CE14295A /* MDCBottomSheetTransitionController.m */,
-				FCE54559E81AFAF30C0F1FDD5FDCCD3D /* MDCDraggableView.h */,
-				1C7F48AB8BE410D804113D73287D9C0D /* MDCDraggableView.m */,
-				398AE6C21E407E2E28189C71DE9942C8 /* MDCDraggableViewDelegate.h */,
-				60A157E674073FD2CA86091BC0F8EA19 /* MDCSheetBehavior.h */,
-				48D711206138A10E8FE87A59FDCD3EAC /* MDCSheetBehavior.m */,
-				A2DE2BC211335A19775CCC33C5A82201 /* MDCSheetContainerView.h */,
-				8FA9AD24051E2D69F5C849948EDD8211 /* MDCSheetContainerView.m */,
-				E6D14BEF8F7AB4AC4B0C9484675E75D5 /* MDCSheetContainerViewDelegate.h */,
-				78E98BB6569576BAB5B81E74FDEE5421 /* MDCSheetState.h */,
-				006C546BA9EBCDD7257EB6F5FC002348 /* UIViewController+MaterialBottomSheet.h */,
-				34C44D9C85E456745C97AFCBC9E80F77 /* UIViewController+MaterialBottomSheet.m */,
-			);
-			name = BottomSheet;
-			sourceTree = "<group>";
-		};
-		A9F1E394DFF37EF9A589B2DD3D72BBF1 /* Pods-Havit */ = {
-			isa = PBXGroup;
-			children = (
-				5C93D9D2ECA9466C70A353CCD1DD83C7 /* Pods-Havit.modulemap */,
-				2F98D1FBD8A28CC9E6C013DE3AC6589B /* Pods-Havit-acknowledgements.markdown */,
-				4581A962906536AD8B9A7E6FA976B784 /* Pods-Havit-acknowledgements.plist */,
-				BBBE3000AD9848305303F20F569BAA0D /* Pods-Havit-dummy.m */,
-				7A044578CD6A0D71BE85C6F7081CC77F /* Pods-Havit-frameworks.sh */,
-				58305EC759E43A04DC6FE7EBFB097C8A /* Pods-Havit-Info.plist */,
-				585CD5939415352A6F0CCF3CB2AED9C8 /* Pods-Havit-umbrella.h */,
-				1E27673A7B6A48CAF65B1010716A294E /* Pods-Havit.debug.xcconfig */,
-				2583F65D69D5021A196D1114DB23E6F3 /* Pods-Havit.release.xcconfig */,
+				9F78CF0D9EC4822C5A361D17CCF76156 /* Pods-Havit.modulemap */,
+				3D3AA60C23F2ECE3FA4D37A2E42260A2 /* Pods-Havit-acknowledgements.markdown */,
+				30A0526C054D1DF55BDE602AD2EDD861 /* Pods-Havit-acknowledgements.plist */,
+				F4283C0DE8776E6D9DFE252FDE30875D /* Pods-Havit-dummy.m */,
+				31BF8490B5ADA12184BB664325112698 /* Pods-Havit-Info.plist */,
+				26AC1DA07B6B5DAB5A4330977C08ABBA /* Pods-Havit-umbrella.h */,
+				11CA3A13BE83C28B34506AEF4687512B /* Pods-Havit.debug.xcconfig */,
+				E9905F5CCF36B62B54BC96A2CDA2B6EE /* Pods-Havit.release.xcconfig */,
 			);
 			name = "Pods-Havit";
 			path = "Target Support Files/Pods-Havit";
 			sourceTree = "<group>";
 		};
-		CC0689310C44F1BAB29364911464B0AF /* Shapes */ = {
+		7EE3EA1C80D590B9B6BF1DE84E24165C /* Pods-Havit-HavitUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3E5098F05069C2F1322C234AFAEA7BBB /* MaterialShapes.h */,
-				8C2A9A9F4F14E92420183B88E89C7AEF /* MDCCornerTreatment.h */,
-				680A7C5B8559E04BE154B874CCE52FE6 /* MDCCornerTreatment.m */,
-				704059214DDFA134D3D66AE04A893F6D /* MDCEdgeTreatment.h */,
-				DD2B40F730A89ECB116A9769ABB453E7 /* MDCEdgeTreatment.m */,
-				17A9830B19F45A2E603D9C4667098EC9 /* MDCPathGenerator.h */,
-				024A0F276F73E2D96F6949C88BE730CF /* MDCPathGenerator.m */,
-				7D68428B1213DCBC6F1AE1C52E8DCF2F /* MDCRectangleShapeGenerator.h */,
-				52AA1F486E4F3080784F5FFD8E06C894 /* MDCRectangleShapeGenerator.m */,
-				A7F1F219160491223CA00E8B615E09F3 /* MDCShapedShadowLayer.h */,
-				357B4D2FD5F7B816F5C64E783274CA4C /* MDCShapedShadowLayer.m */,
-				2E701702E86982C5EB1BCF8EAAABD656 /* MDCShapedView.h */,
-				A4B61AA7B2D128A33AA154A2C50D8FCF /* MDCShapedView.m */,
-				8D4DA7C648913A2C2A5848146FBA9F4B /* MDCShapeGenerating.h */,
-				5407CB56306210D00FE40FDBCFFABCCD /* MDCShapeMediator.h */,
-				A84F29C6524FF6D1A708A5BF2BAA6311 /* MDCShapeMediator.m */,
-			);
-			name = Shapes;
-			sourceTree = "<group>";
-		};
-		CCB20BF84FCC50DE2D51AAE5B74DEA1E /* Pods-Havit-HavitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				572A0A6DF55ADF1C5F79383708148EF4 /* Pods-Havit-HavitUITests.modulemap */,
-				689170D75D805C9C147240480F779CE7 /* Pods-Havit-HavitUITests-acknowledgements.markdown */,
-				03457C6F61E389E41987A52791487970 /* Pods-Havit-HavitUITests-acknowledgements.plist */,
-				7C503B3F06E3329517D4BB8E7976D274 /* Pods-Havit-HavitUITests-dummy.m */,
-				6D5803E65CCB6AFA0B053078FAF38580 /* Pods-Havit-HavitUITests-frameworks.sh */,
-				40E59FA836E2D60D822227B35A245AED /* Pods-Havit-HavitUITests-Info.plist */,
-				A35E73580573433A85EB9525A0313D6C /* Pods-Havit-HavitUITests-umbrella.h */,
-				82020EFE4FCB7B33818765D78E0F4EF8 /* Pods-Havit-HavitUITests.debug.xcconfig */,
-				AD3D8CBE61D01600A0BAB495FAB2C4D5 /* Pods-Havit-HavitUITests.release.xcconfig */,
+				A6D59C6378D9980689F997B7306AB33A /* Pods-Havit-HavitUITests.modulemap */,
+				C6F5D36D1972F3422341672532EF42B4 /* Pods-Havit-HavitUITests-acknowledgements.markdown */,
+				250D2D2DBCD31097E637D7B379C51290 /* Pods-Havit-HavitUITests-acknowledgements.plist */,
+				78F543368323902F0D95C53598324E5B /* Pods-Havit-HavitUITests-dummy.m */,
+				86DFB96B06504D6ACF2AD9D451094A23 /* Pods-Havit-HavitUITests-Info.plist */,
+				9AFA6B98B28B8B38CC480ECE1AD97122 /* Pods-Havit-HavitUITests-umbrella.h */,
+				F426670D9B70DB2BFD9EC13973C5CDBB /* Pods-Havit-HavitUITests.debug.xcconfig */,
+				20CE9DE9843EA2F4FB0CEFA744F705FE /* Pods-Havit-HavitUITests.release.xcconfig */,
 			);
 			name = "Pods-Havit-HavitUITests";
 			path = "Target Support Files/Pods-Havit-HavitUITests";
@@ -632,127 +152,39 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				29A73910D6A1CEF290240D2ADBB3FA14 /* Pods */,
-				30CA6BC520FBADE65F03B260714B22D3 /* Products */,
-				5368ACFAAB6EB0ED099C66ACAC27FDE5 /* Targets Support Files */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				3ADD150769639A470E9E3237A01A262B /* Products */,
+				59FB73F294F77D4ED51588673D0395A0 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D4666CE1A84ECF5C342FAD3C508C69DE /* iOS */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				32D20E8E61FE391C0ED97D6F5A9EEEFD /* Foundation.framework */,
-				2BB655F8A3B9F0C3DB37D349580B2779 /* WebKit.framework */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
-			name = iOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D73FD0CEBA110C9D1D8C32E20E69F3CF /* BTNavigationDropdownMenu */ = {
+		D546B727CF3F059057D5B8E69D69F3F4 /* Pods-HavitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A8F3A93FA80805750D29EC0B48D1861D /* BTConfiguration.swift */,
-				21EAD721ADE6F88937549E1C5CB80390 /* BTNavigationDropdownMenu.swift */,
-				107A3B37B66FB9FD4ECFEA732C2E28EE /* BTTableCellContentView.swift */,
-				E76E81EEF9831B5F90E3959CF0A2D744 /* BTTableView.swift */,
-				3DBB0EA70482A20BA17FB8129DD77A06 /* BTTableViewCell.swift */,
-				AEF4546B8C3CFC24C5621CA65CD4FD17 /* BTTitle.swift */,
-				0A4F1433B0AB3662C3F5743F05539E4D /* UIView+Extension.swift */,
-				F00658B98FCC6323DABB2A24C3C501E6 /* UIViewController+Extension.swift */,
-				89FD49344A4EDEEA7AB7A6BD0ECE3C9B /* Resources */,
-				6F2D6BA9B006ACB3D9212C9C35E42E21 /* Support Files */,
-			);
-			path = BTNavigationDropdownMenu;
-			sourceTree = "<group>";
-		};
-		DB963F262D069659A917FECB6D9413CE /* Pods-HavitTests */ = {
-			isa = PBXGroup;
-			children = (
-				A0F3315BEC9B37261980D59F755DDC8B /* Pods-HavitTests.modulemap */,
-				A1DDC108EC4E4349B7A46CB0D1DE13D0 /* Pods-HavitTests-acknowledgements.markdown */,
-				1FC8DE8BCB85FF0334AB38F01249A35A /* Pods-HavitTests-acknowledgements.plist */,
-				DA4B1BE59D4952AABC20EDC81D46342E /* Pods-HavitTests-dummy.m */,
-				99EA03BD988E4AB252C3470F10C6D1F7 /* Pods-HavitTests-Info.plist */,
-				C3174D24390D0BFDB2930DB11164B873 /* Pods-HavitTests-umbrella.h */,
-				12898C295B7D91E6EC7619A8D6CBF1C0 /* Pods-HavitTests.debug.xcconfig */,
-				22852AFA48F4A39F22A87EA69BEACCB4 /* Pods-HavitTests.release.xcconfig */,
+				88F17D496B0FB10DB1D7B7DF91FF7977 /* Pods-HavitTests.modulemap */,
+				A8AD88208B847B1BF678D34AA06F80EE /* Pods-HavitTests-acknowledgements.markdown */,
+				5FCEA7682B6AF0730EF193830CEE3CC9 /* Pods-HavitTests-acknowledgements.plist */,
+				F94BE948EA0F3E208FE9B3C39F66D27C /* Pods-HavitTests-dummy.m */,
+				BEED345934FE60808117FC25265493A3 /* Pods-HavitTests-Info.plist */,
+				B8A6A7DF7E203634CFA1C288BEDF1555 /* Pods-HavitTests-umbrella.h */,
+				405CF9A656D27EE1D3FF178A3CDC5480 /* Pods-HavitTests.debug.xcconfig */,
+				A0051C52FE05F4C7CF5B082107A2455F /* Pods-HavitTests.release.xcconfig */,
 			);
 			name = "Pods-HavitTests";
 			path = "Target Support Files/Pods-HavitTests";
 			sourceTree = "<group>";
 		};
-		F9CF66CD3DC71A0CD1F2FA568F74A518 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				D0597E1E7B5C37AF0C3EDA8350DA223E /* MaterialApplication.h */,
-				9B80108CE2B94DC7CAC90F46E9F12AA4 /* UIApplication+MDCAppExtensions.h */,
-				9643CAED62FA492FBE4B8FB44A518283 /* UIApplication+MDCAppExtensions.m */,
-			);
-			name = Application;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2962B82404AF24029CCD6A2725158B7D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7BD813EB53FFD5E61D3E8D17FDEF5762 /* MaterialApplication.h in Headers */,
-				BAA19917A9D659B3AE6AC41D3D4870EE /* MaterialAvailability.h in Headers */,
-				23AD7797186955B046EA44B8636C1AC3 /* MaterialBottomSheet.h in Headers */,
-				0768B68EC675EBCCABB024A9FB318444 /* MaterialColor.h in Headers */,
-				958CEC0A17E65944F5C8A5500DE7FD00 /* MaterialComponents-umbrella.h in Headers */,
-				2B08C5A22A776EDEB74DB4B835A19B1D /* MaterialElevation.h in Headers */,
-				41EC1065752BAACEE3C4EDC8CABB900B /* MaterialKeyboardWatcher.h in Headers */,
-				ABEFEA99DE7320CC9D1D36002D45D83E /* MaterialMath.h in Headers */,
-				8607B06ECC453ABECA0C6F9E92395376 /* MaterialShadowElevations.h in Headers */,
-				9406299AFB3E995D047529C304D4A195 /* MaterialShadowLayer.h in Headers */,
-				D7DFC8407A67FE6F417824532A1351DA /* MaterialShapeLibrary.h in Headers */,
-				592002A7F1B30C9E5A6A2D3624E6642D /* MaterialShapes.h in Headers */,
-				25A90CB838F94F6308EA293F3047C42E /* MDCAvailability.h in Headers */,
-				2C0CEBFD92AF5FE06B0F5D47D68FB86B /* MDCBottomSheetController.h in Headers */,
-				A5951056C78026270D265B1A05FB77A0 /* MDCBottomSheetControllerDelegate.h in Headers */,
-				AB80344757F1BF9A274B8CEE167E3F30 /* MDCBottomSheetPresentationController.h in Headers */,
-				4EC8090B180710C479A3B21CD72FB213 /* MDCBottomSheetPresentationControllerDelegate.h in Headers */,
-				A1C152BD9F0F1606B6D90EAC1DF82700 /* MDCBottomSheetTransitionController.h in Headers */,
-				A27481E0C1947D76287FBB49CE42B06B /* MDCCornerTreatment+CornerTypeInitalizer.h in Headers */,
-				A8A9071E31DCB75622DA04C3ED40B98F /* MDCCornerTreatment.h in Headers */,
-				1A304FAEF5CF0C1E8622E908555FE490 /* MDCCurvedCornerTreatment.h in Headers */,
-				FB71B976745977B39DA0BC1B4766782A /* MDCCurvedRectShapeGenerator.h in Headers */,
-				B4F4CB89BD4FF9D22964FB5EFDD65C0F /* MDCCutCornerTreatment.h in Headers */,
-				BBF5E9A50B05DA9EA5A46F3838FA31AD /* MDCDraggableView.h in Headers */,
-				9359F19224DA2E55485BDC2CA57919BA /* MDCDraggableViewDelegate.h in Headers */,
-				E9D24B4691FEF6E79A0F60C321DEF39D /* MDCEdgeTreatment.h in Headers */,
-				62A95262A25CE34C27B3FD2B1969277C /* MDCElevatable.h in Headers */,
-				81F6B3871E03BF241CB40023C4442227 /* MDCElevationOverriding.h in Headers */,
-				79709A0F4E6BFCEF9D0E853CD6807959 /* MDCKeyboardWatcher.h in Headers */,
-				FC57BC309245609B0F44DFB1968D979D /* MDCMath.h in Headers */,
-				B382ED925D539434103D3DA8B1BEA917 /* MDCPathGenerator.h in Headers */,
-				AD6206FA289B4651BB747798FD46B7B8 /* MDCPillShapeGenerator.h in Headers */,
-				8226EF38F2234303BB738273DD72DF7A /* MDCRectangleShapeGenerator.h in Headers */,
-				51EBF4ED4DA88FCB58F2CAC291D1079A /* MDCRoundedCornerTreatment.h in Headers */,
-				FCBF6565CA4D10B61B1EBEAA81B4EE6B /* MDCShadowElevations.h in Headers */,
-				95D5BD0113DFC666346BDC9EE60E8D8D /* MDCShadowLayer.h in Headers */,
-				4958DBF1C53FFBB5924C6F3C91B9F7A9 /* MDCShapedShadowLayer.h in Headers */,
-				99E15058FFF8DDEFDE915CFCB913A34B /* MDCShapedView.h in Headers */,
-				19F431D12744F02779B1FCA82579DDD6 /* MDCShapeGenerating.h in Headers */,
-				9DC842FFE7C8DCB96E49F06BF7975DAE /* MDCShapeMediator.h in Headers */,
-				2A00198B4641725EC612125584590BA5 /* MDCSheetBehavior.h in Headers */,
-				83E77B4563193B5EF5BCD5BA674DC997 /* MDCSheetContainerView.h in Headers */,
-				C8B94A2D7B8639EAE6A57753CB5DB17B /* MDCSheetContainerViewDelegate.h in Headers */,
-				3873F4D2DBAA04C02ADADDDE71898F31 /* MDCSheetState.h in Headers */,
-				B5865268D0C8941A7FD48A91ECE400D6 /* MDCSlantedRectShapeGenerator.h in Headers */,
-				9EBA3162E0BFA77C454865EF907619DA /* MDCTriangleEdgeTreatment.h in Headers */,
-				34D352F0915CF9F8500B1D5A94AF36C6 /* UIApplication+MDCAppExtensions.h in Headers */,
-				647C3DF4DD99EF544435173281FF6E92 /* UIColor+MaterialBlending.h in Headers */,
-				1B304B7C5104F9421117AFEB21453F67 /* UIColor+MaterialDynamic.h in Headers */,
-				BAB06A62079EBC50FC3883D96ABFE581 /* UIColor+MaterialElevation.h in Headers */,
-				4A76ABED65F7F6BAC8338E6A602C1AB3 /* UIView+MaterialElevationResponding.h in Headers */,
-				6BC96BCB3EF130F53BB9A78D7E2EFB9E /* UIViewController+MaterialBottomSheet.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		429FE5F851742CBA2E82606C8C30308E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -761,27 +193,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8BAA103FA1E41E52375629ED8A3D308 /* Headers */ = {
+		8287B058B082BE4A364A8507EF2A3B76 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				755C746FDAE14B210502ED9FBCF2CDD3 /* Pods-Havit-umbrella.h in Headers */,
+				C0C2810B0B6408B605E340F8FC907256 /* Pods-Havit-HavitUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D99BAE80B5FA3D6CA441EEF9FFAF01DB /* Headers */ = {
+		DBB65125D6A5AF6ADF8857A180CE8023 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EFAA5D8C55A613F296A1335A0B9A826 /* BTNavigationDropdownMenu-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4611FC00AE1781B92F0AFBF9F7DE00D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AA5A3AB7E5706AE49BC082370D04322 /* Pods-Havit-HavitUITests-umbrella.h in Headers */,
+				2F5780BF8C08D9E78CFBBFE7CA96AFAD /* Pods-Havit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,40 +214,20 @@
 /* Begin PBXNativeTarget section */
 		087E27F63C274D959A1EFA0E70D18169 /* Pods-Havit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85A1619F3CD5128C3622E9E7BC648B1B /* Build configuration list for PBXNativeTarget "Pods-Havit" */;
+			buildConfigurationList = AFCB2D9548FE0D92B91010D3C1F19C73 /* Build configuration list for PBXNativeTarget "Pods-Havit" */;
 			buildPhases = (
-				C8BAA103FA1E41E52375629ED8A3D308 /* Headers */,
-				12AD5B80A2D214DCF6A98B392E73D43D /* Sources */,
-				07BBFCA3294D3863B9560756642645E7 /* Frameworks */,
-				DAB8943663DF4F08EC2B2CD0D9F997F9 /* Resources */,
+				DBB65125D6A5AF6ADF8857A180CE8023 /* Headers */,
+				0BD8D6346F1128D040B8F707123FB86F /* Sources */,
+				A2626BAA837D4BA009D0D971A59B0872 /* Frameworks */,
+				0158F01E41F88AE55B1502C1E620E07F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				301C46C60EDA394E105CF89D662494F7 /* PBXTargetDependency */,
-				C2E6620288E9C16F3B7236535E102E5B /* PBXTargetDependency */,
 			);
 			name = "Pods-Havit";
 			productName = "Pods-Havit";
 			productReference = 965AC86B5A3E04F0110F2C728AB9D325 /* Pods_Havit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B4723B5744013DF08BE3A5FEAA286944 /* MaterialComponents */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C613962BF90A2E997E366FBBF280FBDC /* Build configuration list for PBXNativeTarget "MaterialComponents" */;
-			buildPhases = (
-				2962B82404AF24029CCD6A2725158B7D /* Headers */,
-				B7044B7EDB3CB1DEF12DE3B83560473D /* Sources */,
-				BED3178971CB04BB3492FDF570011C51 /* Frameworks */,
-				D4EA9371EBDEB67DEF5E9F9163A868DF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MaterialComponents;
-			productName = MaterialComponents;
-			productReference = A34157B3708EDB7D17422B3D92F591D2 /* MaterialComponents.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B8F805DFA25B0FD89E8AA89330FC85A0 /* Pods-HavitTests */ = {
@@ -838,7 +242,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B15EDC8F468E87C3462D787E0223AF18 /* PBXTargetDependency */,
+				12368EFAB38E61A3DCD1AED4DABA67B8 /* PBXTargetDependency */,
 			);
 			name = "Pods-HavitTests";
 			productName = "Pods-HavitTests";
@@ -847,40 +251,20 @@
 		};
 		C3E2CE32F9EA272EE462940B3C9EF64A /* Pods-Havit-HavitUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D06A41CFCA65D283C129F46DA39DC13D /* Build configuration list for PBXNativeTarget "Pods-Havit-HavitUITests" */;
+			buildConfigurationList = 3DB652ECAF5DE6303B483B231627E3C7 /* Build configuration list for PBXNativeTarget "Pods-Havit-HavitUITests" */;
 			buildPhases = (
-				E4611FC00AE1781B92F0AFBF9F7DE00D /* Headers */,
-				8D7077945B249A80C2CCF8EEFF9FDB68 /* Sources */,
-				A1E2114667681313F1B58C5C5DE78753 /* Frameworks */,
-				6EBDBBCBA84823694AC6F90B77B8FE26 /* Resources */,
+				8287B058B082BE4A364A8507EF2A3B76 /* Headers */,
+				D02AA246D565FC2309D200AABE00A600 /* Sources */,
+				E292B710783933DD5F2572DE37B67788 /* Frameworks */,
+				6A330FF1F092FEAF37D0A18ACA01E29B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8AB13EE1260B2C6C1C6D03B71C5ADB2C /* PBXTargetDependency */,
-				95FF8DC83402B1A86874724BBC70A591 /* PBXTargetDependency */,
 			);
 			name = "Pods-Havit-HavitUITests";
 			productName = "Pods-Havit-HavitUITests";
 			productReference = 2A3F6CD256D4F06211BEE06266CC5161 /* Pods_Havit_HavitUITests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E5F1E6214A6184999F9D513F4A0E9682 /* BTNavigationDropdownMenu */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6720C865E91D6C13B484EC1911953ED0 /* Build configuration list for PBXNativeTarget "BTNavigationDropdownMenu" */;
-			buildPhases = (
-				D99BAE80B5FA3D6CA441EEF9FFAF01DB /* Headers */,
-				804CAA0D8286F4B27811336927EB3222 /* Sources */,
-				FF67B79FE19A3C650E4ABDC8780D3610 /* Frameworks */,
-				C0036E043130E496091B1D6CEA3D574C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BTNavigationDropdownMenu;
-			productName = BTNavigationDropdownMenu;
-			productReference = 3222A60447324F893C3B3DB188C32BBB /* BTNavigationDropdownMenu.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -901,12 +285,10 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 30CA6BC520FBADE65F03B260714B22D3 /* Products */;
+			productRefGroup = 3ADD150769639A470E9E3237A01A262B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E5F1E6214A6184999F9D513F4A0E9682 /* BTNavigationDropdownMenu */,
-				B4723B5744013DF08BE3A5FEAA286944 /* MaterialComponents */,
 				087E27F63C274D959A1EFA0E70D18169 /* Pods-Havit */,
 				C3E2CE32F9EA272EE462940B3C9EF64A /* Pods-Havit-HavitUITests */,
 				B8F805DFA25B0FD89E8AA89330FC85A0 /* Pods-HavitTests */,
@@ -915,7 +297,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6EBDBBCBA84823694AC6F90B77B8FE26 /* Resources */ = {
+		0158F01E41F88AE55B1502C1E620E07F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A330FF1F092FEAF37D0A18ACA01E29B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -929,31 +318,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0036E043130E496091B1D6CEA3D574C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				956C5BD069E8443427D2E8706D74DEC7 /* BTNavigationDropdownMenu.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4EA9371EBDEB67DEF5E9F9163A868DF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DAB8943663DF4F08EC2B2CD0D9F997F9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0BD8D6346F1128D040B8F707123FB86F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE8F64D0994087E6006E8AF3E1A4964 /* Pods-Havit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		100CE9BFFD2BED008C422EB24A69623D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -962,116 +337,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		12AD5B80A2D214DCF6A98B392E73D43D /* Sources */ = {
+		D02AA246D565FC2309D200AABE00A600 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01D3795C8524AC424D5DDDF96603D0E1 /* Pods-Havit-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		804CAA0D8286F4B27811336927EB3222 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				303B8646250CB4D730351C7D5A31EE51 /* BTConfiguration.swift in Sources */,
-				55BF7A752C508BF04180926F3F4F5997 /* BTNavigationDropdownMenu-dummy.m in Sources */,
-				0C37B0200D3167DAA74970F517C9C7AD /* BTNavigationDropdownMenu.swift in Sources */,
-				B9CAB291CFD4B2AD9E735D1CFF78BCDB /* BTTableCellContentView.swift in Sources */,
-				876172730021808EDD4336A9C3057ABF /* BTTableView.swift in Sources */,
-				AEA4C533A1816135DE63D76DC410A423 /* BTTableViewCell.swift in Sources */,
-				AF5CD2B404844171A89E1EEE8E8F5795 /* BTTitle.swift in Sources */,
-				F7C0111A3F4BC4F99E6A06537E88D1D9 /* UIView+Extension.swift in Sources */,
-				F3BDE36034A5B362EB1A883020B238BC /* UIViewController+Extension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8D7077945B249A80C2CCF8EEFF9FDB68 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB255A0FFF1488578DAA5A3ED7B3580E /* Pods-Havit-HavitUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7044B7EDB3CB1DEF12DE3B83560473D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				889FD7B6C2C8CD0E91C35B43074B0752 /* MaterialComponents-dummy.m in Sources */,
-				A67FEE8FD423E6C4A8EDA4F5DF3A9A80 /* MaterialMathDummy.m in Sources */,
-				B63C7F92C82593FA45FE0B2D94E188B4 /* MaterialShadowElevationsDummy.m in Sources */,
-				015511D4ACD183CB78F8F0F79FCF3F01 /* MDCBottomSheetController.m in Sources */,
-				87E4A53B714A12498CE600B77686C8A8 /* MDCBottomSheetPresentationController.m in Sources */,
-				F5C699B3399E7BF36A74BB4C56A46FD4 /* MDCBottomSheetTransitionController.m in Sources */,
-				E593E1AFC525348B0FA77DFE813F2350 /* MDCCornerTreatment+CornerTypeInitalizer.m in Sources */,
-				FE8C606CC7BB9361045058A446FCAA0A /* MDCCornerTreatment.m in Sources */,
-				E06FD07F020F4CD17109D4EFA1EDD6CE /* MDCCurvedCornerTreatment.m in Sources */,
-				357A8A169BB53A5F85A3B2EA04A54F0F /* MDCCurvedRectShapeGenerator.m in Sources */,
-				888032AC899C87D4E12B1993502699F2 /* MDCCutCornerTreatment.m in Sources */,
-				045B17ADCA714417CCF0DCC9D9096D24 /* MDCDraggableView.m in Sources */,
-				8DC48F8F5F7B03BDF176AFD6A6C286CD /* MDCEdgeTreatment.m in Sources */,
-				7F98776A7962572395F923703553ABAA /* MDCKeyboardWatcher.m in Sources */,
-				D46AD0CE508E5D8A5FC7F184DBBB1EAE /* MDCPathGenerator.m in Sources */,
-				7D3E486DB6C65975B839986EBFD38318 /* MDCPillShapeGenerator.m in Sources */,
-				3FF765F75F1270082F2EE95FDA9EF8BA /* MDCRectangleShapeGenerator.m in Sources */,
-				3F035D81FAF81A41E9E58238265A0051 /* MDCRoundedCornerTreatment.m in Sources */,
-				528D55FC297AD93F1463CAC1B0CCD1CD /* MDCShadowLayer.m in Sources */,
-				EBF5AB7255E72DB80DF0BA04CED4C295 /* MDCShapedShadowLayer.m in Sources */,
-				84B037D3215B9BD0863CAE3BB692CAE2 /* MDCShapedView.m in Sources */,
-				F5D92BD96561735261424D962B1582BF /* MDCShapeMediator.m in Sources */,
-				2E2BD5BB87E4AC41401353835E7F7914 /* MDCSheetBehavior.m in Sources */,
-				46495406605D108F4CD12BDE5A4B6AF2 /* MDCSheetContainerView.m in Sources */,
-				1A6CEDB0E42E0DEA22512AE2D91707C8 /* MDCSlantedRectShapeGenerator.m in Sources */,
-				066439D717AE4BC003363486E27C707A /* MDCTriangleEdgeTreatment.m in Sources */,
-				CA73DDDB149041B138811BE98924C594 /* UIApplication+MDCAppExtensions.m in Sources */,
-				68D1C976F2E0B7ACB1000C5FB3ADA5E1 /* UIColor+MaterialBlending.m in Sources */,
-				6F3E35952D17589EA939B24A4798FDF0 /* UIColor+MaterialDynamic.m in Sources */,
-				D2DA847A5AFB71B24633A81F490B05EC /* UIColor+MaterialElevation.m in Sources */,
-				ED5B7134348145D025C2B7AEC4A896ED /* UIView+MaterialElevationResponding.m in Sources */,
-				A8F0EC87E16102BC801E1429E3A259AA /* UIViewController+MaterialBottomSheet.m in Sources */,
+				06F32E914A3F210DED256E1F69A37F93 /* Pods-Havit-HavitUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		301C46C60EDA394E105CF89D662494F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = BTNavigationDropdownMenu;
-			target = E5F1E6214A6184999F9D513F4A0E9682 /* BTNavigationDropdownMenu */;
-			targetProxy = C312AF5EB8C0363831BAD37B89A611D1 /* PBXContainerItemProxy */;
-		};
-		8AB13EE1260B2C6C1C6D03B71C5ADB2C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = BTNavigationDropdownMenu;
-			target = E5F1E6214A6184999F9D513F4A0E9682 /* BTNavigationDropdownMenu */;
-			targetProxy = 6A420991B60A5EAD85068659AF90BCB5 /* PBXContainerItemProxy */;
-		};
-		95FF8DC83402B1A86874724BBC70A591 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MaterialComponents;
-			target = B4723B5744013DF08BE3A5FEAA286944 /* MaterialComponents */;
-			targetProxy = 017100E3776B8A9454059629EAE0127A /* PBXContainerItemProxy */;
-		};
-		B15EDC8F468E87C3462D787E0223AF18 /* PBXTargetDependency */ = {
+		12368EFAB38E61A3DCD1AED4DABA67B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Havit";
 			target = 087E27F63C274D959A1EFA0E70D18169 /* Pods-Havit */;
-			targetProxy = 53E96C9AFE07A2543C765E71216835C3 /* PBXContainerItemProxy */;
-		};
-		C2E6620288E9C16F3B7236535E102E5B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MaterialComponents;
-			target = B4723B5744013DF08BE3A5FEAA286944 /* MaterialComponents */;
-			targetProxy = 465F55FED59236BA24EEC42E032C4BC3 /* PBXContainerItemProxy */;
+			targetProxy = E55477165A53AC62D447F22044F1D357 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1B557FBBAF7DDFF7024801D18A606811 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12898C295B7D91E6EC7619A8D6CBF1C0 /* Pods-HavitTests.debug.xcconfig */;
+			baseConfigurationReference = 405CF9A656D27EE1D3FF178A3CDC5480 /* Pods-HavitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1106,44 +394,9 @@
 			};
 			name = Debug;
 		};
-		2DE1FA53F21B86FD8F9A5864089ED240 /* Debug */ = {
+		4EAC793318D2DBEA124A7C3A763F4F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F4F62C6CF69452B6EAA79BAF903082C /* MaterialComponents.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MaterialComponents/MaterialComponents-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MaterialComponents/MaterialComponents-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MaterialComponents/MaterialComponents.modulemap";
-				PRODUCT_MODULE_NAME = MaterialComponents;
-				PRODUCT_NAME = MaterialComponents;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2E2AD0876224DBE1AD655308C0FBEC9C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82020EFE4FCB7B33818765D78E0F4EF8 /* Pods-Havit-HavitUITests.debug.xcconfig */;
+			baseConfigurationReference = F426670D9B70DB2BFD9EC13973C5CDBB /* Pods-Havit-HavitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1178,9 +431,9 @@
 			};
 			name = Debug;
 		};
-		3560CA62E4E865FDC7E17D8AD5361611 /* Release */ = {
+		71F470C2495FC103D087DFA1F7E463A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD3D8CBE61D01600A0BAB495FAB2C4D5 /* Pods-Havit-HavitUITests.release.xcconfig */;
+			baseConfigurationReference = 20CE9DE9843EA2F4FB0CEFA744F705FE /* Pods-Havit-HavitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1209,41 +462,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		588840BE6686FA7BD7A6915D2966B3A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D5EAE1E4A0BFAE6D7D64DE0A265B281 /* BTNavigationDropdownMenu.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu.modulemap";
-				PRODUCT_MODULE_NAME = BTNavigationDropdownMenu;
-				PRODUCT_NAME = BTNavigationDropdownMenu;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1379,83 +597,9 @@
 			};
 			name = Release;
 		};
-		9FF8B44D14C428113C858E43C2970EDD /* Release */ = {
+		A27471C80BD6C7F9FD84030E4D36D5F4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D22B63EF5680C8A9B865332B5A53779 /* MaterialComponents.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MaterialComponents/MaterialComponents-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MaterialComponents/MaterialComponents-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MaterialComponents/MaterialComponents.modulemap";
-				PRODUCT_MODULE_NAME = MaterialComponents;
-				PRODUCT_NAME = MaterialComponents;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AE264680E822049C5C5333DED0BF8DB2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22852AFA48F4A39F22A87EA69BEACCB4 /* Pods-HavitTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HavitTests/Pods-HavitTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HavitTests/Pods-HavitTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B508CE1F26EE1D9B5B4AA048D2451FB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2583F65D69D5021A196D1114DB23E6F3 /* Pods-Havit.release.xcconfig */;
+			baseConfigurationReference = E9905F5CCF36B62B54BC96A2CDA2B6EE /* Pods-Havit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1491,10 +635,12 @@
 			};
 			name = Release;
 		};
-		B883AA8FA162F3AC2D1F57EBA0888747 /* Debug */ = {
+		AE264680E822049C5C5333DED0BF8DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D56FF091B6A5B54D7D0C449BC659512 /* BTNavigationDropdownMenu.debug.xcconfig */;
+			baseConfigurationReference = A0051C52FE05F4C7CF5B082107A2455F /* Pods-HavitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1503,31 +649,33 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-HavitTests/Pods-HavitTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/BTNavigationDropdownMenu/BTNavigationDropdownMenu.modulemap";
-				PRODUCT_MODULE_NAME = BTNavigationDropdownMenu;
-				PRODUCT_NAME = BTNavigationDropdownMenu;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HavitTests/Pods-HavitTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		FA519C4724A65EF403EBE282CAFBC494 /* Debug */ = {
+		AF48CE639D3637FA2817A99E9AE3629F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E27673A7B6A48CAF65B1010716A294E /* Pods-Havit.debug.xcconfig */;
+			baseConfigurationReference = 11CA3A13BE83C28B34506AEF4687512B /* Pods-Havit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1574,6 +722,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3DB652ECAF5DE6303B483B231627E3C7 /* Build configuration list for PBXNativeTarget "Pods-Havit-HavitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EAC793318D2DBEA124A7C3A763F4F83 /* Debug */,
+				71F470C2495FC103D087DFA1F7E463A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1583,38 +740,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6720C865E91D6C13B484EC1911953ED0 /* Build configuration list for PBXNativeTarget "BTNavigationDropdownMenu" */ = {
+		AFCB2D9548FE0D92B91010D3C1F19C73 /* Build configuration list for PBXNativeTarget "Pods-Havit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B883AA8FA162F3AC2D1F57EBA0888747 /* Debug */,
-				588840BE6686FA7BD7A6915D2966B3A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		85A1619F3CD5128C3622E9E7BC648B1B /* Build configuration list for PBXNativeTarget "Pods-Havit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA519C4724A65EF403EBE282CAFBC494 /* Debug */,
-				B508CE1F26EE1D9B5B4AA048D2451FB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C613962BF90A2E997E366FBBF280FBDC /* Build configuration list for PBXNativeTarget "MaterialComponents" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2DE1FA53F21B86FD8F9A5864089ED240 /* Debug */,
-				9FF8B44D14C428113C858E43C2970EDD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D06A41CFCA65D283C129F46DA39DC13D /* Build configuration list for PBXNativeTarget "Pods-Havit-HavitUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2E2AD0876224DBE1AD655308C0FBEC9C /* Debug */,
-				3560CA62E4E865FDC7E17D8AD5361611 /* Release */,
+				AF48CE639D3637FA2817A99E9AE3629F /* Debug */,
+				A27471C80BD6C7F9FD84030E4D36D5F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

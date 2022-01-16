@@ -7,7 +7,6 @@
 
 import UIKit
 
-import BTNavigationDropdownMenu
 import RxSwift
 import SnapKit
 
@@ -162,9 +161,6 @@ final class CategoryContentsViewController: BaseViewController {
         navigationItem.rightBarButtonItem = navigationRightButton
         
         navigationItem.searchController = searchController
-        let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
-        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, viewController: self, containerView: self.navigationController!.view, title: BTTitle.title("카테고리"), items: items)
-        navigationItem.titleView = menuView
     }
     
     private func setDelegations() {
@@ -278,7 +274,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
             case .sort:
                 return CGSize(width: view.frame.width, height: 139)
             case .sort2xN:
-                return CGSize(width: (view.frame.width / 2) - 9, height:253)
+                return CGSize(width: (view.frame.width / 2) - 9, height: 253)
             case .sort1xN:
                 return CGSize(width: view.frame.width, height: 290)
             }
