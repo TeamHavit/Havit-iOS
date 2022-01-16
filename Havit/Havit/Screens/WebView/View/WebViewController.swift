@@ -143,6 +143,20 @@ final class WebViewController: BaseViewController {
                 self?.webView.reload()
             }
             .disposed(by: disposeBag)
+       
+        toolbar.backBarButton.rx
+            .tap
+            .bind { [weak self] _ in
+                self?.webView.goBack()
+            }
+            .disposed(by: disposeBag)
+        
+        toolbar.forwardBarButton.rx
+            .tap
+            .bind { [weak self] _ in
+                self?.webView.goForward()
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
@@ -150,6 +164,34 @@ final class WebViewController: BaseViewController {
             .bind { [weak self] urlRequest in
                 self?.webView.load(urlRequest)
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoBack
+            .asDriver(onErrorJustReturn: false)
+            .drive(toolbar.backBarButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoBack
+            .map { canGoBack in
+                let backImage = canGoBack ? ImageLiteral.iconBackspaceBlack : ImageLiteral.iconBackspaceGray
+                return backImage.withRenderingMode(.alwaysOriginal)
+            }
+            .asDriver(onErrorJustReturn: UIImage())
+            .drive(toolbar.backBarButton.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoForward
+            .asDriver(onErrorJustReturn: false)
+            .drive(toolbar.forwardBarButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoForward
+            .map { canGoForward in
+                let forwardImage = canGoForward ? ImageLiteral.iconForwardBlack : ImageLiteral.iconForwardGray
+                return forwardImage.withRenderingMode(.alwaysOriginal)
+            }
+            .asDriver(onErrorJustReturn: UIImage())
+            .drive(toolbar.forwardBarButton.rx.image)
             .disposed(by: disposeBag)
     }
 }
@@ -195,6 +237,8 @@ extension WebViewController: WKUIDelegate {
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         setUrlTextFieldText(with: webView.url?.description)
+        viewModel.canGoBack.onNext(webView.canGoBack)
+        viewModel.canGoForward.onNext(webView.canGoForward)
     }
     
     private func setUrlTextFieldText(with url: String?) {
