@@ -46,6 +46,7 @@
 		4D6F9E4F278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */; };
 		4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */; };
+		4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */; };
 		4F4545E02790B69600A9E3B1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* ShareViewController.swift */; };
 		4F4545E82790B69600A9E3B1 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
@@ -238,6 +239,7 @@
 		4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryView.swift; sourceTree = "<group>"; };
 		4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4545DF2790B69600A9E3B1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4F4545E42790B69600A9E3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -377,6 +379,22 @@
 				3BBB51D3279062910098A835 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DBD2EC92792BE430003226A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4DBD2ECA2792BE500003226A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4F4545DE2790B69600A9E3B1 /* ShareExtension */ = {
@@ -778,10 +796,11 @@
 		ED443F0427869F700059DE76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DBD2ECA2792BE500003226A /* Cell */,
+				4DBD2EC92792BE430003226A /* Component */,
 				ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */,
-				4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */,
-				4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */,
 				4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */,
+				4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1226,6 +1245,7 @@
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
 				4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
+				4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
 				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,

@@ -14,8 +14,9 @@ class CategoryViewController: BaseViewController {
 
     // MARK: - property
 
-    private var categoryList: [CategoryListData] = CategoryListData.dummy
+    private var categoryList: [CategoryListData] = [] // CategoryListData.dummy
     weak var coordinator: CategoryCoordinator?
+    private let emptyCategoryView = EmptyCategoryView()
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -84,7 +85,7 @@ class CategoryViewController: BaseViewController {
     }
     
     override func render() {
-        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
+        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton, emptyCategoryView])
 
         categoryCountLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(22)
@@ -101,11 +102,19 @@ class CategoryViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(56)
             $0.leading.bottom.trailing.equalToSuperview()
         }
+
+        emptyCategoryView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
 
     override func configUI() {
         super.configUI()
+        setEmptyView()
+
         view.backgroundColor = .white
+        setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, shadowImage: UIImage(), isTranslucent: false)
         setNavigationItem()
         bind()
     }
@@ -143,6 +152,10 @@ class CategoryViewController: BaseViewController {
                 self?.coordinator?.performTransition(to: .manage)
             })
             .disposed(by: disposeBag)
+    }
+
+    private func setEmptyView() {
+        emptyCategoryView.isHidden = categoryList.isEmpty ? false : true
     }
 }
 
