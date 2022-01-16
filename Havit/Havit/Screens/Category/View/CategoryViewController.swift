@@ -7,13 +7,16 @@
 
 import UIKit
 
-import SnapKit
 import RxCocoa
+import SnapKit
 
 class CategoryViewController: BaseViewController {
 
     // MARK: - property
+
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: CategoryCoordinator?
+    private let emptyCategoryView = EmptyCategoryView()
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,7 +33,7 @@ class CategoryViewController: BaseViewController {
         let label = UILabel()
         label.font = .font(.pretendardReular, ofSize: 13)
         label.text = "전체 0"
-        label.textColor = UIColor.gray003
+        label.textColor = .gray003
 
         return label
     }()
@@ -45,7 +48,7 @@ class CategoryViewController: BaseViewController {
         configuration.attributedTitle = AttributedString("카테고리 추가", attributes: container)
 
         configuration.baseForegroundColor = UIColor.purpleText
-        configuration.image = UIImage(named: "category_add")
+        configuration.image = ImageLiteral.iconCategoryAdd
 
         configuration.background.cornerRadius = 23
         configuration.background.strokeColor = UIColor.purpleLight
@@ -62,7 +65,7 @@ class CategoryViewController: BaseViewController {
 
     private let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "iconBackBlack"), for: .normal)
+        button.setImage(ImageLiteral.btnBackBlack, for: .normal)
         return button
     }()
 
@@ -75,15 +78,14 @@ class CategoryViewController: BaseViewController {
     }()
 
     // MARK: - life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
-        setNavigationBar()
-        bind()
     }
     
     override func render() {
-        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
+        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton, emptyCategoryView])
 
         categoryCountLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(22)
@@ -92,7 +94,6 @@ class CategoryViewController: BaseViewController {
 
         addButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(13)
-            $0.leading.equalTo(categoryCountLabel.snp.trailing).offset(195)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(categoryCollectionView.snp.top).offset(-14)
         }
@@ -101,22 +102,35 @@ class CategoryViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(56)
             $0.leading.bottom.trailing.equalToSuperview()
         }
+
+        emptyCategoryView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
 
     override func configUI() {
+        super.configUI()
+        setEmptyView()
+
         view.backgroundColor = .white
+        setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, isTranslucent: false)
+        setNavigationItem()
+        bind()
     }
 
     // MARK: - func
+    
     private func setDelegation() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
     }
 
-    private func setNavigationBar() {
+    private func setNavigationItem() {
         title = "전체 카테고리"
         let font = UIFont.font(.pretendardBold, ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
+        
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
     }
@@ -135,21 +149,27 @@ class CategoryViewController: BaseViewController {
 
         editButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .main)
+                self?.coordinator?.performTransition(to: .manage)
             })
             .disposed(by: disposeBag)
+    }
+
+    private func setEmptyView() {
+        emptyCategoryView.isHidden = categoryList.isEmpty ? false : true
     }
 }
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
+        cell.update(data: categoryList[indexPath.row])
+        cell.configure(type: .category)
         return cell
     }
 }
