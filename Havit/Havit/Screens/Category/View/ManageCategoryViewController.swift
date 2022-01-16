@@ -136,7 +136,8 @@ class ManageCategoryViewController: BaseViewController {
     private func setGesture() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
         
-        categoryCollectionView.addGestureRecognizer(longPressRecognizer)
+        categoryCollectionView.rx.gestureRecognizers
+                    .onNext([longPressRecognizer])
     }
 
     @objc
