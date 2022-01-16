@@ -157,6 +157,7 @@
 		EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */; };
 		EDE7D6C72792BDB4009C70EF /* RateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C62792BDB4009C70EF /* RateContentView.swift */; };
 		EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C827937F37009C70EF /* CategoryListTableViewCell.swift */; };
+		EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6CA2793EA89009C70EF /* CategoryListCollectionViewCell.swift */; };
 		EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */; };
 		EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */; };
 		EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */; };
@@ -299,6 +300,7 @@
 		EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateTableViewCell.swift; sourceTree = "<group>"; };
 		EDE7D6C62792BDB4009C70EF /* RateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateContentView.swift; sourceTree = "<group>"; };
 		EDE7D6C827937F37009C70EF /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
+		EDE7D6CA2793EA89009C70EF /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchHeaderView.swift; sourceTree = "<group>"; };
 		EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */,
 				EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */,
 				EDE7D6C827937F37009C70EF /* CategoryListTableViewCell.swift */,
+				EDE7D6CA2793EA89009C70EF /* CategoryListCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1230,6 +1233,7 @@
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
+				EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */,
 				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
 				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,

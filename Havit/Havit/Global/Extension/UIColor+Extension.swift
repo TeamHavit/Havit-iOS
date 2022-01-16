@@ -79,6 +79,10 @@ extension UIColor {
     static var havitGreen: UIColor {
         return UIColor(hex: "#5fec86")
     }
+    
+    static var primaryBlack: UIColor {
+        return UIColor(hex: "272B30")
+    }
 }
 
 extension UIColor {
