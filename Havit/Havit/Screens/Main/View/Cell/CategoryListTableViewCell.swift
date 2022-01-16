@@ -64,7 +64,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         }
         
         overallButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(2)
+            $0.top.equalToSuperview().inset(-4)
             $0.trailing.equalToSuperview().inset(19)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(-10)
         }
@@ -85,18 +85,25 @@ final class CategoryListTableViewCell: BaseTableViewCell {
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if categorys.count % 6 != 0 {
-            return categorys.count + (categorys.count % 6)
+            return categorys.count + 1 + ((categorys.count + 1) % 6)
         }
-        return categorys.count
+        return categorys.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if categorys.count > indexPath.item {
-            let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        
+        if categorys.count >= indexPath.item {
+            switch indexPath.item {
+            case .zero:
+                cell.backgroundImageView.image = ImageLiteral.imgcardCategoryLine
+                cell.updateCategory(image: UIImage(), title: "모든 콘텐츠", contentCount: 90)
+            default:
+                cell.updateCategory(image: ImageLiteral.imgCategoryNone, title: categorys[indexPath.item - 1], contentCount: 27)
+            }
             return cell
         }
         
-        let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .clear
         return cell
     }

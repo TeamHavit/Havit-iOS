@@ -45,6 +45,9 @@ enum ImageLiteral {
     static var iconSearch: UIImage { .load(named: "iconSearch")}
     static var iconShare: UIImage { .load(named: "iconShare")}
     static var iconUpdown: UIImage { .load(named: "iconUpdown")}
+    static var iconBackWhite: UIImage { .load(named: "iconBackWhite")}
+    static var iconNoticeGray: UIImage { .load(named: "iconNoticeGray")}
+    static var iconCategoryEdit: UIImage { .load(named: "iconCategoryEdit")}
     
     static var imgCategoryNone: UIImage { .load(named: "imgCategoryNone")}
     static var imgDummyContent: UIImage { .load(named: "imgDummyContent")}
@@ -57,9 +60,7 @@ enum ImageLiteral {
     static var imgTextLogo: UIImage { .load(named: "imgTextLogo")}
     static var imgTextLogoGray: UIImage { .load(named: "imgTextLogoGray")}
     static var imgCategoryTip: UIImage { .load(named: "imgCategoryTip")}
-    static var iconBackWhite: UIImage { .load(named: "iconBackWhite")}
-    static var iconNoticeGray: UIImage { .load(named: "iconNoticeGray")}
-    static var iconCategoryEdit: UIImage { .load(named: "iconCategoryEdit")}
+    static var imgcardCategoryLine: UIImage { .load(named: "imgcardCategoryLine")}
 }
 
 extension UIImage {
