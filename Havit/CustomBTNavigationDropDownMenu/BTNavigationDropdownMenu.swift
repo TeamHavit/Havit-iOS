@@ -267,9 +267,10 @@ open class BTNavigationDropdownMenu: UIView {
         - title: An enum to define title to be displayed, can be a string or index of items.
         - items: The array of items to select
      */
-    public init(navigationController: UINavigationController? = nil, viewController: UIViewController, containerView: UIView = UIApplication.shared.keyWindow!, title: BTTitle, items: [String]) {
+    public init(navigationController: UINavigationController? = nil, viewController: UIViewController, containerView: UIView = UIApplication.shared.windows.first { $0.isKeyWindow }!, title: BTTitle, items: [String]) {
+        // UIApplication.shared.keyWindow!
         // Key window
-        guard let window = UIApplication.shared.keyWindow else {
+        guard let window = (UIApplication.shared.windows.first { $0.isKeyWindow }) else {
             super.init(frame: CGRect.zero)
             return
         }

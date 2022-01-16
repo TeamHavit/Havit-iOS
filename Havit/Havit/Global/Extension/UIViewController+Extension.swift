@@ -24,7 +24,6 @@ extension UIViewController {
         return target
     }
     
-    
     // MARK: - CustomBTNavigationDropDownMenu
     // Get top VisibleViewController from ViewController stack in same present level.
     // It should be visibleViewController if self is a UINavigationController instance

@@ -37,7 +37,8 @@ class BTTableViewCell: UITableViewCell {
         self.configuration = configuration
         
         // Setup cell
-        cellContentFrame = CGRect(x: 0, y: 0, width: (UIApplication.shared.keyWindow?.frame.width)!, height: self.configuration.cellHeight)
+        let uiView = UIApplication.shared.windows.first { $0.isKeyWindow }!
+        cellContentFrame = CGRect(x: 0, y: 0, width: uiView.frame.width, height: self.configuration.cellHeight)
         self.contentView.backgroundColor = self.configuration.cellBackgroundColor
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         self.textLabel!.textColor = self.configuration.cellTextLabelColor
