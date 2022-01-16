@@ -21,11 +21,6 @@ final class MainViewController: MainTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.searchController = UISearchController()
-        let items = ["Most Popular", "Latest", "Trending", "Nearest", "Top Picks"]
-        let menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, viewController: self, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
-        
-        self.navigationItem.titleView = menuView
     }
     
     override func render() {
