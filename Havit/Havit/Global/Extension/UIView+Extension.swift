@@ -9,10 +9,10 @@ import UIKit
 
 extension UIView {
     @discardableResult
-    func makeShadow(_ color: UIColor,
-                    _ opacity: Float,
-                    _ offset: CGSize,
-                    _ radius: CGFloat) -> Self {
+    func makeShadow(color: UIColor,
+                    opacity: Float,
+                    offset: CGSize,
+                    radius: CGFloat) -> Self {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = opacity
         layer.shadowOffset = offset
