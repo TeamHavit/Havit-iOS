@@ -23,7 +23,7 @@ final class SearchContentsViewController: BaseViewController {
         var label = UILabel()
         label.text = "검색된 콘텐츠"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
-        label.textColor = .gray003
+        label.textColor = .white
         return label
     }()
     
@@ -31,7 +31,7 @@ final class SearchContentsViewController: BaseViewController {
         var label = UILabel()
         label.text = "3"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
-        label.textColor = .havitPurple
+        label.textColor = .white
         return label
     }()
     
@@ -172,15 +172,27 @@ extension SearchContentsViewController: UICollectionViewDataSource {
         switch resultType {
         case .result:
             let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            DispatchQueue.main.async {
+                self.mainLabel.textColor = .gray003
+                self.numberLabel.textColor = .havitPurple
+            }
             return cell
         case .before:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearchIs")
             cell.label.isHidden = true
+            DispatchQueue.main.async {
+                self.mainLabel.textColor = .white
+                self.numberLabel.textColor = .white
+            }
             return cell
         case .empty:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearch")
+            DispatchQueue.main.async {
+                self.mainLabel.textColor = .white
+                self.numberLabel.textColor = .white
+            }
             return cell
         }
     }
