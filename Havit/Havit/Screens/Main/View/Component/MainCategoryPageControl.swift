@@ -23,7 +23,7 @@ final class MainCategoryPageControl: UIView {
     var selectedColor = UIColor.havitPurple {
         didSet { setNeedsDisplay() }
     }
-    private let dotSize: CGFloat = 12
+    private let rectWidth: CGFloat = 12
     private let spacing: CGFloat = 3
     
     // MARK: - init
@@ -38,12 +38,20 @@ final class MainCategoryPageControl: UIView {
         fatalError("Unsupported")
     }
     
+    override var intrinsicContentSize: CGSize {
+        let width = CGFloat(pages) * rectWidth + CGFloat(pages - 1) * spacing
+        let height = rectWidth
+        
+        return CGSize(width: width, height: height)
+    }
+    
     override func draw(_ rect: CGRect) {
         (0..<pages).forEach { page in
             (page == selectedPage ? selectedColor : dotColor).setFill()
             
-            let center = CGPoint(x: rect.minX + dotSize / 2 + (dotSize + spacing) * CGFloat(page), y: rect.midY)
             let size = CGSize(width: 12, height: 3)
+            let center = CGPoint(x: (rectWidth + spacing) * CGFloat(page),
+                                 y: rect.midY)
             let rect = CGRect(origin: center, size: size)
             
             UIBezierPath(rect: rect).fill()

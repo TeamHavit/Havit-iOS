@@ -81,15 +81,13 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             $0.top.equalTo(categoryCollectionView.snp.bottom).offset(9)
             $0.bottom.equalToSuperview().inset(30)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(100)
-            $0.height.equalTo(10)
         }
     }
     
     override func configUI() {
         backgroundColor = .white
         
-        pageControl.pages = 3
+        pageControl.pages = 2
     }
 }
 
