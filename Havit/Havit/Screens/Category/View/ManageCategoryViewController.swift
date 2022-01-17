@@ -14,7 +14,8 @@ import SnapKit
 class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
-    
+
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: ManageCategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -134,14 +135,15 @@ class ManageCategoryViewController: BaseViewController {
 
 extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
-        
+
         cell.configure(type: .manage)
+        cell.update(data: categoryList[indexPath.row])
         return cell
     }
 }
