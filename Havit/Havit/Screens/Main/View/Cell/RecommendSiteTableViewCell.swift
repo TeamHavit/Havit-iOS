@@ -22,6 +22,11 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
     
     // MARK: - property
     
+    private let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .whiteGray
+        return view
+    }()
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "오늘의 추천 사이트"
@@ -46,5 +51,31 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()
+    
+    override func render() {
+        contentView.addSubViews([separatorView, titleLabel, subtitleLabel, siteCollectionView])
+        
+        separatorView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(10)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(separatorView.snp.bottom).offset(33)
+            $0.leading.equalToSuperview().inset(16)
+        }
+        
+        subtitleLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+            $0.leading.equalToSuperview().inset(16)
+        }
+        
+        siteCollectionView.snp.makeConstraints {
+            $0.top.equalTo(subtitleLabel.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(800)
+            $0.bottom.equalToSuperview()
+        }
+    }
     
 }
