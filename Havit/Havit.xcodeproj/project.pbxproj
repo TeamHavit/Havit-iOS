@@ -168,7 +168,6 @@
 		EDE7D6DC2795BE0E009C70EF /* LogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6DB2795BE0E009C70EF /* LogoTableViewCell.swift */; };
 		EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */; };
 		EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */; };
-		EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */; };
 		EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618E279126EF00C93C84 /* Encodable+Extension.swift */; };
 		EDEF6191279136DD00C93C84 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF6190279136DD00C93C84 /* HttpMethod.swift */; };
 		EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61922791375900C93C84 /* APIEnvironment.swift */; };
@@ -319,7 +318,6 @@
 		EDE7D6DB2795BE0E009C70EF /* LogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTableViewCell.swift; sourceTree = "<group>"; };
 		EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchHeaderView.swift; sourceTree = "<group>"; };
 		EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
 		EDEF618E279126EF00C93C84 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		EDEF6190279136DD00C93C84 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		EDEF61922791375900C93C84 /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
@@ -886,7 +884,6 @@
 			children = (
 				EDDE099627905C7D0093B83F /* MainTopView.swift */,
 				EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */,
-				EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */,
 				EDE7D6C62792BDB4009C70EF /* RateContentView.swift */,
 				EDE7D6CF27953E2E009C70EF /* MainCategoryPageControl.swift */,
 			);
@@ -1243,7 +1240,6 @@
 				4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				EDEF61B02791444700C93C84 /* search_category.json in Sources */,
-				EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */,
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				EDE7D6D427956A3F009C70EF /* RecentContentTableViewCell.swift in Sources */,
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,

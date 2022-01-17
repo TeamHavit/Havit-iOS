@@ -13,7 +13,6 @@ class MainTableViewController: BaseViewController {
     
     private enum Size {
         static let headerHeight: CGFloat = 94
-        static let footerHeight: CGFloat = 122
     }
     
     private enum ReachSection: Int, CaseIterable {
@@ -46,24 +45,6 @@ class MainTableViewController: BaseViewController {
             switch self {
             case .category:
                 return Size.headerHeight
-            default:
-                return .zero
-            }
-        }
-        
-        var footerView: UIView {
-            switch self {
-            case .category:
-                return MainFooterView()
-            default:
-                return UIView()
-            }
-        }
-        
-        var footerHeight: CGFloat {
-            switch self {
-            case .category:
-                return Size.footerHeight
             default:
                 return .zero
             }
@@ -199,14 +180,6 @@ extension MainTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Section.init(rawValue: section)?.headerHeight ?? .zero
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return Section.init(rawValue: section)?.footerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return Section.init(rawValue: section)?.footerHeight ?? .zero
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

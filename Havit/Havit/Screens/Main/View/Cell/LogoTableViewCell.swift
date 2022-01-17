@@ -10,7 +10,21 @@ import UIKit
 import SnapKit
 
 final class LogoTableViewCell: BaseTableViewCell {
-    override func configUI() {
-        backgroundColor = .gray002
+    
+    // MARK: - property
+    
+    private let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .havitGreen
+        return imageView
+    }()
+    
+    override func render() {
+        contentView.addSubView(logoImageView)
+        
+        logoImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.height.equalTo(122)
+        }
     }
 }
