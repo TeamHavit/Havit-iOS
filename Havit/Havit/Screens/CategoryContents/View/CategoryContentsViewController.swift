@@ -45,7 +45,7 @@ final class CategoryContentsViewController: BaseViewController {
         return label
     }()
     
-    var gridButton: UIButton = {
+    lazy var gridButton: UIButton = {
         let button = UIButton()
         button.setTitle("B", for: .normal)
         button.backgroundColor = UIColor.blue
@@ -53,7 +53,7 @@ final class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
-    var sortButton: UIButton = {
+    lazy var sortButton: UIButton = {
         let button = UIButton()
         button.setTitle("수정", for: .normal)
         button.backgroundColor = UIColor.blue
@@ -61,7 +61,7 @@ final class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
-    var navigationRightButton: UIBarButtonItem = {
+    lazy var navigationRightButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "수정",
                                      style: .plain,
                                      target: self,
