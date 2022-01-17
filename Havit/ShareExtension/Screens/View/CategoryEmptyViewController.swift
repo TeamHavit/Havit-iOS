@@ -5,7 +5,6 @@
 //  Created by Noah on 2022/01/16.
 //
 
-import Foundation
 import UIKit
 
 import SnapKit
@@ -85,6 +84,7 @@ final class CategoryEmptyViewController: BaseViewController {
         categoryEmptyImageView.snp.makeConstraints {
             $0.top.equalTo(categoryEmptyNoticeLabel).offset(125)
             $0.centerX.equalToSuperview()
+            $0.width.equalTo(203)
             $0.height.equalTo(246)
         }
         
