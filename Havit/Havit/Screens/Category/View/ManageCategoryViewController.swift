@@ -62,6 +62,7 @@ class ManageCategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+        setGesture()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,7 +93,7 @@ class ManageCategoryViewController: BaseViewController {
 
     override func configUI() {
         view.backgroundColor = .white
-        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, shadowImage: UIImage(), isTranslucent: false, tintColor: .white)
+        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, isTranslucent: false, tintColor: .white)
         setNavigationItem()
         bind()
     }
@@ -131,6 +132,40 @@ class ManageCategoryViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+
+    private func setGesture() {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
+        categoryCollectionView.addGestureRecognizer(longPressRecognizer)
+    }
+
+    @objc
+    private func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+        let startIndexPath = categoryCollectionView.indexPathForItem(at: gesture.location(in: categoryCollectionView))
+        let cell = cellForItemAt(at: startIndexPath)
+        switch gesture.state {
+        case .began:
+            guard let startIndexPath = startIndexPath else {
+                break
+            }
+            cell?.backgroundColor = .purple002
+            categoryCollectionView.beginInteractiveMovementForItem(at: startIndexPath)
+        case .changed:
+            categoryCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: categoryCollectionView))
+        case .ended:
+            cell?.backgroundColor = .purpleCategory
+            categoryCollectionView.endInteractiveMovement()
+        default:
+            cell?.backgroundColor = .purpleCategory
+            categoryCollectionView.cancelInteractiveMovement()
+        }
+    }
+
+    private func cellForItemAt(at indexPath: IndexPath?) -> UICollectionViewCell? {
+        guard let indexPath = indexPath else {
+            return nil
+        }
+        return categoryCollectionView.cellForItem(at: indexPath)
+    }
 }
 
 extension ManageCategoryViewController: UICollectionViewDataSource {
@@ -142,9 +177,24 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
+        cell.update(data: categoryList[indexPath.row])
         cell.configure(type: .manage)
         cell.update(data: categoryList[indexPath.row])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+     // move를 시작한 인덱스에 해당하는 아이템을 기존 List에서 제거하고 categooryItem 에 저장
+     // move를 해서 도착한 인덱스에 해당하는 아이템을 기존 List에 추가
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let cell = categoryCollectionView.cellForItem(at: destinationIndexPath)
+        cell?.backgroundColor = .purpleCategory
+
+        let categoryItem = categoryList.remove(at: sourceIndexPath.row)
+        categoryList.insert(categoryItem, at: destinationIndexPath.row)
     }
 }
 

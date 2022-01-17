@@ -46,7 +46,6 @@ class BaseViewController: UIViewController {
     
     func setupBaseNavigationBar(backgroundColor: UIColor = .white,
                                 titleColor: UIColor = .black,
-                                shadowImage: UIImage = UIImage(),
                                 isTranslucent: Bool = false,
                                 tintColor: UIColor = .black) {
         guard let navigationBar = navigationController?.navigationBar else { return }
@@ -54,11 +53,11 @@ class BaseViewController: UIViewController {
         
         appearance.backgroundColor = backgroundColor
         appearance.titleTextAttributes = [.foregroundColor: titleColor]
+        appearance.shadowColor = .clear
         
         navigationBar.standardAppearance = appearance
         navigationBar.compactAppearance = appearance
         navigationBar.scrollEdgeAppearance = appearance
-        navigationBar.shadowImage = shadowImage
         navigationBar.isTranslucent = isTranslucent
         navigationBar.tintColor = tintColor
     }
