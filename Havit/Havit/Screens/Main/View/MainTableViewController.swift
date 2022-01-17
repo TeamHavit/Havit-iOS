@@ -84,6 +84,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: CategoryListTableViewCell.self)
         tableView.register(cell: GuidelineTableViewCell.self)
         tableView.register(cell: RecentContentTableViewCell.self)
+        tableView.register(cell: RecommendSiteTableViewCell.self)
         return tableView
     }()
     private let headerView = MainSearchHeaderView()
@@ -168,6 +169,9 @@ extension MainTableViewController: UITableViewDataSource {
             return cell
         case .recent:
             let cell: RecentContentTableViewCell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self, for: indexPath)
+            return cell
+        case .recommend:
+            let cell: RecommendSiteTableViewCell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self, for: indexPath)
             return cell
         default:
             return UITableViewCell()
