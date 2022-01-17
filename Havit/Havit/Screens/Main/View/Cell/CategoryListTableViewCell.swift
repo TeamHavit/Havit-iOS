@@ -96,7 +96,7 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
         if categorys.count >= indexPath.item {
             switch indexPath.item {
             case .zero:
-                cell.backgroundImageView.image = ImageLiteral.imgcardCategoryLine
+                cell.backgroundColor = .caution
                 cell.updateCategory(image: UIImage(), title: "모든 콘텐츠", contentCount: 90)
             default:
                 cell.updateCategory(image: ImageLiteral.imgCategoryNone, title: categorys[indexPath.item - 1], contentCount: 27)
