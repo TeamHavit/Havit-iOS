@@ -39,7 +39,7 @@ final class ReachRateTableViewCell: BaseTableViewCell {
     }
 
     override func render() {
-        addSubViews([rateContentView, unwatchedButton])
+        contentView.addSubViews([rateContentView, unwatchedButton])
         
         rateContentView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(8)

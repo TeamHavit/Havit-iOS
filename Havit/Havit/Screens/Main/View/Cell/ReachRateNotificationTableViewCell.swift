@@ -55,8 +55,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
-        sendSubviewToBack(contentView)
-        addSubViews([notificationView, notificationLabel, closeButton])
+        contentView.addSubViews([notificationView, notificationLabel, closeButton])
         
         notificationView.snp.makeConstraints {
             $0.height.equalTo(44).priority(.high)
