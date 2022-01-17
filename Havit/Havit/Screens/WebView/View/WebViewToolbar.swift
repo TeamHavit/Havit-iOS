@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WebViewToolbar: UIToolbar {
+final class WebViewToolbar: UIToolbar {
     
     enum Size {
         static let toolbarHeight: CGFloat = 44
