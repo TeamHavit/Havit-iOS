@@ -43,7 +43,8 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     private let pageControl = MainCategoryPageControl()
-    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리7", "카테고리8", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리7", "카테고리8"]
+    let maxCategoryCount = 6
+    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6"]
     
     // MARK: - init
     
@@ -87,15 +88,25 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     override func configUI() {
         backgroundColor = .white
         
-        pageControl.pages = 2
+        let cellCount = calculateTotalCellCount()
+        pageControl.pages = cellCount / maxCategoryCount
+    }
+    
+    private func calculateTotalCellCount() -> Int {
+        let categoryCount = categorys.count + 1
+        let cellCount = (maxCategoryCount - categoryCount % maxCategoryCount) + categoryCount
+        return cellCount
     }
 }
 
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if categorys.count % 6 != 0 {
-            return categorys.count + 1 + ((categorys.count + 1) % 6)
+        let hasRestCell = categorys.count % maxCategoryCount != 0
+        if hasRestCell {
+            let categoryCount = calculateTotalCellCount()
+            return categoryCount
         }
+        
         return categorys.count + 1
     }
     
@@ -134,9 +145,5 @@ extension CategoryListTableViewCell: UICollectionViewDelegate {
         }
         
         pageControl.selectedPage = Int(selectedIndex)
-        
-        offsetPoint = CGPoint(x: selectedIndex * pageWidth - scrollView.contentInset.left,
-                              y: -scrollView.contentInset.top)
-        targetContentOffset.pointee = offsetPoint
     }
 }
