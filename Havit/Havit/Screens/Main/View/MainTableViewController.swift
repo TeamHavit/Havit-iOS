@@ -172,9 +172,10 @@ extension MainTableViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        let sectionFirstRowFrame = tableView.rectForRow(at: IndexPath(row: 0, section: 0))
-        let sectionSecondRowFrame = tableView.rectForRow(at: IndexPath(row: 1, section: 0))
-        let reachSectionHeight = sectionFirstRowFrame.height +  sectionSecondRowFrame.height
+        let reachSection = Section.reach.rawValue
+        let reachSectionHeight = ReachSection.allCases.enumerated().map { (index, _) in
+            tableView.rectForRow(at: IndexPath(row: index, section: reachSection)).height
+        }.reduce(CGFloat.zero, +)
         let isScrolledOverReachSection = offsetY >= reachSectionHeight
         
         searchHeaderView.updateBackgroundColor(to: isScrolledOverReachSection ? .whiteGray : .clear)
