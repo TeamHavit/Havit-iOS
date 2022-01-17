@@ -82,6 +82,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: ReachRateNotificationTableViewCell.self)
         tableView.register(cell: ReachRateTableViewCell.self)
         tableView.register(cell: CategoryListTableViewCell.self)
+        tableView.register(cell: GuidelineTableViewCell.self)
         return tableView
     }()
     private let headerView = MainSearchHeaderView()
@@ -141,6 +142,9 @@ extension MainTableViewController: UITableViewDataSource {
             case .category:
                 let cell: CategoryListTableViewCell = tableView.dequeueReusableCell(
                     withType: CategoryListTableViewCell.self, for: indexPath)
+                return cell
+            case .guideline:
+                let cell: GuidelineTableViewCell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self, for: indexPath)
                 return cell
             default:
                 return UITableViewCell()
