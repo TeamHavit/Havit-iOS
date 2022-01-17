@@ -93,10 +93,10 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = Section.init(rawValue: section)
-        guard var rowCount = section?.numberOfRows else { return 0 }
+        let sectionType = Section.init(rawValue: section)
+        guard var rowCount = sectionType?.numberOfRows else { return 0 }
         
-        switch section {
+        switch sectionType {
         case .reach:
             rowCount = isNotificationDeleted ? max(rowCount - 1, 0) : rowCount
         default:
