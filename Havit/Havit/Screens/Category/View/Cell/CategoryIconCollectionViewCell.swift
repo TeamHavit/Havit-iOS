@@ -56,7 +56,8 @@ class CategoryIconCollectionViewCell: BaseCollectionViewCell {
         }
 
         iconImageView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(9)
+            $0.edges.equalToSuperview().inset(10)
+            $0.width.height.equalTo(42)
         }
     }
 }
