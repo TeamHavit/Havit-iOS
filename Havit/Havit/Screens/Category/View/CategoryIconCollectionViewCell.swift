@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 import SnapKit
 
@@ -15,9 +14,8 @@ class CategoryIconCollectionViewCell: BaseCollectionViewCell {
     // MARK: - property
 
     private let iconBackgroundView: UIView = {
-        let view = UIView()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 62, height: 62))
         view.backgroundColor = .gray000
-        view.frame = CGRect(x: 0, y: 0, width: 62, height: 62)
         view.layer.cornerRadius = 31
         
         return view
