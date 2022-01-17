@@ -9,7 +9,7 @@ import Foundation
 
 final class AppCoordinator: BaseCoordinator {
     override func start() {
-        let coordinator = MainCoordinator(navigationController: navigationController)
+        let coordinator = CategoryContentsCoordinator(navigationController: navigationController)
         start(coordinator: coordinator)
     }
 }

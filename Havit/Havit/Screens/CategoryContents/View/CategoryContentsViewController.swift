@@ -29,7 +29,9 @@ final class CategoryContentsViewController: BaseViewController {
     
     var mainView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemCyan
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 15
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         return view
     }()
     
@@ -154,6 +156,8 @@ final class CategoryContentsViewController: BaseViewController {
     override func configUI() {
         super.configUI()
         setNavigationItem()
+        navigationController?.navigationBar.barTintColor = UIColor.whiteGray
+        view.backgroundColor = UIColor.whiteGray
     }
     
     func setNavigationItem() {
