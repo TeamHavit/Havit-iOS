@@ -17,7 +17,7 @@ final class SearchContentsViewController: BaseViewController {
         case before, result, empty
     }
     
-    private var resultType: SearchResultType = .result
+    private var resultType: SearchResultType = .before
     
     private var searchController: UISearchController = {
         var searchController = UISearchController()
@@ -111,9 +111,10 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     private func setDelegations() {
-           resultCollectionView.delegate = self
-           resultCollectionView.dataSource = self
-       }
+        resultCollectionView.delegate = self
+        resultCollectionView.dataSource = self
+        searchController.searchBar.delegate = self
+    }
     
     @objc func clearClicked(_ sender: UIButton) {
 
@@ -166,5 +167,13 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
         case .empty:
             return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
         }
+    }
+}
+
+extension SearchContentsViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //// TODO: 서버 데이터에 따라  검색 결과 없는 경우 분기 처리
+        resultType = .result
+        resultCollectionView.reloadData()
     }
 }
