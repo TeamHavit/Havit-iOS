@@ -170,10 +170,10 @@ extension MainTableViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        let notificationFrame = tableView.rectForRow(at: IndexPath(row: 0, section: 0))
-        let rateFrame = tableView.rectForRow(at: IndexPath(row: 1, section: 0))
-        let sectionHeight = notificationFrame.height + rateFrame.height
-        let isScrolledOverReachSection = offsetY >= sectionHeight
+        let sectionFirstRowFrame = tableView.rectForRow(at: IndexPath(row: 0, section: 0))
+        let sectionSecondRowFrame = tableView.rectForRow(at: IndexPath(row: 1, section: 0))
+        let reachSectionHeight = sectionFirstRowFrame.height +  sectionSecondRowFrame.height
+        let isScrolledOverReachSection = offsetY >= reachSectionHeight
         
         headerView.updateBackgroundColor(to: isScrolledOverReachSection ? .whiteGray : .clear)
     }
