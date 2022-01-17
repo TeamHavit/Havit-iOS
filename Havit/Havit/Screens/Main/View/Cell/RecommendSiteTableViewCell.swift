@@ -78,7 +78,7 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         siteCollectionView.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(800)
+            $0.height.equalTo(586)
         }
     }
 }
@@ -90,6 +90,7 @@ extension RecommendSiteTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.updateSite(title: sites[indexPath.item], image: UIImage(), type: "아티클", category: "다 저장해보자고~~")
         return cell
     }
 }
