@@ -20,6 +20,14 @@ final class SearchContentsViewController: BaseViewController {
         searchController.searchBar.placeholder = "원하는 콘텐츠 검색"
         return searchController
     }()
+    
+    private var mainView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 15
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,17 +71,22 @@ final class SearchContentsViewController: BaseViewController {
             textField.layer.addSublayer(border)
         }
     }
-    
-    @objc func clearClicked(_ sender: UIButton) {
-
-    }
 
     override func render() {
         navigationItem.searchController = searchController
+        
+        view.addSubview(mainView)
+        mainView.snp.makeConstraints {
+            $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     override func configUI() {
         navigationController?.navigationBar.barTintColor = UIColor.whiteGray
-                view.backgroundColor = UIColor.whiteGray
+        view.backgroundColor = UIColor.whiteGray
+    }
+    
+    @objc func clearClicked(_ sender: UIButton) {
+
     }
 }
