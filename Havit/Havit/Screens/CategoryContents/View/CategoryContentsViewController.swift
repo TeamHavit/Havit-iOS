@@ -21,6 +21,7 @@ final class CategoryContentsViewController: BaseViewController {
     var gridType: GridType = .grid
     
     var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
+    var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -87,7 +88,6 @@ final class CategoryContentsViewController: BaseViewController {
     
     var filterCollectionView: UICollectionView = {
         var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        collectionView.backgroundColor = .blue
         collectionView.register(cell: CategoryFilterCollectionViewCell.self)
         return collectionView
     }()
@@ -153,9 +153,9 @@ final class CategoryContentsViewController: BaseViewController {
         }
 
         filterCollectionView.snp.makeConstraints {
-            $0.leading.equalTo(filterView)
-            $0.bottom.equalTo(filterView).offset(-9)
-            $0.width.equalTo(250)
+            $0.leading.equalTo(filterView).offset(16)
+            $0.bottom.equalTo(filterView).inset(9)
+            $0.trailing.equalTo(filterView).inset(70)
             $0.height.equalTo(31)
         }
 
@@ -244,8 +244,22 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
         switch collectionView {
         case filterCollectionView:
             let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.filterNameLabel.text = "앙대"
-            
+            if indexPath.row == 3 {
+                cell.filterNameLabel.text = ""
+                cell.layer.cornerRadius = 15
+            } else {
+                cell.filterNameLabel.text = filterList[indexPath.row]
+                cell.filterImageView.isHidden = true
+                let label: UILabel = {
+                    let label = UILabel()
+                    label.text = filterList[indexPath.row]
+                    label.font = UIFont.font(FontName.pretendardSemibold, ofSize: CGFloat(12))
+                    label.sizeToFit()
+                    return label
+                }()
+                cell.layer.cornerRadius = (label.frame.width + 14) / 2
+            }
+            cell.layer.masksToBounds = true
             return cell
         case contentsCollectionView:
             switch gridType {
@@ -282,7 +296,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case filterCollectionView:
-            return 3
+            return 4
         case contentsCollectionView:
             return 10
         default:
@@ -293,7 +307,18 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case filterCollectionView:
-            return CGSize(width: 50, height: 31)
+            if indexPath.row == 3 {
+               return CGSize(width: 46, height: 31)
+            } else {
+                let label: UILabel = {
+                    let label = UILabel()
+                    label.text = filterList[indexPath.row]
+                    label.font = UIFont.font(FontName.pretendardSemibold, ofSize: CGFloat(12))
+                    label.sizeToFit()
+                    return label
+                }()
+                return CGSize(width: label.frame.width + 28, height: 31)
+            }
         case contentsCollectionView:
             switch gridType {
             case .grid:
@@ -309,17 +334,17 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// ViewController의 Preview
- #if canImport(SwiftUI) && DEBUG
- import SwiftUI
-
- struct Preview: PreviewProvider {
-    static var previews: some View {
-        CategoryContentsViewController().showPreview(.iPhone13Mini)
-        CategoryContentsViewController().showPreview(.iPhone12ProMax)
-    }
- }
- #endif
+//// ViewController의 Preview
+// #if canImport(SwiftUI) && DEBUG
+// import SwiftUI
+//
+// struct Preview: PreviewProvider {
+//    static var previews: some View {
+//        CategoryContentsViewController().showPreview(.iPhone13Mini)
+//        CategoryContentsViewController().showPreview(.iPhone12ProMax)
+//    }
+// }
+// #endif
 
 //// View의 Preview
 // #if canImport(SwiftUI) && DEBUG
@@ -329,6 +354,18 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
 //    static var previews: some View {
 //        CategoryContentsViewController().showPreview(.iPhone13Mini)
 //        CategoryContentsViewController().showPreview(.iPhoneSE2)
+//    }
+// }
+// #endif
+
+//// View의 Preview
+// #if canImport(SwiftUI) && DEBUG
+// import SwiftUI
+//
+// struct Preview: PreviewProvider {
+//    static var previews: some View {
+//        CategoryFilterCollectionViewCell.showPreview(.iPhone13Mini)
+//        CategoryFilterCollectionViewCell.showPreview(.iPhoneSE2)
 //    }
 // }
 // #endif

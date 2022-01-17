@@ -8,10 +8,31 @@
 import UIKit
 
 final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
-    
+
     var filterNameLabel: UILabel = {
-        return UILabel()
+        var label = UILabel()
+        label.font = UIFont.font(FontName.pretendardSemibold, ofSize: CGFloat(12))
+        label.textColor = .gray003
+        return label
     }()
+    
+    var filterImageView: UIImageView = {
+        var imageView = UIImageView()
+        imageView.image = UIImage(named: "btnAlarmGray")
+        return imageView
+    }()
+    
+    static func fittingSize(availableHeight: CGFloat, name: String?) -> CGSize {
+        let cell = CategoryFilterCollectionViewCell()
+        cell.configure(name: name)
+        
+        let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: availableHeight)
+        return cell.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
+    }
+    
+    func configure(name: String?) {
+        filterNameLabel.text = name
+    }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
@@ -23,17 +44,21 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func render() {
-        // 이 부분은 디자인 부분에서 다시 수정할 예정입니다!!
         contentView.addSubview(filterNameLabel)
-        filterNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        filterNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        filterNameLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        filterNameLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        filterNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-        filterNameLabel.textAlignment = .center
+        filterNameLabel.snp.makeConstraints {
+            $0.centerX.equalTo(contentView)
+            $0.centerY.equalTo(contentView)
+        }
+        
+        contentView.addSubview(filterImageView)
+        filterImageView.snp.makeConstraints {
+            $0.centerX.equalTo(contentView)
+            $0.centerY.equalTo(contentView)
+        }
     }
     
     override func configUI() {
-        // filterNameLabel.font = UIFont.systemFont(ofSize: 32)
+        super.configUI()
+        contentView.backgroundColor = .whiteGray
     }
 }
