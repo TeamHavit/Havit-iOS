@@ -11,14 +11,14 @@ import RxSwift
 import SnapKit
 
 final class CategoryContentsViewController: BaseViewController {
-    enum SortType {
-        case sort, sort2xN, sort1xN
+    enum GridType {
+        case grid, grid2xN, grid1xN
     }
     
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
     
-    var sortType: SortType = .sort
+    var gridType: GridType = .grid
     
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -45,7 +45,7 @@ final class CategoryContentsViewController: BaseViewController {
         return label
     }()
     
-    var changeShowButton: UIButton = {
+    var gridButton: UIButton = {
         let button = UIButton()
         button.setTitle("B", for: .normal)
         button.backgroundColor = UIColor.blue
@@ -98,7 +98,7 @@ final class CategoryContentsViewController: BaseViewController {
         // 필터 뷰
         self.view.addSubview(filterView)
         filterView.addSubview(totalLabel)
-        filterView.addSubview(changeShowButton)
+        filterView.addSubview(gridButton)
         filterView.addSubview(sortButton)
         
         // 필터 컬렉션 뷰
@@ -122,7 +122,7 @@ final class CategoryContentsViewController: BaseViewController {
             $0.top.equalTo(filterView)
         }
 
-        changeShowButton.snp.makeConstraints {
+        gridButton.snp.makeConstraints {
             $0.top.equalTo(filterView)
             $0.trailing.equalTo(filterView).offset(-16)
             $0.width.equalTo(18)
@@ -201,15 +201,15 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {
-        switch sortType {
-        case .sort:
-            sortType = .sort2xN
+        switch gridType {
+        case .grid:
+            gridType = .grid2xN
             contentsCollectionView.register(cell: CategoryContents2xNCollectionViewCell.self)
-        case .sort2xN:
-            sortType = .sort1xN
+        case .grid2xN:
+            gridType = .grid1xN
             contentsCollectionView.register(cell: CategoryContents1xNCollectionViewCell.self)
-        case .sort1xN:
-            sortType = .sort
+        case .grid1xN:
+            gridType = .grid
             contentsCollectionView.register(cell: ContentsCollectionViewCell.self)
         }
         contentsCollectionView.reloadData()
@@ -233,16 +233,16 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             
             return cell
         case contentsCollectionView:
-            switch sortType {
-            case .sort:
+            switch gridType {
+            case .grid:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
-            case .sort2xN:
+            case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
-            case .sort1xN:
+            case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 return cell
@@ -270,12 +270,12 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return CGSize(width: 50, height: 31)
         case contentsCollectionView:
-            switch sortType {
-            case .sort:
+            switch gridType {
+            case .grid:
                 return CGSize(width: view.frame.width, height: 139)
-            case .sort2xN:
-                return CGSize(width: (view.frame.width / 2) - 9, height:253)
-            case .sort1xN:
+            case .grid2xN:
+                return CGSize(width: (view.frame.width / 2) - 9, height: 253)
+            case .grid1xN:
                 return CGSize(width: view.frame.width, height: 290)
             }
         default:
