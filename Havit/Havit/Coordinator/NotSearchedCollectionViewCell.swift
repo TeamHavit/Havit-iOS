@@ -11,10 +11,16 @@ class NotSearchedCollectionViewCell: BaseCollectionViewCell {
     let label: UILabel = {
         let label = UILabel()
         label.text = "검색 결과가 없습니다."
+        label.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+        label.textColor = .gray002
         return label
     }()
     
-    let imageView = UIImageView()
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
@@ -28,13 +34,14 @@ class NotSearchedCollectionViewCell: BaseCollectionViewCell {
     override func render() {
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints {
-            $0.bottom.equalTo(contentView).offset(10)
-            $0.leading.trailing.equalTo(contentView).offset(110)
+            $0.bottom.equalTo(contentView).inset(20)
+            $0.centerX.equalTo(contentView)
         }
         
         contentView.addSubview(label)
         label.snp.makeConstraints {
-            $0.bottom.equalTo(imageView).offset(30)
+            $0.top.equalTo(imageView).inset(-70)
+            $0.centerX.equalTo(contentView)
         }
     }
 }

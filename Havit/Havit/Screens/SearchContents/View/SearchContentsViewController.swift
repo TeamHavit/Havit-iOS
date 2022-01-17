@@ -18,6 +18,7 @@ final class SearchContentsViewController: BaseViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.showsCancelButton = false
         searchController.searchBar.placeholder = "원하는 콘텐츠 검색"
+        searchController.searchBar.setImage(UIImage(named: "iconSearch"), for: .search, state: .normal)
         return searchController
     }()
     
@@ -28,10 +29,17 @@ final class SearchContentsViewController: BaseViewController {
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         return view
     }()
+    
+    lazy var resultCollectionView: UICollectionView = {
+       var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+       collectionView.backgroundColor = .white
+       collectionView.register(cell: NotSearchedCollectionViewCell.self)
+       return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setDelegations()
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,8 +71,9 @@ final class SearchContentsViewController: BaseViewController {
             
             let border: CALayer = {
                 let border = CALayer()
-                border.frame = CGRect(x: 0, y: textField.frame.size.height-1, width: textField.frame.width - 2 * (paddingView.frame.width), height: 2)
+                border.frame = CGRect(x: 0, y: textField.frame.size.height + 36, width: textField.frame.width - 2 * (paddingView.frame.width), height: 2)
                 border.backgroundColor = UIColor.gray001.cgColor
+                border.masksToBounds = true
                 return border
             }()
             
@@ -79,6 +88,13 @@ final class SearchContentsViewController: BaseViewController {
         mainView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        mainView.addSubView(resultCollectionView)
+        resultCollectionView.snp.makeConstraints {
+            $0.top.equalTo(mainView).offset(15)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(view)
+        }
     }
     
     override func configUI() {
@@ -86,7 +102,36 @@ final class SearchContentsViewController: BaseViewController {
         view.backgroundColor = UIColor.whiteGray
     }
     
+    private func setDelegations() {
+           resultCollectionView.delegate = self
+           resultCollectionView.dataSource = self
+       }
+    
     @objc func clearClicked(_ sender: UIButton) {
 
+    }
+}
+
+extension SearchContentsViewController: UICollectionViewDelegate {
+    
+}
+
+extension SearchContentsViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.imageView.image = UIImage(named: "imgSearch")
+        return cell
+    }
+}
+
+extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
     }
 }
