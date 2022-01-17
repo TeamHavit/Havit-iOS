@@ -399,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */,
+				4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -806,11 +807,9 @@
 				4DBD2ECA2792BE500003226A /* Cell */,
 				4DBD2EC92792BE430003226A /* Component */,
 				ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */,
-				4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */,
 				4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */,
 				4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */,
 				4D4E961D2794566600F11788 /* EditCategoryViewController.swift */,
-				4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
