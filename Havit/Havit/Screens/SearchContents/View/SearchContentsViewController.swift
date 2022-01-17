@@ -106,6 +106,7 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     override func configUI() {
+        super.configUI()
         navigationController?.navigationBar.barTintColor = UIColor.whiteGray
         view.backgroundColor = UIColor.whiteGray
     }
