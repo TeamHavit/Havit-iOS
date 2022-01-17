@@ -14,7 +14,7 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     private let contentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .gray001
+        imageView.image = ImageLiteral.imgDummyContent
         imageView.layer.cornerRadius = 6
         return imageView
     }()

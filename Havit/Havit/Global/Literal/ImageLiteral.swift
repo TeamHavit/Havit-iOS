@@ -42,10 +42,12 @@ enum ImageLiteral {
     static var iconMypageSelected: UIImage { .load(named: "iconMypageSelected")}
     static var iconMypageUnselected: UIImage { .load(named: "iconMypageUnselected")}
     static var iconNoticeIcon: UIImage { .load(named: "iconNoticeIcon")}
+    static var iconRounddelete: UIImage { .load(named: "iconRounddelete")}
     static var iconSearch: UIImage { .load(named: "iconSearch")}
     static var iconShare: UIImage { .load(named: "iconShare")}
     static var iconUpdown: UIImage { .load(named: "iconUpdown")}
     
+    static var imgCardCategoryLine: UIImage { .load(named: "imgCardCategoryLine")}
     static var imgCategoryNone: UIImage { .load(named: "imgCategoryNone")}
     static var imgDummyContent: UIImage { .load(named: "imgDummyContent")}
     static var imgGraphicNoalarm: UIImage { .load(named: "imgGraphicNoalarm")}
