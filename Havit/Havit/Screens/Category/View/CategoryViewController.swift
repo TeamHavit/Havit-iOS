@@ -25,7 +25,6 @@ class CategoryViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cell: CategoryCollectionViewCell.self)
-
         return collectionView
     }()
 
@@ -34,7 +33,6 @@ class CategoryViewController: BaseViewController {
         label.font = .font(.pretendardReular, ofSize: 13)
         label.text = "전체 0"
         label.textColor = .gray003
-
         return label
     }()
 
@@ -59,18 +57,17 @@ class CategoryViewController: BaseViewController {
         configuration.imagePlacement = .leading
 
         let button = UIButton(configuration: configuration, primaryAction: nil)
-
         return button
     }()
 
     private let backButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
         return button
     }()
 
     private let editButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setTitle("수정", for: .normal)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 14)
         button.setTitleColor(UIColor.gray003, for: .normal)
@@ -136,7 +133,6 @@ class CategoryViewController: BaseViewController {
     }
 
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
-        button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         return UIBarButtonItem(customView: button)
     }
 
