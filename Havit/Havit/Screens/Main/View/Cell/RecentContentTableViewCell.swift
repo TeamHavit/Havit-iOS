@@ -9,6 +9,16 @@ import UIKit
 
 final class RecentContentTableViewCell: BaseTableViewCell {
     
+    private enum Size {
+        static let cellWidth: Int = { () -> Int in
+            let screenWidth = UIScreen.main.bounds.size.width
+            let leftInset = 16
+            let rightInset = 229
+            return Int(screenWidth) - leftInset - rightInset
+        }()
+        static let cellHeight = 171
+    }
+    
     // MARK: - property
     
     private let titleLabel: UILabel = {
@@ -29,7 +39,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 40, right: 16)
-        flowLayout.itemSize = CGSize(width: 130, height: 171)
+        flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
         flowLayout.minimumInteritemSpacing = 8
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
