@@ -131,9 +131,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
         switch resultType {
         case .result:
             return 10
-        case .before:
-            fallthrough
-        case .empty:
+        case .before, .empty:
             return 1
         }
     }
@@ -162,9 +160,7 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
         switch resultType {
         case .result:
             return CGSize(width: view.frame.width, height: 139)
-        case .before:
-            fallthrough
-        case .empty:
+        case .before, .empty:
             return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
         }
     }
@@ -172,7 +168,7 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
 
 extension SearchContentsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //// TODO: 서버 데이터에 따라  검색 결과 없는 경우 분기 처리
+        // 서버 데이터에 따라  검색 결과 없는 경우 분기 처리하기
         resultType = .result
         resultCollectionView.reloadData()
     }
