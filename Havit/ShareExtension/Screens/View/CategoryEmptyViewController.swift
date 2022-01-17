@@ -77,8 +77,8 @@ final class CategoryEmptyViewController: BaseViewController {
         view.addSubViews([categoryEmptyNoticeLabel, categoryEmptyImageView, addCategoryButton])
         
         categoryEmptyNoticeLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(16)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(40)
+            $0.leading.equalToSuperview().inset(16)
         }
         
         categoryEmptyImageView.snp.makeConstraints {
@@ -97,7 +97,7 @@ final class CategoryEmptyViewController: BaseViewController {
     
     private func setNavigationBar() {
         title = "카테고리 추가"
-        navigationItem.rightBarButtonItem = navigationRightButton
         navigationController?.navigationBar.titleTextAttributes = navigationTitleTextAttributes
+        navigationItem.rightBarButtonItem = navigationRightButton
     }
 }
