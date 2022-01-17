@@ -15,16 +15,36 @@ final class LogoTableViewCell: BaseTableViewCell {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .havitGreen
+        imageView.image = ImageLiteral.imgLogoBox
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
+    private let logoTitleImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = ImageLiteral.imgTextLogoGray
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
     override func render() {
-        contentView.addSubView(logoImageView)
+        contentView.addSubViews([logoImageView, logoTitleImageView])
         
         logoImageView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.height.equalTo(122)
+            $0.top.equalToSuperview().inset(28)
+            $0.trailing.equalTo(self.snp.centerX).offset(-20)
+            $0.bottom.equalToSuperview().inset(46)
+            $0.height.width.equalTo(48).priority(.high)
         }
+        
+        logoTitleImageView.snp.makeConstraints {
+            $0.top.equalTo(logoImageView.snp.top).offset(18)
+            $0.leading.equalTo(logoImageView.snp.trailing).offset(12)
+            $0.width.equalTo(68)
+            $0.height.equalTo(12)
+        }
+    }
+    
+    override func configUI() {
+        backgroundColor = .whiteGray
     }
 }
