@@ -45,7 +45,6 @@ class EditCategoryViewController: BaseViewController {
         label.text = "아이콘"
         label.font = .font(.pretendardSemibold, ofSize: 14)
         label.textColor = .havitPurple
-
         return label
     }()
 
@@ -54,7 +53,6 @@ class EditCategoryViewController: BaseViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(cell: CategoryIconCollectionViewCell.self)
-
         return collectionView
     }()
 
@@ -79,7 +77,6 @@ class EditCategoryViewController: BaseViewController {
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 15)
         button.backgroundColor = .gray000
         button.layer.cornerRadius = 6
-
         return button
     }()
 
@@ -177,7 +174,6 @@ extension EditCategoryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
-
         return cell
     }
     

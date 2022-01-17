@@ -25,7 +25,6 @@ class CategoryViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cell: CategoryCollectionViewCell.self)
-
         return collectionView
     }()
 
@@ -34,7 +33,6 @@ class CategoryViewController: BaseViewController {
         label.font = .font(.pretendardReular, ofSize: 13)
         label.text = "전체 0"
         label.textColor = .gray003
-
         return label
     }()
 
@@ -59,7 +57,6 @@ class CategoryViewController: BaseViewController {
         configuration.imagePlacement = .leading
 
         let button = UIButton(configuration: configuration, primaryAction: nil)
-
         return button
     }()
 

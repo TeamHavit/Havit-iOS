@@ -25,7 +25,6 @@ class ManageCategoryViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cell: CategoryCollectionViewCell.self)
-
         return collectionView
     }()
 
