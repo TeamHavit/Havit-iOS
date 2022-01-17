@@ -61,13 +61,13 @@ class CategoryViewController: BaseViewController {
     }()
 
     private let backButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
         return button
     }()
 
     private let editButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setTitle("수정", for: .normal)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 14)
         button.setTitleColor(UIColor.gray003, for: .normal)
@@ -133,7 +133,6 @@ class CategoryViewController: BaseViewController {
     }
 
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
-        button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         return UIBarButtonItem(customView: button)
     }
 
