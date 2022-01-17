@@ -84,7 +84,7 @@ class MainTableViewController: BaseViewController {
         return tableView
     }()
     private let searchHeaderView = MainSearchHeaderView()
-    private var isDeleted: Bool = false
+    private var isNotificationDeleted: Bool = false
 }
 
 extension MainTableViewController: UITableViewDataSource {
@@ -98,7 +98,7 @@ extension MainTableViewController: UITableViewDataSource {
         
         switch section {
         case .reach:
-            rowCount = isDeleted ? max(rowCount - 1, 0) : rowCount
+            rowCount = isNotificationDeleted ? max(rowCount - 1, 0) : rowCount
         default:
             break
         }
@@ -113,16 +113,18 @@ extension MainTableViewController: UITableViewDataSource {
         case .reach:
             let row = ReachSection.init(rawValue: indexPath.row)
             guard var rowValue = row?.rawValue else { return UITableViewCell() }
-            rowValue = isDeleted ? rowValue + 1 : rowValue
+            rowValue = isNotificationDeleted ? rowValue + 1 : rowValue
             
             switch rowValue {
             case 0:
                 let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
                     withType: ReachRateNotificationTableViewCell.self, for: indexPath)
                 cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
-                cell.didTapCloseButton = {
-                    self.isDeleted = true
-                    tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue, section: Section.reach.rawValue)], with: .fade)
+                cell.didTapCloseButton = { [weak self] in
+                    self?.isNotificationDeleted = true
+                    tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue,
+                                                             section: Section.reach.rawValue)],
+                                         with: .fade)
                 }
                 return cell
             case 1:
