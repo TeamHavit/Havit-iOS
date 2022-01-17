@@ -44,7 +44,7 @@ class CategoryIconCollectionViewCell: BaseCollectionViewCell {
         didSet {
             iconImageView.alpha = self.isSelected ? 1 : 0.7
             iconBackgroundView.layer.borderWidth = self.isSelected ? 1.5 : 0
-            iconBackgroundView.layer.borderColor = UIColor.havitPurple.cgColor
+            iconBackgroundView.layer.borderColor = self.isSelected ? UIColor.havitPurple.cgColor : UIColor.clear.cgColor
         }
     }
 
