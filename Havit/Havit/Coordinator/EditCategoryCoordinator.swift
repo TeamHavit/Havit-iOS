@@ -14,9 +14,9 @@ final class EditCategoryCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        let editCategory = EditCategoryViewController()
-        editCategory.coordinator = self
-        navigationController.pushViewController(editCategory, animated: true)
+        let editCategoryViewController = EditCategoryViewController()
+        editCategoryViewController.coordinator = self
+        navigationController.pushViewController(editCategoryViewController, animated: true)
     }
 
     func performTransition(to transition: EditCategoryTransition) {
