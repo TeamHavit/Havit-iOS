@@ -23,10 +23,14 @@ final class CategoryContentsViewController: BaseViewController {
     var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
     var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
     
-    var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
+    let searchBarBorderLayer: CALayer? = CALayer()
+    
+    private var searchController: UISearchController = {
+        var searchController = UISearchController()
+        searchController.searchBar.showsCancelButton = false
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "원하는 콘텐츠 검색"
+        searchController.searchBar.setImage(UIImage(named: "iconSearch"), for: .search, state: .normal)
         return searchController
     }()
     
@@ -66,13 +70,13 @@ final class CategoryContentsViewController: BaseViewController {
         configuration.imagePadding = 3
         configuration.title = "최근"
         configuration.image = UIImage(named: "iconUpdown")
-
+        
         var attributes = AttributeContainer()
         attributes.foregroundColor = .gray003
         var attributedText = AttributedString.init("최근순", attributes: attributes)
         attributedText.font = UIFont.font(FontName.pretendardMedium, ofSize: 12)
         configuration.attributedTitle = attributedText
-
+        
         let button = UIButton(configuration: configuration,
                               primaryAction: nil)
         return button
@@ -110,7 +114,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         // 메인 뷰
         self.view.addSubview(mainView)
-
+        
         // 필터 뷰
         self.view.addSubview(filterView)
         filterView.addSubview(totalLabel)
@@ -120,45 +124,45 @@ final class CategoryContentsViewController: BaseViewController {
         // 필터 컬렉션 뷰
         filterView.addSubview(filterCollectionView)
         
-        // 메인 컨텐츠 뷰 
+        // 메인 컨텐츠 뷰
         mainView.addSubview(contentsCollectionView)
         
         mainView.snp.makeConstraints {
             $0.leading.bottom.trailing.top.equalTo(view.safeAreaLayoutGuide)
         }
-
+        
         filterView.snp.makeConstraints {
             $0.leading.trailing.equalTo(mainView)
             $0.top.equalTo(mainView).offset(17)
             $0.height.equalTo(67)
         }
-
+        
         totalLabel.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(16)
             $0.top.equalTo(filterView)
         }
-
+        
         gridButton.snp.makeConstraints {
             $0.top.equalTo(filterView)
             $0.trailing.equalTo(filterView).inset(16)
             $0.width.equalTo(18)
             $0.height.equalTo(18)
         }
-
+        
         sortButton.snp.makeConstraints {
             $0.bottom.equalTo(filterView).inset(18)
             $0.trailing.equalTo(filterView).inset(16)
             $0.width.equalTo(50)
             $0.height.equalTo(20)
         }
-
+        
         filterCollectionView.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(16)
             $0.bottom.equalTo(filterView).inset(9)
             $0.trailing.equalTo(filterView).inset(70)
             $0.height.equalTo(31)
         }
-
+        
         contentsCollectionView.snp.makeConstraints {
             $0.top.equalTo(filterView).offset(67)
             $0.leading.equalTo(mainView)
@@ -172,6 +176,7 @@ final class CategoryContentsViewController: BaseViewController {
         setNavigationItem()
         navigationController?.navigationBar.barTintColor = UIColor.whiteGray
         view.backgroundColor = UIColor.whiteGray
+        
     }
     
     func setNavigationItem() {
@@ -188,28 +193,45 @@ final class CategoryContentsViewController: BaseViewController {
         contentsCollectionView.dataSource = self
     }
     
+    override func viewDidLayoutSubviews() {
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.backgroundColor = .clear
+            textField.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+            textField.textColor = UIColor.black
+            // textField.tintColor = myTintColor
+            textField.borderStyle = .none
+            
+            if let border = searchBarBorderLayer {
+                border.frame = CGRect(x: 0, y: textField.frame.size.height, width: textField.frame.width, height: 2)
+                border.backgroundColor = UIColor.gray001.cgColor
+                border.masksToBounds = true
+                textField.layer.addSublayer(border)
+                
+            }
+        }
+    }
     @objc func goToCategoryCorrection(_: UIButton) {
         
     }
     
     @objc func showSortBottomSheetViewController(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "정렬", message: nil, preferredStyle: .actionSheet)
-
+        
         actionSheet.addAction(UIAlertAction(title: "최신순", style: .default, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "과거순", style: .default, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "최근 조회순", style: .default, handler: nil))
-
+        
         // actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true, completion: nil)
     }
     
     @objc func showMoreBottomSheetViewController(_ sender: UIButton) {
         let actionSheet = UIAlertController(title: "더보기\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-
-           let view = UIView(frame: CGRect(x: 8.0, y: 8.0, width: actionSheet.view.bounds.size.width - 8.0 * 4.5, height: 120.0))
+        
+        let view = UIView(frame: CGRect(x: 8.0, y: 8.0, width: actionSheet.view.bounds.size.width - 8.0 * 4.5, height: 120.0))
         view.backgroundColor = UIColor.green
         actionSheet.view.addSubview(view)
-
+        
         actionSheet.addAction(UIAlertAction(title: "제목 수정", style: .default, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "공유", style: .default, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "카테고리 이동", style: .default, handler: nil))
@@ -308,7 +330,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case filterCollectionView:
             if indexPath.row == 3 {
-               return CGSize(width: 46, height: 31)
+                return CGSize(width: 46, height: 31)
             } else {
                 let label: UILabel = {
                     let label = UILabel()
