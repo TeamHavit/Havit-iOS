@@ -59,7 +59,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         }
         
         overallButton.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.top).inset(2)
+            $0.top.equalTo(titleLabel.snp.top).inset(-4)
             $0.trailing.equalToSuperview().inset(17)
         }
         
