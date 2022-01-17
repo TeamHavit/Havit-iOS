@@ -26,6 +26,7 @@ class MainTableViewController: BaseViewController {
         case guideline
         case recent
         case recommend
+        case logo
     }
     
     private enum Section: Int, CaseIterable {
@@ -85,6 +86,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: GuidelineTableViewCell.self)
         tableView.register(cell: RecentContentTableViewCell.self)
         tableView.register(cell: RecommendSiteTableViewCell.self)
+        tableView.register(cell: LogoTableViewCell.self)
         return tableView
     }()
     private let headerView = MainSearchHeaderView()
@@ -174,7 +176,8 @@ extension MainTableViewController: UITableViewDataSource {
             let cell: RecommendSiteTableViewCell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self, for: indexPath)
             return cell
         default:
-            return UITableViewCell()
+            let cell: LogoTableViewCell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self, for: indexPath)
+            return cell
         }
     }
 }
