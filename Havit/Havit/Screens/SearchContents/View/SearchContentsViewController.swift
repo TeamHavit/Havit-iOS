@@ -17,7 +17,7 @@ final class SearchContentsViewController: BaseViewController {
         case before, result, empty
     }
     
-    private var resultType: SearchResultType = .before
+    private var resultType: SearchResultType = .empty
     
     private var searchController: UISearchController = {
         var searchController = UISearchController()
@@ -145,7 +145,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
             return cell
         case .before:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.imageView.image = UIImage(named: "imgSearch")
+            cell.imageView.image = UIImage(named: "imgSearchIs")
             return cell
         case .empty:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
