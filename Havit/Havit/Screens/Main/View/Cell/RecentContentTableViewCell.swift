@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class RecentContentTableViewCell: BaseTableViewCell {
     
     private enum Size {
@@ -43,12 +45,13 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         flowLayout.minimumInteritemSpacing = 8
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(cell: RecentContentCollectionViewCell.self)
         return collectionView
     }()
     
     override func render() {
-        addSubViews([titleLabel, overallButton, contentCollectionView])
+        contentView.addSubViews([titleLabel, overallButton, contentCollectionView])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(42)
@@ -66,7 +69,6 @@ final class RecentContentTableViewCell: BaseTableViewCell {
             $0.height.equalTo(223)
         }
     }
-
 }
 
 extension RecentContentTableViewCell: UICollectionViewDataSource {
