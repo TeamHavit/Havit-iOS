@@ -32,7 +32,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 16)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
@@ -79,8 +79,8 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         }
         
         pageControl.snp.makeConstraints {
-            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(9)
-            $0.bottom.equalToSuperview().inset(30)
+            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
+            $0.bottom.equalToSuperview().inset(40)
             $0.centerX.equalToSuperview()
         }
     }
