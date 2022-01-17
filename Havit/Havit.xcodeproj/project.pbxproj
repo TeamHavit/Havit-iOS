@@ -17,6 +17,8 @@
 		4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
 		4D4DDD49279143330069F5FB /* ManageCategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */; };
 		4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */; };
+		4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E961D2794566600F11788 /* EditCategoryViewController.swift */; };
+		4D4E96202794570F00F11788 /* EditCategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E961F2794570F00F11788 /* EditCategoryCoordinator.swift */; };
 		4D6F9E35278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
 		4D6F9E36278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
 		4D6F9E37278C8AA800EC074D /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */; };
@@ -227,6 +229,8 @@
 		4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListDataModel.swift; sourceTree = "<group>"; };
 		4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoryViewController.swift; sourceTree = "<group>"; };
+		4D4E961D2794566600F11788 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
+		4D4E961F2794570F00F11788 /* EditCategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D6F9E2C278C8AA600EC074D /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4D6F9E2D278C8AA700EC074D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4D6F9E2E278C8AA700EC074D /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 				3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */,
 				4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */,
 				4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */,
+				4D4E961F2794570F00F11788 /* EditCategoryCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */,
 				4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */,
 				4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */,
+				4D4E961D2794566600F11788 /* EditCategoryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1173,6 +1179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */,
 				3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */,
@@ -1236,6 +1243,7 @@
 				EDEF6191279136DD00C93C84 /* HttpMethod.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
+				4D4E96202794570F00F11788 /* EditCategoryCoordinator.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				4D4DDD49279143330069F5FB /* ManageCategoryCoordinator.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
