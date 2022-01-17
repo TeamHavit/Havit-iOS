@@ -8,17 +8,64 @@
 import UIKit
 
 final class RecentContentTableViewCell: BaseTableViewCell {
-
-    // MARK: - init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .blue
+    // MARK: - property
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "최근 저장 콘텐츠"
+        label.textColor = .primaryBlack
+        label.font = .font(.pretendardSemibold, ofSize: 17)
+        return label
+    }()
+    private let overallButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = .font(.pretendardReular, ofSize: 12)
+        button.setTitle("더보기", for: .normal)
+        button.setTitleColor(.gray003, for: .normal)
+        return button
+    }()
+    private lazy var contentCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.sectionInset = UIEdgeInsets(top: 12, left: 16, bottom: 40, right: 16)
+        flowLayout.itemSize = CGSize(width: 130, height: 171)
+        flowLayout.minimumInteritemSpacing = 8
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.dataSource = self
+        collectionView.register(cell: RecentContentCollectionViewCell.self)
+        return collectionView
+    }()
+    
+    override func render() {
+        addSubViews([titleLabel, overallButton, contentCollectionView])
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(42)
+            $0.leading.equalToSuperview().inset(16)
+        }
+        
+        overallButton.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.top).inset(2)
+            $0.trailing.equalToSuperview().inset(17)
+        }
+        
+        contentCollectionView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(223)
+        }
+    }
+
+}
+
+extension RecentContentTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
     
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: RecentContentCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        return cell
     }
-
 }
