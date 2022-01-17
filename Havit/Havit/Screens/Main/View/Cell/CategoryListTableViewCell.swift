@@ -38,10 +38,12 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: CategoryListCollectionViewCell.self)
         return collectionView
     }()
-    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리7", "카테고리8"]
+    private let pageControl = MainCategoryPageControl()
+    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리7", "카테고리8", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리7", "카테고리8"]
     
     // MARK: - init
     
@@ -56,7 +58,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     override func render() {
         sendSubviewToBack(contentView)
-        addSubViews([titleLabel, overallButton, categoryCollectionView])
+        addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -73,12 +75,21 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             $0.top.equalTo(titleLabel.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(348)
-            $0.bottom.equalToSuperview()
+        }
+        
+        pageControl.snp.makeConstraints {
+            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(9)
+            $0.bottom.equalToSuperview().inset(30)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(100)
+            $0.height.equalTo(10)
         }
     }
     
     override func configUI() {
         backgroundColor = .white
+        
+        pageControl.pages = 3
     }
 }
 
@@ -106,5 +117,28 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
         
         cell.backgroundColor = .clear
         return cell
+    }
+}
+
+extension CategoryListTableViewCell: UICollectionViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard let layout = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        let pageWidth = layout.collectionView?.frame.width ?? 0
+        var offsetPoint = targetContentOffset.pointee
+        var selectedIndex = (offsetPoint.x + scrollView.contentInset.left) / pageWidth
+
+        if scrollView.contentOffset.x > targetContentOffset.pointee.x {
+            selectedIndex = floor(selectedIndex)
+        } else if scrollView.contentOffset.x < targetContentOffset.pointee.x {
+            selectedIndex = ceil(selectedIndex)
+        } else {
+            selectedIndex = round(selectedIndex)
+        }
+        
+        pageControl.selectedPage = Int(selectedIndex)
+        
+        offsetPoint = CGPoint(x: selectedIndex * pageWidth - scrollView.contentInset.left,
+                              y: -scrollView.contentInset.top)
+        targetContentOffset.pointee = offsetPoint
     }
 }
