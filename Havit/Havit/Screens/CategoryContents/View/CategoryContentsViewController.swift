@@ -204,13 +204,10 @@ final class CategoryContentsViewController: BaseViewController {
         switch gridType {
         case .grid:
             gridType = .grid2xN
-            contentsCollectionView.register(cell: CategoryContents2xNCollectionViewCell.self)
         case .grid2xN:
             gridType = .grid1xN
-            contentsCollectionView.register(cell: CategoryContents1xNCollectionViewCell.self)
         case .grid1xN:
             gridType = .grid
-            contentsCollectionView.register(cell: ContentsCollectionViewCell.self)
         }
         contentsCollectionView.reloadData()
     }
@@ -237,7 +234,6 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             case .grid:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
-                // 확인용 주석 추가
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
