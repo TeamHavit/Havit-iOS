@@ -19,6 +19,22 @@ final class SearchContentsViewController: BaseViewController {
     
     private var resultType: SearchResultType = .before
     
+    private var mainLabel: UILabel = {
+        var label = UILabel()
+        label.text = "검색된 콘텐츠"
+        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
+        label.textColor = .gray003
+        return label
+    }()
+    
+    private var numberLabel: UILabel = {
+        var label = UILabel()
+        label.text = "3"
+        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
+        label.textColor = .havitPurple
+        return label
+    }()
+    
     private var searchController: UISearchController = {
         var searchController = UISearchController()
         searchController.searchBar.showsCancelButton = false
@@ -97,9 +113,24 @@ final class SearchContentsViewController: BaseViewController {
             $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
+        mainView.addSubview(mainLabel)
+        mainLabel.snp.makeConstraints {
+            $0.top.equalTo(mainView).offset(25)
+            $0.leading.equalTo(mainView).offset(16)
+            $0.width.equalTo(55)
+            $0.height.equalTo(10)
+        }
+        
+        mainView.addSubview(numberLabel)
+        numberLabel.snp.makeConstraints {
+            $0.top.equalTo(mainView).offset(25)
+            $0.leading.equalTo(mainLabel).inset(56)
+            $0.height.equalTo(10)
+        }
+        
         mainView.addSubView(resultCollectionView)
         resultCollectionView.snp.makeConstraints {
-            $0.top.equalTo(mainView).offset(15)
+            $0.top.equalTo(mainLabel).offset(19)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(mainView)
         }
