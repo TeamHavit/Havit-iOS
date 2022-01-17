@@ -22,7 +22,6 @@ class EditCategoryViewController: BaseViewController {
         label.text = "제목"
         label.font = .font(.pretendardSemibold, ofSize: 14)
         label.textColor = .havitPurple
-
         return label
     }()
 
@@ -129,7 +128,7 @@ class EditCategoryViewController: BaseViewController {
     }
 
     override func configUI() {
-        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, shadowImage: UIImage(), isTranslucent: false, tintColor: .white)
+        setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, isTranslucent: false, tintColor: .white)
         setNavigationItem()
         bind()
     }

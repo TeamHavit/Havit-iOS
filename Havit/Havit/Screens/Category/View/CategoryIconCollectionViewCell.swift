@@ -17,7 +17,6 @@ class CategoryIconCollectionViewCell: BaseCollectionViewCell {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 62, height: 62))
         view.backgroundColor = .gray000
         view.layer.cornerRadius = 31
-        
         return view
     }()
 
