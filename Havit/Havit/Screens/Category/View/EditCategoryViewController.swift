@@ -135,7 +135,6 @@ class EditCategoryViewController: BaseViewController {
     private func setDelegation() {
         iconCollectionView.delegate = self
         iconCollectionView.dataSource = self
-        categoryTitleTextField.delegate = self
     }
 
     private func setNavigationItem() {
@@ -161,6 +160,13 @@ class EditCategoryViewController: BaseViewController {
         )
             .bind(onNext: { [weak self] in
                 self?.coordinator?.performTransition(to: .previous)
+            })
+            .disposed(by: disposeBag)
+
+        categoryTitleTextField.rx.controlEvent([.editingDidBegin])
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.categoryTitleTextField.textColor = .black
             })
             .disposed(by: disposeBag)
     }
@@ -201,15 +207,5 @@ extension EditCategoryViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 7
-    }
-}
-
-extension EditCategoryViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        categoryTitleTextField.textColor = .black
     }
 }
