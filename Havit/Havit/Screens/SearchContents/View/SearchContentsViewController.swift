@@ -99,9 +99,9 @@ final class SearchContentsViewController: BaseViewController {
         
         mainView.addSubView(resultCollectionView)
         resultCollectionView.snp.makeConstraints {
-            // $0.top.equalTo(mainView).offset(15)
-            $0.top.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-            // $0.bottom.equalTo(view)
+            $0.top.equalTo(mainView).offset(15)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(mainView)
         }
     }
     
