@@ -49,7 +49,6 @@ final class RateContentView: UIView {
         super.init(frame: frame)
         render()
         configUI()
-        setProgressTimer()
     }
     
     @available(*, unavailable)
@@ -93,16 +92,12 @@ final class RateContentView: UIView {
         makeShadow(.gray002, 0.2, CGSize(width: 0, height: 5), 5)
     }
     
-    private func setProgressTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(animateProgressBar), userInfo: nil, repeats: true)
-    }
-    
-    @objc
     private func animateProgressBar() {
-        time += 0.1
-        progressBar.setProgress(time, animated: true)
-        if time >= progressRate {
-            timer!.invalidate()
+        DispatchQueue.main.async { [weak self] in
+            self?.progressBar.setProgress(self?.progressRate ?? .zero, animated: false)
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+                self?.progressBar.layoutIfNeeded()
+            })
         }
     }
     
@@ -118,5 +113,7 @@ final class RateContentView: UIView {
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
         progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
+        
+        animateProgressBar()
     }
 }
