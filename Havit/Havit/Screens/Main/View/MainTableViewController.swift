@@ -83,7 +83,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: ReachRateTableViewCell.self)
         return tableView
     }()
-    private let headerView = MainSearchHeaderView()
+    private let searchHeaderView = MainSearchHeaderView()
     private var isDeleted: Bool = false
 }
 
@@ -150,7 +150,7 @@ extension MainTableViewController: UITableViewDelegate {
         let section = Section.init(rawValue: section)
         switch section {
         case .category:
-            return headerView
+            return searchHeaderView
         default:
             return UIView()
         }
@@ -175,6 +175,6 @@ extension MainTableViewController: UITableViewDelegate {
         let reachSectionHeight = sectionFirstRowFrame.height +  sectionSecondRowFrame.height
         let isScrolledOverReachSection = offsetY >= reachSectionHeight
         
-        headerView.updateBackgroundColor(to: isScrolledOverReachSection ? .whiteGray : .clear)
+        searchHeaderView.updateBackgroundColor(to: isScrolledOverReachSection ? .whiteGray : .clear)
     }
 }
