@@ -936,7 +936,6 @@
 				4F4545D92790B69600A9E3B1 /* Sources */,
 				4F4545DA2790B69600A9E3B1 /* Frameworks */,
 				4F4545DB2790B69600A9E3B1 /* Resources */,
-				4F4DF4C227942FF800DD629C /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1052,9 +1051,9 @@
 			);
 			mainGroup = ED443EA1278598670059DE76;
 			packageReferences = (
-				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
+				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = ED443EAB278598670059DE76 /* Products */;
 			projectDirPath = "";
@@ -1689,7 +1688,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1705,7 +1704,7 @@
 				minimumVersion = 6.5.0;
 			};
 		};
-		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -1718,7 +1717,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		4F4545F32791BFBF00A9E3B1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		4F4545F52791BFBF00A9E3B1 /* IQKeyboardManagerSwift */ = {
@@ -1728,22 +1727,22 @@
 		};
 		4F4545F72791BFBF00A9E3B1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		4F4545F92791BFBF00A9E3B1 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
 		};
 		4F4545FB2791BFBF00A9E3B1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */ = {
@@ -1753,12 +1752,12 @@
 		};
 		ED443F3D2786B5840059DE76 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		ED443F3F2786B5840059DE76 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

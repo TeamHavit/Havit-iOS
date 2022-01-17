@@ -20,6 +20,8 @@ final class CategoryContentsViewController: BaseViewController {
     
     var gridType: GridType = .grid
     
+    var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
+    
     var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "원하는 콘텐츠를 검색하세요."
@@ -44,22 +46,34 @@ final class CategoryContentsViewController: BaseViewController {
     var totalLabel: UILabel = {
         let label = UILabel()
         label.text = "전체 0"
+        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
+        label.textColor = .gray003
         return label
     }()
     
     lazy var gridButton: UIButton = {
         let button = UIButton()
-        button.setTitle("B", for: .normal)
-        button.backgroundColor = UIColor.blue
+        button.setImage(UIImage(named: "iconLayout3"), for: .normal)
         button.addTarget(self, action: #selector(changeContentsShow(_:)), for: .touchUpInside)
         return button
     }()
     
     lazy var sortButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("수정", for: .normal)
-        button.backgroundColor = UIColor.blue
-        button.addTarget(self, action: #selector(showSortBottomSheetViewController(_:)), for: .touchUpInside)
+        var configuration  = UIButton.Configuration.plain()
+        configuration.buttonSize = .large
+        configuration.imagePlacement = .leading
+        configuration.imagePadding = 3
+        configuration.title = "최근"
+        configuration.image = UIImage(named: "iconUpdown")
+
+        var attributes = AttributeContainer()
+        attributes.foregroundColor = .gray003
+        var attributedText = AttributedString.init("최근순", attributes: attributes)
+        attributedText.font = UIFont.font(FontName.pretendardMedium, ofSize: 12)
+        configuration.attributedTitle = attributedText
+
+        let button = UIButton(configuration: configuration,
+                              primaryAction: nil)
         return button
     }()
     
@@ -126,16 +140,16 @@ final class CategoryContentsViewController: BaseViewController {
 
         gridButton.snp.makeConstraints {
             $0.top.equalTo(filterView)
-            $0.trailing.equalTo(filterView).offset(-16)
+            $0.trailing.equalTo(filterView).inset(16)
             $0.width.equalTo(18)
             $0.height.equalTo(18)
         }
 
         sortButton.snp.makeConstraints {
-            $0.bottom.equalTo(filterView).offset(-19)
-            $0.trailing.equalTo(filterView).offset(-16)
-            $0.width.equalTo(47)
-            $0.height.equalTo(15)
+            $0.bottom.equalTo(filterView).inset(18)
+            $0.trailing.equalTo(filterView).inset(16)
+            $0.width.equalTo(50)
+            $0.height.equalTo(20)
         }
 
         filterCollectionView.snp.makeConstraints {
@@ -238,14 +252,24 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             case .grid:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
+                DispatchQueue.main.async {
+                    self.gridButton.setImage(UIImage(named: "iconLayout3"), for: .normal)
+                }
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
+                DispatchQueue.main.async {
+                    self.gridButton.setImage(UIImage(named: "iconLayout4"), for: .normal)
+                }
                 return cell
             case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
+                DispatchQueue.main.async {
+                    self.gridButton.setImage(UIImage(named: "iconLayout2"), for: .normal)
+                    // self.sortButton.setTitle(self.sortList[2], for: .normal)
+                }
                 return cell
             }
         default:
@@ -284,3 +308,27 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+
+// ViewController의 Preview
+ #if canImport(SwiftUI) && DEBUG
+ import SwiftUI
+
+ struct Preview: PreviewProvider {
+    static var previews: some View {
+        CategoryContentsViewController().showPreview(.iPhone13Mini)
+        CategoryContentsViewController().showPreview(.iPhone12ProMax)
+    }
+ }
+ #endif
+
+//// View의 Preview
+// #if canImport(SwiftUI) && DEBUG
+// import SwiftUI
+//
+// struct Preview: PreviewProvider {
+//    static var previews: some View {
+//        CategoryContentsViewController().showPreview(.iPhone13Mini)
+//        CategoryContentsViewController().showPreview(.iPhoneSE2)
+//    }
+// }
+// #endif
