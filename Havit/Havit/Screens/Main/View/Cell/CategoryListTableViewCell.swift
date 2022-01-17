@@ -44,7 +44,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }()
     private let pageControl = MainCategoryPageControl()
     let maxCategoryCount = 6
-    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6"]
+    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4"]
     
     // MARK: - init
     
@@ -112,8 +112,9 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let hasCategoryData = categorys.count >= indexPath.item
         
-        if categorys.count >= indexPath.item {
+        if hasCategoryData {
             switch indexPath.item {
             case .zero:
                 cell.backgroundColor = .caution
@@ -133,7 +134,7 @@ extension CategoryListTableViewCell: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         guard let layout = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let pageWidth = layout.collectionView?.frame.width ?? 0
-        var offsetPoint = targetContentOffset.pointee
+        let offsetPoint = targetContentOffset.pointee
         var selectedIndex = (offsetPoint.x + scrollView.contentInset.left) / pageWidth
 
         if scrollView.contentOffset.x > targetContentOffset.pointee.x {
