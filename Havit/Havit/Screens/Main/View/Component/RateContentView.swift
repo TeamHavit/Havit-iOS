@@ -39,9 +39,6 @@ final class RateContentView: UIView {
         bar.progressTintColor = .havitPurple
         return bar
     }()
-    private var timer: Timer?
-    private var time: Float = 0.0
-    private var progressRate: Float = 0.0
 
     // MARK: - init
     
@@ -92,9 +89,9 @@ final class RateContentView: UIView {
         makeShadow(.gray002, 0.2, CGSize(width: 0, height: 5), 5)
     }
     
-    private func animateProgressBar() {
+    private func animateProgressBar(rate: Float) {
         DispatchQueue.main.async { [weak self] in
-            self?.progressBar.setProgress(self?.progressRate ?? .zero, animated: false)
+            self?.progressBar.setProgress(rate, animated: false)
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self?.progressBar.layoutIfNeeded()
             })
@@ -107,13 +104,12 @@ final class RateContentView: UIView {
     
     func updateRate(to watched: Int, with total: Int) {
         let rate: Double = Double(watched) / Double(total)
-        progressRate = Float(rate)
         
         fractionLabel.text = "\(watched) / \(total)"
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
         progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
         
-        animateProgressBar()
+        animateProgressBar(rate: Float(rate))
     }
 }
