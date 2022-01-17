@@ -15,7 +15,9 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         static let cellWidth = { () -> Int in
             let width = UIScreen.main.bounds.size.width
             let spacing = 11
-            return Int(width) - spacing * 2
+            let sideMargin = 16
+            let rowCount = 3
+            return (Int(width) - spacing * 2 - sideMargin * 2) / rowCount
         }()
         static let cellHeight = 141
     }
@@ -43,14 +45,17 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
     }()
     private lazy var siteCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
+        flowLayout.scrollDirection = .vertical
         flowLayout.sectionInset = UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16)
         flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
         flowLayout.minimumLineSpacing = 11
         flowLayout.minimumInteritemSpacing = 11
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.dataSource = self
+        collectionView.register(cell: RecommendSiteCollectionViewCell.self)
         return collectionView
     }()
+    private let sites: [String] = ["네이버", "미디엄", "티스토리", "벨로그", "브런치", "카카오", "아티클립", "해빗", "뉴스"]
     
     override func render() {
         contentView.addSubViews([separatorView, titleLabel, subtitleLabel, siteCollectionView])
@@ -72,10 +77,19 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         
         siteCollectionView.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(800)
-            $0.bottom.equalToSuperview()
         }
     }
+}
+
+extension RecommendSiteTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sites.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        return cell
+    }
 }
