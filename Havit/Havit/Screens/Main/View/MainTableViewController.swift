@@ -28,7 +28,7 @@ class MainTableViewController: BaseViewController {
         case recommend
     }
     
-    private enum Section: Int, CaseIterable {
+    private enum SectionType: Int, CaseIterable {
         case reach
         case category
         
@@ -89,11 +89,11 @@ class MainTableViewController: BaseViewController {
 
 extension MainTableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count
+        return SectionType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = Section.init(rawValue: section)
+        let sectionType = SectionType.init(rawValue: section)
         guard var rowCount = sectionType?.numberOfRows else { return 0 }
         
         switch sectionType {
@@ -107,7 +107,7 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = Section.init(rawValue: indexPath.section)
+        let section = SectionType.init(rawValue: indexPath.section)
         
         switch section {
         case .reach:
@@ -123,7 +123,7 @@ extension MainTableViewController: UITableViewDataSource {
                 cell.didTapCloseButton = { [weak self] in
                     self?.isNotificationDeleted = true
                     tableView.deleteRows(at: [IndexPath.init(row: ReachSection.notification.rawValue,
-                                                             section: Section.reach.rawValue)],
+                                                             section: SectionType.reach.rawValue)],
                                          with: .fade)
                 }
                 return cell
@@ -149,7 +149,7 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section = Section.init(rawValue: section)
+        let section = SectionType.init(rawValue: section)
         switch section {
         case .category:
             return searchHeaderView
@@ -159,20 +159,20 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Section.init(rawValue: section)?.headerHeight ?? .zero
+        return SectionType.init(rawValue: section)?.headerHeight ?? .zero
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return Section.init(rawValue: section)?.footerView
+        return SectionType.init(rawValue: section)?.footerView
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return Section.init(rawValue: section)?.footerHeight ?? .zero
+        return SectionType.init(rawValue: section)?.footerHeight ?? .zero
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        let reachSection = Section.reach.rawValue
+        let reachSection = SectionType.reach.rawValue
         let reachSectionHeight = ReachSection.allCases.enumerated().map { (index, _) in
             tableView.rectForRow(at: IndexPath(row: index, section: reachSection)).height
         }.reduce(CGFloat.zero, +)
