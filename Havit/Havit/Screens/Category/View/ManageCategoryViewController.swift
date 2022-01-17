@@ -176,8 +176,7 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
-
-        cell.update(data: categoryList[indexPath.row])
+        
         cell.configure(type: .manage)
         cell.update(data: categoryList[indexPath.row])
         return cell
