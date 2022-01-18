@@ -21,6 +21,7 @@ final class MainViewController: MainTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appendDummyPresentableCells()
     }
     
     override func render() {
@@ -38,6 +39,7 @@ final class MainViewController: MainTableViewController {
     }
     
     override func configUI() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .whiteGray
     }
 }

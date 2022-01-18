@@ -18,3 +18,7 @@ identifier_name:
     - id
 
 force_cast: warning
+
+identifier_name:
+  min_length:
+    warning: 1 # only warning
