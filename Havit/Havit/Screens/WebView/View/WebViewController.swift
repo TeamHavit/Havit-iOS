@@ -10,6 +10,7 @@ import WebKit
 
 import RxCocoa
 import RxSwift
+import SnapKit
 
 final class WebViewController: BaseViewController {
     
@@ -68,6 +69,8 @@ final class WebViewController: BaseViewController {
         return webView
     }()
     
+    private let toolbar = WebViewToolbar()
+    
     // MARK: - init
     
     init(urlString: String) {
@@ -82,10 +85,6 @@ final class WebViewController: BaseViewController {
     
     // MARK: - life cycle
     
-    override func loadView() {
-        view = webView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindInput()
@@ -93,6 +92,19 @@ final class WebViewController: BaseViewController {
     }
     
     // MARK: - func
+    
+    override func render() {
+        view.addSubview(toolbar)
+        toolbar.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        view.addSubview(webView)
+        webView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(toolbar.snp.top)
+        }
+    }
     
     override func configUI() {
         setupBaseNavigationBar()
@@ -131,6 +143,46 @@ final class WebViewController: BaseViewController {
                 self?.webView.reload()
             }
             .disposed(by: disposeBag)
+       
+        bindToolbarInput()
+    }
+    
+    private func bindToolbarInput() {
+        toolbar.backBarButton.rx
+            .tap
+            .bind { [weak self] _ in
+                self?.webView.goBack()
+            }
+            .disposed(by: disposeBag)
+        
+        toolbar.forwardBarButton.rx
+            .tap
+            .bind { [weak self] _ in
+                self?.webView.goForward()
+            }
+            .disposed(by: disposeBag)
+        
+        toolbar.shareBarButton.rx
+            .tap
+            .compactMap { [weak self] in
+                self?.webView.url
+            }
+            .bind { [weak self] url in
+                let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self?.present(activityViewController, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        toolbar.safariBarButton.rx
+            .tap
+            .compactMap { [weak self] in
+                self?.webView.url
+            }
+            .filter(UIApplication.shared.canOpenURL)
+            .bind { url in
+                UIApplication.shared.open(url, options: [:])
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
@@ -138,6 +190,34 @@ final class WebViewController: BaseViewController {
             .bind { [weak self] urlRequest in
                 self?.webView.load(urlRequest)
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoBack
+            .asDriver(onErrorJustReturn: false)
+            .drive(toolbar.backBarButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoBack
+            .map { canGoBack in
+                let backImage = canGoBack ? ImageLiteral.iconBackspaceBlack : ImageLiteral.iconBackspaceGray
+                return backImage.withRenderingMode(.alwaysOriginal)
+            }
+            .asDriver(onErrorJustReturn: UIImage())
+            .drive(toolbar.backBarButton.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoForward
+            .asDriver(onErrorJustReturn: false)
+            .drive(toolbar.forwardBarButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.canGoForward
+            .map { canGoForward in
+                let forwardImage = canGoForward ? ImageLiteral.iconForwardBlack : ImageLiteral.iconForwardGray
+                return forwardImage.withRenderingMode(.alwaysOriginal)
+            }
+            .asDriver(onErrorJustReturn: UIImage())
+            .drive(toolbar.forwardBarButton.rx.image)
             .disposed(by: disposeBag)
     }
 }
@@ -183,6 +263,8 @@ extension WebViewController: WKUIDelegate {
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         setUrlTextFieldText(with: webView.url?.description)
+        viewModel.canGoBack.onNext(webView.canGoBack)
+        viewModel.canGoForward.onNext(webView.canGoForward)
     }
     
     private func setUrlTextFieldText(with url: String?) {
