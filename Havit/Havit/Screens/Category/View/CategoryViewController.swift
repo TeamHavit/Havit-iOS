@@ -91,6 +91,7 @@ class CategoryViewController: BaseViewController {
                 if let categories = categories,
                    !categories.isEmpty {
                     self.categories = categories
+                    self.categoryCountLabel.text = "전체 \(categories.count)"
                     self.categoryCollectionView.reloadData()
                 } else {
                     setEmptyView()
