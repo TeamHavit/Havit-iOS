@@ -36,14 +36,7 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let decimalPageCount: Double = Double(attributesArray.count) / Double(row * column)
         let pageCount = ceil(decimalPageCount)
         let height: CGFloat = pageHeight
-        var width: CGFloat = pageWidth
-        
-        switch scrollDirection {
-        case .horizontal:
-            width = CGFloat(pageCount) * pageWidth
-        default:
-            break
-        }
+        let width: CGFloat = scrollDirection == .horizontal ? CGFloat(pageCount) * pageWidth : pageWidth
         
         return CGSize(width: width, height: height)
     }
@@ -68,10 +61,11 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         let itemCount: Int = collectionView?.numberOfItems(inSection: 0) ?? 0
         if itemCount > 0 {
-            (0...itemCount-1).forEach { item in
+            (0..<itemCount).forEach { item in
                 let indexPath = IndexPath(item: item, section: 0)
-                let attributes = layoutAttributesForItem(at: indexPath)
-                attributesArray.append(attributes!)
+                if let attributes = layoutAttributesForItem(at: indexPath) {
+                    attributesArray.append(attributes)
+                }
             }
         }
     }
