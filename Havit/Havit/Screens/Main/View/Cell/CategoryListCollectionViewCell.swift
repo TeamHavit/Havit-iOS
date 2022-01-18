@@ -79,6 +79,6 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
         iconImageView.image = image
         titleLabel.text = title
         storedContentLabel.text = "저장 콘텐츠 \(contentCount)"
-        storedContentLabel.applyColor(to: String(contentCount), with: .havitPurple)
+        storedContentLabel.applyColor(to: contentCount.description, with: .havitPurple)
     }
 }
