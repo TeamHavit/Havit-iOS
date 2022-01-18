@@ -61,6 +61,7 @@
 		4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */; };
 		4DD166EA2796B83A00AD8960 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD166E92796B83A00AD8960 /* Kingfisher */; };
 		4DD166F62796CE0700AD8960 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166F52796CE0700AD8960 /* Category.swift */; };
+		4DD166FB2796D01300AD8960 /* CategoryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */; };
 		4DD166FD2796D0C900AD8960 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
 		4DD167002796D11500AD8960 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
 		4F4545E02790B69600A9E3B1 /* EntryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */; };
@@ -279,6 +280,7 @@
 		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryView.swift; sourceTree = "<group>"; };
 		4DD166F52796CE0700AD8960 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndPoint.swift; sourceTree = "<group>"; };
 		4DD166FC2796D0C900AD8960 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceable.swift; sourceTree = "<group>"; };
 		4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -722,6 +724,7 @@
 		ED443EEF27869C910059DE76 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1330,6 +1333,7 @@
 				ED443F292786A9260059DE76 /* BaseModel.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
 				15F41A8D2791C13600ADF17A /* SortBottomSheetViewController.swift in Sources */,
+				4DD166FB2796D01300AD8960 /* CategoryEndPoint.swift in Sources */,
 				ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */,
 				15D49CE5278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift in Sources */,
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
