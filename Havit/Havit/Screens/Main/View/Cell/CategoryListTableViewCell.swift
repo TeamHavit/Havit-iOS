@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import RxCocoa
 
 final class CategoryListTableViewCell: BaseTableViewCell {
     
@@ -47,13 +48,23 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.register(cell: CategoryListCollectionViewCell.self)
         return collectionView
     }()
     private let pageControl = MainCategoryPageControl()
     
     var dummyCategories: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
+    
+    // MARK: - func
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bind()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func render() {
         contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
@@ -89,6 +100,32 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     // MARK: - func
     
+    private func bind() {
+        categoryCollectionView.rx.willEndDragging
+            .asDriver()
+            .drive(onNext: { [weak self] _, targetContentOffset in
+                guard
+                    let layout = self?.categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout,
+                    let collectionViewContentInsetLeft = self?.categoryCollectionView.contentInset.left,
+                    let collectionViewContentOffsetX = self?.categoryCollectionView.contentOffset.x
+                else { return }
+                let pageWidth = layout.collectionView?.frame.width ?? 0
+                let offsetPoint = targetContentOffset.pointee
+                var selectedIndex = (offsetPoint.x + collectionViewContentInsetLeft) / pageWidth
+
+                if collectionViewContentOffsetX > targetContentOffset.pointee.x {
+                    selectedIndex = floor(selectedIndex)
+                } else if collectionViewContentOffsetX < targetContentOffset.pointee.x {
+                    selectedIndex = ceil(selectedIndex)
+                } else {
+                    selectedIndex = round(selectedIndex)
+                }
+                
+                self?.pageControl.selectedPage = Int(selectedIndex)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func applyPageControlPages() {
         let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
@@ -96,10 +133,10 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     private func calculateTotalCategoryCellCount(with categories: [String]) -> Int {
         var categoryCount = categories.count + Count.allContentPart
-        let filledCategoryCount = categoryCount % Count.maxCategoryCountInPage
-        let hasPlaceHolderCell = filledCategoryCount != 0
+        let filledCategoryCountInLastPage = categoryCount % Count.maxCategoryCountInPage
+        let hasPlaceHolderCell = filledCategoryCountInLastPage != 0
         if hasPlaceHolderCell {
-            let placeHolderCategoryCount = Count.maxCategoryCountInPage - filledCategoryCount
+            let placeHolderCategoryCount = Count.maxCategoryCountInPage - filledCategoryCountInLastPage
             categoryCount += placeHolderCategoryCount
         }
         return categoryCount
@@ -114,7 +151,7 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let hasCategoryData = dummyCategories.count >= indexPath.item
+        let hasCategoryData = dummyCategories.count + Count.allContentPart > indexPath.item
         if hasCategoryData {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
@@ -133,24 +170,5 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
             cell.backgroundColor = .clear
             return cell
         }
-    }
-}
-
-extension CategoryListTableViewCell: UICollectionViewDelegate {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        guard let layout = categoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        let pageWidth = layout.collectionView?.frame.width ?? 0
-        let offsetPoint = targetContentOffset.pointee
-        var selectedIndex = (offsetPoint.x + scrollView.contentInset.left) / pageWidth
-
-        if scrollView.contentOffset.x > targetContentOffset.pointee.x {
-            selectedIndex = floor(selectedIndex)
-        } else if scrollView.contentOffset.x < targetContentOffset.pointee.x {
-            selectedIndex = ceil(selectedIndex)
-        } else {
-            selectedIndex = round(selectedIndex)
-        }
-        
-        pageControl.selectedPage = Int(selectedIndex)
     }
 }
