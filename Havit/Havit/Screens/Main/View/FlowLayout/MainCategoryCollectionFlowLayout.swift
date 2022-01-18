@@ -33,17 +33,15 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
     
     override var collectionViewContentSize: CGSize {
-        let sectionRange: Double = Double(attributesArray.count) / Double(row * column * 1)
-        let pageCount = ceil(sectionRange)
+        let decimalPageCount: Double = Double(attributesArray.count) / Double(row * column)
+        let pageCount = ceil(decimalPageCount)
+        let height: CGFloat = pageHeight
         var width: CGFloat = pageWidth
-        var height: CGFloat = pageHeight
         
         switch scrollDirection {
         case .horizontal:
             width = CGFloat(pageCount) * pageWidth
-        case .vertical:
-            height = CGFloat(pageCount) * pageHeight
-        @unknown default:
+        default:
             break
         }
         
@@ -60,15 +58,15 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
             pageHeight = collectionView?.frame.height ?? UIScreen.main.bounds.size.height
         }
         
-        let rowWidth: CGFloat = pageWidth - self.minimumInteritemSpacing * CGFloat(row - 1)
-        let rowHeight: CGFloat = pageHeight - self.minimumLineSpacing * CGFloat(column - 1)
-        let itemSizeWidth: CGFloat = rowWidth / CGFloat(row)
-        let itemSizeHeight: CGFloat = rowHeight / CGFloat(column)
+        let rowWidth: CGFloat = pageWidth - minimumInteritemSpacing * CGFloat(row - 1)
+        let rowHeight: CGFloat = pageHeight - minimumLineSpacing * CGFloat(column - 1)
         let rightEdgeInset = sectionInset.right
         let topEdgeInset = sectionInset.top
-        self.itemSize = CGSize(width: itemSizeWidth - rightEdgeInset, height: itemSizeHeight - topEdgeInset)
+        let itemSizeWidth: CGFloat = rowWidth / CGFloat(row) - rightEdgeInset
+        let itemSizeHeight: CGFloat = rowHeight / CGFloat(column) - topEdgeInset
+        self.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
         
-        let itemCount: Int = self.collectionView?.numberOfItems(inSection: 0) ?? 0
+        let itemCount: Int = collectionView?.numberOfItems(inSection: 0) ?? 0
         if itemCount > 0 {
             (0...itemCount-1).forEach { item in
                 let indexPath = IndexPath(item: item, section: 0)
@@ -84,6 +82,8 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+        let rightEdgeInset = sectionInset.right
+        let topEdgeInset = sectionInset.top
         let itemIndex: Int = indexPath.item
         let itemRow: CGFloat = CGFloat(itemIndex % row)
         let itemColumn: CGFloat = CGFloat(itemIndex / row % column)
@@ -94,15 +94,16 @@ final class MainCategoryCollectionViewFlowLayout: UICollectionViewFlowLayout {
         switch scrollDirection {
         case .horizontal:
             let totalPageWidth: CGFloat = CGFloat(page) * pageWidth
-            originX = itemRow * (itemSize.width + minimumInteritemSpacing) + totalPageWidth
-            originY = itemColumn * (itemSize.height + minimumLineSpacing)
-        case .vertical:
-            originX = itemRow * (itemSize.width + minimumInteritemSpacing)
-            originY = itemColumn * (itemSize.height + minimumLineSpacing) + CGFloat(page) * pageHeight
-        @unknown default:
+            originX = itemRow * (itemSize.width + minimumInteritemSpacing) + totalPageWidth + rightEdgeInset
+            originY = itemColumn * (itemSize.height + minimumLineSpacing)  + topEdgeInset
+        default:
             break
         }
-        attribute.frame = CGRect(x: originX + sectionInset.right, y: originY + sectionInset.top, width: itemSize.width, height: itemSize.height)
+        
+        attribute.frame = CGRect(x: originX,
+                                 y: originY,
+                                 width: itemSize.width,
+                                 height: itemSize.height)
         
         return attribute
     }
