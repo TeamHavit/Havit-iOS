@@ -92,20 +92,18 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         let sectionType = MainTableViewSectionType(rawValue: section)
         switch sectionType {
         case .reach:
             return presentableCellTypesInReachSection.count
         case .category:
-            return 0
+            return CategorySectionCellType.allCases.count
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let sectionType = MainTableViewSectionType(rawValue: indexPath.section)
         switch sectionType {
         case .reach:
@@ -130,7 +128,15 @@ extension MainTableViewController: UITableViewDataSource {
             }
             
         case .category:
-            return UITableViewCell()
+            let cellType = CategorySectionCellType(rawValue: indexPath.row)
+            switch cellType {
+            case .category:
+                let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
+                                                         for: indexPath)
+                return cell
+            default:
+                return UITableViewCell()
+            }
         default:
             return UITableViewCell()
         }
