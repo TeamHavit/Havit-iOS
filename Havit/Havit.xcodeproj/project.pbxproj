@@ -167,6 +167,8 @@
 		EDDE099B2790789B0093B83F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */; };
 		EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099C27908DF40093B83F /* MainTableViewController.swift */; };
 		EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */; };
+		EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */; };
+		EDE7D6C72792BDB4009C70EF /* RateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C62792BDB4009C70EF /* RateContentView.swift */; };
 		EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */; };
 		EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */; };
 		EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */; };
@@ -319,6 +321,8 @@
 		EDDE099A2790789B0093B83F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EDDE099C27908DF40093B83F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateTableViewCell.swift; sourceTree = "<group>"; };
+		EDE7D6C62792BDB4009C70EF /* RateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateContentView.swift; sourceTree = "<group>"; };
 		EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchHeaderView.swift; sourceTree = "<group>"; };
 		EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
@@ -554,7 +558,7 @@
 				ED443EF027869C960059DE76 /* Foundation */,
 				ED443F2C2786A9B20059DE76 /* Mock */,
 				ED443EEF27869C910059DE76 /* API */,
-				ED443EEE27869C890059DE76 /* APIService */,
+				EDEF61B927927AB400C93C84 /* APIService */,
 				ED443EED27869C860059DE76 /* Model */,
 			);
 			path = Network;
@@ -679,13 +683,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		ED443EEE27869C890059DE76 /* APIService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APIService;
 			sourceTree = "<group>";
 		};
 		ED443EEF27869C910059DE76 /* API */ = {
@@ -956,6 +953,7 @@
 				EDDE099627905C7D0093B83F /* MainTopView.swift */,
 				EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */,
 				EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */,
+				EDE7D6C62792BDB4009C70EF /* RateContentView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -964,8 +962,16 @@
 			isa = PBXGroup;
 			children = (
 				EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */,
+				EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		EDEF61B927927AB400C93C84 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1292,6 +1298,7 @@
 				EDEF61B02791444700C93C84 /* search_category.json in Sources */,
 				EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */,
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
+				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				15F41A932791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift in Sources */,
 				15F41A912791EDB400ADF17A /* MoreBottomSheetViewController.swift in Sources */,
@@ -1306,6 +1313,7 @@
 				15F41A8F2791C60000ADF17A /* SortBottomSheetTableViewCell.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
+				EDE7D6C72792BDB4009C70EF /* RateContentView.swift in Sources */,
 				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
@@ -1399,6 +1407,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1423,6 +1432,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1566,6 +1576,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1594,6 +1605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -21,6 +21,21 @@ extension UIView {
     }
     
     @discardableResult
+    func setGradient(colors: [CGColor],
+                     locations: [NSNumber] = [0.0, 1.0],
+                     startPoint: CGPoint = CGPoint(x: 0.0, y: 0.0),
+                     endPoint: CGPoint = CGPoint(x: 1.0, y: 0.0)) -> Self {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = colors
+        gradient.locations = locations
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
+        gradient.frame = self.bounds
+        layer.addSublayer(gradient)
+        return self
+    }
+    
+    @discardableResult
     func applyZeplinShadow (color: UIColor = .black,
                             alpha: Float,
                             x: CGFloat,
