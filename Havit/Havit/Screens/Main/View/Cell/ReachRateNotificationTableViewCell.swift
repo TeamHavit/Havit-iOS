@@ -92,7 +92,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
             .disposed(by: disposeBag)
     }
     
-    func updateNotification(to text: String) {
+    func updateNotificationLabel(to text: String) {
         notificationLabel.text = text
     }
 }
