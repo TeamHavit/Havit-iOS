@@ -18,6 +18,9 @@ final class CategoryContentsViewController: BaseViewController {
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
     
+    var gridAnd1XnConstraints: Constraint?
+    var grid2XnConstraints: Constraint?
+    
     var gridType: GridType = .grid
     
     var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
@@ -172,6 +175,26 @@ final class CategoryContentsViewController: BaseViewController {
         }
     }
     
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        switch gridType {
+        case .grid, .grid1xN:
+            contentsCollectionView.snp.updateConstraints {
+                $0.top.equalTo(mainViewBorderView.snp.bottom)
+                $0.leading.equalTo(mainView)
+                $0.trailing.equalTo(mainView)
+                $0.bottom.equalTo(mainView)
+            }
+        case .grid2xN:
+            contentsCollectionView.snp.updateConstraints {
+                $0.top.equalTo(mainViewBorderView.snp.bottom)
+                $0.leading.equalTo(mainView).offset(13)
+                $0.trailing.equalTo(mainView).inset(13)
+                $0.bottom.equalTo(mainView)
+            }
+        }
+    }
+    
     override func configUI() {
         super.configUI()
         setNavigationItem()
@@ -245,12 +268,16 @@ final class CategoryContentsViewController: BaseViewController {
         switch gridType {
         case .grid:
             gridType = .grid2xN
+            contentsCollectionView.backgroundColor = .white
         case .grid2xN:
             gridType = .grid1xN
         case .grid1xN:
             gridType = .grid
+            contentsCollectionView.backgroundColor = .whiteGray
         }
+        
         contentsCollectionView.reloadData()
+        updateViewConstraints()
     }
 }
 
@@ -347,9 +374,9 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
             case .grid:
                 return CGSize(width: view.frame.width, height: 139)
             case .grid2xN:
-                return CGSize(width: (view.frame.width / 2) - 9, height: 253)
+                return CGSize(width: (view.frame.width / 2) - 20, height: 253)
             case .grid1xN:
-                return CGSize(width: view.frame.width, height: 290)
+                return CGSize(width: view.frame.width, height: 307)
             }
         default:
             return CGSize(width: 0, height: 0)
@@ -360,39 +387,3 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         return 1
     }
 }
-
-//// ViewController의 Preview
-// #if canImport(SwiftUI) && DEBUG
-// import SwiftUI
-//
-// struct Preview: PreviewProvider {
-//    static var previews: some View {
-//        CategoryContentsViewController().showPreview(.iPhone13Mini)
-//        CategoryContentsViewController().showPreview(.iPhone12ProMax)
-//    }
-// }
-// #endif
-
-//// View의 Preview
-// #if canImport(SwiftUI) && DEBUG
-// import SwiftUI
-//
-// struct Preview: PreviewProvider {
-//    static var previews: some View {
-//        CategoryContentsViewController().showPreview(.iPhone13Mini)
-//        CategoryContentsViewController().showPreview(.iPhoneSE2)
-//    }
-// }
-// #endif
-
-//// View의 Preview
-// #if canImport(SwiftUI) && DEBUG
-// import SwiftUI
-//
-// struct Preview: PreviewProvider {
-//    static var previews: some View {
-//        CategoryFilterCollectionViewCell.showPreview(.iPhone13Mini)
-//        CategoryFilterCollectionViewCell.showPreview(.iPhoneSE2)
-//    }
-// }
-// #endif

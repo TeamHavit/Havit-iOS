@@ -21,6 +21,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
      private let alarmImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "iconAlarmtagPuple")
+        imageView.layer.cornerRadius = 4
         return imageView
     }()
     
@@ -28,7 +29,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.text = "슈슈슉 이것은 제목입니다 슈슉 슉슉 이것"
         label.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(15))
-        label.textColor = .gray003
+        label.textColor = .black
         label.numberOfLines = 2
         return label
     }()
