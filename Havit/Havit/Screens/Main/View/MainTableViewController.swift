@@ -29,8 +29,8 @@ class MainTableViewController: BaseViewController {
     }
     
     private enum MainTableViewSectionType: Int, CaseIterable {
-        case reach
-        case category
+        case reach = 0
+        case category = 1
         
         var numberOfRows: Int {
             switch self {
@@ -93,7 +93,7 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = MainTableViewSectionType.init(rawValue: section)
+        let sectionType = MainTableViewSectionType(rawValue: section)
         guard var rowCount = sectionType?.numberOfRows else { return 0 }
         
         switch sectionType {
@@ -107,11 +107,11 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = MainTableViewSectionType.init(rawValue: indexPath.section)
+        let section = MainTableViewSectionType(rawValue: indexPath.section)
         
         switch section {
         case .reach:
-            let row = ReachSectionCellType.init(rawValue: indexPath.row)
+            let row = ReachSectionCellType(rawValue: indexPath.row)
             guard var rowValue = row?.rawValue else { return UITableViewCell() }
             rowValue = isNotificationDeleted ? rowValue + 1 : rowValue
             
@@ -149,7 +149,7 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section = MainTableViewSectionType.init(rawValue: section)
+        let section = MainTableViewSectionType(rawValue: section)
         switch section {
         case .category:
             return searchHeaderView
@@ -159,15 +159,15 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return MainTableViewSectionType.init(rawValue: section)?.headerHeight ?? .zero
+        return MainTableViewSectionType(rawValue: section)?.headerHeight ?? .zero
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return MainTableViewSectionType.init(rawValue: section)?.footerView
+        return MainTableViewSectionType(rawValue: section)?.footerView
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return MainTableViewSectionType.init(rawValue: section)?.footerHeight ?? .zero
+        return MainTableViewSectionType(rawValue: section)?.footerHeight ?? .zero
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
