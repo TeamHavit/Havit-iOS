@@ -174,27 +174,21 @@ extension SearchContentsViewController: UICollectionViewDataSource {
         switch resultType {
         case .result:
             let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            DispatchQueue.main.async {
-                self.mainLabel.textColor = .gray003
-                self.numberLabel.textColor = .havitPurple
-            }
+            mainLabel.textColor = .gray003
+            numberLabel.textColor = .havitPurple
             return cell
         case .searching:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearchIs")
             cell.noResultLabel.isHidden = true
-            DispatchQueue.main.async {
-                self.mainLabel.textColor = .white
-                self.numberLabel.textColor = .white
-            }
+            mainLabel.textColor = .white
+            numberLabel.textColor = .white
             return cell
         case .noResult:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearch")
-            DispatchQueue.main.async {
-                self.mainLabel.textColor = .white
-                self.numberLabel.textColor = .white
-            }
+            mainLabel.textColor = .white
+            numberLabel.textColor = .white
             return cell
         }
     }
@@ -216,6 +210,8 @@ extension SearchContentsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // 서버 데이터에 따라  검색 결과 없는 경우 분기 처리하기
         resultType = .result
-        resultCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.resultCollectionView.reloadData()
+        }
     }
 }
