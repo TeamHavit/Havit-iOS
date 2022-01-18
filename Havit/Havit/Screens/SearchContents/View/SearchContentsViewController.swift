@@ -14,10 +14,12 @@ final class SearchContentsViewController: BaseViewController {
     weak var coordinator: SearchContentsCoordinator?
     
     enum SearchResultType {
-        case searchIng, result, noResult
+        case searching, result, noResult
     }
     
-    private var resultType: SearchResultType = .searchIng
+    private var resultType: SearchResultType = .searching
+    
+    var searchBorderView: CALayer?
     
     private var mainLabel: UILabel = {
         var label = UILabel()
@@ -92,15 +94,15 @@ final class SearchContentsViewController: BaseViewController {
                 $0.leading.equalTo(paddingView).offset(paddingView.frame.width)
             }
             
-            let border: CALayer = {
+            guard searchBorderView != nil else {
                 let border = CALayer()
                 border.frame = CGRect(x: 0, y: textField.frame.size.height, width: textField.frame.width - 2 * (paddingView.frame.width), height: 2)
                 border.backgroundColor = UIColor.gray001.cgColor
                 border.masksToBounds = true
-                return border
-            }()
-            
-            textField.layer.addSublayer(border)
+                searchBorderView = border
+                textField.layer.addSublayer(searchBorderView!)
+                return
+            }
         }
     }
 
@@ -163,7 +165,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
         switch resultType {
         case .result:
             return 10
-        case .searchIng, .noResult:
+        case .searching, .noResult:
             return 1
         }
     }
@@ -177,7 +179,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
                 self.numberLabel.textColor = .havitPurple
             }
             return cell
-        case .searchIng:
+        case .searching:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearchIs")
             cell.noResultLabel.isHidden = true
@@ -204,7 +206,7 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
         switch resultType {
         case .result:
             return CGSize(width: view.frame.width, height: 139)
-        case .searchIng, .noResult:
+        case .searching, .noResult:
             return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
         }
     }
