@@ -11,20 +11,28 @@ import SnapKit
 
 final class CategoryListTableViewCell: BaseTableViewCell {
     
+    private enum Count {
+        static let maxCategoryCountInPage = 6
+    }
+    
+    private enum CategoryType: Int {
+        case allContent = 0
+    }
+    
     // MARK: - property
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .font(.pretendardSemibold, ofSize: 17)
         label.textColor = .primaryBlack
-        label.text = "홍승현님의 카테고리"
+        label.text = "박태준님의 카테고리"
         return label
     }()
     private let overallButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .font(.pretendardReular, ofSize: 12)
-        button.setTitle("전체보기", for: .normal)
         button.setTitleColor(.gray003, for: .normal)
+        button.setTitle("전체보기", for: .normal)
         return button
     }()
     private lazy var categoryCollectionView: UICollectionView = {
@@ -43,23 +51,11 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     private let pageControl = MainCategoryPageControl()
-    let maxCategoryCount = 6
-    var categorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4"]
     
-    // MARK: - init
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var dummyCategorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
     
     override func render() {
-        sendSubviewToBack(contentView)
-        addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
+        contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -87,46 +83,55 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     override func configUI() {
         backgroundColor = .white
-        
-        let cellCount = calculateTotalCellCount()
-        pageControl.pages = cellCount / maxCategoryCount
+        applyPageControlPages()
     }
     
-    private func calculateTotalCellCount() -> Int {
-        let categoryCount = categorys.count + 1
-        let cellCount = (maxCategoryCount - categoryCount % maxCategoryCount) + categoryCount
-        return cellCount
+    // MARK: - func
+    
+    private func applyPageControlPages() {
+        let totalCellCount = calculateTotalCategoryCellCount()
+        pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
+    }
+    
+    private func calculateTotalCategoryCellCount() -> Int {
+        let categoryCount = dummyCategorys.count + 1
+        let hasRestCell = categoryCount % Count.maxCategoryCountInPage != 0
+        if hasRestCell {
+            let restCategoryCount = Count.maxCategoryCountInPage - categoryCount % Count.maxCategoryCountInPage
+            let cellCount = restCategoryCount + categoryCount
+            return cellCount
+        }
+        return categoryCount
     }
 }
 
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let hasRestCell = categorys.count % maxCategoryCount != 0
-        if hasRestCell {
-            let categoryCount = calculateTotalCellCount()
-            return categoryCount
-        }
-        
-        return categorys.count + 1
+        let totalCellCount = calculateTotalCategoryCellCount()
+        return totalCellCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let hasCategoryData = categorys.count >= indexPath.item
-        
+        let hasCategoryData = dummyCategorys.count >= indexPath.item
         if hasCategoryData {
-            switch indexPath.item {
-            case .zero:
+            let categoryType = CategoryType.init(rawValue: indexPath.row)
+            switch categoryType {
+            case .allContent:
                 cell.backgroundColor = .caution
-                cell.updateCategory(image: UIImage(), title: "모든 콘텐츠", contentCount: 90)
+                cell.updateCategory(image: UIImage(),
+                                    title: "모든 콘텐츠",
+                                    contentCount: 90)
             default:
-                cell.updateCategory(image: ImageLiteral.imgCategoryNone, title: categorys[indexPath.item - 1], contentCount: 27)
+                cell.updateCategory(image: ImageLiteral.imgCategoryNone,
+                                    title: dummyCategorys[indexPath.item - 1],
+                                    contentCount: 27)
             }
             return cell
+        } else {
+            cell.backgroundColor = .clear
+            return cell
         }
-        
-        cell.backgroundColor = .clear
-        return cell
     }
 }
 

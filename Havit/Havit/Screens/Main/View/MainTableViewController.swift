@@ -130,8 +130,8 @@ extension MainTableViewController: UITableViewDataSource {
             let cellType = CategorySectionCellType.init(rawValue: indexPath.row)
             switch cellType {
             case .category:
-                let cell: CategoryListTableViewCell = tableView.dequeueReusableCell(
-                    withType: CategoryListTableViewCell.self, for: indexPath)
+                let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
+                                                         for: indexPath)
                 return cell
             default:
                 return UITableViewCell()

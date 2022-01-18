@@ -398,13 +398,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A9563BD3BD002885985916C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		155D4F86279098360069F035 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,7 +480,6 @@
 				4F4545DE2790B69600A9E3B1 /* ShareExtension */,
 				ED443EAB278598670059DE76 /* Products */,
 				3BBB51D2279062910098A835 /* Frameworks */,
-				0A9563BD3BD002885985916C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
