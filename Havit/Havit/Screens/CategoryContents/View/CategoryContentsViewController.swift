@@ -52,7 +52,7 @@ final class CategoryContentsViewController: BaseViewController {
         let label = UILabel()
         label.text = "전체 0"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
-        label.textColor = .gray003
+        label.textColor = .black
         return label
     }()
     
