@@ -13,6 +13,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     private enum Count {
         static let maxCategoryCountInPage = 6
+        static let allContentPart = 1
     }
     
     private enum CategoryType: Int {
@@ -52,7 +53,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }()
     private let pageControl = MainCategoryPageControl()
     
-    var dummyCategorys: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
+    var dummyCategories: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
     
     override func render() {
         contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
@@ -89,12 +90,12 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     // MARK: - func
     
     private func applyPageControlPages() {
-        let totalCellCount = calculateTotalCategoryCellCount()
+        let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
     }
     
-    private func calculateTotalCategoryCellCount() -> Int {
-        let categoryCount = dummyCategorys.count + 1
+    private func calculateTotalCategoryCellCount(with categories: [String]) -> Int {
+        let categoryCount = categories.count + Count.allContentPart
         let hasRestCell = categoryCount % Count.maxCategoryCountInPage != 0
         if hasRestCell {
             let restCategoryCount = Count.maxCategoryCountInPage - categoryCount % Count.maxCategoryCountInPage
@@ -107,13 +108,13 @@ final class CategoryListTableViewCell: BaseTableViewCell {
 
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let totalCellCount = calculateTotalCategoryCellCount()
+        let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
         return totalCellCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let hasCategoryData = dummyCategorys.count >= indexPath.item
+        let hasCategoryData = dummyCategories.count >= indexPath.item
         if hasCategoryData {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
@@ -124,7 +125,7 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
                                     contentCount: 90)
             default:
                 cell.updateCategory(image: ImageLiteral.imgCategoryNone,
-                                    title: dummyCategorys[indexPath.item - 1],
+                                    title: dummyCategories[indexPath.item - 1],
                                     contentCount: 27)
             }
             return cell
