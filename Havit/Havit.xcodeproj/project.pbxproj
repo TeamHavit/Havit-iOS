@@ -152,7 +152,6 @@
 		ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */; };
 		ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */; };
 		ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */; };
-		ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */; };
 		ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F79278B61590059DE76 /* UITableView+Extension.swift */; };
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
 		ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
@@ -304,7 +303,6 @@
 		ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
-		ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		ED443F79278B61590059DE76 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7D278B6B180059DE76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -607,7 +605,6 @@
 				ED443F472786BA0F0059DE76 /* UILabel+Extension.swift */,
 				ED443F492786BB5B0059DE76 /* UIButton+Extension.swift */,
 				ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */,
-				ED443F77278B59EF0059DE76 /* UIApplication+Extension.swift */,
 				ED443F79278B61590059DE76 /* UITableView+Extension.swift */,
 				ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */,
 				ED443F89278C4D710059DE76 /* NSObject+Extension.swift */,
@@ -978,7 +975,6 @@
 				4F4545D92790B69600A9E3B1 /* Sources */,
 				4F4545DA2790B69600A9E3B1 /* Frameworks */,
 				4F4545DB2790B69600A9E3B1 /* Resources */,
-				4F4DF4C227942FF800DD629C /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1094,9 +1090,9 @@
 			);
 			mainGroup = ED443EA1278598670059DE76;
 			packageReferences = (
-				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ED443F392786B3FF0059DE76 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
+				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = ED443EAB278598670059DE76 /* Products */;
 			projectDirPath = "";
@@ -1317,7 +1313,6 @@
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
-				ED443F78278B59EF0059DE76 /* UIApplication+Extension.swift in Sources */,
 				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
@@ -1737,7 +1732,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1753,7 +1748,7 @@
 				minimumVersion = 6.5.0;
 			};
 		};
-		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -1766,7 +1761,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		4F4545F32791BFBF00A9E3B1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		4F4545F52791BFBF00A9E3B1 /* IQKeyboardManagerSwift */ = {
@@ -1776,22 +1771,22 @@
 		};
 		4F4545F72791BFBF00A9E3B1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		4F4545F92791BFBF00A9E3B1 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
 		};
 		4F4545FB2791BFBF00A9E3B1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		ED443F3A2786B3FF0059DE76 /* IQKeyboardManagerSwift */ = {
@@ -1801,12 +1796,12 @@
 		};
 		ED443F3D2786B5840059DE76 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		ED443F3F2786B5840059DE76 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
