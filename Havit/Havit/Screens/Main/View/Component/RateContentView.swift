@@ -90,10 +90,10 @@ final class RateContentView: UIView {
     }
     
     private func animateProgressBar(rate: Float) {
-        DispatchQueue.main.async { [weak self] in
-            self?.progressBar.setProgress(rate, animated: false)
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(rate, animated: false)
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
-                self?.progressBar.layoutIfNeeded()
+                self.progressBar.layoutIfNeeded()
             })
         }
     }
