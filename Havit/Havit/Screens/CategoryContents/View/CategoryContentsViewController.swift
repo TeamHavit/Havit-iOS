@@ -25,6 +25,12 @@ final class CategoryContentsViewController: BaseViewController {
     
     let searchBarBorderLayer: CALayer? = CALayer()
     
+    let mainViewBorderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray000
+        return view
+    }()
+    
     private var searchController: UISearchController = {
         var searchController = UISearchController()
         searchController.searchBar.showsCancelButton = false
@@ -98,10 +104,10 @@ final class CategoryContentsViewController: BaseViewController {
     
     var contentsCollectionView: UICollectionView = {
         var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        collectionView.backgroundColor = .green
         collectionView.register(cell: ContentsCollectionViewCell.self)
         collectionView.register(cell: CategoryContents2xNCollectionViewCell.self)
         collectionView.register(cell: CategoryContents1xNCollectionViewCell.self)
+        collectionView.backgroundColor = .whiteGray
         return collectionView
     }()
     
@@ -112,20 +118,9 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func render() {
         
-        // 메인 뷰
-        self.view.addSubview(mainView)
-        
-        // 필터 뷰
-        self.view.addSubview(filterView)
-        filterView.addSubview(totalLabel)
-        filterView.addSubview(gridButton)
-        filterView.addSubview(sortButton)
-        
-        // 필터 컬렉션 뷰
-        filterView.addSubview(filterCollectionView)
-        
-        // 메인 컨텐츠 뷰
-        mainView.addSubview(contentsCollectionView)
+        self.view.addSubViews([mainView, filterView])
+        mainView.addSubViews([mainViewBorderView, contentsCollectionView])
+        filterView.addSubViews([totalLabel, gridButton, sortButton, filterCollectionView])
         
         mainView.snp.makeConstraints {
             $0.leading.bottom.trailing.top.equalTo(view.safeAreaLayoutGuide)
@@ -135,6 +130,12 @@ final class CategoryContentsViewController: BaseViewController {
             $0.leading.trailing.equalTo(mainView)
             $0.top.equalTo(mainView).offset(17)
             $0.height.equalTo(67)
+        }
+        
+        mainViewBorderView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(mainView)
+            $0.top.equalTo(filterView.snp.bottom)
+            $0.height.equalTo(1)
         }
         
         totalLabel.snp.makeConstraints {
@@ -164,7 +165,7 @@ final class CategoryContentsViewController: BaseViewController {
         }
         
         contentsCollectionView.snp.makeConstraints {
-            $0.top.equalTo(filterView).offset(67)
+            $0.top.equalTo(mainViewBorderView.snp.bottom)
             $0.leading.equalTo(mainView)
             $0.trailing.equalTo(mainView)
             $0.bottom.equalTo(mainView)
@@ -353,6 +354,10 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         default:
             return CGSize(width: 0, height: 0)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
 }
 

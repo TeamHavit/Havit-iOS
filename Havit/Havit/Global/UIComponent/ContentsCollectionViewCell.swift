@@ -28,7 +28,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.text = "슈슈슉 이것은 제목입니다 슈슉 슉슉 이것"
         label.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(15))
-        label.textColor = .black
+        label.textColor = .gray003
         label.numberOfLines = 2
         return label
     }()
