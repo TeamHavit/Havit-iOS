@@ -86,7 +86,7 @@ final class RateContentView: UIView {
     private func configUI() {
         backgroundColor = .white
         layer.cornerRadius = 6
-        makeShadow(.gray002, 0.2, CGSize(width: 0, height: 5), 5)
+        makeShadow(color: .gray002, opacity: 0.2, offset: CGSize(width: 0, height: 5), radius: 5)
     }
     
     private func animateProgressBar(rate: Float) {
