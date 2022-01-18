@@ -20,23 +20,12 @@ final class GuidelineTableViewCell: BaseTableViewCell {
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         label.text = "콘텐츠 저장을 위한 해빗 서비스 이용 방법"
         label.font = .font(.pretendardReular, ofSize: 14)
-        label.textColor = .white
         label.applyFont(to: "해빗 서비스 이용 방법", with: .font(.pretendardBold, ofSize: 14))
         return label
     }()
-
-    // MARK: - init
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func render() {
         contentView.addSubView(guideImageView)
