@@ -21,21 +21,21 @@ extension UILabel {
     
     func applyColor(to targetString: String, with color: UIColor) {
         if let labelText = self.text, labelText.count > 0 {
-            let attributedStr = NSMutableAttributedString(string: labelText)
-            attributedStr.addAttribute(.foregroundColor,
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(.foregroundColor,
                                        value: color,
                                        range: (labelText as NSString).range(of: targetString))
-            attributedText = attributedStr
+            attributedText = attributedString
         }
     }
     
     func applyFont(to targetString: String, with font: UIFont) {
         if let labelText = self.text, labelText.count > 0 {
-            let attributedStr = NSMutableAttributedString(string: labelText)
-            attributedStr.addAttribute(.font,
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(.font,
                                        value: font,
                                        range: (labelText as NSString).range(of: targetString))
-            attributedText = attributedStr
+            attributedText = attributedString
         }
     }
 }
