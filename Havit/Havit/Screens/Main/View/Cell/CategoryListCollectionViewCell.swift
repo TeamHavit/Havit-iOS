@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class CategoryListCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - property
@@ -33,16 +35,6 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
-    // MARK: - init
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func prepareForReuse() {
         backgroundImageView.image = nil
         iconImageView.image = nil
@@ -52,7 +44,7 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func render() {
-        addSubViews([backgroundImageView, iconImageView, titleLabel, storedContentLabel])
+        contentView.addSubViews([backgroundImageView, iconImageView, titleLabel, storedContentLabel])
         
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -76,8 +68,8 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configUI() {
-        layer.cornerRadius = 6
         clipsToBounds = true
+        layer.cornerRadius = 6
         backgroundColor = .purpleCategory
     }
     
