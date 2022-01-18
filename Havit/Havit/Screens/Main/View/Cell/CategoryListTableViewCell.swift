@@ -96,10 +96,10 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     private func calculateTotalCategoryCellCount(with categories: [String]) -> Int {
         let categoryCount = categories.count + Count.allContentPart
-        let hasRestCell = categoryCount % Count.maxCategoryCountInPage != 0
-        if hasRestCell {
-            let restCategoryCount = Count.maxCategoryCountInPage - categoryCount % Count.maxCategoryCountInPage
-            let cellCount = restCategoryCount + categoryCount
+        let hasPlaceHolderCell = categoryCount % Count.maxCategoryCountInPage != 0
+        if hasPlaceHolderCell {
+            let placeHolderCategoryCount = Count.maxCategoryCountInPage - categoryCount % Count.maxCategoryCountInPage
+            let cellCount = placeHolderCategoryCount + categoryCount
             return cellCount
         }
         return categoryCount

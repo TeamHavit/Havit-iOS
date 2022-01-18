@@ -127,7 +127,7 @@ extension MainTableViewController: UITableViewDataSource {
             }
             
         case .category:
-            let cellType = CategorySectionCellType.init(rawValue: indexPath.row)
+            let cellType = CategorySectionCellType(rawValue: indexPath.row)
             switch cellType {
             case .category:
                 let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
