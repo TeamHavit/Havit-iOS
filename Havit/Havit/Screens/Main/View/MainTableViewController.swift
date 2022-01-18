@@ -135,6 +135,10 @@ extension MainTableViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
                                                          for: indexPath)
                 return cell
+            case .recent:
+                let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
+                                                         for: indexPath)
+                return cell
             default:
                 return UITableViewCell()
             }

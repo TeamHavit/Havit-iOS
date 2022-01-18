@@ -32,9 +32,9 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }()
     private let overallButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = .font(.pretendardReular, ofSize: 12)
         button.setTitle("더보기", for: .normal)
         button.setTitleColor(.gray003, for: .normal)
+        button.titleLabel?.font = .font(.pretendardReular, ofSize: 12)
         return button
     }()
     private lazy var contentCollectionView: UICollectionView = {
@@ -49,6 +49,8 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         collectionView.register(cell: RecentContentCollectionViewCell.self)
         return collectionView
     }()
+    
+    private let dummyContents: [String] = ["헤더 제목", "제목 헤더", "헤더를 입력하세요.", "헤더 입력하세요.", "입력 헤더", "헤더 입력"]
     
     override func render() {
         contentView.addSubViews([titleLabel, overallButton, contentCollectionView])
@@ -73,11 +75,12 @@ final class RecentContentTableViewCell: BaseTableViewCell {
 
 extension RecentContentTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dummyContents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecentContentCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.update(title: dummyContents[indexPath.row], date: "2022.01.19", categoryTitle: "해빗화이팅")
         return cell
     }
 }
