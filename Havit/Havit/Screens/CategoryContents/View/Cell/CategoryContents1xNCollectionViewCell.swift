@@ -118,6 +118,11 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
             $0.height.equalTo(10)
         }
         
+        render2()
+    }
+    
+    // SwiftLint 함수 40줄 룰을 피하기 위한 임시 함수..
+    func render2() {
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalTo(contentView).offset(16)
             $0.top.equalTo(mainImageView.snp.bottom).offset(15)

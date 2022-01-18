@@ -96,6 +96,12 @@ final class CategoryContentsViewController: BaseViewController {
                                      style: .plain,
                                      target: self,
                                      action: #selector(goToCategoryCorrection(_:)))
+        button.tintColor = .gray003
+        let titleAttributes = [
+            NSAttributedString.Key.font: UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+            ]
+        button.setTitleTextAttributes(titleAttributes, for: .normal)
+         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
         return button
     }()
     
@@ -206,7 +212,6 @@ final class CategoryContentsViewController: BaseViewController {
     func setNavigationItem() {
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.rightBarButtonItem = navigationRightButton
-        
         navigationItem.searchController = searchController
     }
     

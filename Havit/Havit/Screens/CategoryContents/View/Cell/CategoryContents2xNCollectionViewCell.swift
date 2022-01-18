@@ -126,7 +126,11 @@ final class CategoryContents2xNCollectionViewCell: BaseCollectionViewCell {
             $0.trailing.equalTo(moreButton.snp.leading).inset(8)
             $0.height.equalTo(14)
         }
-        
+        render2()
+    }
+    
+    // SwiftLint 함수 40줄 룰을 피하기 위한 임시 함수..
+    func render2() {
         moreButton.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(9)
             $0.trailing.equalTo(contentView).inset(5)
