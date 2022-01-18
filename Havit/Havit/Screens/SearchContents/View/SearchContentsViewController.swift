@@ -14,15 +14,15 @@ final class SearchContentsViewController: BaseViewController {
     weak var coordinator: SearchContentsCoordinator?
     
     enum SearchResultType {
-        case before, result, empty
+        case searchIng, result, noResult
     }
     
-    private var resultType: SearchResultType = .before
+    private var resultType: SearchResultType = .searchIng
     
     private var mainLabel: UILabel = {
         var label = UILabel()
         label.text = "검색된 콘텐츠"
-        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
+        label.font = UIFont.font(.pretendardReular, ofSize: CGFloat(10))
         label.textColor = .white
         return label
     }()
@@ -30,7 +30,7 @@ final class SearchContentsViewController: BaseViewController {
     private var numberLabel: UILabel = {
         var label = UILabel()
         label.text = "3"
-        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(10))
+        label.font = UIFont.font(.pretendardReular, ofSize: CGFloat(10))
         label.textColor = .white
         return label
     }()
@@ -68,7 +68,7 @@ final class SearchContentsViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.backgroundColor = .clear
-            textField.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+            textField.font = UIFont.font(.pretendardMedium, ofSize: CGFloat(14))
             textField.textColor = UIColor.black
             // textField.tintColor = myTintColor
             textField.borderStyle = .none
@@ -81,7 +81,7 @@ final class SearchContentsViewController: BaseViewController {
                 let button = UIButton()
                 button.setTitle("취소", for: .normal)
                 button.setTitleColor(.black, for: .normal)
-                button.titleLabel?.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+                button.titleLabel?.font = UIFont.font(.pretendardMedium, ofSize: CGFloat(14))
                 button.addTarget(self, action: #selector(clearClicked(_:)), for: .touchUpInside)
                 return button
             }()
@@ -163,7 +163,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
         switch resultType {
         case .result:
             return 10
-        case .before, .empty:
+        case .searchIng, .noResult:
             return 1
         }
     }
@@ -177,16 +177,16 @@ extension SearchContentsViewController: UICollectionViewDataSource {
                 self.numberLabel.textColor = .havitPurple
             }
             return cell
-        case .before:
+        case .searchIng:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearchIs")
-            cell.label.isHidden = true
+            cell.noResultLabel.isHidden = true
             DispatchQueue.main.async {
                 self.mainLabel.textColor = .white
                 self.numberLabel.textColor = .white
             }
             return cell
-        case .empty:
+        case .noResult:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearch")
             DispatchQueue.main.async {
@@ -204,7 +204,7 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
         switch resultType {
         case .result:
             return CGSize(width: view.frame.width, height: 139)
-        case .before, .empty:
+        case .searchIng, .noResult:
             return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
         }
     }

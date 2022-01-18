@@ -7,11 +7,13 @@
 
 import UIKit
 
+import SnapKit
+
 class NotSearchedCollectionViewCell: BaseCollectionViewCell {
-    let label: UILabel = {
+    let noResultLabel: UILabel = {
         let label = UILabel()
         label.text = "검색 결과가 없습니다."
-        label.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+        label.font = UIFont.font(.pretendardMedium, ofSize: CGFloat(14))
         label.textColor = .gray002
         return label
     }()
@@ -32,15 +34,15 @@ class NotSearchedCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func render() {
-        contentView.addSubview(imageView)
+        contentView.addSubViews([imageView, noResultLabel])
+        
         imageView.snp.makeConstraints {
             $0.bottom.equalTo(contentView).inset(20)
             $0.centerX.equalTo(contentView)
         }
         
-        contentView.addSubview(label)
-        label.snp.makeConstraints {
-            $0.top.equalTo(imageView).inset(-70)
+        noResultLabel.snp.makeConstraints {
+            $0.top.equalTo(imageView.snp.bottom).offset(70)
             $0.centerX.equalTo(contentView)
         }
     }

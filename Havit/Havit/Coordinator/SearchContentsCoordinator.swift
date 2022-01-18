@@ -10,7 +10,7 @@ import Foundation
 final class SearchContentsCoordinator: BaseCoordinator {
 
     enum SearchContentsTransition {
-        case pop
+        case previous
     }
 
     override func start() {
@@ -21,7 +21,7 @@ final class SearchContentsCoordinator: BaseCoordinator {
 
     func previous(to transition: SearchContentsTransition) {
         switch transition {
-        case .pop:
+        case .previous:
             parentCoordinator?.didFinish(coordinator: self)
             navigationController.popViewController(animated: true)
         }
