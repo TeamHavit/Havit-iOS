@@ -18,6 +18,7 @@
 		15F41A8F2791C60000ADF17A /* SortBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A8E2791C60000ADF17A /* SortBottomSheetTableViewCell.swift */; };
 		15F41A912791EDB400ADF17A /* MoreBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A902791EDB400ADF17A /* MoreBottomSheetViewController.swift */; };
 		15F41A932791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift */; };
+		3B0571642796C8A600D9036E /* HavitTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0571632796C8A600D9036E /* HavitTabBar.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
 		4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
@@ -245,6 +246,7 @@
 		15F41A8E2791C60000ADF17A /* SortBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBottomSheetTableViewCell.swift; sourceTree = "<group>"; };
 		15F41A902791EDB400ADF17A /* MoreBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBottomSheetViewController.swift; sourceTree = "<group>"; };
 		15F41A922791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBottomSheetTableViewCell.swift; sourceTree = "<group>"; };
+		3B0571632796C8A600D9036E /* HavitTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HavitTabBar.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
 		4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListDataModel.swift; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443F0A2786A2B00059DE76 /* TabbarController.swift */,
+				3B0571632796C8A600D9036E /* HavitTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1332,6 +1335,7 @@
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */,
+				3B0571642796C8A600D9036E /* HavitTabBar.swift in Sources */,
 				EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
 				4D4E96222794BD1700F11788 /* CategoryIconCollectionViewCell.swift in Sources */,
