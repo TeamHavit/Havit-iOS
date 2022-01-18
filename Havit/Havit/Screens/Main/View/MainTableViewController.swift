@@ -32,15 +32,6 @@ class MainTableViewController: BaseViewController {
         case reach = 0
         case category = 1
         
-        var numberOfRows: Int {
-            switch self {
-            case .reach:
-                return ReachSectionCellType.allCases.count
-            case .category:
-                return CategorySectionCellType.allCases.count
-            }
-        }
-        
         var headerHeight: CGFloat {
             switch self {
             case .category:
@@ -83,8 +74,10 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: ReachRateTableViewCell.self)
         return tableView
     }()
+  
     private let searchHeaderView = MainSearchHeaderView()
-    private var isNotificationDeleted: Bool = false
+    
+    private var presentableCellTypesInReachSection: [ReachSectionCellType] = []
 }
 
 extension MainTableViewController: UITableViewDataSource {
@@ -93,53 +86,52 @@ extension MainTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         let sectionType = MainTableViewSectionType(rawValue: section)
-        guard var rowCount = sectionType?.numberOfRows else { return 0 }
-        
         switch sectionType {
         case .reach:
-            rowCount = isNotificationDeleted ? max(rowCount - 1, 0) : rowCount
+            return presentableCellTypesInReachSection.count
+        case .category:
+            return 0
         default:
-            break
+            return 0
         }
-        
-        return rowCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = MainTableViewSectionType(rawValue: indexPath.section)
         
-        switch section {
+        let sectionType = MainTableViewSectionType(rawValue: indexPath.section)
+        switch sectionType {
         case .reach:
-            let row = ReachSectionCellType(rawValue: indexPath.row)
-            guard var rowValue = row?.rawValue else { return UITableViewCell() }
-            rowValue = isNotificationDeleted ? rowValue + 1 : rowValue
-            
-            switch rowValue {
-            case 0:
-                let cell: ReachRateNotificationTableViewCell = tableView.dequeueReusableCell(
-                    withType: ReachRateNotificationTableViewCell.self, for: indexPath)
+            let cellType = cellTypeInReachSection(at: indexPath)
+            switch cellType {
+            case .notification:
+                let cell = tableView.dequeueReusableCell(withType: ReachRateNotificationTableViewCell.self,
+                                                         for: indexPath)
                 cell.updateNotification(to: "도달률이 50% 이하로 떨어졌어요!")
                 cell.didTapCloseButton = { [weak self] in
-                    self?.isNotificationDeleted = true
-                    tableView.deleteRows(at: [IndexPath.init(row: ReachSectionCellType.notification.rawValue,
-                                                             section: MainTableViewSectionType.reach.rawValue)],
-                                         with: .fade)
+                    self?.presentableCellTypesInReachSection.removeAll { type in
+                        type == .notification
+                    }
+                    tableView.deleteRows(at: [indexPath], with: .fade)
                 }
                 return cell
-            case 1:
-                let cell: ReachRateTableViewCell = tableView.dequeueReusableCell(
-                    withType: ReachRateTableViewCell.self, for: indexPath)
+            case .progress:
+                let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
+                                                         for: indexPath)
                 cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
                 return cell
-            default:
-                return UITableViewCell()
             }
+            
         case .category:
             return UITableViewCell()
-        case .none:
+        default:
             return UITableViewCell()
         }
+    }
+    
+    private func cellTypeInReachSection(at indexPath: IndexPath) -> ReachSectionCellType {
+        return presentableCellTypesInReachSection[indexPath.row]
     }
 }
 
@@ -149,8 +141,8 @@ extension MainTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section = MainTableViewSectionType(rawValue: section)
-        switch section {
+        let sectionType = MainTableViewSectionType(rawValue: section)
+        switch sectionType {
         case .category:
             return searchHeaderView
         default:
