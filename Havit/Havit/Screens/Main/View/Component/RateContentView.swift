@@ -39,9 +39,6 @@ final class RateContentView: UIView {
         bar.progressTintColor = .havitPurple
         return bar
     }()
-    private var timer: Timer?
-    private var time: Float = 0.0
-    private var progressRate: Float = 0.0
 
     // MARK: - init
     
@@ -49,7 +46,6 @@ final class RateContentView: UIView {
         super.init(frame: frame)
         render()
         configUI()
-        setProgressTimer()
     }
     
     @available(*, unavailable)
@@ -90,19 +86,15 @@ final class RateContentView: UIView {
     private func configUI() {
         backgroundColor = .white
         layer.cornerRadius = 6
-        makeShadow(.gray002, 0.2, CGSize(width: 0, height: 5), 5)
+        makeShadow(color: .gray002, opacity: 0.2, offset: CGSize(width: 0, height: 5), radius: 5)
     }
     
-    private func setProgressTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(animateProgressBar), userInfo: nil, repeats: true)
-    }
-    
-    @objc
-    private func animateProgressBar() {
-        time += 0.1
-        progressBar.setProgress(time, animated: true)
-        if time >= progressRate {
-            timer!.invalidate()
+    private func animateProgressBar(rate: Float) {
+        DispatchQueue.main.async {
+            self.progressBar.setProgress(rate, animated: false)
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+                self.progressBar.layoutIfNeeded()
+            })
         }
     }
     
@@ -112,11 +104,12 @@ final class RateContentView: UIView {
     
     func updateRate(to watched: Int, with total: Int) {
         let rate: Double = Double(watched) / Double(total)
-        progressRate = Float(rate)
         
         fractionLabel.text = "\(watched) / \(total)"
         fractionLabel.applyFont(to: String(watched), with: .font(.pretendardExtraBold, ofSize: 16))
         progressLabel.text = "\(Int(rate * 100))%"
         progressLabel.applyFont(to: "%", with: .font(.pretendardLight, ofSize: 20))
+        
+        animateProgressBar(rate: Float(rate))
     }
 }

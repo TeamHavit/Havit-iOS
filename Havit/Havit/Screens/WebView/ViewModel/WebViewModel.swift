@@ -14,6 +14,8 @@ final class WebViewModel {
     // MARK: - View -> ViewModel
     
     let urlString: BehaviorSubject<String?>
+    let canGoBack: BehaviorSubject<Bool>
+    let canGoForward: BehaviorSubject<Bool>
     
     // MARK: - ViewModel -> View
     
@@ -21,6 +23,9 @@ final class WebViewModel {
     
     init(urlString: String) {
         self.urlString = BehaviorSubject<String?>(value: urlString)
+        self.canGoBack = BehaviorSubject(value: false)
+        self.canGoForward = BehaviorSubject(value: false)
+        
         self.urlRequest = self.urlString
             .compactMap { urlString -> String? in
                 let isValidUrlString = urlString?.isValidURL ?? false

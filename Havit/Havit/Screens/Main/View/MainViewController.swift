@@ -21,6 +21,7 @@ final class MainViewController: MainTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appendDummyPresentableCells()
     }
     
     override func render() {
