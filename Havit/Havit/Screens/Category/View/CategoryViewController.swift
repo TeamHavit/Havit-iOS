@@ -13,8 +13,9 @@ import SnapKit
 class CategoryViewController: BaseViewController {
 
     // MARK: - property
-
-    private var categoryList: [CategoryListData] = CategoryListData.dummy
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(),
+                                                                environment: .development)
+    private var categories: [Category] = []
     weak var coordinator: CategoryCoordinator?
     private let emptyCategoryView = EmptyCategoryView()
 
@@ -79,6 +80,28 @@ class CategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+        getCategory()
+    }
+
+    func getCategory() {
+        Task {
+            do {
+                let categories = try await categoryService.getCategory()
+
+                if let categories = categories,
+                   !categories.isEmpty {
+                    self.categories = categories
+                    self.categoryCollectionView.reloadData()
+                } else {
+                    setEmptyView()
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
+            }
+        }
+
     }
     
     override func render() {
