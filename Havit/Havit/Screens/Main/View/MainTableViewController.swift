@@ -78,6 +78,10 @@ class MainTableViewController: BaseViewController {
     private let searchHeaderView = MainSearchHeaderView()
     
     private var presentableCellTypesInReachSection: [ReachSectionCellType] = []
+    
+    func appendDummyPresentableCells() {
+        presentableCellTypesInReachSection.append(contentsOf: [.notification, .progress])
+    }
 }
 
 extension MainTableViewController: UITableViewDataSource {
