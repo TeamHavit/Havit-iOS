@@ -169,6 +169,10 @@
 		EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */; };
 		EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */; };
 		EDE7D6C72792BDB4009C70EF /* RateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C62792BDB4009C70EF /* RateContentView.swift */; };
+		EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6C827937F37009C70EF /* CategoryListTableViewCell.swift */; };
+		EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6CA2793EA89009C70EF /* CategoryListCollectionViewCell.swift */; };
+		EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6CD27943046009C70EF /* MainCategoryCollectionFlowLayout.swift */; };
+		EDE7D6D027953E2E009C70EF /* MainCategoryPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6CF27953E2E009C70EF /* MainCategoryPageControl.swift */; };
 		EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */; };
 		EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */; };
 		EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */; };
@@ -322,6 +326,10 @@
 		EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachRateTableViewCell.swift; sourceTree = "<group>"; };
 		EDE7D6C62792BDB4009C70EF /* RateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateContentView.swift; sourceTree = "<group>"; };
+		EDE7D6C827937F37009C70EF /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
+		EDE7D6CA2793EA89009C70EF /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDE7D6CD27943046009C70EF /* MainCategoryCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		EDE7D6CF27953E2E009C70EF /* MainCategoryPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryPageControl.swift; sourceTree = "<group>"; };
 		EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchHeaderView.swift; sourceTree = "<group>"; };
 		EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
@@ -390,13 +398,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A9563BD3BD002885985916C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		155D4F86279098360069F035 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,7 +480,6 @@
 				4F4545DE2790B69600A9E3B1 /* ShareExtension */,
 				ED443EAB278598670059DE76 /* Products */,
 				3BBB51D2279062910098A835 /* Frameworks */,
-				0A9563BD3BD002885985916C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -788,6 +788,7 @@
 		ED443EFC27869EB70059DE76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDE7D6CC2794302A009C70EF /* FlowLayout */,
 				EDDE099527905C5D0093B83F /* Component */,
 				EDDE099E279093BE0093B83F /* Cell */,
 				ED443F0C2786A2D30059DE76 /* MainViewController.swift */,
@@ -953,6 +954,7 @@
 				EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */,
 				EDEF618C2790CB2D00C93C84 /* MainFooterView.swift */,
 				EDE7D6C62792BDB4009C70EF /* RateContentView.swift */,
+				EDE7D6CF27953E2E009C70EF /* MainCategoryPageControl.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -962,8 +964,18 @@
 			children = (
 				EDDE099F279094BC0093B83F /* ReachRateNotificationTableViewCell.swift */,
 				EDE7D6C42792BC9B009C70EF /* ReachRateTableViewCell.swift */,
+				EDE7D6C827937F37009C70EF /* CategoryListTableViewCell.swift */,
+				EDE7D6CA2793EA89009C70EF /* CategoryListCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		EDE7D6CC2794302A009C70EF /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EDE7D6CD27943046009C70EF /* MainCategoryCollectionFlowLayout.swift */,
+			);
+			path = FlowLayout;
 			sourceTree = "<group>";
 		};
 		EDEF61B927927AB400C93C84 /* APIService */ = {
@@ -1280,6 +1292,7 @@
 				ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */,
 				15D49CE5278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift in Sources */,
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
+				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
@@ -1290,6 +1303,7 @@
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
 				ED443F312786AC5F0059DE76 /* UIFont+Extension.swift in Sources */,
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
+				EDE7D6D027953E2E009C70EF /* MainCategoryPageControl.swift in Sources */,
 				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
 				4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
@@ -1308,6 +1322,7 @@
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
 				4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */,
+				EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */,
 				15F41A8F2791C60000ADF17A /* SortBottomSheetTableViewCell.swift in Sources */,
@@ -1325,6 +1340,7 @@
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
+				EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */,
 				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
