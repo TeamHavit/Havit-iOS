@@ -105,7 +105,7 @@ class CategoryViewController: BaseViewController {
     }
     
     override func render() {
-        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton, emptyCategoryView])
+        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
 
         categoryCountLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(22)
@@ -123,15 +123,10 @@ class CategoryViewController: BaseViewController {
             $0.leading.bottom.trailing.equalToSuperview()
         }
 
-        emptyCategoryView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
     }
 
     override func configUI() {
         super.configUI()
-        setEmptyView()
 
         view.backgroundColor = .white
         setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, isTranslucent: false)
@@ -174,21 +169,27 @@ class CategoryViewController: BaseViewController {
     }
 
     private func setEmptyView() {
-        emptyCategoryView.isHidden = categoryList.isEmpty ? false : true
+
+        self.view.addSubview(emptyCategoryView)
+        emptyCategoryView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+
     }
 }
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryList.count
+        return categories.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
-        cell.update(data: categoryList[indexPath.row])
         cell.configure(type: .category)
+        cell.update(data: categories[indexPath.row])
         return cell
     }
 }
