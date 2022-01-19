@@ -66,6 +66,7 @@
 		4F4545FA2791BFBF00A9E3B1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F92791BFBF00A9E3B1 /* RxRelay */; };
 		4F4545FC2791BFBF00A9E3B1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545FB2791BFBF00A9E3B1 /* RxSwift */; };
 		4F4DF4EE27943E9D00DD629C /* CategoryEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */; };
+		4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */; };
 		4FB24FC22792129B00CCDB0C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F282786A9260059DE76 /* BaseModel.swift */; };
 		4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF6190279136DD00C93C84 /* HttpMethod.swift */; };
 		4FB24FC4279212A700CCDB0C /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61922791375900C93C84 /* APIEnvironment.swift */; };
@@ -273,6 +274,7 @@
 		4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryNavigationViewController.swift; sourceTree = "<group>"; };
 		4F4545E42790B69600A9E3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEmptyViewController.swift; sourceTree = "<group>"; };
+		4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTitleViewController.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -479,7 +481,7 @@
 		4F4DF4EB27943E6E00DD629C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4F4DF4EC27943E8200DD629C /* View */,
+				4F81AE142797E59A00336AFE /* Category */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -488,8 +490,17 @@
 			isa = PBXGroup;
 			children = (
 				4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */,
+				4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4F81AE142797E59A00336AFE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4F4DF4EC27943E8200DD629C /* View */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		ED443EA1278598670059DE76 = {
@@ -1005,6 +1016,7 @@
 				4F4545D92790B69600A9E3B1 /* Sources */,
 				4F4545DA2790B69600A9E3B1 /* Frameworks */,
 				4F4545DB2790B69600A9E3B1 /* Resources */,
+				4F81AE162797E83200336AFE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1247,6 +1259,24 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  \nfi\n";
 		};
+		4F81AE162797E83200336AFE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  \nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1273,6 +1303,7 @@
 				4FB24FC9279212B600CCDB0C /* NetworkStatus.swift in Sources */,
 				4FB24FE72792181900CCDB0C /* UICollectionView+Extension.swift in Sources */,
 				4FB24FDC279217EC00CCDB0C /* PreviewProvider.swift in Sources */,
+				4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */,
 				4FB24FD9279217D300CCDB0C /* BaseCollectionViewCell.swift in Sources */,
 				4FB24FE02792180100CCDB0C /* UIView+Extension.swift in Sources */,
 				4FB24FE32792180B00CCDB0C /* UIButton+Extension.swift in Sources */,
@@ -1302,7 +1333,7 @@
 				ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */,
 				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
-				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
+				15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */,
 				EDE7D6DE2797E3C7009C70EF /* MainCategoryEmptyView.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
