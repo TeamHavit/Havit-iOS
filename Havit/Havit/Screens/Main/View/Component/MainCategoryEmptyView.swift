@@ -37,14 +37,16 @@ final class MainCategoryEmptyView: UIView {
         imageView.image = ImageLiteral.imgGraphicNocategory
         return imageView
     }()
-    private let createCategoryButton: UIButton = {
+    let createCategoryButton: UIButton = {
         let container = AttributeContainer([.font: UIFont.font(.pretendardMedium, ofSize: 15),
                                             .foregroundColor: UIColor.white])
-        var configuration = UIButton.Configuration.filled()
+        var configuration = UIButton.Configuration.plain()
         configuration.attributedTitle = AttributedString("카테고리 생성", attributes: container)
-        configuration.baseBackgroundColor = .havitPurple
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 0, bottom: 14, trailing: 0)
         let button = UIButton()
         button.configuration = configuration
+        button.backgroundColor = .havitPurple
+        button.layer.cornerRadius = 24
         return button
     }()
 
@@ -85,6 +87,7 @@ final class MainCategoryEmptyView: UIView {
         
         createCategoryButton.snp.makeConstraints {
             $0.top.equalTo(noCategoryImageView.snp.bottom).offset(9)
+            $0.leading.trailing.equalToSuperview().inset(53)
             $0.centerX.equalToSuperview()
         }
     }

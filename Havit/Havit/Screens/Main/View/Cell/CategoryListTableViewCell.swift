@@ -52,8 +52,9 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     private let pageControl = MainCategoryPageControl()
+    private let categoryEmptyView = MainCategoryEmptyView()
     
-    var dummyCategories: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
+    var dummyCategories: [String] = []
     
     // MARK: - func
     
@@ -67,7 +68,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
+        contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl, categoryEmptyView])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -80,17 +81,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             $0.leading.equalTo(titleLabel.snp.trailing).offset(-10)
         }
         
-        categoryCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(348)
-        }
-        
-        pageControl.snp.makeConstraints {
-            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
-            $0.bottom.equalToSuperview().inset(40)
-            $0.centerX.equalToSuperview()
-        }
+        setupCategoryPartLayout(with: dummyCategories)
     }
     
     override func configUI() {
@@ -99,6 +90,39 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - func
+    
+    private func setupCategoryPartLayout(with categories: [String]) {
+        let hasCategory = !categories.isEmpty
+        
+        if hasCategory {
+            categoryCollectionView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(348)
+            }
+            
+            pageControl.snp.makeConstraints {
+                $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.centerX.equalToSuperview()
+            }
+        } else {
+            categoryEmptyView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+                $0.leading.trailing.equalToSuperview().inset(16)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.height.equalTo(308)
+            }
+        }
+        
+        setupCollectionViewHiddenState(with: hasCategory)
+    }
+    
+    private func setupCollectionViewHiddenState(with hasCategory: Bool) {
+        categoryCollectionView.isHidden = !hasCategory
+        pageControl.isHidden = !hasCategory
+        categoryEmptyView.isHidden = hasCategory
+    }
     
     private func bind() {
         categoryCollectionView.rx.willEndDragging
