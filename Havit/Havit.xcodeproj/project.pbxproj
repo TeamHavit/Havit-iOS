@@ -163,6 +163,7 @@
 		ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */; };
 		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
 		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
+		ED87AE5E2798125500517AEC /* MainUnwatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */; };
 		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
 		EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099627905C7D0093B83F /* MainTopView.swift */; };
 		EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */; };
@@ -329,6 +330,7 @@
 		ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnwatchedViewController.swift; sourceTree = "<group>"; };
 		EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		EDDE099627905C7D0093B83F /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -820,6 +822,7 @@
 				EDDE099E279093BE0093B83F /* Cell */,
 				ED443F0C2786A2D30059DE76 /* MainViewController.swift */,
 				EDDE099C27908DF40093B83F /* MainTableViewController.swift */,
+				ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1370,6 +1373,7 @@
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
 				EDE7D6C72792BDB4009C70EF /* RateContentView.swift in Sources */,
+				ED87AE5E2798125500517AEC /* MainUnwatchedViewController.swift in Sources */,
 				EDE7D6D827958F2F009C70EF /* RecommendSiteTableViewCell.swift in Sources */,
 				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,
 				EDE7D6DA2795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift in Sources */,
