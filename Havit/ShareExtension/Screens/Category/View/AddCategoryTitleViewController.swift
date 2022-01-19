@@ -16,7 +16,7 @@ final class AddCategoryTitleViewController: BaseViewController {
     
     weak var coordinator: ShareExtensionMainCoordinator?
     
-    var keyboardHeight: CGFloat = 0
+    private var keyboardHeight: CGFloat = 0
     
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
