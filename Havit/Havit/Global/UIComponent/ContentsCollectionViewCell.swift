@@ -58,10 +58,10 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
-    private var moreButton: UIButton = {
-        let button = UIButton()
-        button.setImage(ImageLiteral.btnMore, for: .normal)
-        return button
+     var moreButton: UIButton = {
+         let button = UIButton()
+         button.setImage(ImageLiteral.btnMore, for: .normal)
+         return button
     }()
     
     private var isReadButton: UIButton = {
