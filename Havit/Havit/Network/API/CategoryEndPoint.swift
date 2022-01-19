@@ -10,6 +10,7 @@ import Foundation
 enum CategoryEndPoint {
     case getCategory
     case editCategory(categoryId: Int, title: String, imageId: Int)
+    case changeCategoryOrder(categoryIndexArray: [Int])
 
     var requestTimeOut: Float {
         return 20
@@ -20,6 +21,8 @@ enum CategoryEndPoint {
         case .getCategory:
             return .GET
         case .editCategory:
+            return .PATCH
+        case .changeCategoryOrder:
             return .PATCH
         }
     }
@@ -32,6 +35,9 @@ enum CategoryEndPoint {
             let parameters = ["title": title,
                               "imageId": imageId.description]
             return parameters.encode()
+        case .changeCategoryOrder(categoryIndexArray: let categoryIndexArray):
+            let parameters = ["categoryIndexArray": categoryIndexArray]
+            return parameters.encode()
         }
     }
 
@@ -42,6 +48,8 @@ enum CategoryEndPoint {
             return "\(baseUrl)/category"
         case .editCategory(let categoryId, _, _):
             return "\(baseUrl)/category/\(categoryId)"
+        case .changeCategoryOrder:
+            return "\(baseUrl)/category/order"
         }
     }
 
