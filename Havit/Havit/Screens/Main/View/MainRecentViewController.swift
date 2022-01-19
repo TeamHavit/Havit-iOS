@@ -1,8 +1,8 @@
 //
-//  MainUnwatchedViewController.swift
+//  MainRecentViewController.swift
 //  Havit
 //
-//  Created by SHIN YOON AH on 2022/01/19.
+//  Created by SHIN YOON AH on 2022/01/20.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import SnapKit
 
-final class MainUnwatchedViewController: BaseViewController {
+final class MainRecentViewController: BaseViewController {
     
     private enum Size {
         static let cellWidth: CGFloat = UIScreen.main.bounds.size.width
@@ -35,8 +35,8 @@ final class MainUnwatchedViewController: BaseViewController {
         collectionView.register(cell: ContentsCollectionViewCell.self)
         return collectionView
     }()
-    private let unwatchedEmptyView = MainContentEmptyView(guideText:
-                                                            "봐야 하는 콘텐츠가 없습니다.\n새로운 콘텐츠를 저장해보세요!")
+    private let recentEmptyView = MainContentEmptyView(guideText:
+                                                            "최근에 저장한 콘텐츠가 없습니다.\n새로운 콘텐츠를 저장해 보세요!")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +44,10 @@ final class MainUnwatchedViewController: BaseViewController {
     }
     
     override func render() {
-        view.addSubView(unwatchedEmptyView)
-        unwatchedEmptyView.addSubview(contentCollectionView)
+        view.addSubView(recentEmptyView)
+        recentEmptyView.addSubview(contentCollectionView)
         
-        unwatchedEmptyView.snp.makeConstraints {
+        recentEmptyView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview()
         }
         
@@ -75,7 +75,7 @@ final class MainUnwatchedViewController: BaseViewController {
     }
     
     private func setupNavigationBar() {
-        title = "봐야 하는 콘텐츠"
+        title = "최근 저장 콘텐츠"
         setupBaseNavigationBar(backgroundColor: .havitWhite,
                                titleColor: .primaryBlack,
                                isTranslucent: false,
@@ -92,7 +92,7 @@ final class MainUnwatchedViewController: BaseViewController {
     }
 }
 
-extension MainUnwatchedViewController: UICollectionViewDataSource {
+extension MainRecentViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }

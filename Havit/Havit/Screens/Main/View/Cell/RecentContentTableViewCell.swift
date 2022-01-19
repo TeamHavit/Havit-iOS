@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class RecentContentTableViewCell: BaseTableViewCell {
@@ -20,6 +21,8 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         }()
         static let cellHeight = 171
     }
+    
+    var didTapOverallButton: (() -> Void)?
     
     // MARK: - property
     
@@ -53,6 +56,18 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     
     private let dummyContents: [String] = []
     
+    // MARK: - init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bind()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func render() {
         contentView.addSubViews([titleLabel, overallButton])
         
@@ -74,6 +89,15 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - func
+    
+    private func bind() {
+        overallButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.didTapOverallButton?()
+            })
+            .disposed(by: disposeBag)
+    }
     
     private func setupContentPartLayout(with contents: [String]) {
         let hasContent = !contents.isEmpty

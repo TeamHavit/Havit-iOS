@@ -114,6 +114,7 @@
 		4FB24FF22792184B00CCDB0C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2F278C8AA700EC074D /* Pretendard-SemiBold.otf */; };
 		4FB24FF32792184F00CCDB0C /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E30278C8AA700EC074D /* Pretendard-Thin.otf */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
+		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -276,6 +277,7 @@
 		4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEmptyViewController.swift; sourceTree = "<group>"; };
 		4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTitleViewController.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		ED3502A827986BE20033C280 /* MainRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentViewController.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -813,6 +815,7 @@
 				ED443F0C2786A2D30059DE76 /* MainViewController.swift */,
 				EDDE099C27908DF40093B83F /* MainTableViewController.swift */,
 				ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */,
+				ED3502A827986BE20033C280 /* MainRecentViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1333,7 +1336,7 @@
 				ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */,
 				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
-				15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */,
+				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				EDE7D6DE2797E3C7009C70EF /* MainCategoryEmptyView.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
@@ -1343,6 +1346,7 @@
 				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
 				4DD166FD2796D0C900AD8960 /* CategoryService.swift in Sources */,
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
+				ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */,
 				ED443F312786AC5F0059DE76 /* UIFont+Extension.swift in Sources */,
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
 				EDE7D6D027953E2E009C70EF /* MainCategoryPageControl.swift in Sources */,

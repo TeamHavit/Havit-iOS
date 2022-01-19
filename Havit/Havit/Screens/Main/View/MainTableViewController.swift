@@ -141,6 +141,10 @@ extension MainTableViewController: UITableViewDataSource {
         case .recent:
             let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
                                                      for: indexPath)
+            cell.didTapOverallButton = { [weak self] in
+                let recentViewController = MainRecentViewController()
+                self?.navigationController?.pushViewController(recentViewController, animated: true)
+            }
             return cell
         case .recommend:
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
