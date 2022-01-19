@@ -49,6 +49,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         collectionView.register(cell: RecentContentCollectionViewCell.self)
         return collectionView
     }()
+    private let recentEmptyView = MainRecentContentEmptyView()
     
     override func render() {
         contentView.addSubViews([titleLabel, overallButton, contentCollectionView])
@@ -68,6 +69,41 @@ final class RecentContentTableViewCell: BaseTableViewCell {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(223)
         }
+    }
+    
+    // MARK: - func
+    
+    private func setupCategoryPartLayout(with categories: [String]) {
+        let hasCategory = !categories.isEmpty
+        
+        if hasCategory {
+            categoryCollectionView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(348)
+            }
+            
+            pageControl.snp.makeConstraints {
+                $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.centerX.equalToSuperview()
+            }
+        } else {
+            categoryEmptyView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+                $0.leading.trailing.equalToSuperview().inset(16)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.height.equalTo(308)
+            }
+        }
+        
+        setupCollectionViewHiddenState(with: hasCategory)
+    }
+    
+    private func setupCollectionViewHiddenState(with hasCategory: Bool) {
+        categoryCollectionView.isHidden = !hasCategory
+        pageControl.isHidden = !hasCategory
+        categoryEmptyView.isHidden = hasCategory
     }
 }
 
