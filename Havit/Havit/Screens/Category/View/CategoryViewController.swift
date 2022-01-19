@@ -164,6 +164,7 @@ class CategoryViewController: BaseViewController {
         editButton.rx.tap
             .bind(onNext: { [weak self] in
                 let manageCategory = ManageCategoryViewController()
+                manageCategory.categories = self?.categories ?? []
                 self?.navigationController?.pushViewController(manageCategory, animated: true)
             })
             .disposed(by: disposeBag)

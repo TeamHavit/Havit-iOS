@@ -138,6 +138,7 @@ class EditCategoryViewController: BaseViewController {
     }
 
     override func configUI() {
+        view.backgroundColor = .white
         setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, isTranslucent: false, tintColor: .white)
         setNavigationItem()
         bind()
@@ -167,16 +168,18 @@ class EditCategoryViewController: BaseViewController {
     }
 
     private func bind() {
-        Observable.merge(
-            backButton.rx.tap.map { $0 },
-            doneButton.rx.tap.map { $0 }
-        )
+        backButton.rx.tap
             .bind(onNext: { [weak self] in
-                // donebutton 일때만....
-                self?.editCategory()
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
 
+        doneButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.editCategory()
+            })
+            .disposed(by: disposeBag)
+        
         categoryTitleTextField.rx.controlEvent([.editingDidBegin])
             .asDriver()
             .drive(onNext: { [weak self] in
