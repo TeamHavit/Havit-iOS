@@ -16,7 +16,6 @@ class CategoryViewController: BaseViewController {
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(),
                                                                 environment: .development)
     private var categories: [Category] = []
-    weak var coordinator: CategoryCoordinator?
     private let emptyCategoryView = EmptyCategoryView()
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -158,13 +157,14 @@ class CategoryViewController: BaseViewController {
     private func bind() {
         backButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .main)
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
 
         editButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .manage)
+                let manageCategory = ManageCategoryViewController()
+                self?.navigationController?.pushViewController(manageCategory, animated: true)
             })
             .disposed(by: disposeBag)
     }

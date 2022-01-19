@@ -56,7 +56,6 @@
 		4D6F9E4D278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D6F9E4E278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
 		4D6F9E4F278C8AA800EC074D /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */; };
-		4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */; };
 		4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */; };
 		4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */; };
 		4DD166EA2796B83A00AD8960 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD166E92796B83A00AD8960 /* Kingfisher */; };
@@ -276,7 +275,6 @@
 		4D6F9E32278C8AA800EC074D /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		4D6F9E33278C8AA800EC074D /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		4D6F9E34278C8AA800EC074D /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
-		4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D9DE1EF278F2B0700F1889C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DBD2ECB2792BEBC0003226A /* EmptyCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryView.swift; sourceTree = "<group>"; };
 		4DD166F52796CE0700AD8960 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -604,7 +602,6 @@
 			children = (
 				ED443F83278B6C9D0059DE76 /* Foundation */,
 				3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */,
-				4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */,
 				4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */,
 				15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */,
 				155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */,
@@ -1370,7 +1367,6 @@
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
-				4D9DE1EE278F165600F1889C /* CategoryCoordinator.swift in Sources */,
 				EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */,
