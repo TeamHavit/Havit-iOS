@@ -163,7 +163,6 @@
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
 		ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
 		ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */; };
-		ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */; };
 		ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */; };
 		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
 		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
@@ -331,7 +330,6 @@
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7D278B6B180059DE76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -607,7 +605,6 @@
 			isa = PBXGroup;
 			children = (
 				ED443F83278B6C9D0059DE76 /* Foundation */,
-				ED443F84278B6D3A0059DE76 /* AppCoordinator.swift */,
 				ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */,
 				3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */,
 				4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */,
@@ -1400,7 +1397,6 @@
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
 				EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */,
-				ED443F85278B6D3A0059DE76 /* AppCoordinator.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
