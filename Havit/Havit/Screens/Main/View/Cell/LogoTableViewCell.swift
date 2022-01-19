@@ -45,6 +45,6 @@ final class LogoTableViewCell: BaseTableViewCell {
     }
     
     override func configUI() {
-        backgroundColor = .whiteGray
+        backgroundColor = .clear
     }
 }

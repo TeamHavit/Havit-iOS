@@ -15,8 +15,7 @@ class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
 
-    private var categoryList: [CategoryListData] = CategoryListData.dummy
-    weak var coordinator: ManageCategoryCoordinator?
+    var categories: [Category] = []
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -126,7 +125,7 @@ class ManageCategoryViewController: BaseViewController {
             doneButton.rx.tap.map { $0 }
         )
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .previous)
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -168,7 +167,7 @@ class ManageCategoryViewController: BaseViewController {
 
 extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryList.count
+        return categories.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -176,7 +175,7 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
         
         cell.configure(type: .manage)
-        cell.update(data: categoryList[indexPath.row])
+        cell.update(data: categories[indexPath.row])
         return cell
     }
 
@@ -190,8 +189,8 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         let cell = categoryCollectionView.cellForItem(at: destinationIndexPath)
         cell?.backgroundColor = .purpleCategory
 
-        let categoryItem = categoryList.remove(at: sourceIndexPath.row)
-        categoryList.insert(categoryItem, at: destinationIndexPath.row)
+        let categoryItem = categories.remove(at: sourceIndexPath.row)
+        categories.insert(categoryItem, at: destinationIndexPath.row)
     }
 }
 
