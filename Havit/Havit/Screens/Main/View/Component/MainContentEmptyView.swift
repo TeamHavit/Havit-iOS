@@ -1,5 +1,5 @@
 //
-//  MainUnwatchedEmptyView.swift
+//  MainContentEmptyView.swift
 //  Havit
 //
 //  Created by SHIN YOON AH on 2022/01/19.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class MainUnwatchedEmptyView: UIView {
+final class MainContentEmptyView: UIView {
     
     // MARK: - property
     
@@ -17,10 +17,6 @@ final class MainUnwatchedEmptyView: UIView {
         let label = UILabel()
         label.font = .font(.pretendardMedium, ofSize: 14)
         label.textColor = .gray002
-        label.text = """
-        최근에 저장한 콘텐츠가 없습니다.
-        새로운 콘텐츠를 저장해 보세요!
-        """
         label.textAlignment = .center
         label.numberOfLines = 2
         return label
@@ -43,8 +39,9 @@ final class MainUnwatchedEmptyView: UIView {
 
     // MARK: - init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(guideText: String) {
+        super.init(frame: .zero)
+        titleLabel.text = guideText
         render()
         configUI()
     }

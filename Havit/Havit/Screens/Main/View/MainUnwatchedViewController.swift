@@ -37,11 +37,13 @@ final class MainUnwatchedViewController: BaseViewController {
         collectionView.register(cell: ContentsCollectionViewCell.self)
         return collectionView
     }()
-    private let unwatchedEmptyView = MainUnwatchedEmptyView()
+    private let unwatchedEmptyView = MainContentEmptyView(guideText:
+                                                            "최근에 저장한 콘텐츠가 없습니다.\n새로운 콘텐츠를 저장해 보세요!")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        setupCollectionViewHiddenState(with: false)
     }
     
     override func render() {
@@ -85,6 +87,10 @@ final class MainUnwatchedViewController: BaseViewController {
     
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
         return UIBarButtonItem(customView: button)
+    }
+    
+    private func setupCollectionViewHiddenState(with hasContent: Bool) {
+        contentCollectionView.isHidden = !hasContent
     }
 }
 
