@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1546A3F42797DF58009AE579 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 1546A3F32797DF58009AE579 /* PanModal */; };
+		1546A3F62797F78D009AE579 /* CategoryPanModealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A3F52797F78D009AE579 /* CategoryPanModealViewController.swift */; };
+		1546A3F92797F998009AE579 /* CategoryContentsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */; };
 		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		155D4F8C279147DF0069F035 /* CategoryContentsCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */; };
 		15A157F027951008001192B9 /* SearchContentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */; };
@@ -240,6 +242,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1546A3F52797F78D009AE579 /* CategoryPanModealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPanModealViewController.swift; sourceTree = "<group>"; };
+		1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsEnum.swift; sourceTree = "<group>"; };
 		155D4F89279132670069F035 /* ToastAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlarm.swift; sourceTree = "<group>"; };
 		155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsCooridnator.swift; sourceTree = "<group>"; };
 		15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsCoordinator.swift; sourceTree = "<group>"; };
@@ -862,6 +866,8 @@
 				ED443F182786A3450059DE76 /* CategoryContentsViewController.swift */,
 				15F41A8C2791C13600ADF17A /* SortPanModalViewController.swift */,
 				15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */,
+				1546A3F52797F78D009AE579 /* CategoryPanModealViewController.swift */,
+				1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */,
 				155D4F86279098360069F035 /* Cell */,
 			);
 			path = View;
@@ -1306,6 +1312,7 @@
 				4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */,
 				3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
+				1546A3F92797F998009AE579 /* CategoryContentsEnum.swift in Sources */,
 				15A157F32795277D001192B9 /* NotSearchedCollectionViewCell.swift in Sources */,
 				15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */,
 				ED443F292786A9260059DE76 /* BaseModel.swift in Sources */,
@@ -1361,6 +1368,7 @@
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
 				4D4E96222794BD1700F11788 /* CategoryIconCollectionViewCell.swift in Sources */,
 				4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */,
+				1546A3F62797F78D009AE579 /* CategoryPanModealViewController.swift in Sources */,
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
