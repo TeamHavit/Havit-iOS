@@ -24,6 +24,7 @@ final class MainCategoryPageControl: UIView {
         didSet { setNeedsDisplay() }
     }
     private let rectWidth: CGFloat = 12
+    private let rectHeight: CGFloat = 6
     private let spacing: CGFloat = 3
     
     // MARK: - init
@@ -39,8 +40,8 @@ final class MainCategoryPageControl: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        let width = CGFloat(pages) * rectWidth + CGFloat(pages - 1) * spacing
-        let height = rectWidth
+        let width = (CGFloat(pages) * rectWidth) + (CGFloat(pages - 1) * spacing)
+        let height = rectHeight
         
         return CGSize(width: width, height: height)
     }
@@ -49,7 +50,7 @@ final class MainCategoryPageControl: UIView {
         (0..<pages).forEach { page in
             (page == selectedPage ? selectedColor : dotColor).setFill()
             
-            let size = CGSize(width: 12, height: 3)
+            let size = CGSize(width: rectWidth, height: rectHeight)
             let center = CGPoint(x: (rectWidth + spacing) * CGFloat(page),
                                  y: rect.midY)
             let rect = CGRect(origin: center, size: size)
