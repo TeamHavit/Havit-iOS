@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1546A40227984C88009AE579 /* SearchContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A40127984C88009AE579 /* SearchContents.swift */; };
 		1546A40427984D5B009AE579 /* SearchContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A40327984D5B009AE579 /* SearchContentsEndPoint.swift */; };
+		1546A40627984EF9009AE579 /* SearchContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A40527984EF9009AE579 /* SearchContentsService.swift */; };
+		1546A4082798503A009AE579 /* SearchContentsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A4072798503A009AE579 /* SearchContentsServiceable.swift */; };
 		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		155D4F8C279147DF0069F035 /* CategoryContentsCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */; };
 		15A157F027951008001192B9 /* SearchContentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */; };
@@ -251,6 +253,8 @@
 /* Begin PBXFileReference section */
 		1546A40127984C88009AE579 /* SearchContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContents.swift; sourceTree = "<group>"; };
 		1546A40327984D5B009AE579 /* SearchContentsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsEndPoint.swift; sourceTree = "<group>"; };
+		1546A40527984EF9009AE579 /* SearchContentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsService.swift; sourceTree = "<group>"; };
+		1546A4072798503A009AE579 /* SearchContentsServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsServiceable.swift; sourceTree = "<group>"; };
 		155D4F89279132670069F035 /* ToastAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlarm.swift; sourceTree = "<group>"; };
 		155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsCooridnator.swift; sourceTree = "<group>"; };
 		15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsCoordinator.swift; sourceTree = "<group>"; };
@@ -474,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */,
+				1546A4072798503A009AE579 /* SearchContentsServiceable.swift */,
 			);
 			path = Serviceable;
 			sourceTree = "<group>";
@@ -1036,6 +1041,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166FC2796D0C900AD8960 /* CategoryService.swift */,
+				1546A40527984EF9009AE579 /* SearchContentsService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -1413,6 +1419,7 @@
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
 				1546A40427984D5B009AE579 /* SearchContentsEndPoint.swift in Sources */,
+				1546A4082798503A009AE579 /* SearchContentsServiceable.swift in Sources */,
 				EDEF61992791392D00C93C84 /* Requestable.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */,
@@ -1427,6 +1434,7 @@
 				EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */,
 				EDEF6191279136DD00C93C84 /* HttpMethod.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
+				1546A40627984EF9009AE579 /* SearchContentsService.swift in Sources */,
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
 				4D4E96202794570F00F11788 /* EditCategoryCoordinator.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,

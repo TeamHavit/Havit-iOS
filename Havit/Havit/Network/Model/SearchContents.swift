@@ -7,16 +7,16 @@
 
 import Foundation
 
-// MARK: - CategoryContents
-struct CategoryContents: Codable {
+// MARK: - SearchContents
+struct SearchContents: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [ContentsData]?
+    let data: [ResultData]?
 }
 
 // MARK: - ContentsData
-struct ContentsData: Codable {
+struct ResultData: Codable {
     let id: Int
     let title, datumDescription: String
     let image, url: String

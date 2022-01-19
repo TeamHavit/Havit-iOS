@@ -7,9 +7,8 @@
 
 import Foundation
 
-import Foundation
-
-struct SearchContentsEndPoint {
+enum SearchContentsEndPoint {
+    case getResult
     
     var requestTimeOut: Float {
         return 20
