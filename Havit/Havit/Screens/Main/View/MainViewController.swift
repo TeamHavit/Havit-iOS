@@ -15,8 +15,6 @@ final class MainViewController: MainTableViewController {
     
     private let topView = MainTopView()
     
-    weak var coordinator: MainCoordinator?
-    
     // MARK: - life cycle
     
     override func viewDidLoad() {

@@ -163,7 +163,6 @@
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
 		ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
 		ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */; };
-		ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */; };
 		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
 		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
@@ -330,7 +329,6 @@
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7D278B6B180059DE76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -605,7 +603,6 @@
 			isa = PBXGroup;
 			children = (
 				ED443F83278B6C9D0059DE76 /* Foundation */,
-				ED443F86278B6D5E0059DE76 /* MainCoordinator.swift */,
 				3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */,
 				4D9DE1ED278F165600F1889C /* CategoryCoordinator.swift */,
 				4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */,
@@ -1363,7 +1360,6 @@
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				EDEF61B02791444700C93C84 /* search_category.json in Sources */,
 				EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */,
-				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				EDE7D6D427956A3F009C70EF /* RecentContentTableViewCell.swift in Sources */,
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
