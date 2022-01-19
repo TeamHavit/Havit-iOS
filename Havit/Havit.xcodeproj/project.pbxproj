@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1546A40227984C88009AE579 /* SearchContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A40127984C88009AE579 /* SearchContents.swift */; };
+		1546A40427984D5B009AE579 /* SearchContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A40327984D5B009AE579 /* SearchContentsEndPoint.swift */; };
 		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		155D4F8C279147DF0069F035 /* CategoryContentsCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */; };
 		15A157F027951008001192B9 /* SearchContentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */; };
@@ -249,6 +250,7 @@
 
 /* Begin PBXFileReference section */
 		1546A40127984C88009AE579 /* SearchContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContents.swift; sourceTree = "<group>"; };
+		1546A40327984D5B009AE579 /* SearchContentsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsEndPoint.swift; sourceTree = "<group>"; };
 		155D4F89279132670069F035 /* ToastAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlarm.swift; sourceTree = "<group>"; };
 		155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsCooridnator.swift; sourceTree = "<group>"; };
 		15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsCoordinator.swift; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */,
+				1546A40327984D5B009AE579 /* SearchContentsEndPoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1409,6 +1412,7 @@
 				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
+				1546A40427984D5B009AE579 /* SearchContentsEndPoint.swift in Sources */,
 				EDEF61992791392D00C93C84 /* Requestable.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */,
