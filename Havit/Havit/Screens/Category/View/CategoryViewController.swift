@@ -12,7 +12,7 @@ import SnapKit
 
 class CategoryViewController: BaseViewController {
 
-    enum BeforeCategoryViewControllerType {
+    enum PresentableParentType {
         case main
         case tabbar
     }
@@ -81,7 +81,7 @@ class CategoryViewController: BaseViewController {
 
     // MARK: - init
 
-    init(type: BeforeCategoryViewControllerType) {
+    init(type: PresentableParentType) {
         switch type {
         case .main:
             backButton.isHidden = false
