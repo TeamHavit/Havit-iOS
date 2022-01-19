@@ -64,7 +64,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
        return label
    }()
    
-    private var moreButton: UIButton = {
+    var moreButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiteral.btnMore, for: .normal)
         return button
