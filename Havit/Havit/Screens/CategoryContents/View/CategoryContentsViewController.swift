@@ -108,7 +108,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         let button = UIButton(configuration: configuration,
                               primaryAction: nil)
-        button.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showCategoryPanModalViewController(_:)), for: .touchUpInside)
         return button
     }()
     

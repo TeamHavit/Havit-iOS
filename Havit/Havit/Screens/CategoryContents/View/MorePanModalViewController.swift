@@ -28,7 +28,7 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     
     private let moreList = ["제목 수정", "공유", "카테고리 이동", "알림 설정", "삭제"]
     
-    private let imageList = [ImageLiteral.iconEdit, ImageLiteral.iconShare, ImageLiteral.iconCategoryMove, ImageLiteral.iconAlarmtagEnd, ImageLiteral.iconDelete]
+    private let imageList = [ImageLiteral.iconEdit, ImageLiteral.iconShare, ImageLiteral.iconCategoryMove, ImageLiteral.btnAlarm, ImageLiteral.iconDelete]
     
     var border: UIView = {
         let view = UIView()
