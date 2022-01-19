@@ -13,7 +13,6 @@ class MainTableViewController: BaseViewController {
     
     private enum Size {
         static let headerHeight: CGFloat = 94
-        static let footerHeight: CGFloat = 122
     }
     
     private enum ReachSectionCellType: Int, CaseIterable {
@@ -26,6 +25,7 @@ class MainTableViewController: BaseViewController {
         case guideline
         case recent
         case recommend
+        case logo
     }
     
     private enum MainTableViewSectionType: Int, CaseIterable {
@@ -36,24 +36,6 @@ class MainTableViewController: BaseViewController {
             switch self {
             case .category:
                 return Size.headerHeight
-            default:
-                return .zero
-            }
-        }
-        
-        var footerView: UIView {
-            switch self {
-            case .category:
-                return MainFooterView()
-            default:
-                return UIView()
-            }
-        }
-        
-        var footerHeight: CGFloat {
-            switch self {
-            case .category:
-                return Size.footerHeight
             default:
                 return .zero
             }
@@ -76,6 +58,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: GuidelineTableViewCell.self)
         tableView.register(cell: RecentContentTableViewCell.self)
         tableView.register(cell: RecommendSiteTableViewCell.self)
+        tableView.register(cell: LogoTableViewCell.self)
         return tableView
     }()
   
@@ -157,6 +140,9 @@ extension MainTableViewController: UITableViewDataSource {
         case .recommend:
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self, for: indexPath)
             return cell
+        case .logo:
+            let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self, for: indexPath)
+            return cell
         default:
             return UITableViewCell()
         }
@@ -184,14 +170,6 @@ extension MainTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return MainTableViewSectionType(rawValue: section)?.headerHeight ?? .zero
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return MainTableViewSectionType(rawValue: section)?.footerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return MainTableViewSectionType(rawValue: section)?.footerHeight ?? .zero
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
