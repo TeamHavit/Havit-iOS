@@ -85,7 +85,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
+        bind()
     }
     
     override func render() {
@@ -146,5 +146,20 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
             $0.width.equalTo(16)
             $0.height.equalTo(10)
         }
+    }
+    
+    // MARK: - func
+    
+    private func bind() {
+        isReadButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                if self?.isReadButton.imageView?.image == ImageLiteral.btnContentsRead {
+                    self?.isReadButton.setImage(ImageLiteral.btnContentsUnread, for: .normal)
+                } else {
+                    self?.isReadButton.setImage(ImageLiteral.btnContentsRead, for: .normal)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
