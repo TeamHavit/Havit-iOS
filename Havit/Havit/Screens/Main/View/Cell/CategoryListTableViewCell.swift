@@ -54,7 +54,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     private let pageControl = MainCategoryPageControl()
     private let categoryEmptyView = MainCategoryEmptyView()
     
-    var dummyCategories: [String] = []
+    var dummyCategories: [String] = ["새로운 카테고리", "재밌는 카테고리"]
     
     // MARK: - func
     
@@ -68,7 +68,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl, categoryEmptyView])
+        contentView.addSubViews([titleLabel, overallButton])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -95,6 +95,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         let hasCategory = !categories.isEmpty
         
         if hasCategory {
+            contentView.addSubViews([categoryCollectionView, pageControl])
             categoryCollectionView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom)
                 $0.leading.trailing.equalToSuperview()
@@ -107,6 +108,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
                 $0.centerX.equalToSuperview()
             }
         } else {
+            contentView.addSubView(categoryEmptyView)
             categoryEmptyView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(10)
                 $0.leading.trailing.equalToSuperview().inset(16)

@@ -51,10 +51,10 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }()
     private let recentEmptyView = MainRecentContentEmptyView()
     
-    private let dummyContents: [String] = []
+    private let dummyContents: [String] = ["더미 컨텐츠", "꼭 봐야하는 코딩 기술"]
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, contentCollectionView, recentEmptyView])
+        contentView.addSubViews([titleLabel, overallButton])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(42)
@@ -75,12 +75,14 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         let hasContent = !contents.isEmpty
         
         if hasContent {
+            contentView.addSubView(contentCollectionView)
             contentCollectionView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom)
                 $0.leading.trailing.bottom.equalToSuperview()
                 $0.height.equalTo(223)
             }
         } else {
+            contentView.addSubView(recentEmptyView)
             recentEmptyView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(14)
                 $0.leading.trailing.equalToSuperview().inset(16)
