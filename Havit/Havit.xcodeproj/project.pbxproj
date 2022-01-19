@@ -121,6 +121,7 @@
 		4FC6EC592798728A000BD4E0 /* CategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
 		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
+		ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502AA279876E70033C280 /* MainAlarmViewController.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -288,6 +289,7 @@
 		4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryIconViewController.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED3502A827986BE20033C280 /* MainRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentViewController.swift; sourceTree = "<group>"; };
+		ED3502AA279876E70033C280 /* MainAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAlarmViewController.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -830,6 +832,7 @@
 				EDDE099C27908DF40093B83F /* MainTableViewController.swift */,
 				ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */,
 				ED3502A827986BE20033C280 /* MainRecentViewController.swift */,
+				ED3502AA279876E70033C280 /* MainAlarmViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1401,6 +1404,7 @@
 				ED87AE5E2798125500517AEC /* MainUnwatchedViewController.swift in Sources */,
 				EDE7D6D827958F2F009C70EF /* RecommendSiteTableViewCell.swift in Sources */,
 				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,
+				ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */,
 				EDE7D6DA2795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
