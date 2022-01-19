@@ -57,6 +57,8 @@ final class WebViewToolbar: UIToolbar {
         toolbarItems.removeLast()
         self.setItems(toolbarItems,
                       animated: false)
+        self.isTranslucent = false
+        self.barTintColor = .whiteGray
     }
     
     @available(*, unavailable)
