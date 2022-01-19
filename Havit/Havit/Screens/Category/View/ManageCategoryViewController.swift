@@ -14,7 +14,8 @@ import SnapKit
 class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
-    
+
+    private var categoryList: [CategoryListData] = CategoryListData.dummy
     weak var coordinator: ManageCategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -24,18 +25,17 @@ class ManageCategoryViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cell: CategoryCollectionViewCell.self)
-
         return collectionView
     }()
 
     private let backButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.iconBackWhite, for: .normal)
         return button
     }()
 
     private let doneButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setTitle("완료", for: .normal)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 14)
         button.setTitleColor(.white, for: .normal)
@@ -61,6 +61,7 @@ class ManageCategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+        setGesture()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -116,7 +117,6 @@ class ManageCategoryViewController: BaseViewController {
     }
 
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
-        button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         return UIBarButtonItem(customView: button)
     }
 
@@ -130,11 +130,45 @@ class ManageCategoryViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+
+    private func setGesture() {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
+        categoryCollectionView.addGestureRecognizer(longPressRecognizer)
+    }
+
+    @objc
+    private func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+        let startIndexPath = categoryCollectionView.indexPathForItem(at: gesture.location(in: categoryCollectionView))
+        let cell = cellForItemAt(at: startIndexPath)
+        switch gesture.state {
+        case .began:
+            guard let startIndexPath = startIndexPath else {
+                break
+            }
+            cell?.backgroundColor = .purple002
+            categoryCollectionView.beginInteractiveMovementForItem(at: startIndexPath)
+        case .changed:
+            categoryCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: categoryCollectionView))
+        case .ended:
+            cell?.backgroundColor = .purpleCategory
+            categoryCollectionView.endInteractiveMovement()
+        default:
+            cell?.backgroundColor = .purpleCategory
+            categoryCollectionView.cancelInteractiveMovement()
+        }
+    }
+
+    private func cellForItemAt(at indexPath: IndexPath?) -> UICollectionViewCell? {
+        guard let indexPath = indexPath else {
+            return nil
+        }
+        return categoryCollectionView.cellForItem(at: indexPath)
+    }
 }
 
 extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -142,7 +176,22 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
         
         cell.configure(type: .manage)
+        cell.update(data: categoryList[indexPath.row])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+     // move를 시작한 인덱스에 해당하는 아이템을 기존 List에서 제거하고 categooryItem 에 저장
+     // move를 해서 도착한 인덱스에 해당하는 아이템을 기존 List에 추가
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let cell = categoryCollectionView.cellForItem(at: destinationIndexPath)
+        cell?.backgroundColor = .purpleCategory
+
+        let categoryItem = categoryList.remove(at: sourceIndexPath.row)
+        categoryList.insert(categoryItem, at: destinationIndexPath.row)
     }
 }
 

@@ -22,6 +22,9 @@ enum ImageLiteral {
     
     static var iconAlarmtagEnd: UIImage { .load(named: "iconAlarmtagEnd")}
     static var iconAlarmtagPuple: UIImage { .load(named: "iconAlarmtagPuple")}
+    static var iconBackBlack: UIImage { .load(named: "iconBackBlack")}
+    static var iconBackspaceBlack: UIImage { .load(named: "iconBackspaceBlack")}
+    static var iconBackspaceGray: UIImage { .load(named: "iconBackspaceGray")}
     static var iconCategory: UIImage { .load(named: "iconCategory")}
     static var iconCategoryAdd: UIImage { .load(named: "iconCategoryAdd")}
     static var iconCategoryMove: UIImage { .load(named: "iconCategoryMove")}
@@ -29,9 +32,13 @@ enum ImageLiteral {
     static var iconCategoryUnselected: UIImage { .load(named: "iconCategoryUnselected")}
     static var iconCheck: UIImage { .load(named: "iconCheck")}
     static var iconChipGray: UIImage { .load(named: "iconChipGray")}
+     static var iconContentsRead: UIImage { .load(named: "iconContentsRead")}
+     static var iconContentsUnread: UIImage { .load(named: "iconContentsUnread")}
     static var iconDelete: UIImage { .load(named: "iconDelete")}
     static var iconDropBlack: UIImage { .load(named: "iconDropBlack")}
     static var iconEdit: UIImage { .load(named: "iconEdit")}
+    static var iconForwardBlack: UIImage { .load(named: "iconForwardBlack")}
+    static var iconForwardGray: UIImage { .load(named: "iconForwardGray")}
     static var iconGoGray: UIImage { .load(named: "iconGoGray")}
     static var iconHandGray: UIImage { .load(named: "iconHandGray")}
     static var iconHomeSelected: UIImage { .load(named: "iconHomeSelected")}
@@ -43,6 +50,8 @@ enum ImageLiteral {
     static var iconMypageUnselected: UIImage { .load(named: "iconMypageUnselected")}
     static var iconNoticeIcon: UIImage { .load(named: "iconNoticeIcon")}
     static var iconRounddelete: UIImage { .load(named: "iconRounddelete")}
+    static var iconRefresh: UIImage { .load(named: "iconRefresh")}
+    static var iconSafari: UIImage { .load(named: "iconSafari")}
     static var iconSearch: UIImage { .load(named: "iconSearch")}
     static var iconShare: UIImage { .load(named: "iconShare")}
     static var iconUpdown: UIImage { .load(named: "iconUpdown")}
