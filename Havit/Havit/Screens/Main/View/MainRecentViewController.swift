@@ -59,7 +59,7 @@ final class MainRecentViewController: BaseViewController {
         super.configUI()
         view.backgroundColor = .white
         setupNavigationBar()
-        setupCollectionViewHiddenState(with: false)
+        setupCollectionViewHiddenState(with: true)
     }
     
     // MARK: - func
@@ -74,7 +74,7 @@ final class MainRecentViewController: BaseViewController {
     }
     
     private func setupNavigationBar() {
-        title = "봐야 하는 콘텐츠"
+        title = "최근 저장 콘텐츠"
         setupBaseNavigationBar(backgroundColor: .havitWhite,
                                titleColor: .primaryBlack,
                                isTranslucent: false,
