@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class MainUnwatchedViewController: BaseViewController {
@@ -21,12 +22,27 @@ final class MainUnwatchedViewController: BaseViewController {
         return button
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bind()
+    }
+    
     override func configUI() {
         super.configUI()
+        view.backgroundColor = .white
         setupNavigationBar()
     }
     
     // MARK: - func
+    
+    private func bind() {
+        backButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.coordinator?.performTransition(to: .previous)
+            })
+            .disposed(by: disposeBag)
+    }
     
     private func setupNavigationBar() {
         title = "최근 저장 콘텐츠"
