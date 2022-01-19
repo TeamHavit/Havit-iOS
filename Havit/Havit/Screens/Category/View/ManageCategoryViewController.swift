@@ -122,11 +122,11 @@ class ManageCategoryViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-        doneButton.rx.tap
-            .bind(onNext: { [weak self] in
-                // changeorder patch 
-            })
-            .disposed(by: disposeBag)
+//        doneButton.rx.tap
+//            .bind(onNext: { [weak self] in
+//                // changeorder patch 
+//            })
+//            .disposed(by: disposeBag)
     }
 
     private func setGesture() {
