@@ -45,13 +45,13 @@ final class MainRecentContentEmptyView: UIView {
         addSubViews([titleLabel, contentImageView])
         
         titleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.leading.equalToSuperview().inset(39)
+            $0.centerX.equalToSuperview().offset(10)
+            $0.centerY.equalToSuperview()
         }
         
         contentImageView.snp.makeConstraints {
             $0.centerY.equalTo(titleLabel.snp.centerY)
-            $0.trailing.equalTo(titleLabel.snp.leading).offset(9)
+            $0.trailing.equalTo(titleLabel.snp.leading).offset(-9)
         }
     }
     
