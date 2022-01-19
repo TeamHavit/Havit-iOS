@@ -156,7 +156,7 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
             case .allContent:
-                cell.backgroundColor = .caution
+                cell.backgroundImageView.image = ImageLiteral.imgCardCategoryLine
                 cell.updateCategory(image: UIImage(),
                                     title: "모든 콘텐츠",
                                     contentCount: 90)
