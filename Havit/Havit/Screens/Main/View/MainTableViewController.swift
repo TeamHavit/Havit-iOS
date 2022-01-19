@@ -119,6 +119,10 @@ extension MainTableViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
                                                          for: indexPath)
                 return cell
+            case .guideline:
+                let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
+                                                         for: indexPath)
+                return cell
             default:
                 return UITableViewCell()
             }
