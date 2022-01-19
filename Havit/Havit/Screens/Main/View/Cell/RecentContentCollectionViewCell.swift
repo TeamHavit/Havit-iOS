@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - property
@@ -19,16 +21,14 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
         return imageView
     }()
     private lazy var categoryTagButton: UIButton = {
-        var container = AttributeContainer()
-        container.font = .font(.pretendardReular, ofSize: 10)
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 5, bottom: 4, trailing: 5)
-        configuration.baseBackgroundColor = .purple001
-        configuration.baseForegroundColor = .purpleText
-        configuration.attributedTitle = AttributedString("카테고리 없음", attributes: container)
-        configuration.image = UIImage(systemName: "circle.fill")
-        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 10)
-        configuration.imagePadding = 4
-        let button = UIButton(configuration: configuration)
+        buttonConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 5, bottom: 4, trailing: 5)
+        buttonConfiguration.baseBackgroundColor = .purple001
+        buttonConfiguration.baseForegroundColor = .purpleText
+        buttonConfiguration.attributedTitle = AttributedString("카테고리 없음", attributes: buttonContainer)
+        buttonConfiguration.image = UIImage(systemName: "circle.fill")
+        buttonConfiguration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 10)
+        buttonConfiguration.imagePadding = 4
+        let button = UIButton(configuration: buttonConfiguration)
         return button
     }()
     private let titleLabel: UILabel = {
@@ -37,17 +37,24 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
         label.textColor = .primaryBlack
         label.numberOfLines = 2
         label.lineBreakStrategy = .hangulWordPriority
-        label.text = "헤더입니다. 헤헤헤헤 헤더 입니다. 헤더 헤더인디요권지용"
         return label
     }()
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = .font(.pretendardReular, ofSize: 9)
         label.textColor = .gray002
-        label.text = "2021.02.04"
         return label
     }()
-    private var configuration = UIButton.Configuration.filled()
+    private var buttonConfiguration = UIButton.Configuration.filled()
+    private var buttonContainer = AttributeContainer([.font: UIFont.font(.pretendardReular, ofSize: 10)])
+    
+    override func prepareForReuse() {
+        contentImageView.image = nil
+        titleLabel.text = ""
+        dateLabel.text = ""
+        buttonConfiguration.attributedTitle = AttributedString("카테고리 없음", attributes: buttonContainer)
+        categoryTagButton.configuration = buttonConfiguration
+    }
     
     override func render() {
         contentView.addSubViews([contentImageView, categoryTagButton,
@@ -72,5 +79,14 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
         dateLabel.snp.makeConstraints {
             $0.leading.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - func
+    
+    func update(title: String, date: String, categoryTitle: String) {
+        titleLabel.text = title
+        dateLabel.text = date
+        buttonConfiguration.attributedTitle = AttributedString(categoryTitle, attributes: buttonContainer)
+        categoryTagButton.configuration = buttonConfiguration
     }
 }
