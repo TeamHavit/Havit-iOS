@@ -13,8 +13,9 @@ import SnapKit
 class CategoryViewController: BaseViewController {
 
     // MARK: - property
-
-    private var categoryList: [CategoryListData] = CategoryListData.dummy
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(),
+                                                                environment: .development)
+    private var categories: [Category] = []
     weak var coordinator: CategoryCoordinator?
     private let emptyCategoryView = EmptyCategoryView()
 
@@ -79,10 +80,33 @@ class CategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+        getCategory()
+    }
+
+    func getCategory() {
+        Task {
+            do {
+                let categories = try await categoryService.getCategory()
+
+                if let categories = categories,
+                   !categories.isEmpty {
+                    self.categories = categories
+                    self.categoryCountLabel.text = "전체 \(categories.count)"
+                    self.categoryCollectionView.reloadData()
+                } else {
+                    setEmptyView()
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
+            }
+        }
+
     }
     
     override func render() {
-        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton, emptyCategoryView])
+        view.addSubViews([categoryCollectionView, categoryCountLabel, addButton])
 
         categoryCountLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(22)
@@ -100,15 +124,10 @@ class CategoryViewController: BaseViewController {
             $0.leading.bottom.trailing.equalToSuperview()
         }
 
-        emptyCategoryView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
     }
 
     override func configUI() {
         super.configUI()
-        setEmptyView()
 
         view.backgroundColor = .white
         setupBaseNavigationBar(backgroundColor: .white, titleColor: .black, isTranslucent: false)
@@ -151,21 +170,27 @@ class CategoryViewController: BaseViewController {
     }
 
     private func setEmptyView() {
-        emptyCategoryView.isHidden = categoryList.isEmpty ? false : true
+
+        self.view.addSubview(emptyCategoryView)
+        emptyCategoryView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+
     }
 }
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryList.count
+        return categories.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
 
-        cell.update(data: categoryList[indexPath.row])
         cell.configure(type: .category)
+        cell.update(data: categories[indexPath.row])
         return cell
     }
 }
