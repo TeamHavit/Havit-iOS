@@ -326,21 +326,21 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 DispatchQueue.main.async {
-                    self.gridButton.setImage(UIImage(named: "iconLayout3"), for: .normal)
+                    self.gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 }
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 DispatchQueue.main.async {
-                    self.gridButton.setImage(UIImage(named: "iconLayout4"), for: .normal)
+                    self.gridButton.setImage(ImageLiteral.iconLayout4, for: .normal)
                 }
                 return cell
             case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
                 DispatchQueue.main.async {
-                    self.gridButton.setImage(UIImage(named: "iconLayout2"), for: .normal)
+                    self.gridButton.setImage(ImageLiteral.iconLayout2, for: .normal)
                     // self.sortButton.setTitle(self.sortList[2], for: .normal)
                 }
                 return cell
