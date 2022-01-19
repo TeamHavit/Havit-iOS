@@ -7,12 +7,23 @@
 
 import UIKit
 
+import PanModal
 import SnapKit
 
-class MorePanModalViewController: BaseViewController {
+class MorePanModalViewController: BaseViewController, PanModalPresentable {
+    var panScrollable: UIScrollView? {
+           return nil
+       }
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(300)
+    }
 
+    var longFormHeight: PanModalHeight {
+        return .contentHeight(300)
+    }
+    
     // MARK: - Property
-    let moreList = ["제목 수정", "공유", "카테고리 이동"]
+    private let moreList = ["제목 수정", "공유", "카테고리 이동"]
     
     let titleLabel: UILabel  = {
         let label = UILabel()
@@ -20,7 +31,7 @@ class MorePanModalViewController: BaseViewController {
         return label
     }()
     
-    let topView: UIView = {
+    private let topView: UIView = {
         let view = UIView()
         return view
     }()

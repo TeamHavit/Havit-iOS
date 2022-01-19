@@ -256,18 +256,7 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showMoreBottomSheetViewController(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: "더보기\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-        
-        let view = UIView(frame: CGRect(x: 8.0, y: 8.0, width: actionSheet.view.bounds.size.width - 8.0 * 4.5, height: 120.0))
-        view.backgroundColor = UIColor.green
-        actionSheet.view.addSubview(view)
-        
-        actionSheet.addAction(UIAlertAction(title: "제목 수정", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "공유", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "카테고리 이동", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "알림 설정", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "삭제", style: .default, handler: nil))
-        present(actionSheet, animated: true, completion: nil)
+        self.presentPanModal(MorePanModalViewController())
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {
@@ -320,24 +309,20 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             case .grid:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
-                DispatchQueue.main.async {
-                    self.gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
-                }
+                gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
+                cell.moreButton.addTarget(self, action: #selector(showMoreBottomSheetViewController(_:)), for: .touchUpInside)
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
-                DispatchQueue.main.async {
-                    self.gridButton.setImage(ImageLiteral.iconLayout4, for: .normal)
-                }
+                gridButton.setImage(ImageLiteral.iconLayout4, for: .normal)
+                cell.moreButton.addTarget(self, action: #selector(showMoreBottomSheetViewController(_:)), for: .touchUpInside)
                 return cell
             case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
-                DispatchQueue.main.async {
-                    self.gridButton.setImage(ImageLiteral.iconLayout2, for: .normal)
-                    // self.sortButton.setTitle(self.sortList[2], for: .normal)
-                }
+                gridButton.setImage(ImageLiteral.iconLayout2, for: .normal)
+                cell.moreButton.addTarget(self, action: #selector(showMoreBottomSheetViewController(_:)), for: .touchUpInside)
                 return cell
             }
         default:
