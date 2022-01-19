@@ -69,6 +69,10 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         setupContentPartLayout(with: dummyContents)
     }
     
+    override func configUI() {
+        selectionStyle = .none
+    }
+    
     // MARK: - func
     
     private func setupContentPartLayout(with contents: [String]) {

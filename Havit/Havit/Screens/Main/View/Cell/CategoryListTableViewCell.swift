@@ -85,6 +85,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }
     
     override func configUI() {
+        selectionStyle = .none
         backgroundColor = .white
         applyPageControlPages()
     }
