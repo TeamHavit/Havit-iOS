@@ -20,7 +20,7 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
     
     var filterImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "btnAlarmGray")
+        imageView.image = ImageLiteral.btnAlarmGray
         return imageView
     }()
     

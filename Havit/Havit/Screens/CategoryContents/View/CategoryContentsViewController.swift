@@ -80,7 +80,7 @@ final class CategoryContentsViewController: BaseViewController {
     
     lazy var gridButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "iconLayout3"), for: .normal)
+        button.setImage(ImageLiteral.iconLayout3, for: .normal)
         button.addTarget(self, action: #selector(changeContentsShow(_:)), for: .touchUpInside)
         return button
     }()
@@ -91,7 +91,7 @@ final class CategoryContentsViewController: BaseViewController {
         configuration.imagePlacement = .leading
         configuration.imagePadding = 3
         configuration.title = "최근"
-        configuration.image = UIImage(named: "iconUpdown")
+        configuration.image = ImageLiteral.iconUpdown
         
         var attributes = AttributeContainer()
         attributes.foregroundColor = .gray003
@@ -139,7 +139,6 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     override func render() {
-        
         self.view.addSubViews([mainView, filterView])
         mainView.addSubViews([mainViewBorderView, contentsCollectionView])
         filterView.addSubViews([totalLabel, gridButton, sortButton, filterCollectionView])
@@ -230,7 +229,6 @@ final class CategoryContentsViewController: BaseViewController {
                 border.backgroundColor = UIColor.gray001.cgColor
                 border.masksToBounds = true
                 textField.layer.addSublayer(border)
-                
             }
         }
     }
@@ -249,7 +247,6 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func goToCategoryCorrection(_: UIButton) {
-        
     }
     
     @objc func showSortBottomSheetViewController(_ sender: UIButton) {
@@ -296,11 +293,9 @@ final class CategoryContentsViewController: BaseViewController {
 }
 
 extension CategoryContentsViewController: UISearchBarDelegate {
-    
 }
 
 extension CategoryContentsViewController: UICollectionViewDelegate {
-    
 }
 
 extension CategoryContentsViewController: UICollectionViewDataSource {

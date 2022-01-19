@@ -26,7 +26,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
    
     private let alarmImageView: UIImageView = {
        let imageView = UIImageView()
-       imageView.image = UIImage(named: "iconAlarmtagPuple")
+       imageView.image = ImageLiteral.iconAlarmtagPuple
        return imageView
    }()
    
@@ -66,13 +66,13 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
    
     private var moreButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "btnMore"), for: .normal)
+        button.setImage(ImageLiteral.btnMore, for: .normal)
         return button
    }()
    
     private var isReadImageView: UIImageView = {
        let imageView = UIImageView()
-       imageView.image = UIImage(named: "btnContentsRead")
+       imageView.image = ImageLiteral.btnContentsRead
        return imageView
    }()
    
