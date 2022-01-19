@@ -66,7 +66,6 @@
 		4F4545F82791BFBF00A9E3B1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F72791BFBF00A9E3B1 /* RxCocoa */; };
 		4F4545FA2791BFBF00A9E3B1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545F92791BFBF00A9E3B1 /* RxRelay */; };
 		4F4545FC2791BFBF00A9E3B1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545FB2791BFBF00A9E3B1 /* RxSwift */; };
-		4F4DF4EA27943E5E00DD629C /* ShareExtensionMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4E927943E5E00DD629C /* ShareExtensionMainCoordinator.swift */; };
 		4F4DF4EE27943E9D00DD629C /* CategoryEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */; };
 		4FB24FC22792129B00CCDB0C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F282786A9260059DE76 /* BaseModel.swift */; };
 		4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF6190279136DD00C93C84 /* HttpMethod.swift */; };
@@ -274,7 +273,6 @@
 		4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryNavigationViewController.swift; sourceTree = "<group>"; };
 		4F4545E42790B69600A9E3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F4DF4E927943E5E00DD629C /* ShareExtensionMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionMainCoordinator.swift; sourceTree = "<group>"; };
 		4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEmptyViewController.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -472,7 +470,6 @@
 		4F4DF4E827943E4A00DD629C /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				4F4DF4E927943E5E00DD629C /* ShareExtensionMainCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1287,7 +1284,6 @@
 				4FB24FDB279217DF00CCDB0C /* Logger.swift in Sources */,
 				4FB24FCA2792177200CCDB0C /* MockParser.swift in Sources */,
 				4FB24FF82792192D00CCDB0C /* BaseCoordinator.swift in Sources */,
-				4F4DF4EA27943E5E00DD629C /* ShareExtensionMainCoordinator.swift in Sources */,
 				4FB24FC9279212B600CCDB0C /* NetworkStatus.swift in Sources */,
 				4FB24FE72792181900CCDB0C /* UICollectionView+Extension.swift in Sources */,
 				4FB24FDC279217EC00CCDB0C /* PreviewProvider.swift in Sources */,
