@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15A157F027951008001192B9 /* SearchContentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */; };
-		15A157F32795277D001192B9 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157F22795277D001192B9 /* NotSearchedCollectionViewCell.swift */; };
+		1546A40227984C88009AE579 /* SearchContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A40127984C88009AE579 /* SearchContents.swift */; };
 		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		155D4F8C279147DF0069F035 /* CategoryContentsCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */; };
+		15A157F027951008001192B9 /* SearchContentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */; };
+		15A157F32795277D001192B9 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A157F22795277D001192B9 /* NotSearchedCollectionViewCell.swift */; };
 		15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */; };
 		15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */; };
 		15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */; };
@@ -247,10 +248,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsCoordinator.swift; sourceTree = "<group>"; };
-		15A157F22795277D001192B9 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Coordinator/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1546A40127984C88009AE579 /* SearchContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContents.swift; sourceTree = "<group>"; };
 		155D4F89279132670069F035 /* ToastAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlarm.swift; sourceTree = "<group>"; };
 		155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsCooridnator.swift; sourceTree = "<group>"; };
+		15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentsCoordinator.swift; sourceTree = "<group>"; };
+		15A157F22795277D001192B9 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Coordinator/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCategoryContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166F52796CE0700AD8960 /* Category.swift */,
+				1546A40127984C88009AE579 /* SearchContents.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1345,7 +1348,7 @@
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
 				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
-				15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */,
+				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				15A157F027951008001192B9 /* SearchContentsCoordinator.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
@@ -1368,6 +1371,7 @@
 				EDEF618D2790CB2D00C93C84 /* MainFooterView.swift in Sources */,
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				EDE7D6D427956A3F009C70EF /* RecentContentTableViewCell.swift in Sources */,
+				1546A40227984C88009AE579 /* SearchContents.swift in Sources */,
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				15F41A932791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift in Sources */,
@@ -1483,7 +1487,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1508,7 +1512,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1652,7 +1656,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1681,7 +1685,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
