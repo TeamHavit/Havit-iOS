@@ -15,9 +15,9 @@ class EditCategoryViewController: BaseViewController {
 
     // MARK: - property
 
-    var categoryId = 0
-    var titleText = ""
-    var iconImageId = 0
+    var categoryId: Int
+    var titleText: String
+    var iconImageId: Int
     var sendData: (() -> Void)?
 
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
