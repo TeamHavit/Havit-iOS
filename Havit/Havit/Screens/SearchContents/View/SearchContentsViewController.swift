@@ -11,8 +11,6 @@ import SnapKit
 
 final class SearchContentsViewController: BaseViewController {
     
-    weak var coordinator: SearchContentsCoordinator?
-    
     enum SearchResultType {
         case searching, result, noResult
     }
