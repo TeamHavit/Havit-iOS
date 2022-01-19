@@ -46,10 +46,16 @@ final class SelectCategoryIconViewController: BaseViewController {
         return label
     }()
     
-    private let iconCollectionView: UICollectionView = {
-        let collectionViewLayout = UICollectionViewFlowLayout()
-
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    private lazy var iconCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.itemSize = CGSize(width: 62, height: 62)
+        flowLayout.minimumLineSpacing = 7
+        flowLayout.minimumInteritemSpacing = 7
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.dataSource = self
         collectionView.register(cell: CategoryIconCollectionViewCell.self)
         return collectionView
     }()
@@ -85,7 +91,6 @@ final class SelectCategoryIconViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegation()
     }
     
     // MARK: - func
@@ -128,11 +133,6 @@ final class SelectCategoryIconViewController: BaseViewController {
         navigationItem.leftBarButtonItem = navigationLeftButton
         navigationItem.rightBarButtonItem = navigationRightButton
     }
-    
-    private func setDelegation() {
-        iconCollectionView.delegate = self
-        iconCollectionView.dataSource = self
-    }
 }
 
 extension SelectCategoryIconViewController: UICollectionViewDataSource {
@@ -143,31 +143,5 @@ extension SelectCategoryIconViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
         return cell
-    }
-}
-
-extension SelectCategoryIconViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 62, height: 62)
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 7
     }
 }
