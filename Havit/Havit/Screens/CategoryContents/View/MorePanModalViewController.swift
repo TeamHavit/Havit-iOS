@@ -12,19 +12,11 @@ import SnapKit
 
 class MorePanModalViewController: BaseViewController, PanModalPresentable {
     var panScrollable: UIScrollView? {
-           return nil
-       }
-    var shortFormHeight: PanModalHeight {
-        return .contentHeight(451)
+        return nil
     }
-
-    var longFormHeight: PanModalHeight {
-        return .contentHeight(451)
-    }
-    
-    var cornerRadius: CGFloat {
-        return 30
-    }
+    var shortFormHeight: PanModalHeight = .contentHeight(451)
+    var longFormHeight: PanModalHeight = .contentHeight(451)
+    var cornerRadius: CGFloat = 30
     
     private let moreList = ["제목 수정", "공유", "카테고리 이동", "알림 설정", "삭제"]
     
@@ -85,7 +77,6 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     let moreTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(cell: MorePanModalTableViewCell.self)
-        // sortTableView.separatorStyle = .none
         return tableView
     }()
     
@@ -168,21 +159,23 @@ extension MorePanModalViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! MorePanModalTableViewCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? MorePanModalTableViewCell else {
+            return
+        }
         cell.backgroundColor = .purpleCategory
-        cell.label.font = UIFont.font(.pretendardSemibold, ofSize: 16)
-        cell.label.textColor = .havitPurple
+        cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
+        cell.cellLabel.textColor = .havitPurple
     }
 }
 
 extension MorePanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: MorePanModalTableViewCell.self, for: indexPath)
-        cell.label.text = moreList[indexPath.row]
+        cell.cellLabel.text = moreList[indexPath.row]
         cell.cellImageView.image = imageList[indexPath.row]
         cell.selectionStyle = .none
         if indexPath.row == 4 {
-            cell.label.textColor = .havitRed
+            cell.cellLabel.textColor = .havitRed
         }
         return cell
     }

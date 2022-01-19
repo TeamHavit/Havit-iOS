@@ -12,20 +12,11 @@ import SnapKit
 
 class SortPanModalViewController: BaseViewController, PanModalPresentable {
     var panScrollable: UIScrollView? {
-           return nil
+        return nil
     }
-    
-    var shortFormHeight: PanModalHeight {
-        return .contentHeight(278)
-    }
-
-    var longFormHeight: PanModalHeight {
-        return .contentHeight(278)
-    }
-    
-    var cornerRadius: CGFloat {
-        return 0
-    }
+    var shortFormHeight: PanModalHeight = .contentHeight(278)
+    var longFormHeight: PanModalHeight = .contentHeight(278)
+    var cornerRadius: CGFloat = 0
     
     let sortList = ["최신순", "과거순", "최근 조회순"]
     
@@ -83,17 +74,19 @@ extension SortPanModalViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! SortPanModalTableViewCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? SortPanModalTableViewCell else {
+            return
+        }
         cell.backgroundColor = .purpleCategory
-        cell.label.font = UIFont.font(.pretendardSemibold, ofSize: 16)
-        cell.label.textColor = .havitPurple
+        cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
+        cell.cellLabel.textColor = .havitPurple
     }
 }
 
 extension SortPanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: SortPanModalTableViewCell.self, for: indexPath)
-        cell.label.text = sortList[indexPath.row]
+        cell.cellLabel.text = sortList[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }

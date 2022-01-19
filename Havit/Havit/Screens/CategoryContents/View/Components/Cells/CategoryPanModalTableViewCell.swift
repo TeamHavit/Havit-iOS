@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class CategoryPanModalTableViewCell: BaseTableViewCell {
-    var label: UILabel = {
+    var cellLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(.pretendardSemibold, ofSize: 14)
         label.textColor = .gray003
@@ -28,10 +28,6 @@ class CategoryPanModalTableViewCell: BaseTableViewCell {
         view.backgroundColor = .gray000
         return view
     }()
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
@@ -39,16 +35,16 @@ class CategoryPanModalTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
-        contentView.addSubViews([label, border, cellImageView])
+        contentView.addSubViews([cellLabel, border, cellImageView])
         
-        label.snp.makeConstraints {
+        cellLabel.snp.makeConstraints {
             $0.centerY.equalTo(contentView)
             $0.leading.equalTo(contentView).offset(31)
         }
         
         cellImageView.snp.makeConstraints {
             $0.centerY.equalTo(contentView)
-            $0.leading.equalTo(label.snp.trailing).offset(7)
+            $0.leading.equalTo(cellLabel.snp.trailing).offset(7)
             $0.width.height.equalTo(15)
         }
         

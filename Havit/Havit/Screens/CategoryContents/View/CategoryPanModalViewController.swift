@@ -11,21 +11,12 @@ import SnapKit
 
 class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
     var panScrollable: UIScrollView? {
-           return nil
+        return nil
     }
-    
-    var shortFormHeight: PanModalHeight {
-        return .contentHeight(400)
-    }
+    var shortFormHeight: PanModalHeight = .contentHeight(400)
+    var longFormHeight: PanModalHeight = .contentHeight(400)
+    var cornerRadius: CGFloat = 0
 
-    var longFormHeight: PanModalHeight {
-        return .contentHeight(400)
-    }
-    
-    var cornerRadius: CGFloat {
-        return 0
-    }
-    
     let categoryList = ["UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스"]
     
     let titleLabel: UILabel = {
@@ -82,10 +73,12 @@ extension CategoryPanModalViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! CategoryPanModalTableViewCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? CategoryPanModalTableViewCell else {
+            return
+        }
         cell.backgroundColor = .purpleCategory
-        cell.label.font = UIFont.font(.pretendardSemibold, ofSize: 16)
-        cell.label.textColor = .havitPurple
+        cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
+        cell.cellLabel.textColor = .havitPurple
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,7 +89,7 @@ extension CategoryPanModalViewController: UITableViewDelegate {
 extension CategoryPanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: CategoryPanModalTableViewCell.self, for: indexPath)
-        cell.label.text = categoryList[indexPath.row]
+        cell.cellLabel.text = categoryList[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
