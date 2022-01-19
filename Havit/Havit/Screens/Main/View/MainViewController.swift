@@ -22,6 +22,10 @@ final class MainViewController: MainTableViewController {
         appendDummyPresentableCells()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBarHidden()
+    }
+    
     override func render() {
         view.addSubViews([topView, tableView])
         
@@ -37,7 +41,12 @@ final class MainViewController: MainTableViewController {
     }
     
     override func configUI() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .whiteGray
+    }
+    
+    // MARK: - func
+    
+    private func setupNavigationBarHidden() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

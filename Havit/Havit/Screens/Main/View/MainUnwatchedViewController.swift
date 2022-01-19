@@ -16,6 +16,7 @@ final class MainUnwatchedViewController: BaseViewController {
     weak var coordinator: UnwatchedCoordinator?
     
     override func configUI() {
+        super.configUI()
         view.backgroundColor = .primaryBlack
     }
 }
