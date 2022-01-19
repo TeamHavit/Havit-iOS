@@ -64,6 +64,9 @@ enum ImageLiteral {
     static var imgCategoryNone: UIImage { .load(named: "imgCategoryNone")}
     static var imgCategoryTip: UIImage { .load(named: "imgCategoryTip")}
     static var imgCarret: UIImage { .load(named: "imgCarret")}
+    static var imgContentsDummyImg1: UIImage { .load(named: "imgContentsDummyImg1")}
+    static var imgContentsDummyImg2: UIImage { .load(named: "imgContentsDummyImg2")}
+    static var imgContentsDummyImg3: UIImage { .load(named: "imgContentsDummyImg3")}
     static var imgDummyContent: UIImage { .load(named: "imgDummyContent")}
     static var imgElleKorea: UIImage { .load(named: "imgElleKorea")}
     static var imgGraphicNoalarm: UIImage { .load(named: "imgGraphicNoalarm")}
