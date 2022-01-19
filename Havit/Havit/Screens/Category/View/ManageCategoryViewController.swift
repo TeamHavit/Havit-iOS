@@ -176,8 +176,14 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         cell.configure(type: .manage)
         cell.update(data: categories[indexPath.row])
         cell.presentEditCategoryClosure = {
-            let editCategory = EditCategoryViewController()
-
+            let categoryId = self.categories[indexPath.row].id ?? 0
+            let titleText = self.categories[indexPath.row].title ?? ""
+            let imageId = self.categories[indexPath.row].imageId ?? 0
+            
+            let editCategory = EditCategoryViewController(categoryId: categoryId, titleText: titleText, imageId: imageId)
+            editCategory.sendData = {
+                print("ddd")
+            }
             self.navigationController?.pushViewController(editCategory, animated: true)
         }
         return cell

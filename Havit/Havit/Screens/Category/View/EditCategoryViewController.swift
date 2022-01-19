@@ -15,6 +15,11 @@ class EditCategoryViewController: BaseViewController {
 
     // MARK: - property
 
+    var categoryId = 0
+    var titleText = ""
+    var iconImageId = 0
+    var sendData: (() -> Void)?
+
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
 
     private let titleLabel: UILabel = {
@@ -80,18 +85,35 @@ class EditCategoryViewController: BaseViewController {
         return button
     }()
 
+    // MARK: - init
+
+    init(categoryId: Int, titleText: String, imageId: Int) {
+        self.categoryId = categoryId
+        categoryTitleTextField.text = titleText
+        self.iconImageId = imageId
+
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+        print(categoryId)
+        print(iconImageId)
     }
 
     func editCategory() {
         Task {
             do {
-                let categories = try await categoryService.editCategory(categoryId: 3, title: "카테고리 수정", imageId: 2)
+                try await categoryService.editCategory(categoryId: categoryId, title: categoryTitleTextField.text ?? "", imageId: iconImageId)
                 self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { [weak self] _ in
+                    self?.sendData?()
                     self?.navigationController?.popViewController(animated: true)
                 })
             } catch APIServiceError.serverError {
@@ -191,6 +213,12 @@ class EditCategoryViewController: BaseViewController {
     }
 }
 
+extension EditCategoryViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        iconImageId = indexPath.row + 1
+    }
+}
+
 extension EditCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
@@ -198,6 +226,14 @@ extension EditCategoryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
+
+        if indexPath.row == iconImageId - 1 {
+            cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+        } else {
+            cell.isSelected = false
+        }
+
         return cell
     }
     
