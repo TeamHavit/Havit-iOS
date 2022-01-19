@@ -50,7 +50,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     
-    private let dummyContents: [String] = ["헤더 제목", "제목 헤더", "헤더를 입력하세요.", "헤더 입력하세요.", "입력 헤더", "헤더 입력"]
+    private let dummyContents: [String] = ["헤더 제목", "제목 헤더 헤더를 입력하세요. 헤더를 입력하세요.", "헤더를 입력하세요.", "헤더 입력하세요.", "입력 헤더", "헤더 입력"]
     
     override func render() {
         contentView.addSubViews([titleLabel, overallButton, contentCollectionView])
