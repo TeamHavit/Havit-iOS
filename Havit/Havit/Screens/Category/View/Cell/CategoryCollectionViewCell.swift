@@ -112,9 +112,9 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     // MARK: - func
 
     func update(data: Category) {
-        let url = URL(string: data.imageUrl ?? "")
-
-        categoryImageView.kf.setImage(with: url)
+        if let url = URL(string: data.imageUrl ?? "") {
+            categoryImageView.kf.setImage(with: url)
+        }
         categoryTitleLabel.text = data.title
     }
 }
