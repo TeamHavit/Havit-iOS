@@ -122,8 +122,7 @@ final class SelectCategoryIconViewController: BaseViewController {
         }
         
         completeButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(84)
         }
     }
