@@ -73,6 +73,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: ReachRateNotificationTableViewCell.self)
         tableView.register(cell: ReachRateTableViewCell.self)
         tableView.register(cell: CategoryListTableViewCell.self)
+        tableView.register(cell: GuidelineTableViewCell.self)
         return tableView
     }()
   
@@ -131,6 +132,10 @@ extension MainTableViewController: UITableViewDataSource {
             switch cellType {
             case .category:
                 let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
+                                                         for: indexPath)
+                return cell
+            case .guideline:
+                let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
                                                          for: indexPath)
                 return cell
             default:
