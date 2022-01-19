@@ -41,7 +41,6 @@ final class MainUnwatchedViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        setupCollectionViewHiddenState(with: true)
     }
     
     override func render() {
@@ -61,6 +60,7 @@ final class MainUnwatchedViewController: BaseViewController {
         super.configUI()
         view.backgroundColor = .white
         setupNavigationBar()
+        setupCollectionViewHiddenState(with: true)
     }
     
     // MARK: - func
