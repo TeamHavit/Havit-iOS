@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 import RxSwift
 import RxCocoa
@@ -110,8 +111,10 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - func
 
-    func update(data: CategoryListData) {
-        categoryImageView.image = UIImage(named: data.categoryImageName)
-        categoryTitleLabel.text = "\(data.categoryTitle)"
+    func update(data: Category) {
+        if let url = URL(string: data.imageUrl ?? "") {
+            categoryImageView.kf.setImage(with: url)
+        }
+        categoryTitleLabel.text = data.title
     }
 }
