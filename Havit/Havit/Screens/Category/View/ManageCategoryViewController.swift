@@ -15,7 +15,7 @@ class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
 
-    private var categoryList: [CategoryListData] = CategoryListData.dummy
+    var categories: [Category] = []
     weak var coordinator: ManageCategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -168,7 +168,7 @@ class ManageCategoryViewController: BaseViewController {
 
 extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryList.count
+        return categories.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -176,7 +176,7 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
         
         cell.configure(type: .manage)
-        cell.update(data: categoryList[indexPath.row])
+        cell.update(data: categories[indexPath.row])
         return cell
     }
 
@@ -190,8 +190,8 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         let cell = categoryCollectionView.cellForItem(at: destinationIndexPath)
         cell?.backgroundColor = .purpleCategory
 
-        let categoryItem = categoryList.remove(at: sourceIndexPath.row)
-        categoryList.insert(categoryItem, at: destinationIndexPath.row)
+        let categoryItem = categories.remove(at: sourceIndexPath.row)
+        categories.insert(categoryItem, at: destinationIndexPath.row)
     }
 }
 
