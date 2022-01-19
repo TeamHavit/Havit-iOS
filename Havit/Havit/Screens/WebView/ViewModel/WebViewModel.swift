@@ -16,15 +16,17 @@ final class WebViewModel {
     let urlString: BehaviorSubject<String?>
     let canGoBack: BehaviorSubject<Bool>
     let canGoForward: BehaviorSubject<Bool>
+    let isReadContent: BehaviorSubject<Bool>
     
     // MARK: - ViewModel -> View
     
     var urlRequest: Observable<URLRequest>
     
-    init(urlString: String) {
+    init(urlString: String, isReadContent: Bool) {
         self.urlString = BehaviorSubject<String?>(value: urlString)
         self.canGoBack = BehaviorSubject(value: false)
         self.canGoForward = BehaviorSubject(value: false)
+        self.isReadContent = BehaviorSubject(value: false)
         
         self.urlRequest = self.urlString
             .compactMap { urlString -> String? in
