@@ -51,7 +51,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }()
     private let recentEmptyView = MainRecentContentEmptyView()
     
-    private let dummyContents: [String] = ["더미 컨텐츠", "꼭 봐야하는 코딩 기술"]
+    private let dummyContents: [String] = []
     
     override func render() {
         contentView.addSubViews([titleLabel, overallButton])
@@ -94,13 +94,6 @@ final class RecentContentTableViewCell: BaseTableViewCell {
                 $0.height.equalTo(98)
             }
         }
-        
-        setupCollectionViewHiddenState(with: hasContent)
-    }
-    
-    private func setupCollectionViewHiddenState(with hasContent: Bool) {
-        contentCollectionView.isHidden = !hasContent
-        recentEmptyView.isHidden = hasContent
     }
 }
 
