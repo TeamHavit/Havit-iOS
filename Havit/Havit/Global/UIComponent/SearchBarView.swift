@@ -15,7 +15,7 @@ final class SearchBarView: UIView {
     
     private let searchIconImageView: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .blue
+        image.image = ImageLiteral.iconSearch
         return image
     }()
     private let searchLabel: UILabel = {
@@ -49,7 +49,8 @@ final class SearchBarView: UIView {
         addSubViews([searchIconImageView, searchLabel, bottomBar])
         
         searchIconImageView.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(3)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(3)
             $0.width.equalTo(19)
             $0.height.equalTo(17)
         }

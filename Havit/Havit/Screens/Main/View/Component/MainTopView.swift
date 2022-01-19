@@ -15,13 +15,13 @@ final class MainTopView: UIView {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.image = ImageLiteral.imgTextLogo
         imageView.contentMode = .scaleToFill
         return imageView
     }()
     private let alarmButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
-        button.backgroundColor = .blue
+        button.setImage(ImageLiteral.btnAlarm, for: .normal)
         return button
     }()
 

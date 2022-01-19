@@ -15,13 +15,15 @@ final class MainViewController: MainTableViewController {
     
     private let topView = MainTopView()
     
-    weak var coordinator: MainCoordinator?
-    
     // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         appendDummyPresentableCells()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBarHidden()
     }
     
     override func render() {
@@ -39,7 +41,12 @@ final class MainViewController: MainTableViewController {
     }
     
     override func configUI() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .whiteGray
+    }
+    
+    // MARK: - func
+    
+    private func setupNavigationBarHidden() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

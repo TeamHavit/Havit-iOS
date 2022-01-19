@@ -16,7 +16,7 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     private let contentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .gray001
+        imageView.image = ImageLiteral.imgDummyContent
         imageView.layer.cornerRadius = 6
         return imageView
     }()
@@ -49,7 +49,6 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     private var buttonContainer = AttributeContainer([.font: UIFont.font(.pretendardReular, ofSize: 10)])
     
     override func prepareForReuse() {
-        contentImageView.image = nil
         titleLabel.text = ""
         dateLabel.text = ""
         buttonConfiguration.attributedTitle = AttributedString("카테고리 없음", attributes: buttonContainer)

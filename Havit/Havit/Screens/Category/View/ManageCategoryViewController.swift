@@ -16,7 +16,6 @@ class ManageCategoryViewController: BaseViewController {
     // MARK: - property
 
     var categories: [Category] = []
-    weak var coordinator: ManageCategoryCoordinator?
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -126,7 +125,7 @@ class ManageCategoryViewController: BaseViewController {
             doneButton.rx.tap.map { $0 }
         )
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .previous)
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
