@@ -19,7 +19,7 @@ final class MainTopView: UIView {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    private let alarmButton: UIButton = {
+    let alarmButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
         button.setImage(ImageLiteral.btnAlarm, for: .normal)
         return button
