@@ -90,12 +90,14 @@ class EditCategoryViewController: BaseViewController {
     func editCategory() {
         Task {
             do {
-                let categories = try await categoryService.editCategory(categoryId: 18, title: "카테고리 수정", imageId: 2)
+                let categories = try await categoryService.editCategory(categoryId: 3, title: "카테고리 수정", imageId: 2)
                 self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { [weak self] _ in
                     self?.navigationController?.popViewController(animated: true)
                 })
-            } catch {
-                print("error")
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
             }
         }
     }
