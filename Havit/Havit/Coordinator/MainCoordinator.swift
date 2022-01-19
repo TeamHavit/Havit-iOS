@@ -10,7 +10,7 @@ import Foundation
 final class MainCoordinator: BaseCoordinator {
     
     enum MainTransition {
-        case guide
+        case unwatched
     }
 
     override func start() {
@@ -20,6 +20,10 @@ final class MainCoordinator: BaseCoordinator {
     }
     
     func performTransition(to transition: MainTransition) {
-        
+        switch transition {
+        case .unwatched:
+            let coordinator = UnwatchedCoordinator(navigationController: navigationController)
+            start(coordinator: coordinator)
+        }
     }
 }

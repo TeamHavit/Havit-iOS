@@ -10,5 +10,12 @@ import UIKit
 import SnapKit
 
 final class MainUnwatchedViewController: BaseViewController {
-
+    
+    // MARK: - property
+    
+    weak var coordinator: UnwatchedCoordinator?
+    
+    override func configUI() {
+        view.backgroundColor = .primaryBlack
+    }
 }

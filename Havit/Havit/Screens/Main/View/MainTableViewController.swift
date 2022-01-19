@@ -44,6 +44,8 @@ class MainTableViewController: BaseViewController {
     
     // MARK: - property
     
+    weak var coordinator: MainCoordinator?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -118,6 +120,9 @@ extension MainTableViewController: UITableViewDataSource {
         case .progress:
             let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
                                                      for: indexPath)
+            cell.didTapUnwatchedButton = { [weak self] in
+                self?.coordinator?.performTransition(to: .unwatched)
+            }
             cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
             return cell
         }

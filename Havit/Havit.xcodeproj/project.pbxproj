@@ -164,6 +164,7 @@
 		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
 		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 		ED87AE5E2798125500517AEC /* MainUnwatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */; };
+		ED87AE60279814D400517AEC /* UnwatchedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87AE5F279814D400517AEC /* UnwatchedCoordinator.swift */; };
 		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
 		EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099627905C7D0093B83F /* MainTopView.swift */; };
 		EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */; };
@@ -331,6 +332,7 @@
 		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnwatchedViewController.swift; sourceTree = "<group>"; };
+		ED87AE5F279814D400517AEC /* UnwatchedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwatchedCoordinator.swift; sourceTree = "<group>"; };
 		EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		EDDE099627905C7D0093B83F /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				15A157EF27951008001192B9 /* SearchContentsCoordinator.swift */,
 				155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */,
 				4D4E961F2794570F00F11788 /* EditCategoryCoordinator.swift */,
+				ED87AE5F279814D400517AEC /* UnwatchedCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1411,6 +1414,7 @@
 				4D4E96202794570F00F11788 /* EditCategoryCoordinator.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				4D4DDD49279143330069F5FB /* ManageCategoryCoordinator.swift in Sources */,
+				ED87AE60279814D400517AEC /* UnwatchedCoordinator.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
 				ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */,
 				EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */,

@@ -7,9 +7,12 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class ReachRateTableViewCell: BaseTableViewCell {
+    
+    var didTapUnwatchedButton: (() -> Void)?
     
     // MARK: - property
     
@@ -28,6 +31,18 @@ final class ReachRateTableViewCell: BaseTableViewCell {
         button.layer.borderWidth = 1
         return button
     }()
+    
+    // MARK: - init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bind()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func render() {
         contentView.addSubViews([rateContentView, unwatchedButton])
@@ -51,6 +66,15 @@ final class ReachRateTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - func
+    
+    private func bind() {
+        unwatchedButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.didTapUnwatchedButton?()
+            })
+            .disposed(by: disposeBag)
+    }
     
     func updateData(name: String, watchedCount: Int, totalCount: Int) {
         rateContentView.updateName(to: name)
