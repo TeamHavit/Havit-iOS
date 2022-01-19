@@ -70,6 +70,7 @@
 		4F4545FC2791BFBF00A9E3B1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F4545FB2791BFBF00A9E3B1 /* RxSwift */; };
 		4F4DF4EA27943E5E00DD629C /* ShareExtensionMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4E927943E5E00DD629C /* ShareExtensionMainCoordinator.swift */; };
 		4F4DF4EE27943E9D00DD629C /* CategoryEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */; };
+		4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */; };
 		4FB24FC22792129B00CCDB0C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F282786A9260059DE76 /* BaseModel.swift */; };
 		4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF6190279136DD00C93C84 /* HttpMethod.swift */; };
 		4FB24FC4279212A700CCDB0C /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61922791375900C93C84 /* APIEnvironment.swift */; };
@@ -278,6 +279,7 @@
 		4F4545E42790B69600A9E3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F4DF4E927943E5E00DD629C /* ShareExtensionMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionMainCoordinator.swift; sourceTree = "<group>"; };
 		4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEmptyViewController.swift; sourceTree = "<group>"; };
+		4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTitleViewController.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED443EAD278598670059DE76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED443EAF278598670059DE76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */,
+				4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1310,6 +1313,7 @@
 				4FB24FC9279212B600CCDB0C /* NetworkStatus.swift in Sources */,
 				4FB24FE72792181900CCDB0C /* UICollectionView+Extension.swift in Sources */,
 				4FB24FDC279217EC00CCDB0C /* PreviewProvider.swift in Sources */,
+				4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */,
 				4FB24FD9279217D300CCDB0C /* BaseCollectionViewCell.swift in Sources */,
 				4FB24FE02792180100CCDB0C /* UIView+Extension.swift in Sources */,
 				4FB24FE32792180B00CCDB0C /* UIButton+Extension.swift in Sources */,
