@@ -1,5 +1,5 @@
 //
-//  SortBottomSheetViewController.swift
+//  SortPanModalViewController.swift
 //  Havit
 //
 //  Created by 박예빈 on 2022/01/14.
@@ -7,9 +7,21 @@
 
 import UIKit
 
+import PanModal
 import SnapKit
 
-class SortBottomSheetViewController: BaseViewController {
+class SortPanModalViewController: BaseViewController, PanModalPresentable {
+    var panScrollable: UIScrollView? {
+           return nil
+       }
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(300)
+    }
+
+    var longFormHeight: PanModalHeight {
+        return .contentHeight(300)
+    }
+    
     // MARK: - Property
     let sortList = ["최신순", "과거순", "최근 조회순"]
     
@@ -21,7 +33,7 @@ class SortBottomSheetViewController: BaseViewController {
     
     let sortTableView: UITableView = {
         var tableView = UITableView()
-        tableView.register(cell: SortBottomSheetTableViewCell.self, forCellReuseIdentifier: SortBottomSheetTableViewCell.className)
+        tableView.register(cell: SortPanModalTableViewCell.self, forCellReuseIdentifier: SortPanModalTableViewCell.className)
         // sortTableView.separatorStyle = .none
         return tableView
     }()
@@ -56,15 +68,15 @@ class SortBottomSheetViewController: BaseViewController {
     }
 }
 
-extension SortBottomSheetViewController: UITableViewDelegate {
+extension SortPanModalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sortList.count
     }
 }
 
-extension SortBottomSheetViewController: UITableViewDataSource {
+extension SortPanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withType: SortBottomSheetTableViewCell.self, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withType: SortPanModalTableViewCell.self, for: indexPath)
         cell.label.text = sortList[indexPath.row]
         return cell
     }

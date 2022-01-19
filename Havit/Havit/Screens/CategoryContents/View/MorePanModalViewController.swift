@@ -1,5 +1,5 @@
 //
-//  MoreBottomSheetViewController.swift
+//  MorePanModalViewController.swift
 //  Havit
 //
 //  Created by 박예빈 on 2022/01/15.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class MoreBottomSheetViewController: BaseViewController {
+class MorePanModalViewController: BaseViewController {
 
     // MARK: - Property
     let moreList = ["제목 수정", "공유", "카테고리 이동"]
@@ -47,7 +47,7 @@ class MoreBottomSheetViewController: BaseViewController {
     
     let moreTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(cell: MoreBottomSheetTableViewCell.self)
+        tableView.register(cell: MorePanModalTableViewCell.self)
         // sortTableView.separatorStyle = .none
         return tableView
     }()
@@ -113,15 +113,15 @@ class MoreBottomSheetViewController: BaseViewController {
     }
 }
 
-extension MoreBottomSheetViewController: UITableViewDelegate {
+extension MorePanModalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moreList.count
     }
 }
 
-extension MoreBottomSheetViewController: UITableViewDataSource {
+extension MorePanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withType: MoreBottomSheetTableViewCell.self, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withType: MorePanModalTableViewCell.self, for: indexPath)
         cell.label.text = moreList[indexPath.row]
         return cell
     }

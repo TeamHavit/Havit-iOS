@@ -7,6 +7,7 @@
 
 import UIKit
 
+import PanModal
 import RxSwift
 import SnapKit
 
@@ -101,6 +102,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         let button = UIButton(configuration: configuration,
                               primaryAction: nil)
+        button.addTarget(self, action: #selector(showSortBottomSheetViewController(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -250,14 +252,7 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showSortBottomSheetViewController(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: "정렬", message: nil, preferredStyle: .actionSheet)
-        
-        actionSheet.addAction(UIAlertAction(title: "최신순", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "과거순", style: .default, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "최근 조회순", style: .default, handler: nil))
-        
-        // actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(actionSheet, animated: true, completion: nil)
+        self.presentPanModal(SortPanModalViewController())
     }
     
     @objc func showMoreBottomSheetViewController(_ sender: UIButton) {

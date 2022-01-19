@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SortBottomSheetTableViewCell: BaseTableViewCell {
+class SortPanModalTableViewCell: BaseTableViewCell {
     var label: UILabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

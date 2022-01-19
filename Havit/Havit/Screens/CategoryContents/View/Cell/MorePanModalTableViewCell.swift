@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoreBottomSheetTableViewCell: BaseTableViewCell {
+class MorePanModalTableViewCell: BaseTableViewCell {
 
     // MARK: - Properties
     var cellImageView: UIImageView = UIImageView()

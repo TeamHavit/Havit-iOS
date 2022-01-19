@@ -17,10 +17,10 @@
 		15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */; };
 		15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE2278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift */; };
 		15D49CE5278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE4278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift */; };
-		15F41A8D2791C13600ADF17A /* SortBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A8C2791C13600ADF17A /* SortBottomSheetViewController.swift */; };
-		15F41A8F2791C60000ADF17A /* SortBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A8E2791C60000ADF17A /* SortBottomSheetTableViewCell.swift */; };
-		15F41A912791EDB400ADF17A /* MoreBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A902791EDB400ADF17A /* MoreBottomSheetViewController.swift */; };
-		15F41A932791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift */; };
+		15F41A8D2791C13600ADF17A /* SortPanModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A8C2791C13600ADF17A /* SortPanModalViewController.swift */; };
+		15F41A8F2791C60000ADF17A /* SortPanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A8E2791C60000ADF17A /* SortPanModalTableViewCell.swift */; };
+		15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */; };
+		15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51D6279085A40098A835 /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
@@ -249,10 +249,10 @@
 		15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE2278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContents2xNCollectionViewCell.swift; sourceTree = "<group>"; };
 		15D49CE4278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContents1xNCollectionViewCell.swift; sourceTree = "<group>"; };
-		15F41A8C2791C13600ADF17A /* SortBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBottomSheetViewController.swift; sourceTree = "<group>"; };
-		15F41A8E2791C60000ADF17A /* SortBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBottomSheetTableViewCell.swift; sourceTree = "<group>"; };
-		15F41A902791EDB400ADF17A /* MoreBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBottomSheetViewController.swift; sourceTree = "<group>"; };
-		15F41A922791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBottomSheetTableViewCell.swift; sourceTree = "<group>"; };
+		15F41A8C2791C13600ADF17A /* SortPanModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPanModalViewController.swift; sourceTree = "<group>"; };
+		15F41A8E2791C60000ADF17A /* SortPanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPanModalTableViewCell.swift; sourceTree = "<group>"; };
+		15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalViewController.swift; sourceTree = "<group>"; };
+		15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalTableViewCell.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D5279085A40098A835 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
@@ -413,8 +413,8 @@
 				15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */,
 				15D49CE2278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift */,
 				15D49CE4278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift */,
-				15F41A8E2791C60000ADF17A /* SortBottomSheetTableViewCell.swift */,
-				15F41A922791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift */,
+				15F41A8E2791C60000ADF17A /* SortPanModalTableViewCell.swift */,
+				15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -860,8 +860,8 @@
 			isa = PBXGroup;
 			children = (
 				ED443F182786A3450059DE76 /* CategoryContentsViewController.swift */,
-				15F41A8C2791C13600ADF17A /* SortBottomSheetViewController.swift */,
-				15F41A902791EDB400ADF17A /* MoreBottomSheetViewController.swift */,
+				15F41A8C2791C13600ADF17A /* SortPanModalViewController.swift */,
+				15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */,
 				155D4F86279098360069F035 /* Cell */,
 			);
 			path = View;
@@ -1310,7 +1310,7 @@
 				15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */,
 				ED443F292786A9260059DE76 /* BaseModel.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
-				15F41A8D2791C13600ADF17A /* SortBottomSheetViewController.swift in Sources */,
+				15F41A8D2791C13600ADF17A /* SortPanModalViewController.swift in Sources */,
 				ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */,
 				15D49CE5278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift in Sources */,
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
@@ -1338,8 +1338,8 @@
 				ED443F87278B6D5E0059DE76 /* MainCoordinator.swift in Sources */,
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
-				15F41A932791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift in Sources */,
-				15F41A912791EDB400ADF17A /* MoreBottomSheetViewController.swift in Sources */,
+				15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */,
+				15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
 				ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
@@ -1349,7 +1349,7 @@
 				EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */,
-				15F41A8F2791C60000ADF17A /* SortBottomSheetTableViewCell.swift in Sources */,
+				15F41A8F2791C60000ADF17A /* SortPanModalTableViewCell.swift in Sources */,
 				ED443F252786A4310059DE76 /* MypageViewController.swift in Sources */,
 				EDEF61B42791453A00C93C84 /* entire_alarm.json in Sources */,
 				EDE7D6C72792BDB4009C70EF /* RateContentView.swift in Sources */,
