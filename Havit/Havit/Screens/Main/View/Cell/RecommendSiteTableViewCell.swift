@@ -81,6 +81,10 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
             $0.height.equalTo(727)
         }
     }
+    
+    override func configUI() {
+        selectionStyle = .none
+    }
 }
 
 extension RecommendSiteTableViewCell: UICollectionViewDataSource {

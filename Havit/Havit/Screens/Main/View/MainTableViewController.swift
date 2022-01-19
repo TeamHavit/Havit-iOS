@@ -49,6 +49,7 @@ class MainTableViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        tableView.separatorColor = .clear
         tableView.sectionHeaderTopPadding = 0
         tableView.estimatedRowHeight = 44
         tableView.showsVerticalScrollIndicator = false

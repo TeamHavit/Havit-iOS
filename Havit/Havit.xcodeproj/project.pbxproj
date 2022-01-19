@@ -172,6 +172,8 @@
 		EDE7D6D827958F2F009C70EF /* RecommendSiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6D727958F2F009C70EF /* RecommendSiteTableViewCell.swift */; };
 		EDE7D6DA2795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6D92795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift */; };
 		EDE7D6DC2795BE0E009C70EF /* LogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6DB2795BE0E009C70EF /* LogoTableViewCell.swift */; };
+		EDE7D6DE2797E3C7009C70EF /* MainCategoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6DD2797E3C7009C70EF /* MainCategoryEmptyView.swift */; };
+		EDE7D6E02797EEA8009C70EF /* MainRecentContentEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D6DF2797EEA7009C70EF /* MainRecentContentEmptyView.swift */; };
 		EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */; };
 		EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */; };
 		EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF618E279126EF00C93C84 /* Encodable+Extension.swift */; };
@@ -329,6 +331,8 @@
 		EDE7D6D727958F2F009C70EF /* RecommendSiteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSiteTableViewCell.swift; sourceTree = "<group>"; };
 		EDE7D6D92795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSiteCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDE7D6DB2795BE0E009C70EF /* LogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTableViewCell.swift; sourceTree = "<group>"; };
+		EDE7D6DD2797E3C7009C70EF /* MainCategoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryEmptyView.swift; sourceTree = "<group>"; };
+		EDE7D6DF2797EEA7009C70EF /* MainRecentContentEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentContentEmptyView.swift; sourceTree = "<group>"; };
 		EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchHeaderView.swift; sourceTree = "<group>"; };
 		EDEF618A2790C2AC00C93C84 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		EDEF618E279126EF00C93C84 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
@@ -946,6 +950,8 @@
 				EDEF61882790B05A00C93C84 /* MainSearchHeaderView.swift */,
 				EDE7D6C62792BDB4009C70EF /* RateContentView.swift */,
 				EDE7D6CF27953E2E009C70EF /* MainCategoryPageControl.swift */,
+				EDE7D6DD2797E3C7009C70EF /* MainCategoryEmptyView.swift */,
+				EDE7D6DF2797EEA7009C70EF /* MainRecentContentEmptyView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1277,6 +1283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */,
+				EDE7D6E02797EEA8009C70EF /* MainRecentContentEmptyView.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				15A157F32795277D001192B9 /* NotSearchedCollectionViewCell.swift in Sources */,
 				15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */,
@@ -1290,6 +1297,7 @@
 				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */,
+				EDE7D6DE2797E3C7009C70EF /* MainCategoryEmptyView.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				ED443F1B2786A3540059DE76 /* CategoryContentsViewModel.swift in Sources */,
 				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,

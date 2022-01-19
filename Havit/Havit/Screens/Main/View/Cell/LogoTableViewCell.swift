@@ -46,5 +46,6 @@ final class LogoTableViewCell: BaseTableViewCell {
     
     override func configUI() {
         backgroundColor = .clear
+        selectionStyle = .none
     }
 }
