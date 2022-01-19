@@ -59,7 +59,7 @@ final class MainRecentViewController: BaseViewController {
         super.configUI()
         view.backgroundColor = .white
         setupNavigationBar()
-        setupCollectionViewHiddenState(with: true)
+        setupCollectionViewHiddenState(with: false)
     }
     
     // MARK: - func
