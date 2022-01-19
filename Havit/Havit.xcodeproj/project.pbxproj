@@ -22,7 +22,6 @@
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
 		4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
-		4D4DDD49279143330069F5FB /* ManageCategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */; };
 		4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */; };
 		4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E961D2794566600F11788 /* EditCategoryViewController.swift */; };
 		4D4E96222794BD1700F11788 /* CategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */; };
@@ -256,7 +255,6 @@
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
 		4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListDataModel.swift; sourceTree = "<group>"; };
-		4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoryCoordinator.swift; sourceTree = "<group>"; };
 		4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoryViewController.swift; sourceTree = "<group>"; };
 		4D4E961D2794566600F11788 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -595,7 +593,6 @@
 			isa = PBXGroup;
 			children = (
 				ED443F83278B6C9D0059DE76 /* Foundation */,
-				4D4DDD48279143320069F5FB /* ManageCategoryCoordinator.swift */,
 				155D4F8B279147DF0069F035 /* CategoryContentsCooridnator.swift */,
 			);
 			path = Coordinator;
@@ -1398,7 +1395,6 @@
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
-				4D4DDD49279143330069F5FB /* ManageCategoryCoordinator.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
 				ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */,
 				EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */,
