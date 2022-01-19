@@ -29,6 +29,7 @@ final class MainCategoryEmptyView: UIView {
         카테고리를 생성하려면 아래를 누르세요
         """
         label.textAlignment = .center
+        label.numberOfLines = 2
         return label
     }()
     private let noCategoryImageView: UIImageView = {

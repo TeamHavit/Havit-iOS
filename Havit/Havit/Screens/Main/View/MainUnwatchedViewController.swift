@@ -21,10 +21,19 @@ final class MainUnwatchedViewController: BaseViewController {
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
         return button
     }()
+    private let unwatchedEmptyView = MainUnwatchedEmptyView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+    }
+    
+    override func render() {
+        view.addSubView(unwatchedEmptyView)
+        
+        unwatchedEmptyView.snp.makeConstraints {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     override func configUI() {
