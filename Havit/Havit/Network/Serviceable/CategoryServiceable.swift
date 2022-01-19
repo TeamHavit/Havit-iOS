@@ -9,4 +9,5 @@ import Foundation
 
 protocol CategorySeriviceable {
     func getCategory() async throws -> [Category]?
+    func editCategory(categoryId: Int, title: String, imageId: Int) async throws -> String?
 }

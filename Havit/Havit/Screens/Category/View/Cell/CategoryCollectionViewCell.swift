@@ -8,9 +8,9 @@
 import UIKit
 
 import Kingfisher
-import SnapKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import SnapKit
 
 enum CategoryCollectionViewCellType {
     case category

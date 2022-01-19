@@ -18,11 +18,14 @@ struct CategoryService: CategorySeriviceable {
     }
 
     func getCategory() async throws -> [Category]? {
-        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWRGaXJlYmFzZSI6IiIsImlhdCI6MTY0MjEzOTgwMCwiZXhwIjoxNjQ0NzMxODAwLCJpc3MiOiJoYXZpdCJ9.-VsZ4c5mU96GRwGSLjf-hSiU8HD-LVK8V3a5UszUAWk"
         let request = CategoryEndPoint
             .getCategory
-            .createRequest(token: token,
-                           environment: environment)
+            .createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
+
+    func editCategory(categoryId: Int, title: String, imageId: Int) async throws -> String? {
+        let request = CategoryEndPoint.editCategory(categoryId: categoryId, title: title, imageId: imageId).createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
 }
