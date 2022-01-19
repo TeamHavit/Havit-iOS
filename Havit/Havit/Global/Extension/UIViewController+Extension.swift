@@ -30,10 +30,10 @@ extension UIViewController {
     }
 
     func makeRequestAlert(title: String,
-                         message: String,
-                         okAction: ((UIAlertAction) -> Void)?,
-                         cancelAction: ((UIAlertAction) -> Void)? = nil,
-                         completion : (() -> Void)? = nil) {
+                          message: String,
+                          okAction: ((UIAlertAction) -> Void)?,
+                          cancelAction: ((UIAlertAction) -> Void)? = nil,
+                          completion : (() -> Void)? = nil) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
 
