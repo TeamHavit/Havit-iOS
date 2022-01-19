@@ -14,8 +14,6 @@ final class AddCategoryTitleViewController: BaseViewController {
     
     // MARK: - property
     
-    weak var coordinator: ShareExtensionMainCoordinator?
-    
     private var keyboardHeight: CGFloat = 0
     
     private let navigationLeftButton: UIBarButtonItem = {
@@ -108,10 +106,6 @@ final class AddCategoryTitleViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setUpKeyboardForButtonAnimation()
     }
     
@@ -164,10 +158,11 @@ final class AddCategoryTitleViewController: BaseViewController {
     
     private func bind() {
         titleTextField.rx.text
-            .bind { [weak self] _ in
-                if let isTitleFieldHasText = self?.titleTextField.hasText {
-                    self?.nextButton.isEnabled = isTitleFieldHasText
-                }
+            .map { [weak self] _ in
+                self?.titleTextField.hasText ?? false
+            }
+            .bind {
+                self.nextButton.isEnabled = $0
             }
             .disposed(by: disposeBag)
     }
