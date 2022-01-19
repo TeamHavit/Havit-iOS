@@ -118,6 +118,10 @@ extension MainTableViewController: UITableViewDataSource {
         case .progress:
             let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
                                                      for: indexPath)
+            cell.didTapUnwatchedButton = { [weak self] in
+                let unwatchedViewController = MainUnwatchedViewController()
+                self?.navigationController?.pushViewController(unwatchedViewController, animated: true)
+            }
             cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
             return cell
         }
