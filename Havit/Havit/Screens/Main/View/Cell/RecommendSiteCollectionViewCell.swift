@@ -20,7 +20,8 @@ final class RecommendSiteCollectionViewCell: BaseCollectionViewCell {
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .gray002
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .white
         imageView.layer.cornerRadius = (self.frame.width - Size.sideMargin) / 2
         return imageView
     }()
