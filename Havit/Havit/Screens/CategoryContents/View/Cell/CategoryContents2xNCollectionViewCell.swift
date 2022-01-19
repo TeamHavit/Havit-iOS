@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class CategoryContents2xNCollectionViewCell: BaseCollectionViewCell {
-    let borderView: UIView = {
+    private let borderView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray000
         return view
@@ -96,6 +96,11 @@ final class CategoryContents2xNCollectionViewCell: BaseCollectionViewCell {
         contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView, borderView])
         mainImageView.addSubview(alarmImageView)
         
+        setupImageSectionLayout()
+        setupTitleSectionLayout()
+    }
+    
+    func setupImageSectionLayout() {
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(13)
             $0.leading.equalTo(contentView)
@@ -109,7 +114,10 @@ final class CategoryContents2xNCollectionViewCell: BaseCollectionViewCell {
             $0.width.equalTo(40)
             $0.height.equalTo(40)
         }
-        
+    }
+
+    func setupTitleSectionLayout() {
+
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalTo(contentView)
             $0.top.equalTo(mainImageView.snp.bottom).offset(10)
@@ -126,11 +134,6 @@ final class CategoryContents2xNCollectionViewCell: BaseCollectionViewCell {
             $0.trailing.equalTo(moreButton.snp.leading).inset(8)
             $0.height.equalTo(14)
         }
-        render2()
-    }
-    
-    // SwiftLint 함수 40줄 룰을 피하기 위한 임시 함수..
-    func render2() {
         moreButton.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(9)
             $0.trailing.equalTo(contentView).inset(5)

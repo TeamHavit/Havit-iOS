@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
 
     var filterNameLabel: UILabel = {

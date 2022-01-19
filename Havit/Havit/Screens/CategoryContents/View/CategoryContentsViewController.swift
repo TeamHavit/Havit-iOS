@@ -15,20 +15,33 @@ final class CategoryContentsViewController: BaseViewController {
         case grid, grid2xN, grid1xN
     }
     
+    enum SortType {
+        case latestOrder
+        case pastOrder
+        case viewOrder
+    }
+    
+    enum FilterType: Int {
+        case all
+        case unwatched
+        case watched
+        case alarm
+    }
+    
     // MARK: - Property
     weak var coordinator: CategoryContentsCoordinator?
     
-    var gridAnd1XnConstraints: Constraint?
-    var grid2XnConstraints: Constraint?
+    private var gridAnd1XnConstraints: Constraint?
+    private var grid2XnConstraints: Constraint?
     
-    var gridType: GridType = .grid
+    private var gridType: GridType = .grid
     
-    var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
-    var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
+    private var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
+    private var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
     
-    let searchBarBorderLayer: CALayer? = CALayer()
+    private let searchBarBorderLayer: CALayer? = CALayer()
     
-    let mainViewBorderView: UIView = {
+    private let mainViewBorderView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray000
         return view
@@ -43,7 +56,7 @@ final class CategoryContentsViewController: BaseViewController {
         return searchController
     }()
     
-    var mainView: UIView = {
+    private var mainView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 15
@@ -98,7 +111,7 @@ final class CategoryContentsViewController: BaseViewController {
                                      action: #selector(goToCategoryCorrection(_:)))
         button.tintColor = .gray003
         let titleAttributes = [
-            NSAttributedString.Key.font: UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+            NSAttributedString.Key.font: UIFont.font(.pretendardMedium, ofSize: CGFloat(14))
             ]
         button.setTitleTextAttributes(titleAttributes, for: .normal)
          self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
@@ -155,8 +168,7 @@ final class CategoryContentsViewController: BaseViewController {
         gridButton.snp.makeConstraints {
             $0.top.equalTo(filterView)
             $0.trailing.equalTo(filterView).inset(16)
-            $0.width.equalTo(18)
-            $0.height.equalTo(18)
+            $0.width.height.equalTo(18)
         }
         
         sortButton.snp.makeConstraints {
@@ -187,9 +199,7 @@ final class CategoryContentsViewController: BaseViewController {
         case .grid, .grid1xN:
             contentsCollectionView.snp.updateConstraints {
                 $0.top.equalTo(mainViewBorderView.snp.bottom)
-                $0.leading.equalTo(mainView)
-                $0.trailing.equalTo(mainView)
-                $0.bottom.equalTo(mainView)
+                $0.leading.trailing.bottom.equalTo(mainView)
             }
         case .grid2xN:
             contentsCollectionView.snp.updateConstraints {
@@ -206,7 +216,23 @@ final class CategoryContentsViewController: BaseViewController {
         setNavigationItem()
         navigationController?.navigationBar.barTintColor = UIColor.whiteGray
         view.backgroundColor = UIColor.whiteGray
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.backgroundColor = .clear
+            textField.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
+            textField.textColor = UIColor.black
+            textField.borderStyle = .none
+            
+            if let border = searchBarBorderLayer {
+                border.frame = CGRect(x: 0, y: textField.frame.size.height, width: textField.frame.width, height: 2)
+                border.backgroundColor = UIColor.gray001.cgColor
+                border.masksToBounds = true
+                textField.layer.addSublayer(border)
+                
+            }
+        }
     }
     
     func setNavigationItem() {
@@ -222,23 +248,6 @@ final class CategoryContentsViewController: BaseViewController {
         contentsCollectionView.dataSource = self
     }
     
-    override func viewDidLayoutSubviews() {
-        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-            textField.backgroundColor = .clear
-            textField.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(14))
-            textField.textColor = UIColor.black
-            // textField.tintColor = myTintColor
-            textField.borderStyle = .none
-            
-            if let border = searchBarBorderLayer {
-                border.frame = CGRect(x: 0, y: textField.frame.size.height, width: textField.frame.width, height: 2)
-                border.backgroundColor = UIColor.gray001.cgColor
-                border.masksToBounds = true
-                textField.layer.addSublayer(border)
-                
-            }
-        }
-    }
     @objc func goToCategoryCorrection(_: UIButton) {
         
     }
@@ -299,7 +308,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
         switch collectionView {
         case filterCollectionView:
             let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            if indexPath.row == 3 {
+            if indexPath.row == FilterType.alarm.rawValue {
                 cell.filterNameLabel.text = ""
                 cell.layer.cornerRadius = 15
             } else {
@@ -312,7 +321,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     label.sizeToFit()
                     return label
                 }()
-                cell.layer.cornerRadius = (label.frame.width + 14) / 2
+                cell.layer.cornerRadius = (label.frame.width / 2) * (label.frame.height / label.frame.width) + 10
             }
             cell.layer.masksToBounds = true
             return cell
@@ -362,7 +371,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case filterCollectionView:
-            if indexPath.row == 3 {
+            if indexPath.row == FilterType.alarm.rawValue {
                 return CGSize(width: 46, height: 31)
             } else {
                 let label: UILabel = {

@@ -45,7 +45,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
      private var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2021. 11. 24 · "
+        label.text = "2021. 11. 24 ·"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(9))
         label.textColor = .gray002
         return label
@@ -121,7 +121,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         dateLabel.snp.makeConstraints {
             $0.leading.equalTo(mainImageView.snp.trailing).offset(12)
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(15)
-            $0.width.equalTo(47)
+            $0.width.equalTo(55)
         }
 
         linkLabel.snp.makeConstraints {

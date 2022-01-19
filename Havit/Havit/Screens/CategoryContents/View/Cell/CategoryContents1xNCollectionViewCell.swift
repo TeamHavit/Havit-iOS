@@ -11,7 +11,7 @@ import SnapKit
 
 final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
     
-    let borderView: UIView = {
+    private let borderView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray000
         return view
@@ -96,7 +96,11 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
     override func render() {
         contentView.addSubViews([mainImageView, titleLabel, subtitleLabel, dateLabel, linkLabel, alarmLabel, moreButton, isReadImageView, borderView])
         mainImageView.addSubview(alarmImageView)
-        
+        setupImageSectionLayout()
+        setupTitleSectionLayout()
+    }
+    
+    func setupImageSectionLayout() {
         mainImageView.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(17)
             $0.leading.equalTo(contentView).offset(16)
@@ -107,31 +111,27 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         alarmImageView.snp.makeConstraints {
             $0.leading.equalTo(mainImageView)
             $0.top.equalTo(mainImageView)
-            $0.width.equalTo(40)
-            $0.height.equalTo(40)
+            $0.width.height.equalTo(40)
         }
-        
+    }
+    
+    func setupTitleSectionLayout() {
         moreButton.snp.makeConstraints {
             $0.top.equalTo(mainImageView.snp.bottom).offset(15)
-            $0.trailing.equalTo(contentView).inset(15)
+            $0.trailing.equalTo(contentView).inset(16)
             $0.width.equalTo(16)
             $0.height.equalTo(10)
         }
         
-        render2()
-    }
-    
-    // SwiftLint 함수 40줄 룰을 피하기 위한 임시 함수..
-    func render2() {
         titleLabel.snp.makeConstraints {
-            $0.leading.trailing.equalTo(contentView).offset(16)
+            $0.leading.equalTo(contentView).offset(16)
             $0.top.equalTo(mainImageView.snp.bottom).offset(15)
-            $0.trailing.equalTo(moreButton).inset(18)
+            $0.trailing.equalTo(moreButton.snp.leading).inset(18)
         }
         
         subtitleLabel.snp.makeConstraints {
             $0.leading.trailing.equalTo(contentView).offset(16)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(3)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(9)
         }
         
         dateLabel.snp.makeConstraints {
@@ -144,7 +144,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
             $0.leading.equalTo(dateLabel.snp.trailing)
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(9)
             $0.trailing.equalTo(moreButton.snp.leading).inset(60)
-            $0.height.equalTo(14)
+            $0.height.equalTo(10)
         }
         
         alarmLabel.snp.makeConstraints {
@@ -156,7 +156,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         }
         
         isReadImageView.snp.makeConstraints {
-            $0.trailing.equalTo(contentView).inset(1)
+            $0.trailing.equalTo(contentView).inset(16)
             $0.bottom.equalTo(borderView.snp.top).inset(5)
             $0.width.equalTo(31)
             $0.height.equalTo(42)
