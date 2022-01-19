@@ -46,6 +46,7 @@ final class ReachRateTableViewCell: BaseTableViewCell {
     }
     
     override func configUI() {
+        selectionStyle = .none
         backgroundColor = .clear
     }
     
