@@ -21,7 +21,7 @@ final class RecommendSiteCollectionViewCell: BaseCollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .gray002
+        imageView.backgroundColor = .white
         imageView.layer.cornerRadius = (self.frame.width - Size.sideMargin) / 2
         return imageView
     }()

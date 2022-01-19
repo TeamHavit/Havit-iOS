@@ -54,7 +54,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     private let pageControl = MainCategoryPageControl()
     private let categoryEmptyView = MainCategoryEmptyView()
     
-    var dummyCategories: [String] = ["새로운 카테고리", "재밌는 카테고리"]
+    var dummyCategories: [String] = []
     
     // MARK: - func
     
@@ -118,14 +118,6 @@ final class CategoryListTableViewCell: BaseTableViewCell {
                 $0.height.equalTo(308)
             }
         }
-        
-        setupCollectionViewHiddenState(with: hasCategory)
-    }
-    
-    private func setupCollectionViewHiddenState(with hasCategory: Bool) {
-        categoryCollectionView.isHidden = !hasCategory
-        pageControl.isHidden = !hasCategory
-        categoryEmptyView.isHidden = hasCategory
     }
     
     private func bind() {

@@ -19,8 +19,6 @@ final class MainUnwatchedViewController: BaseViewController {
     
     // MARK: - property
     
-    weak var coordinator: UnwatchedCoordinator?
-    
     private let backButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
@@ -43,7 +41,7 @@ final class MainUnwatchedViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        setupCollectionViewHiddenState(with: false)
+        setupCollectionViewHiddenState(with: true)
     }
     
     override func render() {
@@ -71,7 +69,7 @@ final class MainUnwatchedViewController: BaseViewController {
         backButton.rx.tap
             .asDriver()
             .drive(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .previous)
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
