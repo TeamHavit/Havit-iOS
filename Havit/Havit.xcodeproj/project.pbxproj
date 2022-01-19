@@ -410,7 +410,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		155D4F86279098360069F035 /* Cell */ = {
+		1546A3FA2797FA9C009AE579 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */,
@@ -420,7 +420,16 @@
 				15F41A8E2791C60000ADF17A /* SortPanModalTableViewCell.swift */,
 				15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		155D4F86279098360069F035 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */,
+				1546A3FA2797FA9C009AE579 /* Cells */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		15A157F127952747001192B9 /* Cell */ = {
@@ -867,8 +876,7 @@
 				15F41A8C2791C13600ADF17A /* SortPanModalViewController.swift */,
 				15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */,
 				1546A3F52797F78D009AE579 /* CategoryPanModealViewController.swift */,
-				1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */,
-				155D4F86279098360069F035 /* Cell */,
+				155D4F86279098360069F035 /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";

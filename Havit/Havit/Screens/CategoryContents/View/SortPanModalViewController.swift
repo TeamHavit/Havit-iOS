@@ -13,21 +13,28 @@ import SnapKit
 class SortPanModalViewController: BaseViewController, PanModalPresentable {
     var panScrollable: UIScrollView? {
            return nil
-       }
+    }
+    
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(300)
+        return .contentHeight(278)
     }
 
     var longFormHeight: PanModalHeight {
-        return .contentHeight(300)
+        return .contentHeight(278)
     }
     
-    // MARK: - Property
+    var cornerRadius: CGFloat {
+        return 0
+    }
+    
     let sortList = ["최신순", "과거순", "최근 조회순"]
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "정렬"
+        label.font = UIFont.font(.pretendardSemibold, ofSize: 17)
+        label.textColor = .primaryBlack
+        label.textAlignment = .center
         return label
     }()
     
@@ -44,22 +51,23 @@ class SortPanModalViewController: BaseViewController, PanModalPresentable {
     }
     
     override func render() {
-        view.addSubview(titleLabel)
-        view.addSubview(sortTableView)
+        view.addSubViews([titleLabel, sortTableView])
         
         titleLabel.snp.makeConstraints {
             $0.leading.top.trailing.equalTo(view)
+            $0.height.equalTo(60)
         }
         
         sortTableView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel)
+            $0.top.equalTo(titleLabel.snp.bottom)
             $0.leading.trailing.equalTo(view)
-            $0.height.equalTo(200)
+            $0.height.equalTo(147)
         }
     }
     
     override func configUI() {
         view.backgroundColor = .white
+        sortTableView.separatorStyle = .none
     }
     
     private func setDelegations() {
@@ -69,8 +77,16 @@ class SortPanModalViewController: BaseViewController, PanModalPresentable {
 }
 
 extension SortPanModalViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sortList.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! SortPanModalTableViewCell
+        cell.backgroundColor = .purpleCategory
+        cell.label.font = UIFont.font(.pretendardSemibold, ofSize: 16)
+        cell.label.textColor = .havitPurple
     }
 }
 
@@ -78,6 +94,7 @@ extension SortPanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: SortPanModalTableViewCell.self, for: indexPath)
         cell.label.text = sortList[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
 }

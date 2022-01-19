@@ -10,7 +10,18 @@ import UIKit
 import SnapKit
 
 class SortPanModalTableViewCell: BaseTableViewCell {
-    var label: UILabel = UILabel()
+    var label: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.font(.pretendardMedium, ofSize: 16)
+        label.textColor = .gray004
+        return label
+    }()
+    
+    var border: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray000
+        return view
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,12 +33,16 @@ class SortPanModalTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
-        contentView.addSubview(label)
+        contentView.addSubViews([label, border])
         
         label.snp.makeConstraints {
+            $0.centerY.equalTo(contentView)
             $0.leading.equalTo(contentView).offset(31)
-            $0.top.equalTo(contentView).offset(14)
-            $0.bottom.equalTo(contentView).offset(15)
+        }
+        
+        border.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalTo(contentView)
+            $0.height.equalTo(1)
         }
     }
 }
