@@ -154,11 +154,8 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         isReadButton.rx.tap
             .asDriver()
             .drive(onNext: { [weak self] in
-                if self?.isReadButton.imageView?.image == ImageLiteral.btnContentsRead {
-                    self?.isReadButton.setImage(ImageLiteral.btnContentsUnread, for: .normal)
-                } else {
-                    self?.isReadButton.setImage(ImageLiteral.btnContentsRead, for: .normal)
-                }
+                let isReadArticle = self?.isReadButton.imageView?.image == ImageLiteral.btnContentsRead
+                self?.isReadButton.setImage(isReadArticle ? ImageLiteral.btnContentsUnread : ImageLiteral.btnContentsRead, for: .normal)
             })
             .disposed(by: disposeBag)
     }
