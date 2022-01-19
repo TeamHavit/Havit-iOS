@@ -25,18 +25,17 @@ class ManageCategoryViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cell: CategoryCollectionViewCell.self)
-
         return collectionView
     }()
 
     private let backButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.iconBackWhite, for: .normal)
         return button
     }()
 
     private let doneButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setTitle("완료", for: .normal)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 14)
         button.setTitleColor(.white, for: .normal)
@@ -118,7 +117,6 @@ class ManageCategoryViewController: BaseViewController {
     }
 
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
-        button.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         return UIBarButtonItem(customView: button)
     }
 
@@ -176,9 +174,9 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
-
-        cell.update(data: categoryList[indexPath.row])
+        
         cell.configure(type: .manage)
+        cell.update(data: categoryList[indexPath.row])
         return cell
     }
 

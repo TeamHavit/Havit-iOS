@@ -7,6 +7,10 @@
 
 import UIKit
 
+import SnapKit
+import RxSwift
+import RxCocoa
+
 enum CategoryCollectionViewCellType {
     case category
     case manage
@@ -63,9 +67,9 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         self.addSubViews([categoryImageView, categoryTitleLabel])
 
         categoryImageView.snp.makeConstraints {
-            $0.top.leading.bottom.equalToSuperview().inset(7)
-            $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-7)
-            $0.width.height.equalTo(42)
+            $0.top.leading.bottom.equalToSuperview().inset(10)
+            $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-10)
+            $0.width.height.equalTo(36)
         }
 
         categoryTitleLabel.snp.makeConstraints {
