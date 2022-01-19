@@ -75,6 +75,7 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: CategoryListTableViewCell.self)
         tableView.register(cell: GuidelineTableViewCell.self)
         tableView.register(cell: RecentContentTableViewCell.self)
+        tableView.register(cell: RecommendSiteTableViewCell.self)
         return tableView
     }()
   
@@ -108,44 +109,54 @@ extension MainTableViewController: UITableViewDataSource {
         let sectionType = MainTableViewSectionType(rawValue: indexPath.section)
         switch sectionType {
         case .reach:
-            let cellType = cellTypeInReachSection(at: indexPath)
-            switch cellType {
-            case .notification:
-                let cell = tableView.dequeueReusableCell(withType: ReachRateNotificationTableViewCell.self,
-                                                         for: indexPath)
-                cell.updateNotificationLabel(to: "도달률이 50% 이하로 떨어졌어요!")
-                cell.didTapCloseButton = { [weak self] in
-                    self?.presentableCellTypesInReachSection.removeAll { type in
-                        type == .notification
-                    }
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                }
-                return cell
-            case .progress:
-                let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
-                                                         for: indexPath)
-                cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
-                return cell
-            }
-            
+            return applyReachSectionCell(tableView, cellForRowAt: indexPath)
         case .category:
-            let cellType = CategorySectionCellType(rawValue: indexPath.row)
-            switch cellType {
-            case .category:
-                let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
-                                                         for: indexPath)
-                return cell
-            case .guideline:
-                let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
-                                                         for: indexPath)
-                return cell
-            case .recent:
-                let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
-                                                         for: indexPath)
-                return cell
-            default:
-                return UITableViewCell()
+            return applyCategorySectionCell(tableView, cellForRowAt: indexPath)
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    private func applyReachSectionCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellType = cellTypeInReachSection(at: indexPath)
+        switch cellType {
+        case .notification:
+            let cell = tableView.dequeueReusableCell(withType: ReachRateNotificationTableViewCell.self,
+                                                     for: indexPath)
+            cell.updateNotificationLabel(to: "도달률이 50% 이하로 떨어졌어요!")
+            cell.didTapCloseButton = { [weak self] in
+                self?.presentableCellTypesInReachSection.removeAll { type in
+                    type == .notification
+                }
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
+            return cell
+        case .progress:
+            let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
+                                                     for: indexPath)
+            cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
+            return cell
+        }
+    }
+    
+    private func applyCategorySectionCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellType = CategorySectionCellType(rawValue: indexPath.row)
+        switch cellType {
+        case .category:
+            let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
+                                                     for: indexPath)
+            return cell
+        case .guideline:
+            let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
+                                                     for: indexPath)
+            return cell
+        case .recent:
+            let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
+                                                     for: indexPath)
+            return cell
+        case .recommend:
+            let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self, for: indexPath)
+            return cell
         default:
             return UITableViewCell()
         }
