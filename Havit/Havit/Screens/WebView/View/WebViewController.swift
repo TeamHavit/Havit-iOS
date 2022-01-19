@@ -25,7 +25,6 @@ final class WebViewController: BaseViewController {
     
     // MARK: - property
     
-    weak var coordinator: WebViewCoordinator?
     private let viewModel: WebViewModel
     
     private let navigationBackBarButton: UIBarButtonItem = {
@@ -107,6 +106,7 @@ final class WebViewController: BaseViewController {
     }
     
     override func configUI() {
+        super.configUI()
         setupBaseNavigationBar()
         setNavigationItem(leftBarButtonItem: navigationBackBarButton,
                           titleView: urlTextField,
@@ -125,7 +125,7 @@ final class WebViewController: BaseViewController {
         navigationBackBarButton.rx
             .tap
             .bind { [weak self] _ in
-                self?.coordinator?.performTransition(to: .previous)
+                self?.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
         

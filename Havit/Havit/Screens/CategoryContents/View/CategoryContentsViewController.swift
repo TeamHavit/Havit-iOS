@@ -14,8 +14,7 @@ import SnapKit
 final class CategoryContentsViewController: BaseViewController {
     
     // MARK: - Property
-    weak var coordinator: CategoryContentsCoordinator?
-
+    
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
     

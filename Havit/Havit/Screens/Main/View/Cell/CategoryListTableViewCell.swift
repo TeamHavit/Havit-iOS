@@ -52,8 +52,9 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     private let pageControl = MainCategoryPageControl()
+    private let categoryEmptyView = MainCategoryEmptyView()
     
-    var dummyCategories: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
+    var dummyCategories: [String] = []
     
     // MARK: - func
     
@@ -62,12 +63,13 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         bind()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
+        contentView.addSubViews([titleLabel, overallButton])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -80,25 +82,43 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             $0.leading.equalTo(titleLabel.snp.trailing).offset(-10)
         }
         
-        categoryCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(348)
-        }
-        
-        pageControl.snp.makeConstraints {
-            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
-            $0.bottom.equalToSuperview().inset(40)
-            $0.centerX.equalToSuperview()
-        }
+        setupCategoryPartLayout(with: dummyCategories)
     }
     
     override func configUI() {
+        selectionStyle = .none
         backgroundColor = .white
         applyPageControlPages()
     }
     
     // MARK: - func
+    
+    private func setupCategoryPartLayout(with categories: [String]) {
+        let hasCategory = !categories.isEmpty
+        
+        if hasCategory {
+            contentView.addSubViews([categoryCollectionView, pageControl])
+            categoryCollectionView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(348)
+            }
+            
+            pageControl.snp.makeConstraints {
+                $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.centerX.equalToSuperview()
+            }
+        } else {
+            contentView.addSubView(categoryEmptyView)
+            categoryEmptyView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+                $0.leading.trailing.equalToSuperview().inset(16)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.height.equalTo(308)
+            }
+        }
+    }
     
     private func bind() {
         categoryCollectionView.rx.willEndDragging
@@ -156,7 +176,7 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
             case .allContent:
-                cell.backgroundColor = .caution
+                cell.backgroundImageView.image = ImageLiteral.imgCardCategoryLine
                 cell.updateCategory(image: UIImage(),
                                     title: "모든 콘텐츠",
                                     contentCount: 90)

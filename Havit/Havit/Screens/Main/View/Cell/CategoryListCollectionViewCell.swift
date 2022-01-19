@@ -40,7 +40,6 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
         iconImageView.image = nil
         titleLabel.text = ""
         storedContentLabel.text = ""
-        backgroundColor = .purpleCategory
     }
     
     override func render() {
