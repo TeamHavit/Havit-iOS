@@ -89,6 +89,7 @@ class EditCategoryViewController: BaseViewController {
 
     init(categoryId: Int, titleText: String, imageId: Int) {
         self.categoryId = categoryId
+        self.titleText = titleText
         categoryTitleTextField.text = titleText
         self.iconImageId = imageId
 
@@ -104,14 +105,12 @@ class EditCategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
-        print(categoryId)
-        print(iconImageId)
     }
 
     func editCategory() {
         Task {
             do {
-                try await categoryService.editCategory(categoryId: categoryId, title: categoryTitleTextField.text ?? "", imageId: iconImageId)
+                try await categoryService.editCategory(categoryId: categoryId ?? 0, title: categoryTitleTextField.text ?? "", imageId: iconImageId ?? 0)
                 self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { [weak self] _ in
                     self?.sendData?()
                     self?.navigationController?.popViewController(animated: true)
