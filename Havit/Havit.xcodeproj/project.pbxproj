@@ -113,8 +113,6 @@
 		4FB24FF12792184900CCDB0C /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2E278C8AA700EC074D /* Pretendard-Regular.otf */; };
 		4FB24FF22792184B00CCDB0C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E2F278C8AA700EC074D /* Pretendard-SemiBold.otf */; };
 		4FB24FF32792184F00CCDB0C /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E30278C8AA700EC074D /* Pretendard-Thin.otf */; };
-		4FB24FF72792192A00CCDB0C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
-		4FB24FF82792192D00CCDB0C /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
 		ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAF278598670059DE76 /* SceneDelegate.swift */; };
 		ED443EB7278598690059DE76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED443EB6278598690059DE76 /* Assets.xcassets */; };
@@ -154,8 +152,6 @@
 		ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */; };
 		ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F79278B61590059DE76 /* UITableView+Extension.swift */; };
 		ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */; };
-		ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7D278B6B180059DE76 /* Coordinator.swift */; };
-		ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */; };
 		ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F89278C4D710059DE76 /* NSObject+Extension.swift */; };
 		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
@@ -313,8 +309,6 @@
 		ED443F4B2786BBAF0059DE76 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		ED443F79278B61590059DE76 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ED443F7B278B63190059DE76 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
-		ED443F7D278B6B180059DE76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		ED443F89278C4D710059DE76 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -518,7 +512,6 @@
 			children = (
 				ED443EDF2785CD2B0059DE76 /* Network */,
 				ED443EDE2785CD250059DE76 /* Global */,
-				ED443EE02785CD300059DE76 /* Coordinator */,
 				ED443EDD2785CD1E0059DE76 /* Screens */,
 			);
 			path = Havit;
@@ -582,14 +575,6 @@
 				4DD166FE2796D0EA00AD8960 /* Serviceable */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		ED443EE02785CD300059DE76 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				ED443F83278B6C9D0059DE76 /* Foundation */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		ED443EE12785CD3D0059DE76 /* Resource */ = {
@@ -945,15 +930,6 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		ED443F83278B6C9D0059DE76 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				ED443F7D278B6B180059DE76 /* Coordinator.swift */,
-				ED443F7F278B6BC90059DE76 /* BaseCoordinator.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		ED443F8B278C51BF0059DE76 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1267,7 +1243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB24FE22792180800CCDB0C /* UILabel+Extension.swift in Sources */,
-				4FB24FF72792192A00CCDB0C /* Coordinator.swift in Sources */,
 				4FB24FC6279212AE00CCDB0C /* NetworkRequest.swift in Sources */,
 				4FB24FDF279217FF00CCDB0C /* UIColor+Extension.swift in Sources */,
 				4FB24FD8279217C700CCDB0C /* ImageLiteral.swift in Sources */,
@@ -1283,7 +1258,6 @@
 				4FB24FC8279212B300CCDB0C /* APIService.swift in Sources */,
 				4FB24FDB279217DF00CCDB0C /* Logger.swift in Sources */,
 				4FB24FCA2792177200CCDB0C /* MockParser.swift in Sources */,
-				4FB24FF82792192D00CCDB0C /* BaseCoordinator.swift in Sources */,
 				4FB24FC9279212B600CCDB0C /* NetworkStatus.swift in Sources */,
 				4FB24FE72792181900CCDB0C /* UICollectionView+Extension.swift in Sources */,
 				4FB24FDC279217EC00CCDB0C /* PreviewProvider.swift in Sources */,
@@ -1341,7 +1315,6 @@
 				15F41A932791F2FD00ADF17A /* MoreBottomSheetTableViewCell.swift in Sources */,
 				15F41A912791EDB400ADF17A /* MoreBottomSheetViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
-				ED443F7E278B6B180059DE76 /* Coordinator.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
@@ -1368,7 +1341,6 @@
 				EDDE099D27908DF40093B83F /* MainTableViewController.swift in Sources */,
 				EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
-				ED443F80278B6BC90059DE76 /* BaseCoordinator.swift in Sources */,
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
 				EDEF61992791392D00C93C84 /* Requestable.swift in Sources */,
