@@ -1296,7 +1296,6 @@
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
 				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
-				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* SortTwoContentsCollectionViewCell.swift in Sources */,
 				EDE7D6DE2797E3C7009C70EF /* MainCategoryEmptyView.swift in Sources */,
 				15D49CE3278F19170030DBE5 /* CategoryContents2xNCollectionViewCell.swift in Sources */,
