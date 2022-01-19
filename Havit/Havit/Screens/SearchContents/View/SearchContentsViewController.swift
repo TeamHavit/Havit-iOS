@@ -13,6 +13,10 @@ final class SearchContentsViewController: BaseViewController {
     
     weak var coordinator: SearchContentsCoordinator?
     
+    let searchContentsService: SearchContentsSeriviceable = SearchContentsService(apiService: APIService(),
+                                                                environment: .development)
+    var searchResult: [SearchContents] = []
+    
     enum SearchResultType {
         case searching, result, noResult
     }
@@ -208,6 +212,26 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
 
 extension SearchContentsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        Task {
+            do {
+                let searchResult = try await searchContentsService.getSearchResult(keyword: searchBar.text!)
+                
+                if let searchResult = searchResult,
+                   !searchResult.isEmpty {
+                    self.searchResult = searchResult
+                    self.numberLabel.text = "전체 \(searchResult.count)"
+                    self.resultCollectionView.reloadData()
+                } else {
+                    // setEmptyView()
+                }
+
+                print(searchResult)
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
+            }
+        }
         // 서버 데이터에 따라  검색 결과 없는 경우 분기 처리하기
         resultType = .result
         DispatchQueue.main.async {

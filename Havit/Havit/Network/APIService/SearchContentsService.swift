@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchContentService: SearchContentsSeriviceable {
+struct SearchContentsService: SearchContentsSeriviceable {
 
     private let apiService: Requestable
     private let environment: APIEnvironment
@@ -17,9 +17,9 @@ struct SearchContentService: SearchContentsSeriviceable {
         self.environment = environment
     }
 
-    func getSearchResult() async throws -> [SearchContents]? {
+    func getSearchResult(keyword: String) async throws -> [SearchContents]? {
         let request = SearchContentsEndPoint
-            .getResult
+            .getSearchResult(keyword: keyword)
             .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }

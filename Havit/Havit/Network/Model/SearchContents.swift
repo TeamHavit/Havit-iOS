@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - SearchContents
-struct SearchContents: Codable {
+struct SearchContents: Decodable {
     let status: Int
     let success: Bool
     let message: String
@@ -16,7 +16,7 @@ struct SearchContents: Codable {
 }
 
 // MARK: - ContentsData
-struct ResultData: Codable {
+struct ResultData: Decodable {
     let id: Int
     let title, datumDescription: String
     let image, url: String

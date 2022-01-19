@@ -8,7 +8,7 @@
 import Foundation
 
 enum SearchContentsEndPoint {
-    case getResult
+    case getSearchResult(keyword: String)
     
     var requestTimeOut: Float {
         return 20
@@ -24,7 +24,22 @@ enum SearchContentsEndPoint {
 
     func getURL(from environment: APIEnvironment) -> String {
         let baseUrl = environment.baseUrl
-        return "\(baseUrl)/content/search/?keyword=\("임시 키워드")"
+        switch self {
+        case .getSearchResult(let keyword):
+            let urlString = baseUrl + "/content/search/?keyword=\(keyword)"
+            let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let url = URL(string: encodedString)!
+            print(encodedString)
+            
+            var components = URLComponents(string: baseUrl)
+            let keyword = URLQueryItem(name: "keyword", value: "keyword")
+            components?.queryItems = [keyword]
+
+            let newURL = components?.url
+            print(newURL)
+            // print(String(newURL))
+            return encodedString
+        }
     }
 
     func createRequest(environment: APIEnvironment) -> NetworkRequest {
