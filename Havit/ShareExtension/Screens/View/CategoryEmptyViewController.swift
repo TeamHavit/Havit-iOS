@@ -13,8 +13,6 @@ final class CategoryEmptyViewController: BaseViewController {
     
     // MARK: - property
     
-    weak var coordinator: ShareExtensionMainCoordinator?
-    
     private let navigationTitleTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.havitGray,
         NSAttributedString.Key.font: UIFont.font(.pretendardBold, ofSize: 16)

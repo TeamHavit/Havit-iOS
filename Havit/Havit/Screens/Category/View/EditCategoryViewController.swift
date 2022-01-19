@@ -15,7 +15,7 @@ class EditCategoryViewController: BaseViewController {
 
     // MARK: - property
 
-    weak var coordinator: EditCategoryCoordinator?
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -85,6 +85,19 @@ class EditCategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+    }
+
+    func editCategory() {
+        Task {
+            do {
+                let categories = try await categoryService.editCategory(categoryId: 18, title: "카테고리 수정", imageId: 2)
+                self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            } catch {
+                print("error")
+            }
+        }
     }
 
     override func render() {
@@ -159,7 +172,8 @@ class EditCategoryViewController: BaseViewController {
             doneButton.rx.tap.map { $0 }
         )
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .previous)
+                // donebutton 일때만....
+                self?.editCategory()
             })
             .disposed(by: disposeBag)
 

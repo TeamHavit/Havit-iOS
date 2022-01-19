@@ -40,7 +40,7 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.text = "다양한 사이트에서 해빗 할 콘텐츠를 탐색해 보세요"
         label.font = .font(.pretendardReular, ofSize: 14)
-        label.textColor = .havitGray
+        label.textColor = .gray003
         return label
     }()
     private lazy var siteCollectionView: UICollectionView = {
@@ -55,7 +55,7 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         collectionView.register(cell: RecommendSiteCollectionViewCell.self)
         return collectionView
     }()
-    private let sites: [String] = ["네이버", "미디엄", "티스토리", "벨로그", "브런치", "카카오", "아티클립", "해빗", "뉴스"]
+    private let dummySites: [String] = ["네이버", "미디엄", "티스토리", "벨로그", "브런치", "카카오", "아티클립", "해빗", "뉴스"]
     
     override func render() {
         contentView.addSubViews([separatorView, titleLabel, subtitleLabel, siteCollectionView])
@@ -89,12 +89,12 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
 
 extension RecommendSiteTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sites.count
+        return dummySites.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.updateSite(title: sites[indexPath.item], image: ImageLiteral.imgDummyContent, type: "아티클", category: "다 저장해보자고~~")
+        cell.updateSite(title: dummySites[indexPath.item], image: UIImage(), type: "아티클", category: "새로운 아티클")
         return cell
     }
 }
