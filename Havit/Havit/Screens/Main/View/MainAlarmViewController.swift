@@ -19,6 +19,18 @@ final class MainAlarmViewController: BaseViewController {
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
         return button
     }()
+    private let infomationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "지난 알림 콘텐츠가 없습니다."
+        label.font = .font(.pretendardMedium, ofSize: 14)
+        label.textColor = .gray002
+        return label
+    }()
+    private let alarmImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = ImageLiteral.imgGraphicNoalarm
+        return imageView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +38,17 @@ final class MainAlarmViewController: BaseViewController {
     }
     
     override func render() {
+        view.addSubViews([infomationLabel, alarmImageView])
         
+        alarmImageView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-30)
+        }
+        
+        infomationLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(alarmImageView.snp.top).offset(-23)
+        }
     }
     
     override func configUI() {
