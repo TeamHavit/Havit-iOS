@@ -13,16 +13,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let navController = UINavigationController()
+        let mainViewController = MainViewController()
+        let navController = UINavigationController(rootViewController: mainViewController)
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navController
         self.window = window
         window.backgroundColor = .white
         window.makeKeyAndVisible()
-        
-        let coordinator = AppCoordinator(navigationController: navController)
-        coordinator.start()
         
         // StatusBarHeight 설정
         if let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height {
