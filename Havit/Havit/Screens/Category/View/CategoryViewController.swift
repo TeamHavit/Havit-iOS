@@ -142,10 +142,10 @@ class CategoryViewController: BaseViewController {
     }
 
     private func setNavigationItem() {
-        title = "전체 카테고리"
         let font = UIFont.font(.pretendardBold, ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
         
+        navigationItem.title = "전체 카테고리"
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
     }
