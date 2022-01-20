@@ -25,7 +25,7 @@ final class CategoryContentsViewController: BaseViewController {
     private var grid2XnConstraints: Constraint?
     
     private var gridType: GridType = .grid
-    var contentsSortType: ContentsSortType = .created_at
+    var contentsSortType: ContentsSortType = .createdAt
     var contentsFilterType: ContentsFilterType = .all
     var categoryId = 0
     

@@ -27,9 +27,9 @@ enum MorePanModalButtonType {
 }
 
 enum ContentsSortType: String {
-    case created_at = "created_at"
+    case createdAt = "created_at"
     case reverse = "reverse"
-    case seen_at = "seen_at"
+    case seenAt = "seen_at"
 }
 
 enum ContentsFilterType: String {

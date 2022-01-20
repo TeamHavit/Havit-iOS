@@ -49,13 +49,8 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            if isSelected {
-                contentView.backgroundColor = .primaryBlack
-                filterNameLabel.textColor = .white
-            } else {
-                contentView.backgroundColor = .whiteGray
-                filterNameLabel.textColor = .gray003
-            }
+            contentView.backgroundColor = isSelected ? .primaryBlack : .whiteGray
+            filterNameLabel.textColor = isSelected ? .white : .gray003
         }
     }
 

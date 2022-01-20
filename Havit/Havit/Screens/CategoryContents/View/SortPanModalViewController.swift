@@ -31,7 +31,7 @@ class SortPanModalViewController: BaseViewController, PanModalPresentable {
     let sortList = ["최신순", "과거순", "최근 조회순"]
     var option: String?
     var filter: String?
-    var contentsSortType: ContentsSortType = .created_at
+    var contentsSortType: ContentsSortType = .createdAt
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -97,15 +97,20 @@ extension SortPanModalViewController: UITableViewDelegate {
         
         Task {
             do {
+                guard let option = option, let filter = filter else {
+                    return
+                }
+                
                 if isFromAllCategory {
-                    let categoryContents = try await categoryContentsService.getAllContents(option: option ?? "all", filter: filter ?? "created_At")
+                    let categoryContents = try await categoryContentsService.getAllContents(option: option,
+                                                                                            filter: filter)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.dismiss(animated: true) {
                             self.previousViewController?.categoryContents = categoryContents
                             self.previousViewController?.contentsCollectionView.reloadData()
                             self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
-                            self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.created_at
+                            self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.createdAt
                         }
                     } else {
                        // Emtpy 띄우기
@@ -118,7 +123,7 @@ extension SortPanModalViewController: UITableViewDelegate {
                             self.previousViewController?.categoryContents = categoryContents
                             self.previousViewController?.contentsCollectionView.reloadData()
                             self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
-                            self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.created_at
+                            self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.createdAt
                         }
                     } else {
                        // Emtpy 띄우기
@@ -142,11 +147,11 @@ extension SortPanModalViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            contentsSortType = .created_at
+            contentsSortType = .createdAt
         case 1:
             contentsSortType = .reverse
         case 2:
-            contentsSortType = .seen_at
+            contentsSortType = .seenAt
         default:
             print("임시 프린트")
         }
