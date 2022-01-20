@@ -335,6 +335,25 @@ final class CategoryContentsViewController: BaseViewController {
     }
 }
 
+extension CategoryContentsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.backgroundColor = .primaryBlack
+        cell.filterNameLabel.textColor = .white
+        print("?")
+//        switch contentsFilterType {
+//        case .all:
+//            <#code#>
+//        case .notSeen:
+//            <#code#>
+//        case .seen:
+//            <#code#>
+//        case .alarm:
+//            <#code#>
+//        }
+    }
+}
+
 extension CategoryContentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {

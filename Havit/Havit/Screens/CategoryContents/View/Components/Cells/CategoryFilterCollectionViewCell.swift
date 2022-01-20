@@ -45,6 +45,18 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
         super.init(frame: .zero)
     }
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                contentView.backgroundColor = .primaryBlack
+                filterNameLabel.textColor = .white
+            } else {
+                contentView.backgroundColor = .whiteGray
+                filterNameLabel.textColor = .gray003
+            }
+        }
+    }
+
     override func render() {
         contentView.addSubview(filterNameLabel)
         filterNameLabel.snp.makeConstraints {
