@@ -44,12 +44,14 @@ class MypageViewController: BaseViewController {
     private let mypagePepleImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgMyPage
+        image.contentMode = .scaleAspectFit
         return image
     }()
 
     private let mypageCornImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgMyPageCorn
+        image.contentMode = .scaleToFill
         return image
     }()
 
