@@ -249,7 +249,6 @@ final class CategoryContentsViewController: BaseViewController {
         Task {
             do {
                 let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "3", option: "notified", filter: "created_at")
-                print(categoryContents)
                 if let categoryContents = categoryContents,
                    !categoryContents.isEmpty {
                     self.categoryContents = categoryContents
@@ -353,14 +352,32 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
-                gridButton.setImage(ImageLiteral.iconLayout4, for: .normal)
+                gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                if let searchImageString = categoryContents[indexPath.row].image {
+                    let url = URL(string: searchImageString)
+                    cell.mainImageView.kf.setImage(with: url)
+                }
+                cell.titleLabel.text = categoryContents[indexPath.row].title
+                cell.subtitleLabel.text = categoryContents[indexPath.row].datumDescription
+                cell.linkLabel.text = categoryContents[indexPath.row].url
+                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
+                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
                 return cell
             case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
                 cell.backgroundColor = .white
-                gridButton.setImage(ImageLiteral.iconLayout2, for: .normal)
+                gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                if let searchImageString = categoryContents[indexPath.row].image {
+                    let url = URL(string: searchImageString)
+                    cell.mainImageView.kf.setImage(with: url)
+                }
+                cell.titleLabel.text = categoryContents[indexPath.row].title
+                cell.subtitleLabel.text = categoryContents[indexPath.row].datumDescription
+                cell.linkLabel.text = categoryContents[indexPath.row].url
+                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
+                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
                 return cell
             }
         default:

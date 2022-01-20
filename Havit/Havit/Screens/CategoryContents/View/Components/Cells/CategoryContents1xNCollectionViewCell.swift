@@ -11,26 +11,26 @@ import SnapKit
 
 final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
     
-    private let borderView: UIView = {
+     let borderView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray000
         return view
     }()
     
-    private let mainImageView: UIImageView = {
+     let mainImageView: UIImageView = {
        let imageView = UIImageView()
        imageView.image = UIImage(named: "contentsDummyImg3")
        imageView.layer.cornerRadius = 4
        return imageView
    }()
    
-    private let alarmImageView: UIImageView = {
+     let alarmImageView: UIImageView = {
        let imageView = UIImageView()
        imageView.image = ImageLiteral.iconAlarmtagPuple
        return imageView
    }()
    
-    private var titleLabel: UILabel = {
+     var titleLabel: UILabel = {
        let label = UILabel()
        label.text = "슈슈슉 이것은 제목입니다 슈슉 슉슉 이것"
        label.font = UIFont.font(FontName.pretendardMedium, ofSize: CGFloat(15))
@@ -39,7 +39,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
        return label
    }()
    
-    private var subtitleLabel: UILabel = {
+     var subtitleLabel: UILabel = {
        let label = UILabel()
        label.text = "슈슈슉 이것은 제목입니다 슈슉 슉 슉 슈슉 슈슈슈슈슈슉 슉 슉"
        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(9))
@@ -48,7 +48,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
        return label
    }()
    
-    private var dateLabel: UILabel = {
+     var dateLabel: UILabel = {
        let label = UILabel()
        label.text = "2021. 11. 24 · "
        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(9))
@@ -56,7 +56,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
        return label
    }()
    
-    private var linkLabel: UILabel = {
+     var linkLabel: UILabel = {
        let label = UILabel()
        label.text = "www.beansbin.oopy.ioooooooooooo"
        label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(9))
@@ -70,13 +70,13 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         return button
    }()
    
-    private var isReadImageView: UIImageView = {
+     var isReadImageView: UIImageView = {
        let imageView = UIImageView()
        imageView.image = ImageLiteral.btnContentsRead
        return imageView
    }()
    
-    private var alarmLabel: UILabel = {
+     var alarmLabel: UILabel = {
        let label = UILabel()
        label.text = "2021. 11. 17 오전 12:30 알림 예정"
        label.font = UIFont.font(FontName.pretendardSemibold, ofSize: CGFloat(9))
