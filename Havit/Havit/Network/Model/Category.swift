@@ -9,8 +9,8 @@ import Foundation
 
 struct Category: Decodable {
     let id: Int?
-    let title: String?
+    var title: String?
     let orderIndex: Int?
-    let imageId: Int?
+    var imageId: Int?
     let imageUrl: String?
 }
