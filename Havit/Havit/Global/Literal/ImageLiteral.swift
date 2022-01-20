@@ -31,7 +31,7 @@ enum ImageLiteral {
     static var iconCategoryMove: UIImage { .load(named: "iconCategoryMove")}
     static var iconCategorySelected: UIImage { .load(named: "iconCategorySelected")}
     static var iconCategoryUnselected: UIImage { .load(named: "iconCategoryUnselected")}
-    static var iconCheck: UIImage { .load(named: "iconCheck")}
+    static var iconcheck: UIImage { .load(named: "iconcheck")}
     static var iconChipGray: UIImage { .load(named: "iconChipGray")}
     static var iconCategoryEdit: UIImage { .load(named: "iconCategoryEdit")}
     static var iconContentsRead: UIImage { .load(named: "iconContentsRead")}
