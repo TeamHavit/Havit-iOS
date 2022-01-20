@@ -44,4 +44,11 @@ struct MainService: MainServiceable {
             .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
+    
+    func getReachRate() async throws -> User? {
+        let request = MainEndPoint
+            .getReachRate
+            .createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
 }

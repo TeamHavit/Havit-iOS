@@ -54,7 +54,7 @@ class TabbarController: UITabBarController {
     // MARK: - func
     
     private func render() {
-        self.view.addSubview(addButton)
+        self.tabBar.addSubview(addButton)
         self.addButton.snp.makeConstraints {
             $0.centerX.equalTo(Size.addButtonCenterX)
             $0.centerY.equalTo(tabBar.snp.top)
@@ -77,7 +77,7 @@ class TabbarController: UITabBarController {
     
     private func setTabBarViewControllers() {
         
-        let mainTabMetaData = (viewController: CategoryContentsViewController(),
+        let mainTabMetaData = (viewController: MainViewController(),
                                unselecedImage: ImageLiteral.iconHomeUnselected,
                                selectedImage: ImageLiteral.iconHomeSelected)
         let categoryTabMetaData = (viewController: CategoryViewController(type: .tabbar),

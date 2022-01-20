@@ -81,9 +81,9 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
             iconImageView.kf.setImage(with: url)
         }
         
-        if let orderIndex = category.orderIndex {
-            storedContentLabel.text = "저장 콘텐츠 \(orderIndex)"
-            storedContentLabel.applyColor(to: String(orderIndex), with: .havitPurple)
+        if let contentNumber = category.contentNumber {
+            storedContentLabel.text = "저장 콘텐츠 \(contentNumber)"
+            storedContentLabel.applyColor(to: String(contentNumber), with: .havitPurple)
         }
         
         titleLabel.text = category.title

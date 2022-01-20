@@ -12,4 +12,5 @@ protocol MainServiceable {
     func getRecentContent() async throws -> [Content]?
     func getRecommendSite() async throws -> [Site]?
     func getUnseen() async throws -> [Content]?
+    func getReachRate() async throws -> User?
 }
