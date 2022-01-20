@@ -7,16 +7,26 @@
 
 import UIKit
 
+import Kingfisher
 import PanModal
 import SnapKit
 
 class MorePanModalViewController: BaseViewController, PanModalPresentable {
+    
+    let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
+                                                                environment: .development)
+    var previousViewController: CategoryContentsViewController?
+    
+    var morePanModalCellType: MorePanModalButtonType?
+    
     var panScrollable: UIScrollView? {
         return nil
     }
     var shortFormHeight: PanModalHeight = .contentHeight(451)
     var longFormHeight: PanModalHeight = .contentHeight(451)
     var cornerRadius: CGFloat = 30
+    
+    var contents: CategoryContents?
     
     private let moreList = ["제목 수정", "공유", "카테고리 이동", "알림 설정", "삭제"]
     
@@ -83,6 +93,13 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
+        if let contentsImageString = contents?.image {
+            let url = URL(string: contentsImageString)
+            topImageView.kf.setImage(with: url)
+        }
+        topTitleLabel.text = contents?.title
+        topDateLabel.text = contents?.createdAt
+        topLinkLabel.text = contents?.url
     }
     
     override func render() {
@@ -165,7 +182,36 @@ extension MorePanModalViewController: UITableViewDelegate {
         cell.backgroundColor = .purpleCategory
         cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
         cell.cellLabel.textColor = .havitPurple
+        
+        switch cell.morePanModalCellType {
+        case .editTitle:
+            print("editTitle")
+        case .share:
+            print("share")
+        case .goToCategory:
+            print("goToCategory")
+        case .setAlarm:
+            print("setAlarm")
+        case .delete:
+            Task {
+                do {
+                    let categoryContents = try await categoryContentsService.deleteContents(contentID: "\((contents?.id)!)")
+                    // 성공, 삭제 분기 처리하기
+                    self.dismiss(animated: true) {
+                        self.previousViewController?.contentsCollectionView.reloadData()
+                    }
+                } catch APIServiceError.serverError {
+                    print("serverError")
+                } catch APIServiceError.clientError(let message) {
+                    print("clientError:\(message)")
+                }
+            }
+        case .none:
+            print("임시 프린트")
+        }
+        
     }
+
 }
 
 extension MorePanModalViewController: UITableViewDataSource {
@@ -174,9 +220,22 @@ extension MorePanModalViewController: UITableViewDataSource {
         cell.cellLabel.text = moreList[indexPath.row]
         cell.cellImageView.image = imageList[indexPath.row]
         cell.selectionStyle = .none
-        if indexPath.row == 4 {
+        switch indexPath.row {
+        case 0:
+            morePanModalCellType = .editTitle
+        case 1:
+            morePanModalCellType = .share
+        case 2:
+            morePanModalCellType = .goToCategory
+        case 3:
+            morePanModalCellType = .setAlarm
+        case 4:
+            morePanModalCellType = .delete
             cell.cellLabel.textColor = .havitRed
+        default:
+            print("임시 프린트")
         }
+        cell.morePanModalCellType = morePanModalCellType
         return cell
     }
 }

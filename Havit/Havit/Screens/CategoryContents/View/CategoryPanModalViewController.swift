@@ -31,7 +31,6 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
     let categoryTableView: UITableView = {
         var tableView = UITableView()
         tableView.register(cell: CategoryPanModalTableViewCell.self, forCellReuseIdentifier: CategoryPanModalTableViewCell.className)
-        // sortTableView.separatorStyle = .none
         return tableView
     }()
 

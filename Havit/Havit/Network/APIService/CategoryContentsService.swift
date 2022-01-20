@@ -8,6 +8,7 @@
 import Foundation
 
 struct CategoryContentsService: CategoryContentsSeriviceable {
+    
     private let apiService: Requestable
     private let environment: APIEnvironment
 
@@ -16,9 +17,23 @@ struct CategoryContentsService: CategoryContentsSeriviceable {
         self.environment = environment
     }
     
-    func getCategoryContents(option: String, filter: String) async throws -> [CategoryContents]? {
-        let request = CategoryEndPoint
-            .getCategory
+    func getAllContents() async throws -> [CategoryContents]? {
+        let request = CategoryContentsEndPoint
+            .getAllContents
+            .createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
+    
+    func getCategoryContents(categoryID: String, option: String, filter: String) async throws -> [CategoryContents]? {
+        let request = CategoryContentsEndPoint
+            .getCategoryContents(categoryID: categoryID, option: option, filter: filter)
+            .createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
+    
+    func deleteContents(contentID: String) async throws -> Bool? {
+        let request = CategoryContentsEndPoint
+            .deleteContents(contentID: contentID)
             .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
