@@ -47,7 +47,6 @@ final class SelectCategoryViewController: BaseViewController {
         container.font = .font(.pretendardSemibold, ofSize: 12)
 
         configuration.attributedTitle = AttributedString("카테고리 추가", attributes: container)
-
         configuration.baseForegroundColor = UIColor.purpleText
         configuration.image = ImageLiteral.iconCategoryAdd
 
