@@ -74,6 +74,12 @@ final class MainRecentViewController: BaseViewController {
     
     // MARK: - func
     
+    private func setupEmptyView(with contents: [Content]) {
+        let isContentEmpty = contents.isEmpty
+        
+        contentCollectionView.isHidden = isContentEmpty
+    }
+    
     private func bind() {
         backButton.rx.tap
             .asDriver()
@@ -110,6 +116,7 @@ final class MainRecentViewController: BaseViewController {
                 if let content = try await recentContent {
                     self.contents = content
                     contentCollectionView.reloadData()
+                    setupEmptyView(with: content)
                 }
             } catch APIServiceError.serverError {
                 print("serverError")
