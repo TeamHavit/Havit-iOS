@@ -33,4 +33,9 @@ struct CategoryService: CategorySeriviceable {
         let request = CategoryEndPoint.changeCategoryOrder(categoryIndexArray: categoryIndexArray).createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
+
+    func deleteCategory(categoryId: Int) async throws -> Int? {
+        let request = CategoryEndPoint.deleteCategory(categoryId: categoryId).createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
 }
