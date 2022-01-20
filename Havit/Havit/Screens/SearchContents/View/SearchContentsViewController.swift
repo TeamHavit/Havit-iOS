@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 
 final class SearchContentsViewController: BaseViewController {
@@ -185,11 +186,19 @@ extension SearchContentsViewController: UICollectionViewDataSource {
             return cell
         case .result:
             let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            // cell.titleLabel.text = searchResult[0].data?.
-//            cell.subtitleLabel.text = searchResult[0].data?.description
-//            cell.linkLabel.text = searchResult[0].data
-//            
-//            ResultData
+            if let searchImageString = searchResult[indexPath.row].image {
+                let url = URL(string: searchImageString)
+                cell.mainImageView.kf.setImage(with: url)
+            }
+            cell.titleLabel.text = searchResult[indexPath.row].title
+            cell.subtitleLabel.text = searchResult[indexPath.row].datumDescription
+            cell.linkLabel.text = searchResult[indexPath.row].url
+            cell.dateLabel.text = searchResult[indexPath.row].createdAt
+            cell.alarmLabel.text = searchResult[indexPath.row].notificationTime
+            if searchResult[indexPath.row].isNotified == true {
+                cell.alarmImageView.isHidden = false
+            }
+            // 읽음 버튼은 머지 후 다음 pr에서 넣기
             
             mainLabel.textColor = .gray003
             numberLabel.textColor = .havitPurple
@@ -222,21 +231,15 @@ extension SearchContentsViewController: UISearchBarDelegate {
         Task {
             do {
                 let searchResult = try await searchContentsService.getSearchResult(keyword: searchBar.text!)
-                print(searchResult)
-//                if searchResult!.count > 0 {
-//                    if (searchResult?[0].data) != nil {
-//                        self.searchResult = searchResult!
-//                        self.numberLabel.text = "전체 \(String(describing: self.searchResult[0].data?.count))"
-//                        resultType = .result
-//
-//                    }
-//                } else {
-//                    resultType = .noResult
-//                    print(searchResult)
-//                    DispatchQueue.main.async {
-//                        self.resultCollectionView.reloadData()
-//                    }
-//                }
+                if let searchResult = searchResult,
+                   !searchResult.isEmpty {
+                    self.searchResult = searchResult
+                    self.numberLabel.text = "\(searchResult.count)"
+                    resultType = .result
+                } else {
+                    resultType = .noResult
+                }
+                resultCollectionView.reloadData()
             } catch APIServiceError.serverError {
                 print("serverError")
             } catch APIServiceError.clientError(let message) {

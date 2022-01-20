@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - Datum
+// MARK: - SearchContents
 struct SearchContents: Decodable {
-    let id: Int
-    let title, datumDescription: String
-    let image, url: String
-    let isSeen, isNotified: Bool
-    let notificationTime, createdAt: String
+    let id: Int?
+    let title, datumDescription: String?
+    let image, url: String?
+    let isSeen, isNotified: Bool?
+    let notificationTime, createdAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title

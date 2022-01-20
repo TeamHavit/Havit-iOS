@@ -18,7 +18,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         return imageView
     }()
     
-     private let alarmImageView: UIImageView = {
+     let alarmImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.iconAlarmtagPuple
         imageView.layer.cornerRadius = 4
