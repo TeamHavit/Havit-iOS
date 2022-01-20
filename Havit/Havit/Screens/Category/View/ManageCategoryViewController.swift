@@ -15,7 +15,10 @@ class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
 
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
+
     var categories: [Category] = []
+    var categoryIndexArray: [Int] = []
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -61,6 +64,24 @@ class ManageCategoryViewController: BaseViewController {
         super.viewDidLoad()
         setDelegation()
         setGesture()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        setupBaseNavigationBar(backgroundColor: .white)
+    }
+
+    func changeOrderCategory() {
+        Task {
+            do {
+                updateCategoryIndexArray()
+                print(categoryIndexArray)
+                try await categoryService.changeCategoryOrder(categoryIndexArray: categoryIndexArray)
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
     }
 
     override func render() {
@@ -122,11 +143,12 @@ class ManageCategoryViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-//        doneButton.rx.tap
-//            .bind(onNext: { [weak self] in
-//                // changeorder patch 
-//            })
-//            .disposed(by: disposeBag)
+        doneButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.changeOrderCategory()
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setGesture() {
@@ -161,6 +183,12 @@ class ManageCategoryViewController: BaseViewController {
             return nil
         }
         return categoryCollectionView.cellForItem(at: indexPath)
+    }
+
+    func updateCategoryIndexArray() {
+        (0..<categories.count).forEach {
+            categoryIndexArray.append(categories[$0].id ?? 0)
+        }
     }
 }
 

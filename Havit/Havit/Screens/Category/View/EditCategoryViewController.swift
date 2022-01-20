@@ -118,7 +118,7 @@ class EditCategoryViewController: BaseViewController {
             } catch APIServiceError.serverError {
                 print("serverError")
             } catch APIServiceError.clientError(let message) {
-                print("clientError:\(message)")
+                print("clientError:\(String(describing: message))")
             }
         }
     }
