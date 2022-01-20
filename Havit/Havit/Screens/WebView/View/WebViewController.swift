@@ -25,6 +25,8 @@ final class WebViewController: BaseViewController {
     
     // MARK: - property
     
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
     private let viewModel: WebViewModel
     
     private let navigationBackBarButton: UIBarButtonItem = {
@@ -70,10 +72,13 @@ final class WebViewController: BaseViewController {
     
     private let toolbar = WebViewToolbar()
     
+    private var contentId: Int
+    
     // MARK: - init
     
-    init(urlString: String, isReadContent: Bool) {
+    init(urlString: String, isReadContent: Bool, contentId: Int) {
         viewModel = WebViewModel(urlString: urlString, isReadContent: isReadContent)
+        self.contentId = contentId
         super.init()
         self.hidesBottomBarWhenPushed = true
     }
@@ -112,6 +117,23 @@ final class WebViewController: BaseViewController {
         setNavigationItem(leftBarButtonItem: navigationBackBarButton,
                           titleView: urlTextField,
                           rightBarButtonItem: reloadUrlBarButton)
+    }
+    
+    private func patchContentToggle(contentId: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    toolbar.checkReadBarButton.image = isSeen ? ImageLiteral.iconContentsRead.withRenderingMode(.alwaysOriginal) : ImageLiteral.iconContentsUnread.withRenderingMode(.alwaysOriginal)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
     }
     
     private func setNavigationItem(leftBarButtonItem: UIBarButtonItem,
@@ -188,6 +210,7 @@ final class WebViewController: BaseViewController {
         toolbar.checkReadBarButton.rx
             .tap
             .map { _ in
+                self.patchContentToggle(contentId: self.contentId)
                 let isReadFromnetworkResult = true
                 return isReadFromnetworkResult
             }
@@ -229,15 +252,16 @@ final class WebViewController: BaseViewController {
             .asDriver(onErrorJustReturn: UIImage())
             .drive(toolbar.forwardBarButton.rx.image)
             .disposed(by: disposeBag)
-        
-        viewModel.isReadContent
-            .map { isReadContent in
-                let readContentImage = isReadContent ? ImageLiteral.iconContentsRead : ImageLiteral.iconContentsUnread
-                return readContentImage.withRenderingMode(.alwaysOriginal)
-            }
-            .asDriver(onErrorJustReturn: UIImage())
-            .drive(toolbar.checkReadBarButton.rx.image)
-            .disposed(by: disposeBag)
+       
+// TOOODO: 수진언니 제가 구현을 하고 싶었는데요, 못했습니다. 이걸로 하고 싶었어요...
+//        viewModel.isReadContent
+//            .map { isReadContent in
+//                let readContentImage = isReadContent ? ImageLiteral.iconContentsRead : ImageLiteral.iconContentsUnread
+//                return readContentImage.withRenderingMode(.alwaysOriginal)
+//            }
+//            .asDriver(onErrorJustReturn: UIImage())
+//            .drive(toolbar.checkReadBarButton.rx.image)
+//            .disposed(by: disposeBag)
     }
 }
 
