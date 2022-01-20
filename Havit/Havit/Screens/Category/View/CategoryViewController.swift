@@ -78,16 +78,12 @@ class CategoryViewController: BaseViewController {
         button.setTitleColor(UIColor.gray003, for: .normal)
         return button
     }()
+    private var type: PresentableParentType
 
     // MARK: - init
 
     init(type: PresentableParentType) {
-        switch type {
-        case .main:
-            backButton.isHidden = false
-        case .tabbar:
-            backButton.isHidden = true
-        }
+        self.type = type
         super.init()
     }
 
@@ -105,6 +101,7 @@ class CategoryViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupBaseNavigationBar(backgroundColor: .white)
         getCategory()
+        setupCategoryViewControllerType()
     }
 
     func getCategory() {
@@ -127,6 +124,16 @@ class CategoryViewController: BaseViewController {
             }
         }
 
+    }
+    
+    private func setupCategoryViewControllerType() {
+        switch type {
+        case .main:
+            backButton.isHidden = false
+            tabBarController?.tabBar.isHidden = true
+        case .tabbar:
+            backButton.isHidden = true
+        }
     }
     
     override func render() {
@@ -208,7 +215,6 @@ class CategoryViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
             $0.leading.trailing.bottom.equalToSuperview()
         }
-
     }
 }
 

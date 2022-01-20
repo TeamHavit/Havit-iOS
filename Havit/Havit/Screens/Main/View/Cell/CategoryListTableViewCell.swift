@@ -21,6 +21,9 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         case allContent = 0
     }
     
+    var didTapOverallButton: (() -> Void)?
+    var didTapCategory: ((Int) -> Void)?
+    
     // MARK: - property
     
     private let titleLabel: UILabel = {
@@ -47,6 +50,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: CategoryListCollectionViewCell.self)
         return collectionView
     }()
@@ -149,6 +153,13 @@ final class CategoryListTableViewCell: BaseTableViewCell {
                 self?.pageControl.selectedPage = Int(selectedIndex)
             })
             .disposed(by: disposeBag)
+        
+        overallButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.didTapOverallButton?()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func calculateTotalCategoryCellCount(with categories: [Category]) -> Int {
@@ -194,5 +205,11 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
             cell.backgroundColor = .clear
             return cell
         }
+    }
+}
+
+extension CategoryListTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didTapCategory?(indexPath.item)
     }
 }

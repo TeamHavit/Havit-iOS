@@ -36,12 +36,27 @@ final class MainRecentViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .gray000
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: ContentsCollectionViewCell.self)
         return collectionView
     }()
     private let recentEmptyView = MainContentEmptyView(guideText:
                                                             "최근에 저장한 콘텐츠가 없습니다.\n새로운 콘텐츠를 저장해 보세요!")
     private var contents: [Content] = []
+    
+    // MARK: - init
+    
+    override init() {
+        super.init()
+        hidesBottomBarWhenPushed = true
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,5 +178,16 @@ extension MainRecentViewController: UICollectionViewDataSource {
             self?.patchContentToggle(contentId: contentId, item: item)
         }
         return cell
+    }
+}
+
+extension MainRecentViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = indexPath.item
+        if let url = contents[item].url,
+           let isReadContent = contents[item].isSeen {
+            let webViewController = WebViewController(urlString: url, isReadContent: isReadContent)
+            navigationController?.pushViewController(webViewController, animated: true)
+        }
     }
 }

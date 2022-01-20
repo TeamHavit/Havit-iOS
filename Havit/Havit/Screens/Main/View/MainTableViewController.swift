@@ -149,6 +149,14 @@ extension MainTableViewController: UITableViewDataSource {
             cell.setupCategoryPartLayout(with: categories)
             cell.applyPageControlPages()
             cell.applyUserNickname(to: user?.nickname ?? "")
+            cell.didTapOverallButton = { [weak self] in
+                let categoryViewController = CategoryViewController(type: .main)
+                self?.navigationController?.pushViewController(categoryViewController, animated: true)
+            }
+            cell.didTapCategory = { [weak self] _ in
+                let categoryContentViewController = CategoryContentsViewController()
+                self?.navigationController?.pushViewController(categoryContentViewController, animated: true)
+            }
             return cell
         case .guideline:
             let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
@@ -161,13 +169,22 @@ extension MainTableViewController: UITableViewDataSource {
             cell.setupContentPartLayout(with: contents)
             cell.didTapOverallButton = { [weak self] in
                 let recentViewController = MainRecentViewController()
+                self?.navigationController?.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(recentViewController, animated: true)
+            }
+            cell.didTapContentSection = { [weak self] url, isSeen in
+                let webViewController = WebViewController(urlString: url, isReadContent: isSeen)
+                self?.navigationController?.pushViewController(webViewController, animated: true)
             }
             return cell
         case .recommend:
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
                                                      for: indexPath)
             cell.sites = sites
+            cell.didTapSiteSection = { [weak self] url in
+                let webViewController = WebViewController(urlString: url, isReadContent: false)
+                self?.navigationController?.pushViewController(webViewController, animated: true)
+            }
             return cell
         case .logo:
             let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self,
@@ -192,6 +209,13 @@ extension MainTableViewController: UITableViewDelegate {
         let sectionType = MainTableViewSectionType(rawValue: section)
         switch sectionType {
         case .category:
+            searchHeaderView.didTapSearchHeader = { [weak self] in
+                let searchContentViewController = SearchContentsViewController()
+                let navigationController = UINavigationController(rootViewController: searchContentViewController)
+                navigationController.modalTransitionStyle = .crossDissolve
+                navigationController.modalPresentationStyle = .overFullScreen
+                self?.present(navigationController, animated: true, completion: nil)
+            }
             return searchHeaderView
         default:
             return UIView()

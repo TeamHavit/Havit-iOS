@@ -13,8 +13,9 @@ import SnapKit
 final class SearchContentsViewController: BaseViewController {
     
     let searchContentsService: SearchContentsService = SearchContentsService(apiService: APIService(),
-                                                                                  environment: .development)
+                                                                             environment: .development)
     var searchResult: [SearchContents] = []
+    
     enum SearchResultType {
         case searching, result, noResult
     }
@@ -57,13 +58,13 @@ final class SearchContentsViewController: BaseViewController {
     }()
     
     lazy var resultCollectionView: UICollectionView = {
-       var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-       collectionView.backgroundColor = .white
-       collectionView.register(cell: NotSearchedCollectionViewCell.self)
+        var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        collectionView.backgroundColor = .white
+        collectionView.register(cell: NotSearchedCollectionViewCell.self)
         collectionView.register(cell: ContentsCollectionViewCell.self)
-       return collectionView
+        return collectionView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
@@ -89,7 +90,7 @@ final class SearchContentsViewController: BaseViewController {
                 button.addTarget(self, action: #selector(clearClicked(_:)), for: .touchUpInside)
                 return button
             }()
-         
+            
             paddingView.addSubview(clearButton)
             clearButton.snp.makeConstraints {
                 $0.top.bottom.trailing.equalTo(paddingView)
@@ -107,7 +108,7 @@ final class SearchContentsViewController: BaseViewController {
             }
         }
     }
-
+    
     override func render() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -153,7 +154,7 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     @objc func clearClicked(_ sender: UIButton) {
-
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -227,7 +228,8 @@ extension SearchContentsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         Task {
             do {
-                let searchResult = try await searchContentsService.getSearchResult(keyword: searchBar.text!)
+                guard let text = searchBar.text else { return }
+                let searchResult = try await searchContentsService.getSearchResult(keyword: text)
                 if let searchResult = searchResult,
                    !searchResult.isEmpty {
                     self.searchResult = searchResult

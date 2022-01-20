@@ -39,6 +39,12 @@ final class RecommendSiteCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
+    override func prepareForReuse() {
+        profileImageView.image = nil
+        siteTitleLabel.text = ""
+        subTitleLabel.text = ""
+    }
+    
     override func render() {
         contentView.addSubViews([profileImageView, siteTitleLabel, subTitleLabel])
         
@@ -63,8 +69,10 @@ final class RecommendSiteCollectionViewCell: BaseCollectionViewCell {
         backgroundColor = .gray000
     }
     
-    func update(sites: Site, with siteImage: UIImage) {
-        profileImageView.image = siteImage
+    func update(sites: Site) {
+        if let url = URL(string: sites.imageUrl ?? "") {
+            profileImageView.kf.setImage(with: url)
+        }
         siteTitleLabel.text = sites.title
         subTitleLabel.text = sites.websiteCategory
     }
