@@ -58,7 +58,6 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         collectionView.register(cell: RecommendSiteCollectionViewCell.self)
         return collectionView
     }()
-    private let dummySiteImages: [UIImage] = [ImageLiteral.imgBranch, ImageLiteral.imgTstory, ImageLiteral.imgMedium, ImageLiteral.imgPinterest, ImageLiteral.imgVelog, ImageLiteral.imgOutstanding, ImageLiteral.imgSurfit, ImageLiteral.imgCarret, ImageLiteral.imgElleKorea, ImageLiteral.imgLivingsense, ImageLiteral.imgOpenas, ImageLiteral.imgMobiInside]
     var sites: [Site] = []
     
     override func render() {
@@ -93,12 +92,12 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
 
 extension RecommendSiteTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummySiteImages.count
+        return sites.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.update(sites: sites[indexPath.item], with: dummySiteImages[indexPath.item])
+        cell.update(sites: sites[indexPath.item])
         return cell
     }
 }
