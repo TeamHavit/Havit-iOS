@@ -113,7 +113,7 @@ final class SetAlertViewController: BaseViewController {
 
 extension SetAlertViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return AlertTimeType.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
