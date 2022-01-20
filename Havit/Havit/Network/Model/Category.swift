@@ -11,12 +11,14 @@ struct Category: Decodable {
     let id: Int?
     let title: String?
     let orderIndex: Int?
+    let imageId: Int?
     let imageUrl: String?
 
     enum CodingKeys: String, CodingKey {
         case id
         case title
         case orderIndex
+        case imageId
         case imageUrl = "url"
     }
 }
