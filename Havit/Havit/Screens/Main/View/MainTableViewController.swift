@@ -197,7 +197,7 @@ extension MainTableViewController: UITableViewDelegate {
                 let searchContentViewController = SearchContentsViewController()
                 let navigationController = UINavigationController(rootViewController: searchContentViewController)
                 navigationController.modalTransitionStyle = .crossDissolve
-                navigationController.modalPresentationStyle = .overCurrentContext
+                navigationController.modalPresentationStyle = .overFullScreen
                 self?.present(navigationController, animated: true, completion: nil)
             }
             return searchHeaderView
