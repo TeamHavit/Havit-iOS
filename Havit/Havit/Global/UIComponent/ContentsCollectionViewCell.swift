@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import RxSwift
 import SnapKit
 
@@ -22,12 +23,12 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.iconAlarmtagPuple
         imageView.layer.cornerRadius = 4
+        imageView.isHidden = true
         return imageView
     }()
     
     private var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "슈슈슉 이것은 제목입니다 슈슉 슉슉 이것"
         label.font = UIFont.font(FontName.pretendardMedium, ofSize: 15)
         label.textColor = .black
         label.numberOfLines = 2
@@ -36,7 +37,6 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "슈슈슉 이것은 제목입니다 슈슉 슉 슉 슈슉 슈슈슈슈슈슉 슉 슉"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: 9)
         label.textColor = .gray003
         return label
@@ -44,7 +44,6 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2021. 11. 24 ·"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: 9)
         label.textColor = .gray002
         return label
@@ -52,7 +51,6 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private var linkLabel: UILabel = {
         let label = UILabel()
-        label.text = "www.beansbin.oopy.ioooooooooooo"
         label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(9))
         label.textColor = .gray002
         return label
@@ -66,13 +64,12 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private var isReadButton: UIButton = {
         let button = UIButton()
-        button.setImage(ImageLiteral.btnContentsRead, for: .normal)
+        button.setImage(ImageLiteral.btnContentsUnread, for: .normal)
         return button
     }()
     
     private var alarmLabel: UILabel = {
         let label = UILabel()
-        label.text = "2021. 11. 17 오전 12:30 알림 예정"
         label.font = UIFont.font(FontName.pretendardSemibold, ofSize: CGFloat(9))
         label.textColor = .havitPurple
         return label
@@ -86,6 +83,15 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         bind()
+    }
+    
+    override func prepareForReuse() {
+        mainImageView.image = nil
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+        dateLabel.text = ""
+        linkLabel.text = ""
+        alarmLabel.text = ""
     }
     
     override func render() {
@@ -124,7 +130,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         }
         
         linkLabel.snp.makeConstraints {
-            $0.leading.equalTo(dateLabel.snp.trailing)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(3)
             $0.top.equalTo(dateLabel)
             $0.trailing.equalTo(contentView).inset(49)
         }
@@ -158,5 +164,65 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
                 self?.isReadButton.setImage(isReadArticle ? ImageLiteral.btnContentsUnread : ImageLiteral.btnContentsRead, for: .normal)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func update(content: Content) {
+        if let imageUrl = content.image,
+           let url = URL(string: imageUrl) {
+            mainImageView.kf.setImage(with: url)
+        }
+        
+        if let isNotified = content.isNotified,
+           isNotified {
+            alarmImageView.isHidden = false
+        }
+        
+        if let isSeen = content.isSeen,
+           isSeen {
+            isReadButton.setImage(ImageLiteral.btnContentsRead, for: .normal)
+        }
+        
+        if let createdAt = content.createdAt {
+            let dateFormat = changeDateFormat(with: createdAt)
+            dateLabel.text = "\(dateFormat) •"
+        }
+        
+        if let notificatedTime = content.notificationTime {
+            alarmLabel.text = changeDateAlarmFormat(with: notificatedTime)
+        }
+        
+        titleLabel.text = content.title
+        subtitleLabel.text = content.contentDescription
+        linkLabel.text = content.url
+    }
+    
+    private func changeDateFormat(with date: String) -> String {
+        let dateArray = date.components(separatedBy: " ")
+        let dateComponent = dateArray[0]
+        let dateComponentWithDot = dateComponent.replacingOccurrences(of: "-", with: ". ")
+        return dateComponentWithDot
+    }
+    
+    private func changeDateAlarmFormat(with date: String) -> String {
+        let dateArray = date.components(separatedBy: " ")
+        let dateComponent = dateArray[0]
+        let timeComponent = dateArray[1]
+        let dateComponentWithDot = dateComponent.replacingOccurrences(of: "-", with: ". ")
+        let separatedTime = divideTime(with: timeComponent)
+        return "\(dateComponentWithDot) \(separatedTime)"
+    }
+    
+    private func divideTime(with time: String) -> String {
+        let timeArray = time.components(separatedBy: ":")
+        print(timeArray)
+        if let hour = Int(timeArray[0]) {
+            if hour < 12 {
+                return "오전 \(time) 알림 예정"
+            } else {
+                return "오후 \(time) 알림 예정"
+            }
+        }
+        
+        return ""
     }
 }

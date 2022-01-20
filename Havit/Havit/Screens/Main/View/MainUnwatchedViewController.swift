@@ -124,6 +124,7 @@ extension MainUnwatchedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .white
+        cell.update(content: contents[indexPath.item])
         return cell
     }
 }
