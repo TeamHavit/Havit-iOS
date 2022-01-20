@@ -27,7 +27,7 @@ final class MainViewController: MainTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupNavigationBarHidden()
+        setupBarHidden()
         getMainData()
     }
     
@@ -61,8 +61,9 @@ final class MainViewController: MainTableViewController {
             .disposed(by: disposeBag)
     }
     
-    private func setupNavigationBarHidden() {
+    private func setupBarHidden() {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - network

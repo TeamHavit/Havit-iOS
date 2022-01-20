@@ -130,6 +130,7 @@ class CategoryViewController: BaseViewController {
         switch type {
         case .main:
             backButton.isHidden = false
+            tabBarController?.tabBar.isHidden = true
         case .tabbar:
             backButton.isHidden = true
         }
