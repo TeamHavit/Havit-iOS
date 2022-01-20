@@ -11,14 +11,24 @@ import PanModal
 import SnapKit
 
 class SortPanModalViewController: BaseViewController, PanModalPresentable {
+    
     var panScrollable: UIScrollView? {
         return nil
     }
+    
+    let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
+                                                                environment: .development)
+    private var categoryContents: [CategoryContents] = []
+    var previousViewController: CategoryContentsViewController?
+    
     var shortFormHeight: PanModalHeight = .contentHeight(278)
     var longFormHeight: PanModalHeight = .contentHeight(278)
     var cornerRadius: CGFloat = 0
     
     let sortList = ["최신순", "과거순", "최근 조회순"]
+    var option: String?
+    var filter: String?
+    var contentsSortType: ContentsSortType = .created_at
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -80,6 +90,28 @@ extension SortPanModalViewController: UITableViewDelegate {
         cell.backgroundColor = .purpleCategory
         cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
         cell.cellLabel.textColor = .havitPurple
+        filter = cell.contentsSortType?.rawValue
+        
+        Task {
+            do {
+                let categoryContents = try await categoryContentsService.getAllContents(option: option!, filter: filter!)
+                if let categoryContents = categoryContents,
+                   !categoryContents.isEmpty {
+                    self.dismiss(animated: true) {
+                        self.previousViewController?.categoryContents = categoryContents
+                        self.previousViewController?.contentsCollectionView.reloadData()
+                        self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
+                        self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.created_at
+                    }
+                } else {
+                   // Emtpy 띄우기
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
+            }
+        }
     }
 }
 
@@ -88,6 +120,18 @@ extension SortPanModalViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withType: SortPanModalTableViewCell.self, for: indexPath)
         cell.cellLabel.text = sortList[indexPath.row]
         cell.selectionStyle = .none
+        
+        switch indexPath.row {
+        case 0:
+            contentsSortType = .created_at
+        case 1:
+            contentsSortType = .reverse
+        case 2:
+            contentsSortType = .seen_at
+        default:
+            print("임시 프린트")
+        }
+        cell.contentsSortType = contentsSortType
         return cell
     }
 }

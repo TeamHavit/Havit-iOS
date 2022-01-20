@@ -17,7 +17,7 @@ final class CategoryContentsViewController: BaseViewController {
     // MARK: - Property
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
-    private var categoryContents: [CategoryContents] = []
+    var categoryContents: [CategoryContents] = []
     
     var isFromAllCategory: Bool = true
     
@@ -25,9 +25,11 @@ final class CategoryContentsViewController: BaseViewController {
     private var grid2XnConstraints: Constraint?
     
     private var gridType: GridType = .grid
+    var contentsSortType: ContentsSortType = .created_at
+    var contentsFilterType: ContentsFilterType = .all
     
-    private var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
-    private var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
+    var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
+    var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
     
     private let searchBarBorderLayer: CALayer? = CALayer()
     
@@ -85,7 +87,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         var attributes = AttributeContainer()
         attributes.foregroundColor = .gray003
-        var attributedText = AttributedString.init("최근순", attributes: attributes)
+        var attributedText = AttributedString.init("최신순", attributes: attributes)
         attributedText.font = UIFont.font(.pretendardMedium, ofSize: 12)
         configuration.attributedTitle = attributedText
         
@@ -296,7 +298,11 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showSortPanModalViewController(_ sender: UIButton) {
-        self.presentPanModal(SortPanModalViewController())
+        let viewController = SortPanModalViewController()
+        viewController.option = contentsFilterType.rawValue
+        viewController.filter = contentsSortType.rawValue
+        viewController.previousViewController = self
+        self.presentPanModal(viewController)
     }
     
     @objc func showMorePanModalViewController(_ sender: UIButton) {

@@ -25,3 +25,16 @@ enum FilterType: Int {
 enum MorePanModalButtonType {
     case editTitle, share, goToCategory, setAlarm, delete
 }
+
+enum ContentsSortType: String {
+    case created_at = "created_at"
+    case reverse = "reverse"
+    case seen_at = "seen_at"
+}
+
+enum ContentsFilterType: String {
+    case all = "all"
+    case notSeen = "notSeen"
+    case seen = "seen"
+    case alarm = "alarm"
+}
