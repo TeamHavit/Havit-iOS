@@ -81,7 +81,7 @@ final class MainViewController: MainTableViewController {
                     self.contents = contents
                     self.sites = sites
                     
-                    dump(contents)
+                    dump(sites)
                     
                     tableView.reloadData()
                 }

@@ -158,6 +158,7 @@ extension MainTableViewController: UITableViewDataSource {
         case .recommend:
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
                                                      for: indexPath)
+            cell.sites = sites
             return cell
         case .logo:
             let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self,
