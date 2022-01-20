@@ -26,7 +26,7 @@ final class WebViewModel {
         self.urlString = BehaviorSubject<String?>(value: urlString)
         self.canGoBack = BehaviorSubject(value: false)
         self.canGoForward = BehaviorSubject(value: false)
-        self.isReadContent = BehaviorSubject(value: false)
+        self.isReadContent = BehaviorSubject(value: isReadContent)
         
         self.urlRequest = self.urlString
             .compactMap { urlString -> String? in
