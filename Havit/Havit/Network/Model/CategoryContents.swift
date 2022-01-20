@@ -7,11 +7,11 @@
 import Foundation
 
 struct CategoryContents: Codable {
-    let id: Int
-    let title: String
-    let orderIndex, imageID: Int
-    let imageURL: String
-    let contentNumber: Int
+    let id: Int?
+    let title: String?
+    let orderIndex, imageID: Int?
+    let imageURL: String?
+    let contentNumber: Int?
 
     enum CodingKeys: String, CodingKey {
         case id, title, orderIndex

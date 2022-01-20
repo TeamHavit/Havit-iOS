@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import PanModal
 import RxSwift
 import SnapKit
@@ -14,6 +15,9 @@ import SnapKit
 final class CategoryContentsViewController: BaseViewController {
     
     // MARK: - Property
+    let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
+                                                                environment: .development)
+    private var categoryContents: [CategoryContents] = []
     
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
@@ -142,6 +146,7 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCategoryContents()
         setDelegations()
     }
     
@@ -240,6 +245,27 @@ final class CategoryContentsViewController: BaseViewController {
         }
     }
     
+    func getCategoryContents() {
+        Task {
+            do {
+                let categoryContents = try await categoryContentsService.getCategoryContents(option: "true", filter: "createdAt")
+
+                if let categoryContents = categoryContents,
+                   !categoryContents.isEmpty {
+                    self.categoryContents = categoryContents
+                    self.totalLabel.text = "전체 \(categoryContents.count)"
+                } else {
+                   // Emtpy 띄우기
+                }
+                contentsCollectionView.reloadData()
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
+            }
+        }
+    }
+    
     func setNavigationItem() {
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.rightBarButtonItem = navigationRightButton
@@ -314,6 +340,15 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+//                if let searchImageString = categoryContents[indexPath.row].image {
+//                    let url = URL(string: searchImageString)
+//                    cell.mainImageView.kf.setImage(with: url)
+//                }
+//                cell.titleLabel.text = categoryContents[indexPath.row].title
+//                cell.subtitleLabel.text = categoryContents[indexPath.row].
+//                cell.linkLabel.text = categoryContents[indexPath.row].url
+//                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
+//                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
