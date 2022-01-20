@@ -123,6 +123,7 @@
 		4FC6EC632798A8F7000BD4E0 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
 		4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
 		4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */; };
+		4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534CE27994604000C7034 /* SaveContentsViewController.swift */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
 		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
@@ -289,6 +290,7 @@
 		4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryIconViewController.swift; sourceTree = "<group>"; };
 		4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FD534CE27994604000C7034 /* SaveContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContentsViewController.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED3502A827986BE20033C280 /* MainRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentViewController.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +491,7 @@
 		4F4DF4EB27943E6E00DD629C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4FD534CC279945D7000C7034 /* Contents */,
 				4F81AE142797E59A00336AFE /* Category */,
 			);
 			path = Screens;
@@ -520,6 +523,14 @@
 				4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4FD534CC279945D7000C7034 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				4FD534CE27994604000C7034 /* SaveContentsViewController.swift */,
+			);
+			path = Contents;
 			sourceTree = "<group>";
 		};
 		ED443EA1278598670059DE76 = {
@@ -1311,6 +1322,7 @@
 				4FB24FD8279217C700CCDB0C /* ImageLiteral.swift in Sources */,
 				4FB24FC7279212B000CCDB0C /* Requestable.swift in Sources */,
 				4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */,
+				4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */,
 				4FC6EC5E27989DCD000BD4E0 /* CategoryListDataModel.swift in Sources */,
 				4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */,
 				4FB24FDA279217D700CCDB0C /* BaseTableViewCell.swift in Sources */,
