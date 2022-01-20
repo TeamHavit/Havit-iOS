@@ -172,8 +172,10 @@ extension MainTableViewController: UITableViewDataSource {
                 self?.navigationController?.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(recentViewController, animated: true)
             }
-            cell.didTapContentSection = { [weak self] url, isSeen in
-                let webViewController = WebViewController(urlString: url, isReadContent: isSeen)
+            cell.didTapContentSection = { [weak self] url, isSeen, id in
+                let webViewController = WebViewController(urlString: url,
+                                                          isReadContent: isSeen,
+                                                          contentId: id)
                 self?.navigationController?.pushViewController(webViewController, animated: true)
             }
             return cell
@@ -182,7 +184,9 @@ extension MainTableViewController: UITableViewDataSource {
                                                      for: indexPath)
             cell.sites = sites
             cell.didTapSiteSection = { [weak self] url in
-                let webViewController = WebViewController(urlString: url, isReadContent: false)
+                let webViewController = WebViewController(urlString: url,
+                                                          isReadContent: false,
+                                                          contentId: -1)
                 self?.navigationController?.pushViewController(webViewController, animated: true)
             }
             return cell
