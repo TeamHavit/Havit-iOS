@@ -17,7 +17,7 @@ final class CategoryContentsViewController: BaseViewController {
     // MARK: - Property
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
-    private var categoryContents: [CategoryContents] = []
+    var categoryContents: [CategoryContents] = []
     
     var isFromAllCategory: Bool = false
     
@@ -25,9 +25,12 @@ final class CategoryContentsViewController: BaseViewController {
     private var grid2XnConstraints: Constraint?
     
     private var gridType: GridType = .grid
+    var contentsSortType: ContentsSortType = .createdAt
+    var contentsFilterType: ContentsFilterType = .all
+    var categoryId = 0
     
-    private var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
-    private var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
+    var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
+    var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
     
     private let searchBarBorderLayer: CALayer? = CALayer()
     
@@ -85,7 +88,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         var attributes = AttributeContainer()
         attributes.foregroundColor = .gray003
-        var attributedText = AttributedString.init("최근순", attributes: attributes)
+        var attributedText = AttributedString.init("최신순", attributes: attributes)
         attributedText.font = UIFont.font(.pretendardMedium, ofSize: 12)
         configuration.attributedTitle = attributedText
         
@@ -265,7 +268,7 @@ final class CategoryContentsViewController: BaseViewController {
         Task {
             do {
                 if isFromAllCategory {
-                    let categoryContents = try await categoryContentsService.getAllContents()
+                    let categoryContents = try await categoryContentsService.getAllContents(option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -274,7 +277,7 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 } else {
-                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "3", option: "notified", filter: "created_at")
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "1", option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -283,7 +286,9 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 }
-                contentsCollectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.contentsCollectionView.reloadData()
+                }
             } catch APIServiceError.serverError {
                 print("serverError")
             } catch APIServiceError.clientError(let message) {
@@ -310,7 +315,12 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showSortPanModalViewController(_ sender: UIButton) {
-        self.presentPanModal(SortPanModalViewController())
+        let viewController = SortPanModalViewController()
+        viewController.option = contentsFilterType.rawValue
+        viewController.filter = contentsSortType.rawValue
+        viewController.previousViewController = self
+        viewController.categoryID = String(categoryId)
+        self.presentPanModal(viewController)
     }
     
     @objc func showMorePanModalViewController(_ sender: UIButton) {
@@ -341,11 +351,36 @@ final class CategoryContentsViewController: BaseViewController {
     }
 }
 
+extension CategoryContentsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
+            print("앙대")
+            return
+        }
+        switch indexPath.row {
+        case 0:
+            cell.contentsFilterType = .all
+        case 1:
+            cell.contentsFilterType = .notSeen
+        case 2:
+            cell.contentsFilterType = .seen
+        case 3:
+            cell.contentsFilterType = .alarm
+        default:
+            print("임시 프린트")
+        }
+        contentsFilterType = cell.contentsFilterType
+        getCategoryContents()
+    }
+}
+
 extension CategoryContentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case filterCollectionView:
             let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.contentsFilterType = contentsFilterType
+
             if indexPath.row == FilterType.alarm.rawValue {
                 cell.filterNameLabel.text = ""
                 cell.layer.cornerRadius = 15
