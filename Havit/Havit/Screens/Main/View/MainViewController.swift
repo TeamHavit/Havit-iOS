@@ -73,13 +73,16 @@ final class MainViewController: MainTableViewController {
                 async let categories = try await mainService.getCategory()
                 async let recentContent = try await mainService.getRecentContent()
                 async let recommendSite = try await mainService.getRecommendSite()
+                async let user = try await mainService.getReachRate()
                 
                 if let categories = try await categories,
                    let contents = try await recentContent,
-                   let sites = try await recommendSite {
+                   let recommendSite = try await recommendSite,
+                   let user = try await user {
                     self.categories = categories
                     self.contents = contents
-                    self.sites = sites
+                    self.sites = recommendSite
+                    self.user = user
                     
                     tableView.reloadData()
                 }

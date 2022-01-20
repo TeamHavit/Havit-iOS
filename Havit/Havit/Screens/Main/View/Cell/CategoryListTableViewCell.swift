@@ -27,7 +27,6 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.font = .font(.pretendardSemibold, ofSize: 17)
         label.textColor = .primaryBlack
-        label.text = "박태준님의 카테고리"
         return label
     }()
     private let overallButton: UIButton = {
@@ -55,6 +54,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     private let categoryEmptyView = MainCategoryEmptyView()
     
     var categories: [Category] = []
+    var user: User?
     
     // MARK: - func
     
@@ -151,11 +151,6 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             .disposed(by: disposeBag)
     }
     
-    func applyPageControlPages() {
-        let totalCellCount = calculateTotalCategoryCellCount(with: categories)
-        pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
-    }
-    
     private func calculateTotalCategoryCellCount(with categories: [Category]) -> Int {
         var categoryCount = categories.count + Count.allContentPart
         let filledCategoryCountInLastPage = categoryCount % Count.maxCategoryCountInPage
@@ -165,6 +160,15 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             categoryCount += placeHolderCategoryCount
         }
         return categoryCount
+    }
+    
+    func applyPageControlPages() {
+        let totalCellCount = calculateTotalCategoryCellCount(with: categories)
+        pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
+    }
+    
+    func applyUserNickname(to nickname: String) {
+        titleLabel.text = "\(nickname)님의 카테고리"
     }
 }
 
@@ -181,7 +185,7 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
             case .allContent:
-                cell.updateAllContent(with: 100)
+                cell.updateAllContent(with: user?.totalContentNumber ?? 0)
             default:
                 cell.updateCategory(category: categories[indexPath.item - 1])
             }
