@@ -79,9 +79,9 @@ final class CategoryCollectionViewCell: BaseCollectionViewCell {
         layer.cornerRadius = 6
     }
 
-    func update(data: CategoryListData) {
-        categoryImageView.image = UIImage(named: data.categoryImageName)
-        categoryTitleLabel.text = "\(data.categoryTitle)"
+    func update(data: Category) {
+        categoryImageView.image = ImageLiteral.iconCategory
+        categoryTitleLabel.text = "\(data.title)"
     }
     
     func didSelect() {

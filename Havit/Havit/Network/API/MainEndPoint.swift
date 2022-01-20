@@ -11,6 +11,7 @@ enum MainEndPoint {
     case getCategory
     case getRecentContent
     case getRecommend
+    case getUnseen
 
     var requestTimeOut: Float {
         return 20
@@ -24,6 +25,8 @@ enum MainEndPoint {
             return .GET
         case .getRecommend:
             return .GET
+        case .getUnseen:
+            return .GET
         }
     }
 
@@ -34,6 +37,8 @@ enum MainEndPoint {
         case .getRecentContent:
             return nil
         case .getRecommend:
+            return nil
+        case .getUnseen:
             return nil
         }
     }
@@ -47,6 +52,8 @@ enum MainEndPoint {
             return "\(baseUrl)/content/recent"
         case .getRecommend:
             return "\(baseUrl)/recommendation"
+        case .getUnseen:
+            return "\(baseUrl)/content/unseen"
         }
     }
 

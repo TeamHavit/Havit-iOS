@@ -58,16 +58,24 @@ class ManageCategoryViewController: BaseViewController {
         return label
     }()
 
+    // MARK: - init
+
+    override init() {
+        super.init()
+        self.hidesBottomBarWhenPushed = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
         setGesture()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        setupBaseNavigationBar(backgroundColor: .white)
     }
 
     func changeOrderCategory() {

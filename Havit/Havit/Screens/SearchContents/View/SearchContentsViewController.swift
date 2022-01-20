@@ -7,10 +7,14 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 
 final class SearchContentsViewController: BaseViewController {
     
+    let searchContentsService: SearchContentsService = SearchContentsService(apiService: APIService(),
+                                                                                  environment: .development)
+    var searchResult: [SearchContents] = []
     enum SearchResultType {
         case searching, result, noResult
     }
@@ -162,7 +166,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch resultType {
         case .result:
-            return 10
+            return searchResult.count
         case .searching, .noResult:
             return 1
         }
@@ -170,11 +174,6 @@ extension SearchContentsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch resultType {
-        case .result:
-            let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            mainLabel.textColor = .gray003
-            numberLabel.textColor = .havitPurple
-            return cell
         case .searching:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearchIs")
@@ -182,9 +181,29 @@ extension SearchContentsViewController: UICollectionViewDataSource {
             mainLabel.textColor = .white
             numberLabel.textColor = .white
             return cell
+        case .result:
+            let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            if let searchImageString = searchResult[indexPath.row].image {
+                let url = URL(string: searchImageString)
+                cell.mainImageView.kf.setImage(with: url)
+            }
+            cell.titleLabel.text = searchResult[indexPath.row].title
+            cell.subtitleLabel.text = searchResult[indexPath.row].datumDescription
+            cell.linkLabel.text = searchResult[indexPath.row].url
+            cell.dateLabel.text = searchResult[indexPath.row].createdAt
+            cell.alarmLabel.text = searchResult[indexPath.row].notificationTime
+            if searchResult[indexPath.row].isNotified == true {
+                cell.alarmImageView.isHidden = false
+            }
+            // 읽음 버튼은 머지 후 다음 pr에서 넣기
+            
+            mainLabel.textColor = .gray003
+            numberLabel.textColor = .havitPurple
+            return cell
         case .noResult:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearch")
+            cell.noResultLabel.isHidden = false
             mainLabel.textColor = .white
             numberLabel.textColor = .white
             return cell
@@ -206,10 +225,24 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
 
 extension SearchContentsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // 서버 데이터에 따라 검색 결과 없는 경우 분기 처리하기
-        resultType = .result
-        DispatchQueue.main.async {
-            self.resultCollectionView.reloadData()
+        Task {
+            do {
+                let searchResult = try await searchContentsService.getSearchResult(keyword: searchBar.text!)
+                if let searchResult = searchResult,
+                   !searchResult.isEmpty {
+                    self.searchResult = searchResult
+                    self.numberLabel.text = "\(searchResult.count)"
+                    resultType = .result
+                } else {
+                    resultType = .noResult
+                }
+                resultCollectionView.reloadData()
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(message)")
+            }
         }
+        
     }
 }

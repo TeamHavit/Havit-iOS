@@ -20,6 +20,8 @@ class EditCategoryViewController: BaseViewController {
     var iconImageId: Int
     var sendData: (() -> Void)?
 
+    let categoryIconList: [CategoryIconList] = CategoryIconList.iconList
+
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
 
     private let titleLabel: UILabel = {
@@ -123,6 +125,23 @@ class EditCategoryViewController: BaseViewController {
         }
     }
 
+    func deleteCategory() {
+        Task {
+            do {
+                try await categoryService.deleteCategory(categoryId: categoryId)
+                self.makeRequestAlert(title: "카테고리 삭제",
+                                      message: "카테고리를 삭제 하시겠습니까?",
+                                      okAction: { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+
     override func render() {
         view.addSubViews([titleLabel, categoryTitleTextField, underline, iconLabel, iconCollectionView, deleteButton])
 
@@ -202,6 +221,12 @@ class EditCategoryViewController: BaseViewController {
                 self?.editCategory()
             })
             .disposed(by: disposeBag)
+
+        deleteButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.deleteCategory()
+            })
+            .disposed(by: disposeBag)
         
         categoryTitleTextField.rx.controlEvent([.editingDidBegin])
             .asDriver()
@@ -225,6 +250,8 @@ extension EditCategoryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
+
+        cell.update(data: categoryIconList[indexPath.row])
 
         if indexPath.row == iconImageId - 1 {
             cell.isSelected = true
