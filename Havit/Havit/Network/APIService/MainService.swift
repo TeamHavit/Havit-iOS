@@ -37,4 +37,11 @@ struct MainService: MainServiceable {
             .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
+    
+    func getUnseen() async throws -> [Content]? {
+        let request = MainEndPoint
+            .getUnseen
+            .createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
 }
