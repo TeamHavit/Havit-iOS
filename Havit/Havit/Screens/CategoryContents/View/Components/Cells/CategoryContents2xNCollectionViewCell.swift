@@ -18,7 +18,7 @@ final class CategoryContents2xNCollectionViewCell: BaseCollectionViewCell {
     
      let mainImageView: UIImageView = {
        let imageView = UIImageView()
-       imageView.image = UIImage(named: "contentsDummyImg2")
+       imageView.image = ImageLiteral.imgContentsDummyImg1
        imageView.layer.cornerRadius = 4
        return imageView
    }()

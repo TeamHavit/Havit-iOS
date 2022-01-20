@@ -206,7 +206,7 @@ extension SearchContentsViewController: UICollectionViewDelegateFlowLayout {
 
 extension SearchContentsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // 서버 데이터에 따라  검색 결과 없는 경우 분기 처리하기
+        // 서버 데이터에 따라 검색 결과 없는 경우 분기 처리하기
         resultType = .result
         DispatchQueue.main.async {
             self.resultCollectionView.reloadData()

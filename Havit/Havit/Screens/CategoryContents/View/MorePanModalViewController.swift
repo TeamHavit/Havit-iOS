@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import PanModal
 import SnapKit
 
@@ -17,6 +18,8 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     var shortFormHeight: PanModalHeight = .contentHeight(451)
     var longFormHeight: PanModalHeight = .contentHeight(451)
     var cornerRadius: CGFloat = 30
+    
+    var contents: CategoryContents?
     
     private let moreList = ["제목 수정", "공유", "카테고리 이동", "알림 설정", "삭제"]
     
@@ -83,6 +86,13 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
+        if let contentsImageString = contents?.image {
+            let url = URL(string: contentsImageString)
+            topImageView.kf.setImage(with: url)
+        }
+        topTitleLabel.text = contents?.title
+        topDateLabel.text = contents?.createdAt
+        topLinkLabel.text = contents?.url
     }
     
     override func render() {

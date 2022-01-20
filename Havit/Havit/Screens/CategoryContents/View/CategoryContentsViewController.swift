@@ -300,10 +300,13 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showMorePanModalViewController(_ sender: UIButton) {
-        self.presentPanModal(MorePanModalViewController())
+        let viewController = MorePanModalViewController()
+        viewController.contents = categoryContents[sender.tag]
+        self.presentPanModal(viewController)
     }
     
     @objc func showCategoryPanModalViewController(_ sender: UIButton) {
+        
         self.presentPanModal(CategoryPanModalViewController())
     }
     
@@ -352,6 +355,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                cell.moreButton.tag = indexPath.row
                 if let searchImageString = categoryContents[indexPath.row].image {
                     let url = URL(string: searchImageString)
                     cell.mainImageView.kf.setImage(with: url)
@@ -367,6 +371,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                cell.moreButton.tag = indexPath.row
                 if let searchImageString = categoryContents[indexPath.row].image {
                     let url = URL(string: searchImageString)
                     cell.mainImageView.kf.setImage(with: url)
@@ -382,6 +387,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                cell.moreButton.tag = indexPath.row
                 if let searchImageString = categoryContents[indexPath.row].image {
                     let url = URL(string: searchImageString)
                     cell.mainImageView.kf.setImage(with: url)
