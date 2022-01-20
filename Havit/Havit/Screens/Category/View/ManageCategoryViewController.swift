@@ -15,6 +15,8 @@ class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
 
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
+
     var categories: [Category] = []
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -65,6 +67,19 @@ class ManageCategoryViewController: BaseViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         setupBaseNavigationBar(backgroundColor: .white)
+    }
+
+    func changeOrderCategory() {
+        Task {
+            do {
+                let categoryIndexArray = try await categoryService.changeCategoryOrder(categoryIndexArray: )
+                print("성공")
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
     }
 
     override func render() {
@@ -125,6 +140,7 @@ class ManageCategoryViewController: BaseViewController {
             doneButton.rx.tap.map { $0 }
         )
             .bind(onNext: { [weak self] in
+                self?.changeOrderCategory()
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
