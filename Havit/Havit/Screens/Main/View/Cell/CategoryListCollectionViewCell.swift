@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 
 final class CategoryListCollectionViewCell: BaseCollectionViewCell {
@@ -56,7 +57,7 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(54)
+            $0.top.equalToSuperview().inset(58)
             $0.leading.trailing.equalToSuperview().inset(18)
         }
         
@@ -74,10 +75,17 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - func
     
-    func updateCategory(image: UIImage, title: String, contentCount: Int) {
-        iconImageView.image = image
-        titleLabel.text = title
-        storedContentLabel.text = "저장 콘텐츠 \(contentCount)"
-        storedContentLabel.applyColor(to: contentCount.description, with: .havitPurple)
+    func updateCategory(category: Category) {
+        if let imageUrl = category.imageUrl,
+           let url = URL(string: imageUrl) {
+            iconImageView.kf.setImage(with: url)
+        }
+        
+        if let orderIndex = category.orderIndex {
+            storedContentLabel.text = "저장 콘텐츠 \(orderIndex)"
+            storedContentLabel.applyColor(to: String(orderIndex), with: .havitPurple)
+        }
+        
+        titleLabel.text = category.title
     }
 }
