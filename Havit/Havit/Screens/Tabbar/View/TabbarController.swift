@@ -83,7 +83,7 @@ class TabbarController: UITabBarController {
         let categoryTabMetaData = (viewController: CategoryViewController(type: .tabbar),
                                    unselecedImage: ImageLiteral.iconCategoryUnselected,
                                    selectedImage: ImageLiteral.iconCategoryUnselected)
-        let myPageTabMetaData = (viewController: UIViewController(),
+        let myPageTabMetaData = (viewController: MypageViewController(),
                                  unselecedImage: ImageLiteral.iconMypageUnselected,
                                  selectedImage: ImageLiteral.iconMypageSelected)
         
