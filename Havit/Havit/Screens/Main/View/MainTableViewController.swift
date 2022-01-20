@@ -153,6 +153,10 @@ extension MainTableViewController: UITableViewDataSource {
                 let categoryViewController = CategoryViewController(type: .main)
                 self?.navigationController?.pushViewController(categoryViewController, animated: true)
             }
+            cell.didTapCategory = { [weak self] _ in
+                let categoryContentViewController = CategoryContentsViewController()
+                self?.navigationController?.pushViewController(categoryContentViewController, animated: true)
+            }
             return cell
         case .guideline:
             let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,

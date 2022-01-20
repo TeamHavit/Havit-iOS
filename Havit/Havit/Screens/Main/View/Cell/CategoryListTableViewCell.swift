@@ -22,6 +22,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }
     
     var didTapOverallButton: (() -> Void)?
+    var didTapCategory: ((Int) -> Void)?
     
     // MARK: - property
     
@@ -49,6 +50,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: CategoryListCollectionViewCell.self)
         return collectionView
     }()
@@ -203,5 +205,11 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
             cell.backgroundColor = .clear
             return cell
         }
+    }
+}
+
+extension CategoryListTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didTapCategory?(indexPath.item)
     }
 }
