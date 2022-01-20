@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class MainViewController: MainTableViewController {
@@ -20,6 +21,11 @@ final class MainViewController: MainTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appendDummyPresentableCells()
+        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBarHidden()
     }
     
     override func render() {
@@ -37,7 +43,22 @@ final class MainViewController: MainTableViewController {
     }
     
     override func configUI() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .whiteGray
+    }
+    
+    // MARK: - func
+    
+    private func bind() {
+        topView.alarmButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                let alarmViewController = MainAlarmViewController()
+                self?.navigationController?.pushViewController(alarmViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupNavigationBarHidden() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

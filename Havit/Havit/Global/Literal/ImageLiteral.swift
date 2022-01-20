@@ -25,6 +25,7 @@ enum ImageLiteral {
     static var iconBackBlack: UIImage { .load(named: "iconBackBlack")}
     static var iconBackspaceBlack: UIImage { .load(named: "iconBackspaceBlack")}
     static var iconBackspaceGray: UIImage { .load(named: "iconBackspaceGray")}
+    static var iconBackWhite: UIImage { .load(named: "iconBackWhite")}
     static var iconCategory: UIImage { .load(named: "iconCategory")}
     static var iconCategoryAdd: UIImage { .load(named: "iconCategoryAdd")}
     static var iconCategoryMove: UIImage { .load(named: "iconCategoryMove")}
@@ -32,8 +33,9 @@ enum ImageLiteral {
     static var iconCategoryUnselected: UIImage { .load(named: "iconCategoryUnselected")}
     static var iconCheck: UIImage { .load(named: "iconCheck")}
     static var iconChipGray: UIImage { .load(named: "iconChipGray")}
-     static var iconContentsRead: UIImage { .load(named: "iconContentsRead")}
-     static var iconContentsUnread: UIImage { .load(named: "iconContentsUnread")}
+    static var iconCategoryEdit: UIImage { .load(named: "iconCategoryEdit")}
+    static var iconContentsRead: UIImage { .load(named: "iconContentsRead")}
+    static var iconContentsUnread: UIImage { .load(named: "iconContentsUnread")}
     static var iconDelete: UIImage { .load(named: "iconDelete")}
     static var iconDropBlack: UIImage { .load(named: "iconDropBlack")}
     static var iconEdit: UIImage { .load(named: "iconEdit")}
@@ -48,27 +50,42 @@ enum ImageLiteral {
     static var iconLayout4: UIImage { .load(named: "iconLayout4")}
     static var iconMypageSelected: UIImage { .load(named: "iconMypageSelected")}
     static var iconMypageUnselected: UIImage { .load(named: "iconMypageUnselected")}
+    static var iconNoticeGray: UIImage { .load(named: "iconNoticeGray")}
     static var iconNoticeIcon: UIImage { .load(named: "iconNoticeIcon")}
+    static var iconRounddelete: UIImage { .load(named: "iconRounddelete")}
     static var iconRefresh: UIImage { .load(named: "iconRefresh")}
     static var iconSafari: UIImage { .load(named: "iconSafari")}
     static var iconSearch: UIImage { .load(named: "iconSearch")}
     static var iconShare: UIImage { .load(named: "iconShare")}
     static var iconUpdown: UIImage { .load(named: "iconUpdown")}
     
+    static var imgBranch: UIImage { .load(named: "imgBranch")}
+    static var imgCardCategoryLine: UIImage { .load(named: "imgCardCategoryLine")}
     static var imgCategoryNone: UIImage { .load(named: "imgCategoryNone")}
+    static var imgCategoryTip: UIImage { .load(named: "imgCategoryTip")}
+    static var imgCarret: UIImage { .load(named: "imgCarret")}
+    static var imgContentsDummyImg1: UIImage { .load(named: "imgContentsDummyImg1")}
+    static var imgContentsDummyImg2: UIImage { .load(named: "imgContentsDummyImg2")}
+    static var imgContentsDummyImg3: UIImage { .load(named: "imgContentsDummyImg3")}
     static var imgDummyContent: UIImage { .load(named: "imgDummyContent")}
+    static var imgElleKorea: UIImage { .load(named: "imgElleKorea")}
     static var imgGraphicNoalarm: UIImage { .load(named: "imgGraphicNoalarm")}
     static var imgGraphicNocategory: UIImage { .load(named: "imgGraphicNocategory")}
     static var imgGraphicNocontents: UIImage { .load(named: "imgGraphicNocontents")}
     static var imgGuide: UIImage { .load(named: "imgGuide")}
+    static var imgLivingsense: UIImage { .load(named: "imgLivingsense")}
     static var imgLogoBox: UIImage { .load(named: "imgLogoBox")}
+    static var imgMedium: UIImage { .load(named: "imgMedium")}
+    static var imgMobiInside: UIImage { .load(named: "imgMobiInside")}
+    static var imgOpenas: UIImage { .load(named: "imgOpenas")}
+    static var imgOutstanding: UIImage { .load(named: "imgOutstanding")}
+    static var imgPinterest: UIImage { .load(named: "imgPinterest")}
     static var imgSearch: UIImage { .load(named: "imgSearch")}
+    static var imgSurfit: UIImage { .load(named: "imgSurfit")}
     static var imgTextLogo: UIImage { .load(named: "imgTextLogo")}
     static var imgTextLogoGray: UIImage { .load(named: "imgTextLogoGray")}
-    static var imgCategoryTip: UIImage { .load(named: "imgCategoryTip")}
-    static var iconBackWhite: UIImage { .load(named: "iconBackWhite")}
-    static var iconNoticeGray: UIImage { .load(named: "iconNoticeGray")}
-    static var iconCategoryEdit: UIImage { .load(named: "iconCategoryEdit")}
+    static var imgTstory: UIImage { .load(named: "imgTstory")}
+    static var imgVelog: UIImage { .load(named: "imgVelog")}
 }
 
 extension UIImage {

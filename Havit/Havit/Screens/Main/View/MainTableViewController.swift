@@ -49,6 +49,7 @@ class MainTableViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        tableView.separatorColor = .clear
         tableView.sectionHeaderTopPadding = 0
         tableView.estimatedRowHeight = 44
         tableView.showsVerticalScrollIndicator = false
@@ -117,6 +118,10 @@ extension MainTableViewController: UITableViewDataSource {
         case .progress:
             let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
                                                      for: indexPath)
+            cell.didTapUnwatchedButton = { [weak self] in
+                let unwatchedViewController = MainUnwatchedViewController()
+                self?.navigationController?.pushViewController(unwatchedViewController, animated: true)
+            }
             cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
             return cell
         }
@@ -136,12 +141,18 @@ extension MainTableViewController: UITableViewDataSource {
         case .recent:
             let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
                                                      for: indexPath)
+            cell.didTapOverallButton = { [weak self] in
+                let recentViewController = MainRecentViewController()
+                self?.navigationController?.pushViewController(recentViewController, animated: true)
+            }
             return cell
         case .recommend:
-            let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
+                                                     for: indexPath)
             return cell
         case .logo:
-            let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self,
+                                                      for: indexPath)
             return cell
         default:
             return UITableViewCell()

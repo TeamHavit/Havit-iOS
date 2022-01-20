@@ -106,6 +106,7 @@ final class WebViewController: BaseViewController {
     }
     
     override func configUI() {
+        super.configUI()
         setupBaseNavigationBar()
         setNavigationItem(leftBarButtonItem: navigationBackBarButton,
                           titleView: urlTextField,

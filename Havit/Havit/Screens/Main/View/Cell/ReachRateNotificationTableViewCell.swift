@@ -38,7 +38,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     }()
     private let closeButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 16, height: 16)))
-        button.backgroundColor = .purple002
+        button.setImage(ImageLiteral.iconRounddelete, for: .normal)
         return button
     }()
 
@@ -77,6 +77,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
     }
     
     override func configUI() {
+        selectionStyle = .none
         backgroundColor = .clear
         notificationView.setGradient(colors: [UIColor.havitPurple.cgColor,
                                               UIColor(hex: "6A5BFF").cgColor])

@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class RecentContentTableViewCell: BaseTableViewCell {
@@ -20,6 +21,8 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         }()
         static let cellHeight = 171
     }
+    
+    var didTapOverallButton: (() -> Void)?
     
     // MARK: - property
     
@@ -49,11 +52,24 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         collectionView.register(cell: RecentContentCollectionViewCell.self)
         return collectionView
     }()
+    private let recentEmptyView = MainRecentContentEmptyView()
     
-    private let dummyContents: [String] = ["헤더 제목", "제목 헤더 헤더를 입력하세요. 헤더를 입력하세요.", "헤더를 입력하세요.", "헤더 입력하세요.", "입력 헤더", "헤더 입력"]
+    private let dummyContents: [String] = []
+    
+    // MARK: - init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bind()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, contentCollectionView])
+        contentView.addSubViews([titleLabel, overallButton])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(42)
@@ -65,10 +81,42 @@ final class RecentContentTableViewCell: BaseTableViewCell {
             $0.trailing.equalToSuperview().inset(17)
         }
         
-        contentCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(223)
+        setupContentPartLayout(with: dummyContents)
+    }
+    
+    override func configUI() {
+        selectionStyle = .none
+    }
+    
+    // MARK: - func
+    
+    private func bind() {
+        overallButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.didTapOverallButton?()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupContentPartLayout(with contents: [String]) {
+        let hasContent = !contents.isEmpty
+        
+        if hasContent {
+            contentView.addSubView(contentCollectionView)
+            contentCollectionView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom)
+                $0.leading.trailing.bottom.equalToSuperview()
+                $0.height.equalTo(223)
+            }
+        } else {
+            contentView.addSubView(recentEmptyView)
+            recentEmptyView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(14)
+                $0.leading.trailing.equalToSuperview().inset(16)
+                $0.bottom.equalToSuperview().inset(37)
+                $0.height.equalTo(98)
+            }
         }
     }
 }

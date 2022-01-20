@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "filename" : "iconMypageSelected.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "idiom" : "universal"
     },
     {
       "idiom" : "universal",
@@ -11,9 +11,9 @@
       "filename" : "iconMypageSelected@2x.png"
     },
     {
-      "scale" : "3x",
       "filename" : "iconMypageSelected@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
