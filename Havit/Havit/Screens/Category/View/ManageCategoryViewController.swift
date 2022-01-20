@@ -218,9 +218,10 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
             var imageId = self.categories[indexPath.row].imageId ?? 0
             
             let editCategory = EditCategoryViewController(categoryId: categoryId, titleText: titleText, imageId: imageId)
+            let compareId = (categoryId == editCategory.categoryId)
             
             editCategory.sendEditData = {
-                if categoryId == editCategory.categoryId {
+                if compareId {
                     if let index = self.categories[indexPath.row].orderIndex {
                         self.categories[index].title = editCategory.titleText
                     }
@@ -231,7 +232,7 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
             }
             
             editCategory.sendDeleteData = {
-                if categoryId == editCategory.categoryId {
+                if compareId {
                     if let index = self.categories[indexPath.row].orderIndex {
                         self.categories.remove(at: index)
                     }
