@@ -12,6 +12,11 @@ import PanModal
 import SnapKit
 
 class MorePanModalViewController: BaseViewController, PanModalPresentable {
+    
+    let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
+                                                                environment: .development)
+    var previousViewController: CategoryContentsViewController?
+    
     var panScrollable: UIScrollView? {
         return nil
     }
@@ -175,7 +180,36 @@ extension MorePanModalViewController: UITableViewDelegate {
         cell.backgroundColor = .purpleCategory
         cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
         cell.cellLabel.textColor = .havitPurple
+        
+        switch cell.morePanModalCellType {
+        case .editTitle:
+            print("editTitle")
+        case .share:
+            print("share")
+        case .goToCategory:
+            print("goToCategory")
+        case .setAlarm:
+            print("setAlarm")
+        case .delete:
+            Task {
+                do {
+                    let categoryContents = try await categoryContentsService.deleteContents(contentID: "\((contents?.id)!)")
+                    // 성공, 삭제 분기 처리하기
+                    self.dismiss(animated: true) {
+                        self.previousViewController?.contentsCollectionView.reloadData()
+                    }
+                } catch APIServiceError.serverError {
+                    print("serverError")
+                } catch APIServiceError.clientError(let message) {
+                    print("clientError:\(message)")
+                }
+            }
+        case .none:
+            print("임시 프린트")
+        }
+        
     }
+
 }
 
 extension MorePanModalViewController: UITableViewDataSource {
@@ -184,8 +218,20 @@ extension MorePanModalViewController: UITableViewDataSource {
         cell.cellLabel.text = moreList[indexPath.row]
         cell.cellImageView.image = imageList[indexPath.row]
         cell.selectionStyle = .none
-        if indexPath.row == 4 {
+        switch indexPath.row {
+        case 0:
+            cell.morePanModalCellType = .editTitle
+        case 1:
+            cell.morePanModalCellType = .share
+        case 2:
+            cell.morePanModalCellType = .goToCategory
+        case 3:
+            cell.morePanModalCellType = .setAlarm
+        case 4:
+            cell.morePanModalCellType = .delete
             cell.cellLabel.textColor = .havitRed
+        default:
+            print("임시 프린트")
         }
         return cell
     }

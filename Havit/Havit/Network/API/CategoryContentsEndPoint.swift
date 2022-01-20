@@ -10,6 +10,7 @@ import Foundation
 enum CategoryContentsEndPoint {
     case getAllContents
     case getCategoryContents(categoryID: String, option: String, filter: String)
+    case deleteContents(contentID: String)
     
     var requestTimeOut: Float {
         return 20
@@ -21,6 +22,8 @@ enum CategoryContentsEndPoint {
             return .GET
         case .getCategoryContents(categoryID: _, option: _, filter: _):
             return .GET
+        case .deleteContents:
+            return .DELETE
         }
     }
     
@@ -29,6 +32,8 @@ enum CategoryContentsEndPoint {
         case .getAllContents:
             return nil
         case .getCategoryContents(categoryID: _, option: _, filter: _):
+            return nil
+        case .deleteContents:
             return nil
         }
     }
@@ -40,6 +45,9 @@ enum CategoryContentsEndPoint {
             return "\(baseUrl)/content"
         case .getCategoryContents(categoryID: let categoryID, option: let option, filter: let filter):
             return "\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)"
+        case .deleteContents(contentID: let contentID):
+            print("\(baseUrl)/content/\(contentID)")
+            return "\(baseUrl)/content/\(contentID)"
         }
     }
     
@@ -53,5 +61,4 @@ enum CategoryContentsEndPoint {
                               reqTimeout: requestTimeOut,
                               httpMethod: httpMethod)
     }
-    
 }

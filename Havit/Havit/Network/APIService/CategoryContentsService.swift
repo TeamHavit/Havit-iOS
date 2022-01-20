@@ -21,7 +21,6 @@ struct CategoryContentsService: CategoryContentsSeriviceable {
         let request = CategoryContentsEndPoint
             .getAllContents
             .createRequest(environment: environment)
-        print(request)
         return try await self.apiService.request(request)
     }
     
@@ -29,7 +28,13 @@ struct CategoryContentsService: CategoryContentsSeriviceable {
         let request = CategoryContentsEndPoint
             .getCategoryContents(categoryID: categoryID, option: option, filter: filter)
             .createRequest(environment: environment)
-        print(request)
+        return try await self.apiService.request(request)
+    }
+    
+    func deleteContents(contentID: String) async throws -> Bool? {
+        let request = CategoryContentsEndPoint
+            .deleteContents(contentID: contentID)
+            .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
 }
