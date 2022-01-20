@@ -123,7 +123,7 @@ class EditCategoryViewController: BaseViewController {
         }
     }
 
-    func deletCategory() {
+    func deleteCategory() {
         Task {
             do {
                 try await categoryService.deleteCategory(categoryId: categoryId)
@@ -222,7 +222,7 @@ class EditCategoryViewController: BaseViewController {
 
         deleteButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.deletCategory()
+                self?.deleteCategory()
             })
             .disposed(by: disposeBag)
         
