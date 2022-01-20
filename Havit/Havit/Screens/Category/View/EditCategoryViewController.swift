@@ -18,7 +18,8 @@ class EditCategoryViewController: BaseViewController {
     var categoryId: Int
     var titleText: String
     var iconImageId: Int
-    var sendData: (() -> Void)?
+    var sendEditData: (() -> Void)?
+    var sendDeleteData: (() -> Void)?
 
     let categoryIconList: [CategoryIconList] = CategoryIconList.iconList
 
@@ -114,7 +115,8 @@ class EditCategoryViewController: BaseViewController {
             do {
                 try await categoryService.editCategory(categoryId: categoryId ?? 0, title: categoryTitleTextField.text ?? "", imageId: iconImageId ?? 0)
                 self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { [weak self] _ in
-                    self?.sendData?()
+                    self?.titleText = self?.categoryTitleTextField.text ?? ""
+                    self?.sendEditData?()
                     self?.navigationController?.popViewController(animated: true)
                 })
             } catch APIServiceError.serverError {
@@ -132,6 +134,7 @@ class EditCategoryViewController: BaseViewController {
                 self.makeRequestAlert(title: "카테고리 삭제",
                                       message: "카테고리를 삭제 하시겠습니까?",
                                       okAction: { [weak self] _ in
+                    self?.sendDeleteData?()
                     self?.navigationController?.popViewController(animated: true)
                 })
             } catch APIServiceError.serverError {
