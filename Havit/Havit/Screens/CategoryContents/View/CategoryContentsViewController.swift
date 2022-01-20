@@ -19,7 +19,7 @@ final class CategoryContentsViewController: BaseViewController {
                                                                 environment: .development)
     var categoryContents: [CategoryContents] = []
     
-    var isFromAllCategory: Bool = true
+    var isFromAllCategory: Bool = false
     
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
@@ -27,6 +27,7 @@ final class CategoryContentsViewController: BaseViewController {
     private var gridType: GridType = .grid
     var contentsSortType: ContentsSortType = .created_at
     var contentsFilterType: ContentsFilterType = .all
+    var categoryId = 0
     
     var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
     var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
@@ -253,7 +254,7 @@ final class CategoryContentsViewController: BaseViewController {
         Task {
             do {
                 if isFromAllCategory {
-                    let categoryContents = try await categoryContentsService.getAllContents(option: "notified", filter: "created_at")
+                    let categoryContents = try await categoryContentsService.getAllContents(option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -262,7 +263,7 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 } else {
-                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "3", option: "notified", filter: "created_at")
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "1", option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -302,6 +303,7 @@ final class CategoryContentsViewController: BaseViewController {
         viewController.option = contentsFilterType.rawValue
         viewController.filter = contentsSortType.rawValue
         viewController.previousViewController = self
+        viewController.categoryID = String(categoryId)
         self.presentPanModal(viewController)
     }
     

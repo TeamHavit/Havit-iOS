@@ -21,6 +21,9 @@ class SortPanModalViewController: BaseViewController, PanModalPresentable {
     private var categoryContents: [CategoryContents] = []
     var previousViewController: CategoryContentsViewController?
     
+    var isFromAllCategory: Bool = true
+    var categoryID: String = "0"
+    
     var shortFormHeight: PanModalHeight = .contentHeight(278)
     var longFormHeight: PanModalHeight = .contentHeight(278)
     var cornerRadius: CGFloat = 0
@@ -94,18 +97,34 @@ extension SortPanModalViewController: UITableViewDelegate {
         
         Task {
             do {
-                let categoryContents = try await categoryContentsService.getAllContents(option: option!, filter: filter!)
-                if let categoryContents = categoryContents,
-                   !categoryContents.isEmpty {
-                    self.dismiss(animated: true) {
-                        self.previousViewController?.categoryContents = categoryContents
-                        self.previousViewController?.contentsCollectionView.reloadData()
-                        self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
-                        self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.created_at
+                if isFromAllCategory {
+                    let categoryContents = try await categoryContentsService.getAllContents(option: option ?? "all", filter: filter ?? "created_At")
+                    if let categoryContents = categoryContents,
+                       !categoryContents.isEmpty {
+                        self.dismiss(animated: true) {
+                            self.previousViewController?.categoryContents = categoryContents
+                            self.previousViewController?.contentsCollectionView.reloadData()
+                            self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
+                            self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.created_at
+                        }
+                    } else {
+                       // Emtpy 띄우기
                     }
                 } else {
-                   // Emtpy 띄우기
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: categoryID, option: option ?? "all", filter: filter ?? "created_At")
+                    if let categoryContents = categoryContents,
+                       !categoryContents.isEmpty {
+                        self.dismiss(animated: true) {
+                            self.previousViewController?.categoryContents = categoryContents
+                            self.previousViewController?.contentsCollectionView.reloadData()
+                            self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
+                            self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.created_at
+                        }
+                    } else {
+                       // Emtpy 띄우기
+                    }
                 }
+                
             } catch APIServiceError.serverError {
                 print("serverError")
             } catch APIServiceError.clientError(let message) {
