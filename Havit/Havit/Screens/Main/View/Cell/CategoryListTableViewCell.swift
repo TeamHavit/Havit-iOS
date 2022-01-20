@@ -21,6 +21,8 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         case allContent = 0
     }
     
+    var didTapOverallButton: (() -> Void)?
+    
     // MARK: - property
     
     private let titleLabel: UILabel = {
@@ -147,6 +149,13 @@ final class CategoryListTableViewCell: BaseTableViewCell {
                 }
                 
                 self?.pageControl.selectedPage = Int(selectedIndex)
+            })
+            .disposed(by: disposeBag)
+        
+        overallButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.didTapOverallButton?()
             })
             .disposed(by: disposeBag)
     }

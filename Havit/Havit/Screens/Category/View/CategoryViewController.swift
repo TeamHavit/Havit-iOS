@@ -89,6 +89,7 @@ class CategoryViewController: BaseViewController {
             backButton.isHidden = true
         }
         super.init()
+        hidesBottomBarWhenPushed = true
     }
 
     required init?(coder: NSCoder) {

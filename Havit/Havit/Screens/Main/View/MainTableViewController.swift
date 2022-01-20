@@ -149,6 +149,10 @@ extension MainTableViewController: UITableViewDataSource {
             cell.setupCategoryPartLayout(with: categories)
             cell.applyPageControlPages()
             cell.applyUserNickname(to: user?.nickname ?? "")
+            cell.didTapOverallButton = { [weak self] in
+                let categoryViewController = CategoryViewController(type: .main)
+                self?.navigationController?.pushViewController(categoryViewController, animated: true)
+            }
             return cell
         case .guideline:
             let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
