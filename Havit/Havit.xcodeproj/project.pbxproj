@@ -23,6 +23,8 @@
 		15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */; };
 		15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */; };
 		15F6403527995E5900D9654E /* CategoryContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403427995E5900D9654E /* CategoryContents.swift */; };
+		15F6403727995EA400D9654E /* CategoryContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403627995EA400D9654E /* CategoryContentsService.swift */; };
+		15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
 		4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
@@ -277,6 +279,8 @@
 		15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalTableViewCell.swift; sourceTree = "<group>"; };
 		15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsServiceable.swift; sourceTree = "<group>"; };
 		15F6403427995E5900D9654E /* CategoryContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContents.swift; sourceTree = "<group>"; };
+		15F6403627995EA400D9654E /* CategoryContentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsService.swift; sourceTree = "<group>"; };
+		15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsEndPoint.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
 		4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListDataModel.swift; sourceTree = "<group>"; };
@@ -765,6 +769,7 @@
 			children = (
 				4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */,
 				EDB6F4BC27990632006C66AA /* MainEndPoint.swift */,
+				15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1065,6 +1070,7 @@
 			children = (
 				4DD166FC2796D0C900AD8960 /* CategoryService.swift */,
 				EDB6F4C4279909A6006C66AA /* MainService.swift */,
+				15F6403627995EA400D9654E /* CategoryContentsService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -1461,6 +1467,7 @@
 				ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */,
 				EDE7D6DA2795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
+				15F6403727995EA400D9654E /* CategoryContentsService.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */,
 				EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */,
@@ -1479,6 +1486,7 @@
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
 				EDEF61992791392D00C93C84 /* Requestable.swift in Sources */,
 				15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */,
+				15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */,
 				EDE7D6D627957A71009C70EF /* RecentContentCollectionViewCell.swift in Sources */,
