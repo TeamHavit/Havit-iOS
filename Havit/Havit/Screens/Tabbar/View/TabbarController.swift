@@ -54,7 +54,7 @@ class TabbarController: UITabBarController {
     // MARK: - func
     
     private func render() {
-        self.view.addSubview(addButton)
+        self.tabBar.addSubview(addButton)
         self.addButton.snp.makeConstraints {
             $0.centerX.equalTo(Size.addButtonCenterX)
             $0.centerY.equalTo(tabBar.snp.top)
