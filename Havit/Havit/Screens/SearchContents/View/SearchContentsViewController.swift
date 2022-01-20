@@ -154,7 +154,7 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     @objc func clearClicked(_ sender: UIButton) {
-        
+        dismiss(animated: true, completion: nil)
     }
 }
 
