@@ -68,6 +68,15 @@ final class SearchContentsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
+        searchController.isActive = true
+        self.definesPresentationContext = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,7 +84,6 @@ final class SearchContentsViewController: BaseViewController {
             textField.backgroundColor = .clear
             textField.font = UIFont.font(.pretendardMedium, ofSize: CGFloat(14))
             textField.textColor = UIColor.black
-            // textField.tintColor = myTintColor
             textField.borderStyle = .none
             
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 28, height: textField.frame.size.height))
@@ -114,11 +122,12 @@ final class SearchContentsViewController: BaseViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         
         view.addSubview(mainView)
+        mainView.addSubViews([mainLabel, numberLabel, resultCollectionView])
+        
         mainView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
-        mainView.addSubview(mainLabel)
         mainLabel.snp.makeConstraints {
             $0.top.equalTo(mainView).offset(25)
             $0.leading.equalTo(mainView).offset(16)
@@ -126,18 +135,16 @@ final class SearchContentsViewController: BaseViewController {
             $0.height.equalTo(10)
         }
         
-        mainView.addSubview(numberLabel)
         numberLabel.snp.makeConstraints {
             $0.top.equalTo(mainView).offset(25)
             $0.leading.equalTo(mainLabel).inset(56)
             $0.height.equalTo(10)
         }
         
-        mainView.addSubView(resultCollectionView)
         resultCollectionView.snp.makeConstraints {
             $0.top.equalTo(mainLabel).offset(19)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(mainView)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+
         }
     }
     
@@ -150,6 +157,7 @@ final class SearchContentsViewController: BaseViewController {
     private func setDelegations() {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
+        searchController.delegate = self
         searchController.searchBar.delegate = self
     }
     
@@ -247,4 +255,15 @@ extension SearchContentsViewController: UISearchBarDelegate {
         }
         
     }
+}
+
+extension SearchContentsViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            print("?")
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+           
+    }
+    
 }
