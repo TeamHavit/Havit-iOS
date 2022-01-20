@@ -81,6 +81,8 @@ final class MainViewController: MainTableViewController {
                     self.contents = contents
                     self.sites = sites
                     
+                    dump(categories)
+                    
                     tableView.reloadData()
                 }
             } catch APIServiceError.serverError {

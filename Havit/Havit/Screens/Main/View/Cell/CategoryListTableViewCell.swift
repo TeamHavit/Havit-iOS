@@ -100,7 +100,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             categoryCollectionView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom)
                 $0.leading.trailing.equalToSuperview()
-                $0.height.equalTo(348)
+                $0.height.equalTo(358).priority(.high)
             }
             
             pageControl.snp.makeConstraints {
@@ -109,6 +109,11 @@ final class CategoryListTableViewCell: BaseTableViewCell {
                 $0.centerX.equalToSuperview()
             }
         } else {
+            if contentView.subviews.contains(categoryCollectionView),
+               contentView.subviews.contains(pageControl) {
+                categoryCollectionView.removeFromSuperview()
+                pageControl.removeFromSuperview()
+            }
             contentView.addSubView(categoryEmptyView)
             categoryEmptyView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(10)

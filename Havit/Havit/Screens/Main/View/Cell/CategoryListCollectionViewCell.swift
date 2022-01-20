@@ -57,7 +57,7 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(54)
+            $0.top.equalToSuperview().inset(58)
             $0.leading.trailing.equalToSuperview().inset(18)
         }
         
