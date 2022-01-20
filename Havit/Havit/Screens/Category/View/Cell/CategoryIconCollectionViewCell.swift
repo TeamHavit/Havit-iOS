@@ -60,4 +60,10 @@ class CategoryIconCollectionViewCell: BaseCollectionViewCell {
             $0.width.height.equalTo(42)
         }
     }
+
+    // MARK: - func
+
+    func update(data: CategoryIconList) {
+        iconImageView.image = data.categoryIcon
+    }
 }
