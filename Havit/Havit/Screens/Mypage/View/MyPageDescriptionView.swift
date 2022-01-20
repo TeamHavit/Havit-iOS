@@ -9,6 +9,8 @@ import UIKit
 
 class MyPageDescriptionView: UIView {
 
+    // MARK: - property
+
     var iconImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.iconMyPageCategory
@@ -69,5 +71,11 @@ class MyPageDescriptionView: UIView {
     private func configUI() {
         backgroundColor = .white
         layer.cornerRadius = 10
+    }
+
+    func setData(image: UIImage, title: String, count: String) {
+        iconImageView.image = image
+        titleLabel.text = title
+        countLabel.text = count
     }
 }

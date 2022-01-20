@@ -9,6 +9,8 @@ import UIKit
 
 class MypageViewController: BaseViewController {
 
+    // MARK: - property
+
     private let myPageCategoryView = MyPageDescriptionView()
     private let myPageSaveContentsView = MyPageDescriptionView()
     private let myPageSeenContentsView = MyPageDescriptionView()
@@ -81,15 +83,18 @@ class MypageViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func render() {
-        view.setGradient(colors: [
-            UIColor(red: 0.521, green: 0.472, blue: 1, alpha: 1).cgColor,
-            UIColor(red: 0.415, green: 0.355, blue: 1, alpha: 1).cgColor
-          ], locations: [0, 1], startPoint: CGPoint(x: 0.25, y: 0.5), endPoint: CGPoint(x: 0.75, y: 0.5))
+        view.setGradient(colors: [UIColor(red: 0.521, green: 0.472, blue: 1, alpha: 1).cgColor,
+                                  UIColor(red: 0.415, green: 0.355, blue: 1, alpha: 1).cgColor],
+                         locations: [0, 1],
+                         startPoint: CGPoint(x: 0.25, y: 0.5),
+                         endPoint: CGPoint(x: 0.75, y: 0.5))
 
         view.addSubViews([reachRateLabel, descriptionLabel, mypagePepleImage, bottomView, mypageCornImage])
         bottomView.addSubViews([activityTitleLabel, hStackView])
@@ -144,16 +149,8 @@ class MypageViewController: BaseViewController {
     }
 
     func setStackView() {
-        myPageCategoryView.iconImageView.image = ImageLiteral.iconMyPageCategory
-        myPageSaveContentsView.iconImageView.image = ImageLiteral.iconMyPageSave
-        myPageSeenContentsView.iconImageView.image = ImageLiteral.iconMyPageCheck
-
-        myPageCategoryView.titleLabel.text = "카테고리 수"
-        myPageSaveContentsView.titleLabel.text = "저장한 콘텐츠"
-        myPageSeenContentsView.titleLabel.text = "확인한 콘텐츠"
-
-        myPageCategoryView.countLabel.text = "12개"
-        myPageSaveContentsView.countLabel.text = "83개"
-        myPageSeenContentsView.countLabel.text = "67개"
+        myPageCategoryView.setData(image: ImageLiteral.iconMyPageCategory, title: "카테고리 수", count: "12개")
+        myPageSaveContentsView.setData(image: ImageLiteral.iconMyPageSave, title: "저장한 콘텐츠", count: "83개")
+        myPageSeenContentsView.setData(image: ImageLiteral.iconMyPageCheck, title: "확인한 콘텐츠", count: "67개")
     }
 }
