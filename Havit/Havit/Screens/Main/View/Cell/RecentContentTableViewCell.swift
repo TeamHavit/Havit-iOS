@@ -23,6 +23,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }
     
     var didTapOverallButton: (() -> Void)?
+    var didTapContentSection: ((String, Bool) -> Void)?
     
     // MARK: - property
     
@@ -48,6 +49,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         flowLayout.minimumInteritemSpacing = 8
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(cell: RecentContentCollectionViewCell.self)
         return collectionView
@@ -134,5 +136,15 @@ extension RecentContentTableViewCell: UICollectionViewDataSource {
         let cell: RecentContentCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.update(content: contents[indexPath.item])
         return cell
+    }
+}
+
+extension RecentContentTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let row = indexPath.row
+        if let url = contents[row].url,
+           let isSeen = contents[row].isSeen {
+            didTapContentSection?(url, isSeen)
+        }
     }
 }

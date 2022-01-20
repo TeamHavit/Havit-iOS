@@ -72,9 +72,10 @@ final class WebViewController: BaseViewController {
     
     // MARK: - init
     
-    init(urlString: String) {
+    init(urlString: String, isReadContent: Bool) {
         viewModel = WebViewModel(urlString: urlString)
         super.init()
+        hidesBottomBarWhenPushed = true
     }
 
     @available(*, unavailable)

@@ -172,6 +172,10 @@ extension MainTableViewController: UITableViewDataSource {
                 self?.navigationController?.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(recentViewController, animated: true)
             }
+            cell.didTapContentSection = { [weak self] url, isSeen in
+                let webViewController = WebViewController(urlString: url, isReadContent: isSeen)
+                self?.navigationController?.pushViewController(webViewController, animated: true)
+            }
             return cell
         case .recommend:
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
