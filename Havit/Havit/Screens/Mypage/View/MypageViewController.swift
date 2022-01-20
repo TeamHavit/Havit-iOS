@@ -10,14 +10,15 @@ import UIKit
 class MypageViewController: BaseViewController {
 
     // MARK: - property
-
+    
+    private let mainService: MainService = MainService(apiService: APIService(),
+                                                       environment: .development)
     private let myPageCategoryView = MyPageDescriptionView()
     private let myPageSaveContentsView = MyPageDescriptionView()
     private let myPageSeenContentsView = MyPageDescriptionView()
 
     private let reachRateLabel: UILabel = {
         let label = UILabel()
-        label.text = "75%"
         label.font = .font(.pretendardSemibold, ofSize: 45)
         label.textColor = .white
         return label
@@ -25,7 +26,6 @@ class MypageViewController: BaseViewController {
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "해빗도리님은 7일차 해빗러입니다.\n벌써 함께한지 일주일!"
         label.numberOfLines = 2
         label.font = .font(.pretendardReular, ofSize: 17)
         label.textColor = .white
@@ -57,7 +57,6 @@ class MypageViewController: BaseViewController {
 
     private let activityTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "해빗도리님의 활동"
         label.font = .font(.pretendardSemibold, ofSize: 20)
         label.textColor = .gray005
         return label
@@ -89,6 +88,10 @@ class MypageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUserData()
     }
 
     override func render() {
@@ -151,8 +154,37 @@ class MypageViewController: BaseViewController {
     }
 
     func setStackView() {
-        myPageCategoryView.setData(image: ImageLiteral.iconMyPageCategory, title: "카테고리 수", count: "12개")
-        myPageSaveContentsView.setData(image: ImageLiteral.iconMyPageSave, title: "저장한 콘텐츠", count: "83개")
-        myPageSeenContentsView.setData(image: ImageLiteral.iconMyPageCheck, title: "확인한 콘텐츠", count: "67개")
+        myPageCategoryView.setData(image: ImageLiteral.iconMyPageCategory, title: "카테고리 수", count: "0개")
+        myPageSaveContentsView.setData(image: ImageLiteral.iconMyPageSave, title: "저장한 콘텐츠", count: "0개")
+        myPageSeenContentsView.setData(image: ImageLiteral.iconMyPageCheck, title: "확인한 콘텐츠", count: "0개")
+    }
+    
+    // MARK: - network
+    
+    private func getUserData() {
+        Task {
+            do {
+                async let user = try await mainService.getReachRate()
+                
+                if let user = try await user,
+                   let watchedContentCount = user.totalSeenContentNumber,
+                   let totalContentCount = user.totalContentNumber,
+                   let nickname = user.nickname,
+                   let categoryCount = user.totalCategoryNumber {
+                    let rate = (Double(watchedContentCount) / Double(totalContentCount)) * 100
+                    reachRateLabel.text = "\(Int(rate))%"
+                    activityTitleLabel.text = "\(nickname)님의 활동"
+                    descriptionLabel.text = "\(nickname)님은 7일차 해빗러입니다.\n벌써 함께한지 일주일!"
+                    
+                    myPageCategoryView.countLabel.text = "\(categoryCount)개"
+                    myPageSaveContentsView.countLabel.text = "\(totalContentCount)개"
+                    myPageSeenContentsView.countLabel.text = "\(watchedContentCount)개"
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
     }
 }
