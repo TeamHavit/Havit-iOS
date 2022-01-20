@@ -206,7 +206,6 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private func changeDateAlarmFormat(with date: String) -> String {
         let dateArray = date.components(separatedBy: " ")
-        print(dateArray)
         let dateComponent = dateArray[0]
         let timeComponent = dateArray[1]
         let dateComponentWithDot = dateComponent.replacingOccurrences(of: "-", with: ". ")
@@ -216,7 +215,6 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private func divideTime(with time: String) -> String {
         let timeArray = time.components(separatedBy: ":")
-        print(timeArray)
         if let hour = Int(timeArray[0]) {
             if hour < 12 {
                 return "오전 \(time) 알림 예정"
