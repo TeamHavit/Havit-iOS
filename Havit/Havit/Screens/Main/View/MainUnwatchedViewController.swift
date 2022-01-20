@@ -44,6 +44,20 @@ final class MainUnwatchedViewController: BaseViewController {
     
     private var contents: [Content] = []
     
+    // MARK: - init
+    
+    override init() {
+        super.init()
+        hidesBottomBarWhenPushed = true
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()

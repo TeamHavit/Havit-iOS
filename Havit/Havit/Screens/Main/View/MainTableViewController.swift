@@ -161,6 +161,7 @@ extension MainTableViewController: UITableViewDataSource {
             cell.setupContentPartLayout(with: contents)
             cell.didTapOverallButton = { [weak self] in
                 let recentViewController = MainRecentViewController()
+                self?.navigationController?.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(recentViewController, animated: true)
             }
             return cell
