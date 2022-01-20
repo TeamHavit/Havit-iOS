@@ -145,6 +145,7 @@
 		ED069DC6279991010084410B /* ContentToggleEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC5279991010084410B /* ContentToggleEndPoint.swift */; };
 		ED069DC8279992580084410B /* ContentToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC7279992580084410B /* ContentToggleService.swift */; };
 		ED069DCA279992790084410B /* ContentToggleServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC9279992790084410B /* ContentToggleServiceable.swift */; };
+		ED069DCD279A143B0084410B /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = ED069DCC279A143B0084410B /* SkeletonView */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
 		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
 		ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502AA279876E70033C280 /* MainAlarmViewController.swift */; };
@@ -457,6 +458,7 @@
 				3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */,
 				ED443F3E2786B5840059DE76 /* RxCocoa in Frameworks */,
 				ED443F382786B32B0059DE76 /* SnapKit in Frameworks */,
+				ED069DCD279A143B0084410B /* SkeletonView in Frameworks */,
 				ED443F402786B5840059DE76 /* RxSwift in Frameworks */,
 				ED443F3B2786B3FF0059DE76 /* IQKeyboardManagerSwift in Frameworks */,
 				1546A3F42797DF58009AE579 /* PanModal in Frameworks */,
@@ -1204,6 +1206,7 @@
 				ED443F3F2786B5840059DE76 /* RxSwift */,
 				4DD166E92796B83A00AD8960 /* Kingfisher */,
 				1546A3F32797DF58009AE579 /* PanModal */,
+				ED069DCC279A143B0084410B /* SkeletonView */,
 			);
 			productName = Havit;
 			productReference = ED443EAA278598670059DE76 /* Havit.app */;
@@ -1286,6 +1289,7 @@
 				ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				4DD166E82796B83A00AD8960 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1546A3F22797DF58009AE579 /* XCRemoteSwiftPackageReference "PanModal" */,
+				ED069DCB279A143B0084410B /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = ED443EAB278598670059DE76 /* Products */;
 			projectDirPath = "";
@@ -2014,6 +2018,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		ED069DCB279A143B0084410B /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		ED443F362786B32B0059DE76 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -2080,6 +2092,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4DD166E82796B83A00AD8960 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		ED069DCC279A143B0084410B /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED069DCB279A143B0084410B /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
