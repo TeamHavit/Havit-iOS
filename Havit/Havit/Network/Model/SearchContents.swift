@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - SearchContents
 struct SearchContents: Decodable {
     let id: Int?
     let title, datumDescription: String?

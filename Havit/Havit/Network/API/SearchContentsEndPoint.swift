@@ -26,8 +26,7 @@ enum SearchContentsEndPoint {
         let baseUrl = environment.baseUrl
         switch self {
         case .getSearchResult(let keyword):
-            let urlString = "\(baseUrl)/content/search/?keyword=\(keyword)"
-            return urlString
+            return "\(baseUrl)/content/search/?keyword=\(keyword)"
         }
     }
 

@@ -26,7 +26,6 @@ final class APIService: Requestable {
               }
         let decoder = JSONDecoder()
         let baseModelData = try decoder.decode(BaseModel<T>.self, from: data)
-        // let temp = try decoder.decode(SearchContents.self, from: data)
         if baseModelData.success ?? false {
             return baseModelData.data
         } else {
