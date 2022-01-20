@@ -105,7 +105,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             
             pageControl.snp.makeConstraints {
                 $0.top.equalTo(categoryCollectionView.snp.bottom)
-                $0.bottom.equalToSuperview().inset(30)
+                $0.bottom.equalToSuperview().inset(40)
                 $0.centerX.equalToSuperview()
             }
         } else {

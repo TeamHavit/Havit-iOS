@@ -21,10 +21,6 @@ final class MainViewModel {
         let getRecentContent: Driver<[Content]?>
         let getRecommendSite: Driver<[Site]?>
     }
-    
-//    func transform(input: Input) -> Output {
-//
-//    }
 }
 
 extension MainViewModel {
