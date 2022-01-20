@@ -140,6 +140,7 @@
 		4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
 		4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
 		4FD534D6279981D8000C7034 /* SetAlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */; };
+		4FD534E32799C0CD000C7034 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534E22799C0CD000C7034 /* AddContentViewController.swift */; };
 		ED069DC42799907A0084410B /* ContentToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC32799907A0084410B /* ContentToggle.swift */; };
 		ED069DC6279991010084410B /* ContentToggleEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC5279991010084410B /* ContentToggleEndPoint.swift */; };
 		ED069DC8279992580084410B /* ContentToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC7279992580084410B /* ContentToggleService.swift */; };
@@ -333,6 +334,7 @@
 		4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsTitleViewController.swift; sourceTree = "<group>"; };
 		4FD534D327997E21000C7034 /* SetAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertViewController.swift; sourceTree = "<group>"; };
 		4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FD534E22799C0CD000C7034 /* AddContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
 		ED069DC32799907A0084410B /* ContentToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggle.swift; sourceTree = "<group>"; };
 		ED069DC5279991010084410B /* ContentToggleEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggleEndPoint.swift; sourceTree = "<group>"; };
 		ED069DC7279992580084410B /* ContentToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggleService.swift; sourceTree = "<group>"; };
@@ -620,6 +622,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		4FD534E12799C0A8000C7034 /* AddContents */ = {
+			isa = PBXGroup;
+			children = (
+				4FD534E22799C0CD000C7034 /* AddContentViewController.swift */,
+			);
+			path = AddContents;
+			sourceTree = "<group>";
+		};
 		ED443EA1278598670059DE76 = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +683,7 @@
 		ED443EDD2785CD1E0059DE76 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4FD534E12799C0A8000C7034 /* AddContents */,
 				ED443EF727869DE80059DE76 /* Tabbar */,
 				ED443EF427869D4A0059DE76 /* Main */,
 				ED443EF527869D5A0059DE76 /* WebView */,
@@ -1568,6 +1579,7 @@
 				15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */,
 				15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
+				4FD534E32799C0CD000C7034 /* AddContentViewController.swift in Sources */,
 				EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */,
 				EDE7D6D627957A71009C70EF /* RecentContentCollectionViewCell.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
