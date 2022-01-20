@@ -22,6 +22,8 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         static let cellHeight = 141
     }
     
+    var didTapSiteSection: ((String) -> Void)?
+    
     // MARK: - property
     
     private let separatorView: UIView = {
@@ -52,6 +54,7 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         flowLayout.minimumInteritemSpacing = 11
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: RecommendSiteCollectionViewCell.self)
         return collectionView
     }()
@@ -97,5 +100,12 @@ extension RecommendSiteTableViewCell: UICollectionViewDataSource {
         let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.update(sites: sites[indexPath.item], with: dummySiteImages[indexPath.item])
         return cell
+    }
+}
+
+extension RecommendSiteTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let siteUrl = sites[indexPath.item].url else { return }
+        didTapSiteSection?(siteUrl)
     }
 }

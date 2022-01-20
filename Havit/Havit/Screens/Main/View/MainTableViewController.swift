@@ -181,6 +181,10 @@ extension MainTableViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
                                                      for: indexPath)
             cell.sites = sites
+            cell.didTapSiteSection = { [weak self] url in
+                let webViewController = WebViewController(urlString: url, isReadContent: false)
+                self?.navigationController?.pushViewController(webViewController, animated: true)
+            }
             return cell
         case .logo:
             let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self,
