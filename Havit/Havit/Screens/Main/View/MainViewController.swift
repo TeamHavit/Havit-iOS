@@ -14,6 +14,8 @@ final class MainViewController: MainTableViewController {
     
     // MARK: - property
     
+    private let mainService: MainService = MainService(apiService: APIService(),
+                                                       environment: .development)
     private let topView = MainTopView()
     
     // MARK: - life cycle
@@ -26,6 +28,7 @@ final class MainViewController: MainTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBarHidden()
+        getMainData()
     }
     
     override func render() {
@@ -60,5 +63,35 @@ final class MainViewController: MainTableViewController {
     
     private func setupNavigationBarHidden() {
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    // MARK: - network
+    
+    private func getMainData() {
+        Task {
+            do {
+                async let categories = try await mainService.getCategory()
+                async let recentContent = try await mainService.getRecentContent()
+                async let recommendSite = try await mainService.getRecommendSite()
+                
+                if let categories = try await categories,
+                   let contents = try await recentContent,
+                   let sites = try await recommendSite {
+                    self.categories = categories
+                    self.contents = contents
+                    self.sites = sites
+                    
+                    dump(categories)
+                    dump(contents)
+                    dump(sites)
+                    
+                    tableView.reloadData()
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
     }
 }

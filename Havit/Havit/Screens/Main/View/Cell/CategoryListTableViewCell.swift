@@ -14,7 +14,6 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     private enum Count {
         static let maxCategoryCountInPage = 6
-        static let allContentPart = 1
     }
     
     private enum CategoryType: Int {
@@ -54,7 +53,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     private let pageControl = MainCategoryPageControl()
     private let categoryEmptyView = MainCategoryEmptyView()
     
-    var dummyCategories: [String] = []
+    var categories: [Category] = []
     
     // MARK: - func
     
@@ -81,22 +80,22 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             $0.trailing.equalToSuperview().inset(19)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(-10)
         }
-        
-        setupCategoryPartLayout(with: dummyCategories)
     }
     
     override func configUI() {
         selectionStyle = .none
         backgroundColor = .white
-        applyPageControlPages()
     }
     
     // MARK: - func
     
-    private func setupCategoryPartLayout(with categories: [String]) {
+    func setupCategoryPartLayout(with categories: [Category]) {
         let hasCategory = !categories.isEmpty
         
         if hasCategory {
+            if contentView.subviews.contains(categoryEmptyView) {
+                categoryEmptyView.removeFromSuperview()
+            }
             contentView.addSubViews([categoryCollectionView, pageControl])
             categoryCollectionView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom)
@@ -105,8 +104,8 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             }
             
             pageControl.snp.makeConstraints {
-                $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
-                $0.bottom.equalToSuperview().inset(40)
+                $0.top.equalTo(categoryCollectionView.snp.bottom)
+                $0.bottom.equalToSuperview().inset(30)
                 $0.centerX.equalToSuperview()
             }
         } else {
@@ -146,13 +145,13 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             .disposed(by: disposeBag)
     }
     
-    private func applyPageControlPages() {
-        let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
+    func applyPageControlPages() {
+        let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
     }
     
-    private func calculateTotalCategoryCellCount(with categories: [String]) -> Int {
-        var categoryCount = categories.count + Count.allContentPart
+    private func calculateTotalCategoryCellCount(with categories: [Category]) -> Int {
+        var categoryCount = categories.count
         let filledCategoryCountInLastPage = categoryCount % Count.maxCategoryCountInPage
         let hasPlaceHolderCell = filledCategoryCountInLastPage != 0
         if hasPlaceHolderCell {
@@ -165,26 +164,22 @@ final class CategoryListTableViewCell: BaseTableViewCell {
 
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
+        let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         return totalCellCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let hasCategoryData = dummyCategories.count + Count.allContentPart > indexPath.item
+        let hasCategoryData = categories.count > indexPath.item
         if hasCategoryData {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
             case .allContent:
                 cell.backgroundImageView.image = ImageLiteral.imgCardCategoryLine
-                cell.updateCategory(image: UIImage(),
-                                    title: "모든 콘텐츠",
-                                    contentCount: 90)
             default:
-                cell.updateCategory(image: ImageLiteral.imgCategoryNone,
-                                    title: dummyCategories[indexPath.item - 1],
-                                    contentCount: 27)
+                break
             }
+            cell.updateCategory(category: categories[indexPath.item])
             return cell
         } else {
             cell.backgroundColor = .clear
