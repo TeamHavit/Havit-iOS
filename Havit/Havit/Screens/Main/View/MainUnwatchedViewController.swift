@@ -21,6 +21,8 @@ final class MainUnwatchedViewController: BaseViewController {
     
     private let mainService: MainService = MainService(apiService: APIService(),
                                                        environment: .development)
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
     private let backButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
@@ -73,6 +75,12 @@ final class MainUnwatchedViewController: BaseViewController {
     
     // MARK: - func
     
+    private func setupEmptyView(with contents: [Content]) {
+        let isContentEmpty = contents.isEmpty
+        
+        contentCollectionView.isHidden = isContentEmpty
+    }
+    
     private func bind() {
         backButton.rx.tap
             .asDriver()
@@ -109,6 +117,30 @@ final class MainUnwatchedViewController: BaseViewController {
                 if let contents = try await unseenContent {
                     self.contents = contents
                     contentCollectionView.reloadData()
+                    setupEmptyView(with: contents)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
+    private func patchContentToggle(contentId: Int, item: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    let indexPath = IndexPath(item: item, section: 0)
+                    guard
+                        let cell = contentCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
+                    else { return }
+                    
+                    print(isSeen)
+                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
                 }
             } catch APIServiceError.serverError {
                 print("serverError")
@@ -128,6 +160,9 @@ extension MainUnwatchedViewController: UICollectionViewDataSource {
         let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .white
         cell.update(content: contents[indexPath.item])
+        cell.didTapIsReadButton = { [weak self] contentId, item in
+            self?.patchContentToggle(contentId: contentId, item: item)
+        }
         return cell
     }
 }

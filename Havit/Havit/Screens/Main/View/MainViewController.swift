@@ -77,12 +77,13 @@ final class MainViewController: MainTableViewController {
                 
                 if let categories = try await categories,
                    let contents = try await recentContent,
-                   let sites = try await recommendSite,
+                   let recommendSite = try await recommendSite,
                    let user = try await user {
                     self.categories = categories
                     self.contents = contents
-                    self.sites = sites
+                    self.sites = recommendSite
                     self.user = user
+                    
                     tableView.reloadData()
                 }
             } catch APIServiceError.serverError {

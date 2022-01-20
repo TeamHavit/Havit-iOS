@@ -140,6 +140,10 @@
 		4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
 		4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
 		4FD534D6279981D8000C7034 /* SetAlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */; };
+		ED069DC42799907A0084410B /* ContentToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC32799907A0084410B /* ContentToggle.swift */; };
+		ED069DC6279991010084410B /* ContentToggleEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC5279991010084410B /* ContentToggleEndPoint.swift */; };
+		ED069DC8279992580084410B /* ContentToggleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC7279992580084410B /* ContentToggleService.swift */; };
+		ED069DCA279992790084410B /* ContentToggleServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED069DC9279992790084410B /* ContentToggleServiceable.swift */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
 		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
 		ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502AA279876E70033C280 /* MainAlarmViewController.swift */; };
@@ -329,6 +333,10 @@
 		4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsTitleViewController.swift; sourceTree = "<group>"; };
 		4FD534D327997E21000C7034 /* SetAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertViewController.swift; sourceTree = "<group>"; };
 		4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED069DC32799907A0084410B /* ContentToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggle.swift; sourceTree = "<group>"; };
+		ED069DC5279991010084410B /* ContentToggleEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggleEndPoint.swift; sourceTree = "<group>"; };
+		ED069DC7279992580084410B /* ContentToggleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggleService.swift; sourceTree = "<group>"; };
+		ED069DC9279992790084410B /* ContentToggleServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentToggleServiceable.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED3502A827986BE20033C280 /* MainRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentViewController.swift; sourceTree = "<group>"; };
 		ED3502AA279876E70033C280 /* MainAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAlarmViewController.swift; sourceTree = "<group>"; };
@@ -533,6 +541,7 @@
 				1546A4072798503A009AE579 /* SearchContentsServiceable.swift */,
 				EDB6F4BE27990821006C66AA /* MainServiceable.swift */,
 				15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */,
+				ED069DC9279992790084410B /* ContentToggleServiceable.swift */,
 			);
 			path = Serviceable;
 			sourceTree = "<group>";
@@ -811,6 +820,7 @@
 				EDB6F4C227990944006C66AA /* Site.swift */,
 				15F6403427995E5900D9654E /* CategoryContents.swift */,
 				EDB6F4C627997E92006C66AA /* User.swift */,
+				ED069DC32799907A0084410B /* ContentToggle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -822,6 +832,7 @@
 				1546A40327984D5B009AE579 /* SearchContentsEndPoint.swift */,
 				EDB6F4BC27990632006C66AA /* MainEndPoint.swift */,
 				15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */,
+				ED069DC5279991010084410B /* ContentToggleEndPoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1125,6 +1136,7 @@
 				1546A40527984EF9009AE579 /* SearchContentsService.swift */,
 				EDB6F4C4279909A6006C66AA /* MainService.swift */,
 				15F6403627995EA400D9654E /* CategoryContentsService.swift */,
+				ED069DC7279992580084410B /* ContentToggleService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -1488,6 +1500,7 @@
 				ED443F0F2786A2E10059DE76 /* MainViewModel.swift in Sources */,
 				ED443F272786A43C0059DE76 /* MypageViewModel.swift in Sources */,
 				ED443F112786A2F50059DE76 /* WebViewController.swift in Sources */,
+				ED069DC6279991010084410B /* ContentToggleEndPoint.swift in Sources */,
 				ED443F1D2786A3FA0059DE76 /* CategoryViewController.swift in Sources */,
 				4DD166FD2796D0C900AD8960 /* CategoryService.swift in Sources */,
 				ED443F2E2786AB8A0059DE76 /* ImageLiteral.swift in Sources */,
@@ -1506,6 +1519,7 @@
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */,
+				ED069DC42799907A0084410B /* ContentToggle.swift in Sources */,
 				EDB6F4C1279908AD006C66AA /* Content.swift in Sources */,
 				15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
@@ -1513,6 +1527,7 @@
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
 				EDE7D6DC2795BE0E009C70EF /* LogoTableViewCell.swift in Sources */,
+				ED069DC8279992580084410B /* ContentToggleService.swift in Sources */,
 				EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
 				4DE2C1A3279995AA00A3A2E4 /* MyPageDescriptionView.swift in Sources */,
@@ -1543,6 +1558,7 @@
 				EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */,
 				1546A3FC27981365009AE579 /* CategoryPanModalTableViewCell.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
+				ED069DCA279992790084410B /* ContentToggleServiceable.swift in Sources */,
 				EDB6F4BF27990821006C66AA /* MainServiceable.swift in Sources */,
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
