@@ -20,7 +20,8 @@ final class RecommendSiteCollectionViewCell: BaseCollectionViewCell {
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .gray002
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .white
         imageView.layer.cornerRadius = (self.frame.width - Size.sideMargin) / 2
         return imageView
     }()
@@ -62,9 +63,9 @@ final class RecommendSiteCollectionViewCell: BaseCollectionViewCell {
         backgroundColor = .gray000
     }
     
-    func updateSite(title: String, image: UIImage, type: String, category: String) {
-        profileImageView.image = image
-        siteTitleLabel.text = title
-        subTitleLabel.text = "\(type) / \(category)"
+    func update(sites: Site, with siteImage: UIImage) {
+        profileImageView.image = siteImage
+        siteTitleLabel.text = sites.title
+        subTitleLabel.text = sites.websiteCategory
     }
 }

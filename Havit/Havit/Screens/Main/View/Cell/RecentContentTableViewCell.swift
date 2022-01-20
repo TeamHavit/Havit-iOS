@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class RecentContentTableViewCell: BaseTableViewCell {
@@ -20,6 +21,8 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         }()
         static let cellHeight = 171
     }
+    
+    var didTapOverallButton: (() -> Void)?
     
     // MARK: - property
     
@@ -49,11 +52,24 @@ final class RecentContentTableViewCell: BaseTableViewCell {
         collectionView.register(cell: RecentContentCollectionViewCell.self)
         return collectionView
     }()
+    private let recentEmptyView = MainRecentContentEmptyView()
     
-    private let dummyContents: [String] = ["헤더 제목", "제목 헤더 헤더를 입력하세요. 헤더를 입력하세요.", "헤더를 입력하세요.", "헤더 입력하세요.", "입력 헤더", "헤더 입력"]
+    var contents: [Content] = []
+    
+    // MARK: - init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bind()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, contentCollectionView])
+        contentView.addSubViews([titleLabel, overallButton])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(42)
@@ -64,23 +80,59 @@ final class RecentContentTableViewCell: BaseTableViewCell {
             $0.top.equalTo(titleLabel.snp.top).inset(-4)
             $0.trailing.equalToSuperview().inset(17)
         }
+    }
+    
+    override func configUI() {
+        selectionStyle = .none
+    }
+    
+    // MARK: - func
+    
+    private func bind() {
+        overallButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.didTapOverallButton?()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func setupContentPartLayout(with contents: [Content]) {
+        let hasContent = !contents.isEmpty
         
-        contentCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(223)
+        if hasContent {
+            if contentView.subviews.contains(recentEmptyView) {
+                recentEmptyView.removeFromSuperview()
+            }
+            contentView.addSubView(contentCollectionView)
+            contentCollectionView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom)
+                $0.leading.trailing.bottom.equalToSuperview()
+                $0.height.equalTo(223).priority(.high)
+            }
+        } else {
+            if contentView.subviews.contains(contentCollectionView) {
+                contentCollectionView.removeFromSuperview()
+            }
+            contentView.addSubView(recentEmptyView)
+            recentEmptyView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(14)
+                $0.leading.trailing.equalToSuperview().inset(16)
+                $0.bottom.equalToSuperview().inset(37)
+                $0.height.equalTo(98)
+            }
         }
     }
 }
 
 extension RecentContentTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyContents.count
+        return contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecentContentCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.update(title: dummyContents[indexPath.row], date: "2022.01.19", categoryTitle: "해빗화이팅")
+        cell.update(content: contents[indexPath.item])
         return cell
     }
 }

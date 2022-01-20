@@ -50,9 +50,10 @@ class BaseViewController: UIViewController {
                                 tintColor: UIColor = .black) {
         guard let navigationBar = navigationController?.navigationBar else { return }
         let appearance = UINavigationBarAppearance()
+        let font = UIFont.font(.pretendardBold, ofSize: 16)
         
         appearance.backgroundColor = backgroundColor
-        appearance.titleTextAttributes = [.foregroundColor: titleColor]
+        appearance.titleTextAttributes = [.foregroundColor: titleColor, .font: font]
         appearance.shadowColor = .clear
         
         navigationBar.standardAppearance = appearance

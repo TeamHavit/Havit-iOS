@@ -15,8 +15,10 @@ class ManageCategoryViewController: BaseViewController {
 
     // MARK: - property
 
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
+
     var categories: [Category] = []
-    weak var coordinator: ManageCategoryCoordinator?
+    var categoryIndexArray: [Int] = []
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -66,6 +68,20 @@ class ManageCategoryViewController: BaseViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         setupBaseNavigationBar(backgroundColor: .white)
+    }
+
+    func changeOrderCategory() {
+        Task {
+            do {
+                updateCategoryIndexArray()
+                print(categoryIndexArray)
+                try await categoryService.changeCategoryOrder(categoryIndexArray: categoryIndexArray)
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
     }
 
     override func render() {
@@ -121,12 +137,16 @@ class ManageCategoryViewController: BaseViewController {
     }
 
     private func bind() {
-        Observable.merge(
-            backButton.rx.tap.map { $0 },
-            doneButton.rx.tap.map { $0 }
-        )
+        backButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .previous)
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        doneButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.changeOrderCategory()
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -164,6 +184,12 @@ class ManageCategoryViewController: BaseViewController {
         }
         return categoryCollectionView.cellForItem(at: indexPath)
     }
+
+    func updateCategoryIndexArray() {
+        (0..<categories.count).forEach {
+            categoryIndexArray.append(categories[$0].id ?? 0)
+        }
+    }
 }
 
 extension ManageCategoryViewController: UICollectionViewDataSource {
@@ -177,6 +203,17 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         
         cell.configure(type: .manage)
         cell.update(data: categories[indexPath.row])
+        cell.presentEditCategoryClosure = {
+            let categoryId = self.categories[indexPath.row].id ?? 0
+            let titleText = self.categories[indexPath.row].title ?? ""
+            let imageId = self.categories[indexPath.row].imageId ?? 0
+            
+            let editCategory = EditCategoryViewController(categoryId: categoryId, titleText: titleText, imageId: imageId)
+            editCategory.sendData = {
+                print("ddd")
+            }
+            self.navigationController?.pushViewController(editCategory, animated: true)
+        }
         return cell
     }
 

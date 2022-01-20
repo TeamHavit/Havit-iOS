@@ -12,12 +12,8 @@ import SnapKit
 
 final class SearchContentsViewController: BaseViewController {
     
-    weak var coordinator: SearchContentsCoordinator?
-    
     let searchContentsService: SearchContentsService = SearchContentsService(apiService: APIService(),
-                                                                                  environment: .development)
     var searchResult: [SearchContents] = []
-    
     enum SearchResultType {
         case searching, result, noResult
     }

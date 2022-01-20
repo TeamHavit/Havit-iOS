@@ -52,8 +52,9 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     private let pageControl = MainCategoryPageControl()
+    private let categoryEmptyView = MainCategoryEmptyView()
     
-    var dummyCategories: [String] = ["카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3", "카테고리4", "카테고리5", "카테고리6", "카테고리1", "카테고리2", "카테고리3"]
+    var categories: [Category] = []
     
     // MARK: - func
     
@@ -68,7 +69,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     }
     
     override func render() {
-        contentView.addSubViews([titleLabel, overallButton, categoryCollectionView, pageControl])
+        contentView.addSubViews([titleLabel, overallButton])
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -80,26 +81,49 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             $0.trailing.equalToSuperview().inset(19)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(-10)
         }
-        
-        categoryCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(348)
-        }
-        
-        pageControl.snp.makeConstraints {
-            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(-10)
-            $0.bottom.equalToSuperview().inset(40)
-            $0.centerX.equalToSuperview()
-        }
     }
     
     override func configUI() {
+        selectionStyle = .none
         backgroundColor = .white
-        applyPageControlPages()
     }
     
     // MARK: - func
+    
+    func setupCategoryPartLayout(with categories: [Category]) {
+        let hasCategory = !categories.isEmpty
+        
+        if hasCategory {
+            if contentView.subviews.contains(categoryEmptyView) {
+                categoryEmptyView.removeFromSuperview()
+            }
+            contentView.addSubViews([categoryCollectionView, pageControl])
+            categoryCollectionView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(358).priority(.high)
+            }
+            
+            pageControl.snp.makeConstraints {
+                $0.top.equalTo(categoryCollectionView.snp.bottom)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.centerX.equalToSuperview()
+            }
+        } else {
+            if contentView.subviews.contains(categoryCollectionView),
+               contentView.subviews.contains(pageControl) {
+                categoryCollectionView.removeFromSuperview()
+                pageControl.removeFromSuperview()
+            }
+            contentView.addSubView(categoryEmptyView)
+            categoryEmptyView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+                $0.leading.trailing.equalToSuperview().inset(16)
+                $0.bottom.equalToSuperview().inset(40)
+                $0.height.equalTo(308)
+            }
+        }
+    }
     
     private func bind() {
         categoryCollectionView.rx.willEndDragging
@@ -127,12 +151,14 @@ final class CategoryListTableViewCell: BaseTableViewCell {
             .disposed(by: disposeBag)
     }
     
-    private func applyPageControlPages() {
-        let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
+    func applyPageControlPages() {
+        let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
+        
+        print(totalCellCount)
     }
     
-    private func calculateTotalCategoryCellCount(with categories: [String]) -> Int {
+    private func calculateTotalCategoryCellCount(with categories: [Category]) -> Int {
         var categoryCount = categories.count + Count.allContentPart
         let filledCategoryCountInLastPage = categoryCount % Count.maxCategoryCountInPage
         let hasPlaceHolderCell = filledCategoryCountInLastPage != 0
@@ -146,25 +172,20 @@ final class CategoryListTableViewCell: BaseTableViewCell {
 
 extension CategoryListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let totalCellCount = calculateTotalCategoryCellCount(with: dummyCategories)
+        let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         return totalCellCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let hasCategoryData = dummyCategories.count + Count.allContentPart > indexPath.item
+        let hasCategoryData = categories.count + Count.allContentPart > indexPath.item
         if hasCategoryData {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
             case .allContent:
-                cell.backgroundColor = .caution
-                cell.updateCategory(image: UIImage(),
-                                    title: "모든 콘텐츠",
-                                    contentCount: 90)
+                cell.updateAllContent(with: 100)
             default:
-                cell.updateCategory(image: ImageLiteral.imgCategoryNone,
-                                    title: dummyCategories[indexPath.item - 1],
-                                    contentCount: 27)
+                cell.updateCategory(category: categories[indexPath.item - 1])
             }
             return cell
         } else {

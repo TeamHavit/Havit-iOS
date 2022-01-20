@@ -15,8 +15,12 @@ class EditCategoryViewController: BaseViewController {
 
     // MARK: - property
 
+    var categoryId: Int
+    var titleText: String
+    var iconImageId: Int
+    var sendData: (() -> Void)?
+
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
-    weak var coordinator: EditCategoryCoordinator?
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -81,6 +85,21 @@ class EditCategoryViewController: BaseViewController {
         return button
     }()
 
+    // MARK: - init
+
+    init(categoryId: Int, titleText: String, imageId: Int) {
+        self.categoryId = categoryId
+        self.titleText = titleText
+        categoryTitleTextField.text = titleText
+        self.iconImageId = imageId
+
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
@@ -91,12 +110,15 @@ class EditCategoryViewController: BaseViewController {
     func editCategory() {
         Task {
             do {
-                let categories = try await categoryService.editCategory(categoryId: 18, title: "카테고리 수정", imageId: 2)
-                self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { _ in
-                    self.coordinator?.performTransition(to: .previous)
+                try await categoryService.editCategory(categoryId: categoryId ?? 0, title: categoryTitleTextField.text ?? "", imageId: iconImageId ?? 0)
+                self.makeAlert(title: "카테고리 수정", message: "카테고리 수정 성공", okAction: { [weak self] _ in
+                    self?.sendData?()
+                    self?.navigationController?.popViewController(animated: true)
                 })
-            } catch {
-                print("error")
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
             }
         }
     }
@@ -139,6 +161,7 @@ class EditCategoryViewController: BaseViewController {
     }
 
     override func configUI() {
+        view.backgroundColor = .white
         setupBaseNavigationBar(backgroundColor: .havitPurple, titleColor: .white, isTranslucent: false, tintColor: .white)
         setNavigationItem()
         bind()
@@ -168,23 +191,30 @@ class EditCategoryViewController: BaseViewController {
     }
 
     private func bind() {
-        Observable.merge(
-            backButton.rx.tap.map { $0 },
-            doneButton.rx.tap.map { $0 }
-        )
+        backButton.rx.tap
             .bind(onNext: { [weak self] in
-                // donebutton 일때만....
-                self?.editCategory()
-                // self?.coordinator?.performTransition(to: .previous)
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
 
+        doneButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.editCategory()
+            })
+            .disposed(by: disposeBag)
+        
         categoryTitleTextField.rx.controlEvent([.editingDidBegin])
             .asDriver()
             .drive(onNext: { [weak self] in
                 self?.categoryTitleTextField.textColor = .black
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension EditCategoryViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        iconImageId = indexPath.row + 1
     }
 }
 
@@ -195,6 +225,14 @@ extension EditCategoryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
+
+        if indexPath.row == iconImageId - 1 {
+            cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+        } else {
+            cell.isSelected = false
+        }
+
         return cell
     }
     
