@@ -115,6 +115,14 @@
 		4FB24FF32792184F00CCDB0C /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6F9E30278C8AA700EC074D /* Pretendard-Thin.otf */; };
 		4FC6EC582798725A000BD4E0 /* SelectCategoryIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */; };
 		4FC6EC592798728A000BD4E0 /* CategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */; };
+		4FC6EC5C2798911B000BD4E0 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */; };
+		4FC6EC5E27989DCD000BD4E0 /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
+		4FC6EC5F2798A51C000BD4E0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166F52796CE0700AD8960 /* Category.swift */; };
+		4FC6EC612798A555000BD4E0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4FC6EC602798A555000BD4E0 /* Kingfisher */; };
+		4FC6EC622798A8E0000BD4E0 /* CategoryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */; };
+		4FC6EC632798A8F7000BD4E0 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
+		4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
+		4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
 		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
 		ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443EAD278598670059DE76 /* AppDelegate.swift */; };
@@ -279,6 +287,8 @@
 		4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEmptyViewController.swift; sourceTree = "<group>"; };
 		4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTitleViewController.swift; sourceTree = "<group>"; };
 		4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryIconViewController.swift; sourceTree = "<group>"; };
+		4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
+		4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED3502A827986BE20033C280 /* MainRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentViewController.swift; sourceTree = "<group>"; };
 		ED443EAA278598670059DE76 /* Havit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Havit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC6EC612798A555000BD4E0 /* Kingfisher in Frameworks */,
 				4F4545F82791BFBF00A9E3B1 /* RxCocoa in Frameworks */,
 				4F4545F42791BFBF00A9E3B1 /* SnapKit in Frameworks */,
 				4F4545FC2791BFBF00A9E3B1 /* RxSwift in Frameworks */,
@@ -486,9 +497,11 @@
 		4F4DF4EC27943E8200DD629C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FC6EC652798AE01000BD4E0 /* Cell */,
 				4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */,
 				4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */,
 				4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */,
+				4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -499,6 +512,14 @@
 				4F4DF4EC27943E8200DD629C /* View */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		4FC6EC652798AE01000BD4E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		ED443EA1278598670059DE76 = {
@@ -1028,6 +1049,7 @@
 				4F4545F72791BFBF00A9E3B1 /* RxCocoa */,
 				4F4545F92791BFBF00A9E3B1 /* RxRelay */,
 				4F4545FB2791BFBF00A9E3B1 /* RxSwift */,
+				4FC6EC602798A555000BD4E0 /* Kingfisher */,
 			);
 			productName = ShareExtension;
 			productReference = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */;
@@ -1289,18 +1311,25 @@
 				4FB24FD8279217C700CCDB0C /* ImageLiteral.swift in Sources */,
 				4FB24FC7279212B000CCDB0C /* Requestable.swift in Sources */,
 				4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */,
+				4FC6EC5E27989DCD000BD4E0 /* CategoryListDataModel.swift in Sources */,
+				4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */,
 				4FB24FDA279217D700CCDB0C /* BaseTableViewCell.swift in Sources */,
+				4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */,
 				4FB24FDD279217F900CCDB0C /* Reactive+UIViewController.swift in Sources */,
 				4FC6EC582798725A000BD4E0 /* SelectCategoryIconViewController.swift in Sources */,
+				4FC6EC5F2798A51C000BD4E0 /* Category.swift in Sources */,
 				4FB24FDE279217FC00CCDB0C /* UIFont+Extension.swift in Sources */,
 				4FB24FC5279212AB00CCDB0C /* APIServiceError.swift in Sources */,
 				4FB24FC22792129B00CCDB0C /* BaseModel.swift in Sources */,
 				4F4545E02790B69600A9E3B1 /* EntryNavigationViewController.swift in Sources */,
 				4FB24FC4279212A700CCDB0C /* APIEnvironment.swift in Sources */,
 				4FB24FC8279212B300CCDB0C /* APIService.swift in Sources */,
+				4FC6EC622798A8E0000BD4E0 /* CategoryEndPoint.swift in Sources */,
 				4FB24FDB279217DF00CCDB0C /* Logger.swift in Sources */,
 				4FB24FCA2792177200CCDB0C /* MockParser.swift in Sources */,
 				4FB24FC9279212B600CCDB0C /* NetworkStatus.swift in Sources */,
+				4FC6EC5C2798911B000BD4E0 /* SelectCategoryViewController.swift in Sources */,
+				4FC6EC632798A8F7000BD4E0 /* CategoryServiceable.swift in Sources */,
 				4FB24FE72792181900CCDB0C /* UICollectionView+Extension.swift in Sources */,
 				4FB24FDC279217EC00CCDB0C /* PreviewProvider.swift in Sources */,
 				4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */,
@@ -1874,6 +1903,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ED443F3C2786B5840059DE76 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		4FC6EC602798A555000BD4E0 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD166E82796B83A00AD8960 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		ED443F372786B32B0059DE76 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
