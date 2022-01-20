@@ -58,6 +58,22 @@ enum ImageLiteral {
     static var iconSearch: UIImage { .load(named: "iconSearch")}
     static var iconShare: UIImage { .load(named: "iconShare")}
     static var iconUpdown: UIImage { .load(named: "iconUpdown")}
+
+    static var icon3d1: UIImage { .load(named: "icon_3d_1")}
+    static var icon3d2: UIImage { .load(named: "icon_3d_2")}
+    static var icon3d3: UIImage { .load(named: "icon_3d_3")}
+    static var icon3d4: UIImage { .load(named: "icon_3d_4")}
+    static var icon3d5: UIImage { .load(named: "icon_3d_5")}
+    static var icon3d6: UIImage { .load(named: "icon_3d_6")}
+    static var icon3d7: UIImage { .load(named: "icon_3d_7")}
+    static var icon3d8: UIImage { .load(named: "icon_3d_8")}
+    static var icon3d9: UIImage { .load(named: "icon_3d_9")}
+    static var icon3d10: UIImage { .load(named: "icon_3d_10")}
+    static var icon3d11: UIImage { .load(named: "icon_3d_11")}
+    static var icon3d12: UIImage { .load(named: "icon_3d_12")}
+    static var icon3d13: UIImage { .load(named: "icon_3d_13")}
+    static var icon3d14: UIImage { .load(named: "icon_3d_14")}
+    static var icon3d15: UIImage { .load(named: "icon_3d_15")}
     
     static var imgBranch: UIImage { .load(named: "imgBranch")}
     static var imgCardCategoryLine: UIImage { .load(named: "imgCardCategoryLine")}
