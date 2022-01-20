@@ -62,6 +62,10 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: LogoTableViewCell.self)
         return tableView
     }()
+    
+    var categories: [Category] = []
+    var contents: [Content] = []
+    var sites: [Site] = []
   
     private let searchHeaderView = MainSearchHeaderView()
     
@@ -133,6 +137,9 @@ extension MainTableViewController: UITableViewDataSource {
         case .category:
             let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
                                                      for: indexPath)
+            cell.categories = self.categories
+            cell.setupCategoryPartLayout(with: categories)
+            cell.applyPageControlPages()
             return cell
         case .guideline:
             let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,

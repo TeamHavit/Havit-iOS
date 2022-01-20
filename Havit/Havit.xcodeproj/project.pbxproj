@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		1546A3F42797DF58009AE579 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 1546A3F32797DF58009AE579 /* PanModal */; };
 		1546A3F62797F78D009AE579 /* CategoryPanModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A3F52797F78D009AE579 /* CategoryPanModalViewController.swift */; };
 		1546A3F92797F998009AE579 /* CategoryContentsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */; };
 		1546A3FC27981365009AE579 /* CategoryPanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546A3FB27981365009AE579 /* CategoryPanModalTableViewCell.swift */; };
+		155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D4F89279132670069F035 /* ToastAlarm.swift */; };
 		15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD6278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift */; };
 		15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CD8278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift */; };
 		15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D49CE0278F19050030DBE5 /* ContentsCollectionViewCell.swift */; };
@@ -165,6 +165,11 @@
 		ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F8C278C51DF0059DE76 /* Logger.swift */; };
 		ED87AE5E2798125500517AEC /* MainUnwatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */; };
 		ED87AE62279827E100517AEC /* MainContentEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED87AE61279827E100517AEC /* MainContentEmptyView.swift */; };
+		EDB6F4BD27990632006C66AA /* MainEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F4BC27990632006C66AA /* MainEndPoint.swift */; };
+		EDB6F4BF27990821006C66AA /* MainServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F4BE27990821006C66AA /* MainServiceable.swift */; };
+		EDB6F4C1279908AD006C66AA /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F4C0279908AD006C66AA /* Content.swift */; };
+		EDB6F4C327990944006C66AA /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F4C227990944006C66AA /* Site.swift */; };
+		EDB6F4C5279909A6006C66AA /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F4C4279909A6006C66AA /* MainService.swift */; };
 		EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */; };
 		EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE099627905C7D0093B83F /* MainTopView.swift */; };
 		EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */; };
@@ -333,6 +338,11 @@
 		ED443F8C278C51DF0059DE76 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		ED87AE5D2798125500517AEC /* MainUnwatchedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnwatchedViewController.swift; sourceTree = "<group>"; };
 		ED87AE61279827E100517AEC /* MainContentEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentEmptyView.swift; sourceTree = "<group>"; };
+		EDB6F4BC27990632006C66AA /* MainEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEndPoint.swift; sourceTree = "<group>"; };
+		EDB6F4BE27990821006C66AA /* MainServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServiceable.swift; sourceTree = "<group>"; };
+		EDB6F4C0279908AD006C66AA /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		EDB6F4C227990944006C66AA /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		EDB6F4C4279909A6006C66AA /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		EDDE0964278EA9CC0093B83F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		EDDE099627905C7D0093B83F /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		EDDE0998279077B90093B83F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -481,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */,
+				EDB6F4BE27990821006C66AA /* MainServiceable.swift */,
 			);
 			path = Serviceable;
 			sourceTree = "<group>";
@@ -716,6 +727,8 @@
 			isa = PBXGroup;
 			children = (
 				4DD166F52796CE0700AD8960 /* Category.swift */,
+				EDB6F4C0279908AD006C66AA /* Content.swift */,
+				EDB6F4C227990944006C66AA /* Site.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -724,6 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */,
+				EDB6F4BC27990632006C66AA /* MainEndPoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1023,6 +1037,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD166FC2796D0C900AD8960 /* CategoryService.swift */,
+				EDB6F4C4279909A6006C66AA /* MainService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -1345,18 +1360,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */,
+				EDB6F4BD27990632006C66AA /* MainEndPoint.swift in Sources */,
 				EDE7D6E02797EEA8009C70EF /* MainRecentContentEmptyView.swift in Sources */,
 				ED443F482786BA0F0059DE76 /* UILabel+Extension.swift in Sources */,
 				1546A3F92797F998009AE579 /* CategoryContentsEnum.swift in Sources */,
 				15D49CD9278F06BA0030DBE5 /* EmptyCategoryContentsCollectionViewCell.swift in Sources */,
 				ED443F292786A9260059DE76 /* BaseModel.swift in Sources */,
 				ED443F152786A31E0059DE76 /* SearchContentsViewController.swift in Sources */,
+				EDB6F4C5279909A6006C66AA /* MainService.swift in Sources */,
 				15F41A8D2791C13600ADF17A /* SortPanModalViewController.swift in Sources */,
-				15F41A8D2791C13600ADF17A /* SortBottomSheetViewController.swift in Sources */,
+				15F41A8D2791C13600ADF17A /* SortPanModalViewController.swift in Sources */,
 				4DD166FB2796D01300AD8960 /* CategoryEndPoint.swift in Sources */,
 				ED443F352786AF2C0059DE76 /* BaseViewController.swift in Sources */,
 				15D49CE5278F19230030DBE5 /* CategoryContents1xNCollectionViewCell.swift in Sources */,
 				ED443F232786A4240059DE76 /* SocialLoginViewModel.swift in Sources */,
+				EDB6F4C327990944006C66AA /* Site.swift in Sources */,
 				ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */,
 				EDE7D6C927937F37009C70EF /* CategoryListTableViewCell.swift in Sources */,
 				EDEF61B82791EABF00C93C84 /* NetworkStatus.swift in Sources */,
@@ -1386,6 +1404,7 @@
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */,
+				EDB6F4C1279908AD006C66AA /* Content.swift in Sources */,
 				15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
@@ -1420,6 +1439,7 @@
 				EDE7D6CB2793EA89009C70EF /* CategoryListCollectionViewCell.swift in Sources */,
 				1546A3FC27981365009AE579 /* CategoryPanModalTableViewCell.swift in Sources */,
 				EDEF619B2791395800C93C84 /* APIService.swift in Sources */,
+				EDB6F4BF27990821006C66AA /* MainServiceable.swift in Sources */,
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
 				EDEF61992791392D00C93C84 /* Requestable.swift in Sources */,

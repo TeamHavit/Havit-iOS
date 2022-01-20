@@ -13,12 +13,4 @@ struct Category: Decodable {
     let orderIndex: Int?
     let imageId: Int?
     let imageUrl: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case orderIndex
-        case imageId
-        case imageUrl = "url"
-    }
 }
