@@ -21,6 +21,8 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
 
+    var presentEditCategoryClosure: (() -> Void)? 
+
     private let categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
@@ -49,6 +51,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bind()
     }
 
     @available(*, unavailable)
@@ -116,5 +119,13 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
             categoryImageView.kf.setImage(with: url)
         }
         categoryTitleLabel.text = data.title
+    }
+
+    private func bind() {
+        editButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.presentEditCategoryClosure?()
+            })
+            .disposed(by: disposeBag)
     }
 }

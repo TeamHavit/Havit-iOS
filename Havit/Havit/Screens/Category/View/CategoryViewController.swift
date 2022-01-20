@@ -12,6 +12,11 @@ import SnapKit
 
 class CategoryViewController: BaseViewController {
 
+    enum PresentableParentType {
+        case main
+        case tabbar
+    }
+
     // MARK: - property
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(),
                                                                 environment: .development)
@@ -74,11 +79,31 @@ class CategoryViewController: BaseViewController {
         return button
     }()
 
+    // MARK: - init
+
+    init(type: PresentableParentType) {
+        switch type {
+        case .main:
+            backButton.isHidden = false
+        case .tabbar:
+            backButton.isHidden = true
+        }
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        setupBaseNavigationBar(backgroundColor: .white)
         getCategory()
     }
 
@@ -155,6 +180,12 @@ class CategoryViewController: BaseViewController {
     }
 
     private func bind() {
+//        addButton.rx.tap
+//            .bind(onNext: { [weak self] in
+//                // 카테고리 추가하는 뷰로 이동 
+//            })
+//            .disposed(by: disposeBag)
+
         backButton.rx.tap
             .bind(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
@@ -164,6 +195,7 @@ class CategoryViewController: BaseViewController {
         editButton.rx.tap
             .bind(onNext: { [weak self] in
                 let manageCategory = ManageCategoryViewController()
+                manageCategory.categories = self?.categories ?? []
                 self?.navigationController?.pushViewController(manageCategory, animated: true)
             })
             .disposed(by: disposeBag)
