@@ -13,7 +13,7 @@ final class SelectCategoryViewController: BaseViewController {
     
     // MARK: - property
     
-    var categories: [CategoryListData] = CategoryListData.dummy
+    var categories: [Category] = []
     
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
