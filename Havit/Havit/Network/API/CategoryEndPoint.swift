@@ -11,6 +11,7 @@ enum CategoryEndPoint {
     case getCategory
     case editCategory(categoryId: Int, title: String, imageId: Int)
     case changeCategoryOrder(categoryIndexArray: [Int])
+    case deleteCategory(categoryId: Int)
 
     var requestTimeOut: Float {
         return 20
@@ -24,6 +25,8 @@ enum CategoryEndPoint {
             return .PATCH
         case .changeCategoryOrder:
             return .PATCH
+        case .deleteCategory:
+            return .DELETE
         }
     }
 
@@ -38,6 +41,8 @@ enum CategoryEndPoint {
         case .changeCategoryOrder(categoryIndexArray: let categoryIndexArray):
             let parameters = ["categoryIndexArray": categoryIndexArray]
             return parameters.encode()
+        case .deleteCategory:
+            return nil
         }
     }
 
@@ -50,6 +55,8 @@ enum CategoryEndPoint {
             return "\(baseUrl)/category/\(categoryId)"
         case .changeCategoryOrder:
             return "\(baseUrl)/category/order"
+        case .deleteCategory(let categoryId):
+            return "\(baseUrl)/category/\(categoryId)"
         }
     }
 
