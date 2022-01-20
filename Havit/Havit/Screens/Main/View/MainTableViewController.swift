@@ -66,6 +66,7 @@ class MainTableViewController: BaseViewController {
     var categories: [Category] = []
     var contents: [Content] = []
     var sites: [Site] = []
+    var user: User?
   
     private let searchHeaderView = MainSearchHeaderView()
     
@@ -126,7 +127,13 @@ extension MainTableViewController: UITableViewDataSource {
                 let unwatchedViewController = MainUnwatchedViewController()
                 self?.navigationController?.pushViewController(unwatchedViewController, animated: true)
             }
-            cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
+            
+            if let user = user,
+               let nickname = user.nickname,
+               let totalSeenContentNumber = user.totalSeenContentNumber,
+               let totalContentNumber = user.totalContentNumber {
+                cell.updateData(name: nickname, watchedCount: totalSeenContentNumber, totalCount: totalContentNumber)
+            }
             return cell
         }
     }
@@ -138,8 +145,10 @@ extension MainTableViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
                                                      for: indexPath)
             cell.categories = categories
+            cell.user = user
             cell.setupCategoryPartLayout(with: categories)
             cell.applyPageControlPages()
+            cell.applyUserNickname(to: user?.nickname ?? "")
             return cell
         case .guideline:
             let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,

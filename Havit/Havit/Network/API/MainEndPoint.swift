@@ -12,11 +12,12 @@ enum MainEndPoint {
     case getRecentContent
     case getRecommend
     case getUnseen
-
+    case getReachRate
+    
     var requestTimeOut: Float {
         return 20
     }
-
+    
     var httpMethod: HttpMethod {
         switch self {
         case .getCategory:
@@ -27,9 +28,11 @@ enum MainEndPoint {
             return .GET
         case .getUnseen:
             return .GET
+        case .getReachRate:
+            return .GET
         }
     }
-
+    
     var requestBody: Data? {
         switch self {
         case .getCategory:
@@ -40,9 +43,11 @@ enum MainEndPoint {
             return nil
         case .getUnseen:
             return nil
+        case .getReachRate:
+            return nil
         }
     }
-
+    
     func getURL(from environment: APIEnvironment) -> String {
         let baseUrl = environment.baseUrl
         switch self {
@@ -54,9 +59,11 @@ enum MainEndPoint {
             return "\(baseUrl)/recommendation"
         case .getUnseen:
             return "\(baseUrl)/content/unseen"
+        case .getReachRate:
+            return "\(baseUrl)/user"
         }
     }
-
+    
     func createRequest(environment: APIEnvironment) -> NetworkRequest {
         var headers: [String: String] = [:]
         headers["Content-Type"] = "application/json"

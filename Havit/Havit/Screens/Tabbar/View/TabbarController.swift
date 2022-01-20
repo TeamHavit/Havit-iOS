@@ -77,7 +77,7 @@ class TabbarController: UITabBarController {
     
     private func setTabBarViewControllers() {
         
-        let mainTabMetaData = (viewController: CategoryContentsViewController(),
+        let mainTabMetaData = (viewController: MainViewController(),
                                unselecedImage: ImageLiteral.iconHomeUnselected,
                                selectedImage: ImageLiteral.iconHomeSelected)
         let categoryTabMetaData = (viewController: CategoryViewController(type: .tabbar),
