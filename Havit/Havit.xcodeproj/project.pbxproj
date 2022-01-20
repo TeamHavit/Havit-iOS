@@ -69,6 +69,7 @@
 		4DD166FB2796D01300AD8960 /* CategoryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */; };
 		4DD166FD2796D0C900AD8960 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
 		4DD167002796D11500AD8960 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
+		4DE2C1A3279995AA00A3A2E4 /* MyPageDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2C1A2279995A900A3A2E4 /* MyPageDescriptionView.swift */; };
 		4F4545E02790B69600A9E3B1 /* EntryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */; };
 		4F4545E82790B69600A9E3B1 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
@@ -315,6 +316,7 @@
 		4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndPoint.swift; sourceTree = "<group>"; };
 		4DD166FC2796D0C900AD8960 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceable.swift; sourceTree = "<group>"; };
+		4DE2C1A2279995A900A3A2E4 /* MyPageDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDescriptionView.swift; sourceTree = "<group>"; };
 		4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryNavigationViewController.swift; sourceTree = "<group>"; };
 		4F4545E42790B69600A9E3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1036,6 +1038,7 @@
 			isa = PBXGroup;
 			children = (
 				ED443F242786A4310059DE76 /* MypageViewController.swift */,
+				4DE2C1A2279995A900A3A2E4 /* MyPageDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1512,6 +1515,7 @@
 				EDE7D6DC2795BE0E009C70EF /* LogoTableViewCell.swift in Sources */,
 				EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */,
 				ED443F8A278C4D710059DE76 /* NSObject+Extension.swift in Sources */,
+				4DE2C1A3279995AA00A3A2E4 /* MyPageDescriptionView.swift in Sources */,
 				4DBD2ECC2792BEBC0003226A /* EmptyCategoryView.swift in Sources */,
 				15F41A8F2791C60000ADF17A /* SortPanModalTableViewCell.swift in Sources */,
 				ED87AE62279827E100517AEC /* MainContentEmptyView.swift in Sources */,
@@ -1822,7 +1826,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6F4B6Y334K;
+				DEVELOPMENT_TEAM = L2NP7U5487;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
