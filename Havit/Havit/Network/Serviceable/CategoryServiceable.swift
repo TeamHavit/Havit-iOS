@@ -11,4 +11,5 @@ protocol CategorySeriviceable {
     func getCategory() async throws -> [Category]?
     func editCategory(categoryId: Int, title: String, imageId: Int) async throws -> String?
     func changeCategoryOrder(categoryIndexArray: [Int]) async throws -> [Int]?
+    func deleteCategory(categoryId: Int) async throws -> Int? 
 }
