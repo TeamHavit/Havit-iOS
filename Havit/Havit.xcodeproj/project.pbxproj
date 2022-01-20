@@ -137,6 +137,8 @@
 		4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */; };
 		4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534CE27994604000C7034 /* SaveContentsViewController.swift */; };
 		4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
+		4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
+		4FD534D6279981D8000C7034 /* SetAlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */; };
 		ED3502A72798671E0033C280 /* NotSearchedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */; };
 		ED3502A927986BE20033C280 /* MainRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502A827986BE20033C280 /* MainRecentViewController.swift */; };
 		ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3502AA279876E70033C280 /* MainAlarmViewController.swift */; };
@@ -323,6 +325,8 @@
 		4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FD534CE27994604000C7034 /* SaveContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContentsViewController.swift; sourceTree = "<group>"; };
 		4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsTitleViewController.swift; sourceTree = "<group>"; };
+		4FD534D327997E21000C7034 /* SetAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertViewController.swift; sourceTree = "<group>"; };
+		4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED3502A62798671E0033C280 /* NotSearchedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotSearchedCollectionViewCell.swift; path = Havit/Screens/Main/View/Component/NotSearchedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ED3502A827986BE20033C280 /* MainRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecentViewController.swift; sourceTree = "<group>"; };
 		ED3502AA279876E70033C280 /* MainAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAlarmViewController.swift; sourceTree = "<group>"; };
@@ -581,10 +585,28 @@
 		4FD534CC279945D7000C7034 /* Contents */ = {
 			isa = PBXGroup;
 			children = (
-				4FD534CE27994604000C7034 /* SaveContentsViewController.swift */,
-				4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */,
+				4FD534D72799829A000C7034 /* View */,
 			);
 			path = Contents;
+			sourceTree = "<group>";
+		};
+		4FD534D72799829A000C7034 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FD534CE27994604000C7034 /* SaveContentsViewController.swift */,
+				4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */,
+				4FD534D327997E21000C7034 /* SetAlertViewController.swift */,
+				4FD534D82799829F000C7034 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4FD534D82799829F000C7034 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		ED443EA1278598670059DE76 = {
@@ -1395,6 +1417,7 @@
 				4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */,
 				4FC6EC5E27989DCD000BD4E0 /* CategoryIconList.swift in Sources */,
 				4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */,
+				4FD534D6279981D8000C7034 /* SetAlertCollectionViewCell.swift in Sources */,
 				4FB24FDA279217D700CCDB0C /* BaseTableViewCell.swift in Sources */,
 				4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */,
 				4FB24FDD279217F900CCDB0C /* Reactive+UIViewController.swift in Sources */,
@@ -1416,6 +1439,7 @@
 				4FB24FDC279217EC00CCDB0C /* PreviewProvider.swift in Sources */,
 				4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */,
 				4FB24FD9279217D300CCDB0C /* BaseCollectionViewCell.swift in Sources */,
+				4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */,
 				4FB24FE02792180100CCDB0C /* UIView+Extension.swift in Sources */,
 				4FB24FE32792180B00CCDB0C /* UIButton+Extension.swift in Sources */,
 				4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */,
