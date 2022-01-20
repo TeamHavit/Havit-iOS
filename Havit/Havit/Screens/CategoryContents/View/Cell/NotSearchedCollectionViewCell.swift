@@ -42,7 +42,7 @@ class NotSearchedCollectionViewCell: BaseCollectionViewCell {
         }
         
         noResultLabel.snp.makeConstraints {
-            $0.top.equalTo(imageView.snp.bottom).offset(70)
+            $0.bottom.equalTo(imageView.snp.top).inset(-40)
             $0.centerX.equalTo(contentView)
         }
     }

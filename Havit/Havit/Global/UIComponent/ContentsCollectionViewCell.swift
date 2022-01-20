@@ -13,13 +13,13 @@ import SnapKit
 
 final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
-    private let mainImageView: UIImageView = {
+    let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.imgContentsDummyImg1
         return imageView
     }()
     
-    private let alarmImageView: UIImageView = {
+    let alarmImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.iconAlarmtagPuple
         imageView.layer.cornerRadius = 4
@@ -27,7 +27,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         return imageView
     }()
     
-    private var titleLabel: UILabel = {
+    var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(FontName.pretendardMedium, ofSize: 15)
         label.textColor = .black
@@ -35,21 +35,21 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
-    private var subtitleLabel: UILabel = {
+    var subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(FontName.pretendardReular, ofSize: 9)
         label.textColor = .gray003
         return label
     }()
     
-    private var dateLabel: UILabel = {
+    var dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(FontName.pretendardReular, ofSize: 9)
         label.textColor = .gray002
         return label
     }()
     
-    private var linkLabel: UILabel = {
+    var linkLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(FontName.pretendardReular, ofSize: CGFloat(9))
         label.textColor = .gray002
@@ -62,13 +62,13 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
          return button
     }()
     
-    private var isReadButton: UIButton = {
+    var isReadButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiteral.btnContentsUnread, for: .normal)
         return button
     }()
     
-    private var alarmLabel: UILabel = {
+    var alarmLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(FontName.pretendardSemibold, ofSize: CGFloat(9))
         label.textColor = .havitPurple
