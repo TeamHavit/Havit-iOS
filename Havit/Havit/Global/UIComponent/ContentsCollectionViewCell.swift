@@ -187,7 +187,8 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
             dateLabel.text = "\(dateFormat) •"
         }
         
-        if let notificatedTime = content.notificationTime {
+        if let notificatedTime = content.notificationTime,
+           notificatedTime != ""{
             alarmLabel.text = changeDateAlarmFormat(with: notificatedTime)
         }
         
@@ -205,6 +206,7 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
     private func changeDateAlarmFormat(with date: String) -> String {
         let dateArray = date.components(separatedBy: " ")
+        print(dateArray)
         let dateComponent = dateArray[0]
         let timeComponent = dateArray[1]
         let dateComponentWithDot = dateComponent.replacingOccurrences(of: "-", with: ". ")

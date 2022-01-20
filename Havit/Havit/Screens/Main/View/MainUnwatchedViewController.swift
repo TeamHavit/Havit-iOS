@@ -44,8 +44,11 @@ final class MainUnwatchedViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUnwatchedData()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUnwatchedData()
     }
     
     override func render() {

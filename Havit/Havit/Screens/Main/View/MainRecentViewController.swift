@@ -19,6 +19,8 @@ final class MainRecentViewController: BaseViewController {
     
     // MARK: - property
     
+    private let mainService: MainService = MainService(apiService: APIService(),
+                                                       environment: .development)
     private let backButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
@@ -37,10 +39,15 @@ final class MainRecentViewController: BaseViewController {
     }()
     private let recentEmptyView = MainContentEmptyView(guideText:
                                                             "최근에 저장한 콘텐츠가 없습니다.\n새로운 콘텐츠를 저장해 보세요!")
+    private var contents: [Content] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getRecentContent()
     }
     
     override func render() {
@@ -90,16 +97,36 @@ final class MainRecentViewController: BaseViewController {
     private func setupCollectionViewHiddenState(with hasContent: Bool) {
         contentCollectionView.isHidden = !hasContent
     }
+    
+    // MARK: - network
+    
+    private func getRecentContent() {
+        Task {
+            do {
+                async let recentContent = try await mainService.getRecentContent()
+                
+                if let content = try await recentContent {
+                    self.contents = content
+                    contentCollectionView.reloadData()
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
 }
 
 extension MainRecentViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .white
+        cell.update(content: contents[indexPath.item])
         return cell
     }
 }
