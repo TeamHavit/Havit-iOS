@@ -81,7 +81,7 @@ final class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     func update(data: Category) {
         categoryImageView.image = ImageLiteral.iconCategory
-        categoryTitleLabel.text = "\(data.title)"
+        categoryTitleLabel.text = data.title
     }
     
     func didSelect() {
