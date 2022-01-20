@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "iconHomeUnselected.png",
-      "scale" : "1x"
+      "filename" : "iconHomeUnselected.png"
     },
     {
-      "idiom" : "universal",
+      "filename" : "iconHomeUnselected@2x.png",
       "scale" : "2x",
-      "filename" : "iconHomeUnselected@2x.png"
+      "idiom" : "universal"
     },
     {
+      "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "iconHomeUnselected@3x.png",
-      "idiom" : "universal"
+      "filename" : "iconHomeUnselected@3x.png"
     }
   ],
   "info" : {

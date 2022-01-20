@@ -12,11 +12,15 @@ import SnapKit
 
 class CategoryViewController: BaseViewController {
 
+    enum PresentableParentType {
+        case main
+        case tabbar
+    }
+
     // MARK: - property
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(),
                                                                 environment: .development)
     private var categories: [Category] = []
-    weak var coordinator: CategoryCoordinator?
     private let emptyCategoryView = EmptyCategoryView()
 
     private lazy var categoryCollectionView: UICollectionView = {
@@ -75,11 +79,31 @@ class CategoryViewController: BaseViewController {
         return button
     }()
 
+    // MARK: - init
+
+    init(type: PresentableParentType) {
+        switch type {
+        case .main:
+            backButton.isHidden = false
+        case .tabbar:
+            backButton.isHidden = true
+        }
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        setupBaseNavigationBar(backgroundColor: .white)
         getCategory()
     }
 
@@ -143,10 +167,10 @@ class CategoryViewController: BaseViewController {
     }
 
     private func setNavigationItem() {
-        title = "전체 카테고리"
         let font = UIFont.font(.pretendardBold, ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
         
+        navigationItem.title = "전체 카테고리"
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
         navigationItem.rightBarButtonItem = makeBarButtonItem(with: editButton)
     }
@@ -156,15 +180,23 @@ class CategoryViewController: BaseViewController {
     }
 
     private func bind() {
+//        addButton.rx.tap
+//            .bind(onNext: { [weak self] in
+//                // 카테고리 추가하는 뷰로 이동 
+//            })
+//            .disposed(by: disposeBag)
+
         backButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .main)
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
 
         editButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.coordinator?.performTransition(to: .manage)
+                let manageCategory = ManageCategoryViewController()
+                manageCategory.categories = self?.categories ?? []
+                self?.navigationController?.pushViewController(manageCategory, animated: true)
             })
             .disposed(by: disposeBag)
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 
 final class RecentContentCollectionViewCell: BaseCollectionViewCell {
@@ -16,7 +17,7 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     private let contentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .gray001
+        imageView.image = ImageLiteral.imgDummyContent
         imageView.layer.cornerRadius = 6
         return imageView
     }()
@@ -49,7 +50,6 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     private var buttonContainer = AttributeContainer([.font: UIFont.font(.pretendardReular, ofSize: 10)])
     
     override func prepareForReuse() {
-        contentImageView.image = nil
         titleLabel.text = ""
         dateLabel.text = ""
         buttonConfiguration.attributedTitle = AttributedString("카테고리 없음", attributes: buttonContainer)
@@ -83,10 +83,28 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - func
     
-    func update(title: String, date: String, categoryTitle: String) {
-        titleLabel.text = title
-        dateLabel.text = date
-        buttonConfiguration.attributedTitle = AttributedString(categoryTitle, attributes: buttonContainer)
-        categoryTagButton.configuration = buttonConfiguration
+    func update(content: Content) {
+        titleLabel.text = content.contentDescription
+        
+        if let imageUrl = content.image,
+           let url = URL(string: imageUrl) {
+            contentImageView.kf.setImage(with: url)
+        }
+        
+        if let createdAt = content.createdAt {
+            dateLabel.text = changeDateFormat(with: createdAt)
+        }
+        
+        if let title = content.title {
+            buttonConfiguration.attributedTitle = AttributedString(title, attributes: buttonContainer)
+            categoryTagButton.configuration = buttonConfiguration
+        }
+    }
+    
+    private func changeDateFormat(with date: String) -> String {
+        let dateArray = date.components(separatedBy: " ")
+        let dateComponent = dateArray[0]
+        let dateComponentWithDot = dateComponent.replacingOccurrences(of: "-", with: ". ")
+        return dateComponentWithDot
     }
 }

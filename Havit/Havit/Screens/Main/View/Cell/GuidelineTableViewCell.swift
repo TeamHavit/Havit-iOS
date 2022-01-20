@@ -40,4 +40,8 @@ final class GuidelineTableViewCell: BaseTableViewCell {
             $0.center.equalToSuperview()
         }
     }
+    
+    override func configUI() {
+        selectionStyle = .none
+    }
 }

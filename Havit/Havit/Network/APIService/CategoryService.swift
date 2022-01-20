@@ -28,4 +28,9 @@ struct CategoryService: CategorySeriviceable {
         let request = CategoryEndPoint.editCategory(categoryId: categoryId, title: title, imageId: imageId).createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
+    
+    func changeCategoryOrder(categoryIndexArray: [Int]) async throws -> [Int]? {
+        let request = CategoryEndPoint.changeCategoryOrder(categoryIndexArray: categoryIndexArray).createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
 }

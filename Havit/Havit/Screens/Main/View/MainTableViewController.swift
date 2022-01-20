@@ -13,7 +13,6 @@ class MainTableViewController: BaseViewController {
     
     private enum Size {
         static let headerHeight: CGFloat = 94
-        static let footerHeight: CGFloat = 122
     }
     
     private enum ReachSectionCellType: Int, CaseIterable {
@@ -26,6 +25,7 @@ class MainTableViewController: BaseViewController {
         case guideline
         case recent
         case recommend
+        case logo
     }
     
     private enum MainTableViewSectionType: Int, CaseIterable {
@@ -40,24 +40,6 @@ class MainTableViewController: BaseViewController {
                 return .zero
             }
         }
-        
-        var footerView: UIView {
-            switch self {
-            case .category:
-                return MainFooterView()
-            default:
-                return UIView()
-            }
-        }
-        
-        var footerHeight: CGFloat {
-            switch self {
-            case .category:
-                return Size.footerHeight
-            default:
-                return .zero
-            }
-        }
     }
     
     // MARK: - property
@@ -67,6 +49,7 @@ class MainTableViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        tableView.separatorColor = .clear
         tableView.sectionHeaderTopPadding = 0
         tableView.estimatedRowHeight = 44
         tableView.showsVerticalScrollIndicator = false
@@ -76,8 +59,13 @@ class MainTableViewController: BaseViewController {
         tableView.register(cell: GuidelineTableViewCell.self)
         tableView.register(cell: RecentContentTableViewCell.self)
         tableView.register(cell: RecommendSiteTableViewCell.self)
+        tableView.register(cell: LogoTableViewCell.self)
         return tableView
     }()
+    
+    var categories: [Category] = []
+    var contents: [Content] = []
+    var sites: [Site] = []
   
     private let searchHeaderView = MainSearchHeaderView()
     
@@ -134,6 +122,10 @@ extension MainTableViewController: UITableViewDataSource {
         case .progress:
             let cell = tableView.dequeueReusableCell(withType: ReachRateTableViewCell.self,
                                                      for: indexPath)
+            cell.didTapUnwatchedButton = { [weak self] in
+                let unwatchedViewController = MainUnwatchedViewController()
+                self?.navigationController?.pushViewController(unwatchedViewController, animated: true)
+            }
             cell.updateData(name: "박태준", watchedCount: 62, totalCount: 145)
             return cell
         }
@@ -145,6 +137,9 @@ extension MainTableViewController: UITableViewDataSource {
         case .category:
             let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
                                                      for: indexPath)
+            cell.categories = categories
+            cell.setupCategoryPartLayout(with: categories)
+            cell.applyPageControlPages()
             return cell
         case .guideline:
             let cell = tableView.dequeueReusableCell(withType: GuidelineTableViewCell.self,
@@ -153,9 +148,21 @@ extension MainTableViewController: UITableViewDataSource {
         case .recent:
             let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
                                                      for: indexPath)
+            cell.contents = contents
+            cell.setupContentPartLayout(with: contents)
+            cell.didTapOverallButton = { [weak self] in
+                let recentViewController = MainRecentViewController()
+                self?.navigationController?.pushViewController(recentViewController, animated: true)
+            }
             return cell
         case .recommend:
-            let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
+                                                     for: indexPath)
+            cell.sites = sites
+            return cell
+        case .logo:
+            let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self,
+                                                      for: indexPath)
             return cell
         default:
             return UITableViewCell()
@@ -184,14 +191,6 @@ extension MainTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return MainTableViewSectionType(rawValue: section)?.headerHeight ?? .zero
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return MainTableViewSectionType(rawValue: section)?.footerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return MainTableViewSectionType(rawValue: section)?.footerHeight ?? .zero
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
