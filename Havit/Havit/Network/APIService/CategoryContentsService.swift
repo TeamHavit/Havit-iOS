@@ -8,12 +8,21 @@
 import Foundation
 
 struct CategoryContentsService: CategoryContentsSeriviceable {
+    
     private let apiService: Requestable
     private let environment: APIEnvironment
 
     init(apiService: Requestable, environment: APIEnvironment) {
         self.apiService = apiService
         self.environment = environment
+    }
+    
+    func getAllContents() async throws -> [CategoryContents]? {
+        let request = CategoryContentsEndPoint
+            .getAllContents
+            .createRequest(environment: environment)
+        print(request)
+        return try await self.apiService.request(request)
     }
     
     func getCategoryContents(categoryID: String, option: String, filter: String) async throws -> [CategoryContents]? {

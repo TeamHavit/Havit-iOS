@@ -8,6 +8,7 @@
 import Foundation
 
 enum CategoryContentsEndPoint {
+    case getAllContents
     case getCategoryContents(categoryID: String, option: String, filter: String)
     
     var requestTimeOut: Float {
@@ -16,14 +17,18 @@ enum CategoryContentsEndPoint {
     
     var httpMethod: HttpMethod {
         switch self {
-        case .getCategoryContents:
+        case .getAllContents:
+            return .GET
+        case .getCategoryContents(categoryID: _, option: _, filter: _):
             return .GET
         }
     }
     
     var requestBody: Data? {
         switch self {
-        case .getCategoryContents:
+        case .getAllContents:
+            return nil
+        case .getCategoryContents(categoryID: _, option: _, filter: _):
             return nil
         }
     }
@@ -31,8 +36,9 @@ enum CategoryContentsEndPoint {
     func getURL(from environment: APIEnvironment) -> String {
         let baseUrl = environment.baseUrl
         switch self {
-        case .getCategoryContents(let categoryID, let option, let filter):
-            print("\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)")
+        case .getAllContents:
+            return "\(baseUrl)/content"
+        case .getCategoryContents(categoryID: let categoryID, option: let option, filter: let filter):
             return "\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)"
         }
     }

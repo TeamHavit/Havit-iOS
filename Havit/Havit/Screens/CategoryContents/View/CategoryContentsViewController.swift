@@ -19,6 +19,8 @@ final class CategoryContentsViewController: BaseViewController {
                                                                 environment: .development)
     private var categoryContents: [CategoryContents] = []
     
+    var isFromAllCategory: Bool = false
+    
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
     
@@ -248,13 +250,24 @@ final class CategoryContentsViewController: BaseViewController {
     func getCategoryContents() {
         Task {
             do {
-                let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "3", option: "notified", filter: "created_at")
-                if let categoryContents = categoryContents,
-                   !categoryContents.isEmpty {
-                    self.categoryContents = categoryContents
-                    self.totalLabel.text = "전체 \(categoryContents.count)"
+                if isFromAllCategory {
+                    let categoryContents = try await categoryContentsService.getAllContents()
+                    if let categoryContents = categoryContents,
+                       !categoryContents.isEmpty {
+                        self.categoryContents = categoryContents
+                        self.totalLabel.text = "전체 \(categoryContents.count)"
+                    } else {
+                       // Emtpy 띄우기
+                    }
                 } else {
-                   // Emtpy 띄우기
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "3", option: "notified", filter: "created_at")
+                    if let categoryContents = categoryContents,
+                       !categoryContents.isEmpty {
+                        self.categoryContents = categoryContents
+                        self.totalLabel.text = "전체 \(categoryContents.count)"
+                    } else {
+                       // Emtpy 띄우기
+                    }
                 }
                 contentsCollectionView.reloadData()
             } catch APIServiceError.serverError {
