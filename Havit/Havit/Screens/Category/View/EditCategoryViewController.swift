@@ -20,6 +20,8 @@ class EditCategoryViewController: BaseViewController {
     var iconImageId: Int
     var sendData: (() -> Void)?
 
+    let categoryIconList: [CategoryIconList] = CategoryIconList.iconList
+
     let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
 
     private let titleLabel: UILabel = {
@@ -248,6 +250,8 @@ extension EditCategoryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
+
+        cell.update(data: categoryIconList[indexPath.row])
 
         if indexPath.row == iconImageId - 1 {
             cell.isSelected = true
