@@ -26,6 +26,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     var categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
+        image.contentMode = .scaleToFill
         return image
     }()
 
@@ -38,6 +39,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     private lazy var arrowImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.iconGoGray
+        image.contentMode = .scaleToFill
         return image
     }()
 
@@ -72,7 +74,6 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
         categoryImageView.snp.makeConstraints {
             $0.top.leading.bottom.equalToSuperview().inset(10)
-            $0.trailing.equalTo(categoryTitleLabel.snp.leading).offset(-10)
             $0.width.height.equalTo(36)
         }
 
