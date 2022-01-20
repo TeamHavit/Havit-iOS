@@ -23,7 +23,7 @@
 		15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
-		4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
+		4D4DDD4727912AE10069F5FB /* CategoryIconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryIconList.swift */; };
 		4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */; };
 		4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E961D2794566600F11788 /* EditCategoryViewController.swift */; };
 		4D4E96222794BD1700F11788 /* CategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */; };
@@ -120,7 +120,7 @@
 		4FC6EC582798725A000BD4E0 /* SelectCategoryIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */; };
 		4FC6EC592798728A000BD4E0 /* CategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */; };
 		4FC6EC5C2798911B000BD4E0 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */; };
-		4FC6EC5E27989DCD000BD4E0 /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
+		4FC6EC5E27989DCD000BD4E0 /* CategoryIconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryIconList.swift */; };
 		4FC6EC5F2798A51C000BD4E0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166F52796CE0700AD8960 /* Category.swift */; };
 		4FC6EC612798A555000BD4E0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4FC6EC602798A555000BD4E0 /* Kingfisher */; };
 		4FC6EC622798A8E0000BD4E0 /* CategoryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */; };
@@ -276,7 +276,7 @@
 		15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalTableViewCell.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
-		4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListDataModel.swift; sourceTree = "<group>"; };
+		4D4DDD4627912AE10069F5FB /* CategoryIconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconList.swift; sourceTree = "<group>"; };
 		4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoryViewController.swift; sourceTree = "<group>"; };
 		4D4E961D2794566600F11788 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		4D4E96212794BD1700F11788 /* CategoryIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -951,7 +951,7 @@
 				4DBD2ECA2792BE500003226A /* Cell */,
 				4DBD2EC92792BE430003226A /* Component */,
 				ED443F1C2786A3FA0059DE76 /* CategoryViewController.swift */,
-				4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */,
+				4D4DDD4627912AE10069F5FB /* CategoryIconList.swift */,
 				4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */,
 				4D4E961D2794566600F11788 /* EditCategoryViewController.swift */,
 			);
@@ -1362,7 +1362,7 @@
 				4FB24FC7279212B000CCDB0C /* Requestable.swift in Sources */,
 				4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */,
 				4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */,
-				4FC6EC5E27989DCD000BD4E0 /* CategoryListDataModel.swift in Sources */,
+				4FC6EC5E27989DCD000BD4E0 /* CategoryIconList.swift in Sources */,
 				4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */,
 				4FB24FDA279217D700CCDB0C /* BaseTableViewCell.swift in Sources */,
 				4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1435,7 +1435,7 @@
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
 				EDE7D6D027953E2E009C70EF /* MainCategoryPageControl.swift in Sources */,
 				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
-				4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */,
+				4D4DDD4727912AE10069F5FB /* CategoryIconList.swift in Sources */,
 				4DD166F62796CE0700AD8960 /* Category.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */,
