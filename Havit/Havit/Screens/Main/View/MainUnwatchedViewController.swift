@@ -36,6 +36,7 @@ final class MainUnwatchedViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .gray000
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: ContentsCollectionViewCell.self)
         return collectionView
     }()
@@ -178,5 +179,16 @@ extension MainUnwatchedViewController: UICollectionViewDataSource {
             self?.patchContentToggle(contentId: contentId, item: item)
         }
         return cell
+    }
+}
+
+extension MainUnwatchedViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = indexPath.item
+        if let url = contents[item].url,
+           let isReadContent = contents[item].isSeen {
+            let webViewController = WebViewController(urlString: url, isReadContent: isReadContent)
+            navigationController?.pushViewController(webViewController, animated: true)
+        }
     }
 }
