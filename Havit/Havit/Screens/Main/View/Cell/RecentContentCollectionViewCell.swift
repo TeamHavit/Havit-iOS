@@ -84,17 +84,27 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
     // MARK: - func
     
     func update(content: Content) {
+        titleLabel.text = content.contentDescription
+        
         if let imageUrl = content.image,
            let url = URL(string: imageUrl) {
             contentImageView.kf.setImage(with: url)
         }
         
-        titleLabel.text = content.contentDescription
-        dateLabel.text = content.createdAt
+        if let createdAt = content.createdAt {
+            dateLabel.text = changeDateFormat(with: createdAt)
+        }
         
         if let title = content.title {
             buttonConfiguration.attributedTitle = AttributedString(title, attributes: buttonContainer)
             categoryTagButton.configuration = buttonConfiguration
         }
+    }
+    
+    private func changeDateFormat(with date: String) -> String {
+        let dateArray = date.components(separatedBy: " ")
+        let dateComponent = dateArray[0]
+        let dateComponentWithDot = dateComponent.replacingOccurrences(of: "-", with: ". ")
+        return dateComponentWithDot
     }
 }
