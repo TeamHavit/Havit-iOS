@@ -137,7 +137,7 @@ extension MainTableViewController: UITableViewDataSource {
         case .category:
             let cell = tableView.dequeueReusableCell(withType: CategoryListTableViewCell.self,
                                                      for: indexPath)
-            cell.categories = self.categories
+            cell.categories = categories
             cell.setupCategoryPartLayout(with: categories)
             cell.applyPageControlPages()
             return cell
@@ -148,6 +148,8 @@ extension MainTableViewController: UITableViewDataSource {
         case .recent:
             let cell = tableView.dequeueReusableCell(withType: RecentContentTableViewCell.self,
                                                      for: indexPath)
+            cell.contents = contents
+            cell.setupContentPartLayout(with: contents)
             cell.didTapOverallButton = { [weak self] in
                 let recentViewController = MainRecentViewController()
                 self?.navigationController?.pushViewController(recentViewController, animated: true)
@@ -156,6 +158,7 @@ extension MainTableViewController: UITableViewDataSource {
         case .recommend:
             let cell = tableView.dequeueReusableCell(withType: RecommendSiteTableViewCell.self,
                                                      for: indexPath)
+            cell.sites = sites
             return cell
         case .logo:
             let cell = tableView.dequeueReusableCell(withType: LogoTableViewCell.self,

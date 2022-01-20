@@ -19,7 +19,7 @@ class CategoryPanModalTableViewCell: BaseTableViewCell {
     
     var cellImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = ImageLiteral.iconCheck
+        imageView.image = ImageLiteral.iconcheck
         return imageView
     }()
     
