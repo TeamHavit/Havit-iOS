@@ -19,6 +19,7 @@ class ManageCategoryViewController: BaseViewController {
 
     var categories: [Category] = []
     var categoryIndexArray: [Int] = []
+    let categoryIconList: [CategoryIconList] = CategoryIconList.iconList
 
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -214,12 +215,30 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         cell.presentEditCategoryClosure = {
             let categoryId = self.categories[indexPath.row].id ?? 0
             let titleText = self.categories[indexPath.row].title ?? ""
-            let imageId = self.categories[indexPath.row].imageId ?? 0
+            var imageId = self.categories[indexPath.row].imageId ?? 0
             
             let editCategory = EditCategoryViewController(categoryId: categoryId, titleText: titleText, imageId: imageId)
-            editCategory.sendData = {
-                print("ddd")
+            
+            editCategory.sendEditData = {
+                if categoryId == editCategory.categoryId {
+                    if let index = self.categories[indexPath.row].orderIndex {
+                        self.categories[index].title = editCategory.titleText
+                    }
+                    imageId = editCategory.iconImageId
+                    cell.categoryImageView.image = self.categoryIconList[imageId].categoryIcon
+                    collectionView.reloadData()
+                }
             }
+            
+            editCategory.sendDeleteData = {
+                if categoryId == editCategory.categoryId {
+                    if let index = self.categories[indexPath.row].orderIndex {
+                        self.categories.remove(at: index)
+                    }
+                    collectionView.reloadData()
+                }
+            }
+
             self.navigationController?.pushViewController(editCategory, animated: true)
         }
         return cell
