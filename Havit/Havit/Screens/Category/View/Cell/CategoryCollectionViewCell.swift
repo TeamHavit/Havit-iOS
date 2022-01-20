@@ -23,7 +23,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
 
     var presentEditCategoryClosure: (() -> Void)? 
 
-    private let categoryImageView: UIImageView = {
+    var categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
         return image

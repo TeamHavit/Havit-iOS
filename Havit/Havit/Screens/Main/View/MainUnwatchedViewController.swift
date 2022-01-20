@@ -89,6 +89,12 @@ final class MainUnwatchedViewController: BaseViewController {
     
     // MARK: - func
     
+    private func setupEmptyView(with contents: [Content]) {
+        let isContentEmpty = contents.isEmpty
+        
+        contentCollectionView.isHidden = isContentEmpty
+    }
+    
     private func bind() {
         backButton.rx.tap
             .asDriver()
@@ -125,6 +131,7 @@ final class MainUnwatchedViewController: BaseViewController {
                 if let contents = try await unseenContent {
                     self.contents = contents
                     contentCollectionView.reloadData()
+                    setupEmptyView(with: contents)
                 }
             } catch APIServiceError.serverError {
                 print("serverError")

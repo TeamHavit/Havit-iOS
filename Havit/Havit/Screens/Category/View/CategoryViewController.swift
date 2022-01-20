@@ -215,7 +215,6 @@ class CategoryViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(49)
             $0.leading.trailing.bottom.equalToSuperview()
         }
-
     }
 }
 

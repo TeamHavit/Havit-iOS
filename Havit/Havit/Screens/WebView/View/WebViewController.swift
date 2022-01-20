@@ -73,9 +73,9 @@ final class WebViewController: BaseViewController {
     // MARK: - init
     
     init(urlString: String, isReadContent: Bool) {
-        viewModel = WebViewModel(urlString: urlString)
+        viewModel = WebViewModel(urlString: urlString, isReadContent: isReadContent)
         super.init()
-        hidesBottomBarWhenPushed = true
+        self.hidesBottomBarWhenPushed = true
     }
 
     @available(*, unavailable)
@@ -184,6 +184,15 @@ final class WebViewController: BaseViewController {
                 UIApplication.shared.open(url, options: [:])
             }
             .disposed(by: disposeBag)
+        
+        toolbar.checkReadBarButton.rx
+            .tap
+            .map { _ in
+                let isReadFromnetworkResult = true
+                return isReadFromnetworkResult
+            }
+            .bind(to: viewModel.isReadContent)
+            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
@@ -219,6 +228,15 @@ final class WebViewController: BaseViewController {
             }
             .asDriver(onErrorJustReturn: UIImage())
             .drive(toolbar.forwardBarButton.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.isReadContent
+            .map { isReadContent in
+                let readContentImage = isReadContent ? ImageLiteral.iconContentsRead : ImageLiteral.iconContentsUnread
+                return readContentImage.withRenderingMode(.alwaysOriginal)
+            }
+            .asDriver(onErrorJustReturn: UIImage())
+            .drive(toolbar.checkReadBarButton.rx.image)
             .disposed(by: disposeBag)
     }
 }

@@ -48,6 +48,9 @@ enum ImageLiteral {
     static var iconLayout2: UIImage { .load(named: "iconLayout2")}
     static var iconLayout3: UIImage { .load(named: "iconLayout3")}
     static var iconLayout4: UIImage { .load(named: "iconLayout4")}
+    static var iconMyPageCategory: UIImage { .load(named: "iconMyPageCategory")}
+    static var iconMyPageCheck: UIImage { .load(named: "iconMyPageCheck")}
+    static var iconMyPageSave: UIImage { .load(named: "iconMyPageSave")}
     static var iconMypageSelected: UIImage { .load(named: "iconMypageSelected")}
     static var iconMypageUnselected: UIImage { .load(named: "iconMypageUnselected")}
     static var iconNoticeGray: UIImage { .load(named: "iconNoticeGray")}
@@ -95,6 +98,8 @@ enum ImageLiteral {
     static var imgLogoBox: UIImage { .load(named: "imgLogoBox")}
     static var imgMedium: UIImage { .load(named: "imgMedium")}
     static var imgMobiInside: UIImage { .load(named: "imgMobiInside")}
+    static var imgMyPage: UIImage { .load(named: "imgMypage")}
+    static var imgMyPageCorn: UIImage { .load(named: "imgMypageCorn")}
     static var imgOpenas: UIImage { .load(named: "imgOpenas")}
     static var imgOutstanding: UIImage { .load(named: "imgOutstanding")}
     static var imgPinterest: UIImage { .load(named: "imgPinterest")}
