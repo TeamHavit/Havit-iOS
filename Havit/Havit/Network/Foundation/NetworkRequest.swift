@@ -25,7 +25,6 @@ struct NetworkRequest {
         self.body = reqBody
         self.requestTimeOut = reqTimeout
         self.httpMethod = httpMethod
-        print(url)
     }
     
     func buildURLRequest(with url: URL) -> URLRequest {

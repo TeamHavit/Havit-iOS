@@ -13,8 +13,8 @@ final class SearchContentsViewController: BaseViewController {
     
     weak var coordinator: SearchContentsCoordinator?
     
-    let searchContentsService: SearchContentsSeriviceable = SearchContentsService(apiService: APIService(),
-                                                                environment: .development)
+    let searchContentsService: SearchContentsService = SearchContentsService(apiService: APIService(),
+                                                                                  environment: .development)
     var searchResult: [SearchContents] = []
     
     enum SearchResultType {
@@ -168,7 +168,7 @@ extension SearchContentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch resultType {
         case .result:
-            return 10
+            return searchResult.count
         case .searching, .noResult:
             return 1
         }
@@ -176,11 +176,6 @@ extension SearchContentsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch resultType {
-        case .result:
-            let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            mainLabel.textColor = .gray003
-            numberLabel.textColor = .havitPurple
-            return cell
         case .searching:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearchIs")
@@ -188,9 +183,21 @@ extension SearchContentsViewController: UICollectionViewDataSource {
             mainLabel.textColor = .white
             numberLabel.textColor = .white
             return cell
+        case .result:
+            let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            // cell.titleLabel.text = searchResult[0].data?.
+//            cell.subtitleLabel.text = searchResult[0].data?.description
+//            cell.linkLabel.text = searchResult[0].data
+//            
+//            ResultData
+            
+            mainLabel.textColor = .gray003
+            numberLabel.textColor = .havitPurple
+            return cell
         case .noResult:
             let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.imageView.image = UIImage(named: "imgSearch")
+            cell.noResultLabel.isHidden = false
             mainLabel.textColor = .white
             numberLabel.textColor = .white
             return cell
@@ -215,27 +222,27 @@ extension SearchContentsViewController: UISearchBarDelegate {
         Task {
             do {
                 let searchResult = try await searchContentsService.getSearchResult(keyword: searchBar.text!)
-                
-                if let searchResult = searchResult,
-                   !searchResult.isEmpty {
-                    self.searchResult = searchResult
-                    self.numberLabel.text = "전체 \(searchResult.count)"
-                    self.resultCollectionView.reloadData()
-                } else {
-                    // setEmptyView()
-                }
-
                 print(searchResult)
+//                if searchResult!.count > 0 {
+//                    if (searchResult?[0].data) != nil {
+//                        self.searchResult = searchResult!
+//                        self.numberLabel.text = "전체 \(String(describing: self.searchResult[0].data?.count))"
+//                        resultType = .result
+//
+//                    }
+//                } else {
+//                    resultType = .noResult
+//                    print(searchResult)
+//                    DispatchQueue.main.async {
+//                        self.resultCollectionView.reloadData()
+//                    }
+//                }
             } catch APIServiceError.serverError {
                 print("serverError")
             } catch APIServiceError.clientError(let message) {
                 print("clientError:\(message)")
             }
         }
-        // 서버 데이터에 따라  검색 결과 없는 경우 분기 처리하기
-        resultType = .result
-        DispatchQueue.main.async {
-            self.resultCollectionView.reloadData()
-        }
+        
     }
 }

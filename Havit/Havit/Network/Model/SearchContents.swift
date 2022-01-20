@@ -2,21 +2,13 @@
 //  SearchContents.swift
 //  Havit
 //
-//  Created by 박예빈 on 2022/01/19.
+//  Created by 박예빈 on 2022/01/20.
 //
 
 import Foundation
 
-// MARK: - SearchContents
+// MARK: - Datum
 struct SearchContents: Decodable {
-    let status: Int
-    let success: Bool
-    let message: String
-    let data: [ResultData]?
-}
-
-// MARK: - ContentsData
-struct ResultData: Decodable {
     let id: Int
     let title, datumDescription: String
     let image, url: String

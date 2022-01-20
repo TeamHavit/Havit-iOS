@@ -26,19 +26,8 @@ enum SearchContentsEndPoint {
         let baseUrl = environment.baseUrl
         switch self {
         case .getSearchResult(let keyword):
-            let urlString = baseUrl + "/content/search/?keyword=\(keyword)"
-            let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            let url = URL(string: encodedString)!
-            print(encodedString)
-            
-            var components = URLComponents(string: baseUrl)
-            let keyword = URLQueryItem(name: "keyword", value: "keyword")
-            components?.queryItems = [keyword]
-
-            let newURL = components?.url
-            print(newURL)
-            // print(String(newURL))
-            return encodedString
+            let urlString = "\(baseUrl)/content/search/?keyword=\(keyword)"
+            return urlString
         }
     }
 
