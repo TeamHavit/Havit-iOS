@@ -21,6 +21,8 @@ final class MainUnwatchedViewController: BaseViewController {
     
     private let mainService: MainService = MainService(apiService: APIService(),
                                                        environment: .development)
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
     private let backButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
@@ -117,6 +119,29 @@ final class MainUnwatchedViewController: BaseViewController {
             }
         }
     }
+    
+    private func patchContentToggle(contentId: Int, item: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    let indexPath = IndexPath(item: item, section: 0)
+                    guard
+                        let cell = contentCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
+                    else { return }
+                    
+                    print(isSeen)
+                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
 }
 
 extension MainUnwatchedViewController: UICollectionViewDataSource {
@@ -128,6 +153,9 @@ extension MainUnwatchedViewController: UICollectionViewDataSource {
         let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .white
         cell.update(content: contents[indexPath.item])
+        cell.didTapIsReadButton = { [weak self] contentId, item in
+            self?.patchContentToggle(contentId: contentId, item: item)
+        }
         return cell
     }
 }
