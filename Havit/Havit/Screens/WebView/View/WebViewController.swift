@@ -252,7 +252,8 @@ final class WebViewController: BaseViewController {
             .asDriver(onErrorJustReturn: UIImage())
             .drive(toolbar.forwardBarButton.rx.image)
             .disposed(by: disposeBag)
-        
+       
+// TOOODO: 수진언니 제가 구현을 하고 싶었는데요, 못했습니다. 이걸로 하고 싶었어요...
 //        viewModel.isReadContent
 //            .map { isReadContent in
 //                let readContentImage = isReadContent ? ImageLiteral.iconContentsRead : ImageLiteral.iconContentsUnread
