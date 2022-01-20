@@ -63,10 +63,6 @@ class ManageCategoryViewController: BaseViewController {
         setGesture()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        setupBaseNavigationBar(backgroundColor: .white)
-    }
-
     override func render() {
         view.addSubViews([categoryCollectionView, noticeIcon, noticeLabel])
 
@@ -120,14 +116,17 @@ class ManageCategoryViewController: BaseViewController {
     }
 
     private func bind() {
-        Observable.merge(
-            backButton.rx.tap.map { $0 },
-            doneButton.rx.tap.map { $0 }
-        )
+        backButton.rx.tap
             .bind(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+
+//        doneButton.rx.tap
+//            .bind(onNext: { [weak self] in
+//                // changeorder patch 
+//            })
+//            .disposed(by: disposeBag)
     }
 
     private func setGesture() {
@@ -176,6 +175,17 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         
         cell.configure(type: .manage)
         cell.update(data: categories[indexPath.row])
+        cell.presentEditCategoryClosure = {
+            let categoryId = self.categories[indexPath.row].id ?? 0
+            let titleText = self.categories[indexPath.row].title ?? ""
+            let imageId = self.categories[indexPath.row].imageId ?? 0
+            
+            let editCategory = EditCategoryViewController(categoryId: categoryId, titleText: titleText, imageId: imageId)
+            editCategory.sendData = {
+                print("ddd")
+            }
+            self.navigationController?.pushViewController(editCategory, animated: true)
+        }
         return cell
     }
 
