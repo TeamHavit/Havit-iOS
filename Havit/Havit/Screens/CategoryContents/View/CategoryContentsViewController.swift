@@ -272,7 +272,9 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 }
-                contentsCollectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.contentsCollectionView.reloadData()
+                }
             } catch APIServiceError.serverError {
                 print("serverError")
             } catch APIServiceError.clientError(let message) {
@@ -337,20 +339,24 @@ final class CategoryContentsViewController: BaseViewController {
 
 extension CategoryContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.backgroundColor = .primaryBlack
-        cell.filterNameLabel.textColor = .white
-        print("?")
-//        switch contentsFilterType {
-//        case .all:
-//            <#code#>
-//        case .notSeen:
-//            <#code#>
-//        case .seen:
-//            <#code#>
-//        case .alarm:
-//            <#code#>
-//        }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
+            print("앙대")
+            return
+        }
+        switch indexPath.row {
+        case 0:
+            cell.contentsFilterType = .all
+        case 1:
+            cell.contentsFilterType = .notSeen
+        case 2:
+            cell.contentsFilterType = .seen
+        case 3:
+            cell.contentsFilterType = .alarm
+        default:
+            print("임시 프린트")
+        }
+        contentsFilterType = cell.contentsFilterType
+        getCategoryContents()
     }
 }
 
@@ -359,6 +365,8 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
         switch collectionView {
         case filterCollectionView:
             let cell: CategoryFilterCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.contentsFilterType = contentsFilterType
+
             if indexPath.row == FilterType.alarm.rawValue {
                 cell.filterNameLabel.text = ""
                 cell.layer.cornerRadius = 15

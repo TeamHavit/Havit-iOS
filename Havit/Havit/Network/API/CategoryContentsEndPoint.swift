@@ -45,6 +45,7 @@ enum CategoryContentsEndPoint {
             print("\(baseUrl)/content?option=\(option)&filter=\(filter)")
             return "\(baseUrl)/content?option=\(option)&filter=\(filter)"
         case .getCategoryContents(let categoryID, let option, let filter):
+            print("\(baseUrl)/content?option=\(option)&filter=\(filter)")
             return "\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)"
         case .deleteContents(contentID: let contentID):
             return "\(baseUrl)/content/\(contentID)"

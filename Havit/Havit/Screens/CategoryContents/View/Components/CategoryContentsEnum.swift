@@ -34,7 +34,7 @@ enum ContentsSortType: String {
 
 enum ContentsFilterType: String {
     case all = "all"
-    case notSeen = "notSeen"
-    case seen = "seen"
-    case alarm = "alarm"
+    case notSeen = "false"
+    case seen = "true"
+    case alarm = "notified"
 }
