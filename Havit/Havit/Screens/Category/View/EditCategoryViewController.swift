@@ -224,6 +224,7 @@ class EditCategoryViewController: BaseViewController {
             .bind(onNext: { [weak self] in
                 self?.deletCategory()
             })
+            .disposed(by: disposeBag)
         
         categoryTitleTextField.rx.controlEvent([.editingDidBegin])
             .asDriver()
