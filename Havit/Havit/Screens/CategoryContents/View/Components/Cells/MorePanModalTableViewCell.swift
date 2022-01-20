@@ -12,6 +12,8 @@ import SnapKit
 class MorePanModalTableViewCell: BaseTableViewCell {
 
     // MARK: - Property
+    var morePanModalCellType: MorePanModalButtonType?
+    
     var cellImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
