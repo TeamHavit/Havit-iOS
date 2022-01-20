@@ -123,6 +123,23 @@ class EditCategoryViewController: BaseViewController {
         }
     }
 
+    func deletCategory() {
+        Task {
+            do {
+                try await categoryService.deleteCategory(categoryId: categoryId)
+                self.makeRequestAlert(title: "카테고리 삭제",
+                                      message: "카테고리를 삭제 하시겠습니까?",
+                                      okAction: { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+
     override func render() {
         view.addSubViews([titleLabel, categoryTitleTextField, underline, iconLabel, iconCollectionView, deleteButton])
 
@@ -202,6 +219,11 @@ class EditCategoryViewController: BaseViewController {
                 self?.editCategory()
             })
             .disposed(by: disposeBag)
+
+        deleteButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.deletCategory()
+            })
         
         categoryTitleTextField.rx.controlEvent([.editingDidBegin])
             .asDriver()
