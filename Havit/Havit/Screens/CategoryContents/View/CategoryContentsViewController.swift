@@ -353,6 +353,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             switch gridType {
             case .grid:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                let categoryContent = categoryContents[indexPath.row]
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
@@ -361,14 +362,15 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     let url = URL(string: searchImageString)
                     cell.mainImageView.kf.setImage(with: url)
                 }
-                cell.titleLabel.text = categoryContents[indexPath.row].title
-                cell.subtitleLabel.text = categoryContents[indexPath.row].datumDescription
-                cell.linkLabel.text = categoryContents[indexPath.row].url
-                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
-                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
+                cell.titleLabel.text = categoryContent.title
+                cell.subtitleLabel.text = categoryContent.datumDescription
+                cell.linkLabel.text = categoryContent.url
+                cell.dateLabel.text = categoryContent.createdAt
+                cell.alarmLabel.text = categoryContent.notificationTime
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                let categoryContent = categoryContents[indexPath.row]
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
@@ -377,14 +379,15 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     let url = URL(string: searchImageString)
                     cell.mainImageView.kf.setImage(with: url)
                 }
-                cell.titleLabel.text = categoryContents[indexPath.row].title
-                cell.subtitleLabel.text = categoryContents[indexPath.row].datumDescription
-                cell.linkLabel.text = categoryContents[indexPath.row].url
-                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
-                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
+                cell.titleLabel.text = categoryContent.title
+                cell.subtitleLabel.text = categoryContent.datumDescription
+                cell.linkLabel.text = categoryContent.url
+                cell.dateLabel.text = categoryContent.createdAt
+                cell.alarmLabel.text = categoryContent.notificationTime
                 return cell
             case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                let categoryContent = categoryContents[indexPath.row]
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
@@ -393,11 +396,11 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     let url = URL(string: searchImageString)
                     cell.mainImageView.kf.setImage(with: url)
                 }
-                cell.titleLabel.text = categoryContents[indexPath.row].title
-                cell.subtitleLabel.text = categoryContents[indexPath.row].datumDescription
-                cell.linkLabel.text = categoryContents[indexPath.row].url
-                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
-                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
+                cell.titleLabel.text = categoryContent.title
+                cell.subtitleLabel.text = categoryContent.datumDescription
+                cell.linkLabel.text = categoryContent.url
+                cell.dateLabel.text = categoryContent.createdAt
+                cell.alarmLabel.text = categoryContent.notificationTime
                 return cell
             }
         default:

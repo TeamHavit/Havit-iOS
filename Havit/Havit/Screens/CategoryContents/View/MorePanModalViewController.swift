@@ -17,6 +17,8 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
                                                                 environment: .development)
     var previousViewController: CategoryContentsViewController?
     
+    var morePanModalCellType: MorePanModalButtonType?
+    
     var panScrollable: UIScrollView? {
         return nil
     }
@@ -220,19 +222,20 @@ extension MorePanModalViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         switch indexPath.row {
         case 0:
-            cell.morePanModalCellType = .editTitle
+            morePanModalCellType = .editTitle
         case 1:
-            cell.morePanModalCellType = .share
+            morePanModalCellType = .share
         case 2:
-            cell.morePanModalCellType = .goToCategory
+            morePanModalCellType = .goToCategory
         case 3:
-            cell.morePanModalCellType = .setAlarm
+            morePanModalCellType = .setAlarm
         case 4:
-            cell.morePanModalCellType = .delete
+            morePanModalCellType = .delete
             cell.cellLabel.textColor = .havitRed
         default:
             print("임시 프린트")
         }
+        cell.morePanModalCellType = morePanModalCellType
         return cell
     }
 }
