@@ -193,6 +193,13 @@ extension MainTableViewController: UITableViewDelegate {
         let sectionType = MainTableViewSectionType(rawValue: section)
         switch sectionType {
         case .category:
+            searchHeaderView.didTapSearchHeader = { [weak self] in
+                let searchContentViewController = SearchContentsViewController()
+                let navigationController = UINavigationController(rootViewController: searchContentViewController)
+                navigationController.modalTransitionStyle = .crossDissolve
+                navigationController.modalPresentationStyle = .overCurrentContext
+                self?.present(navigationController, animated: true, completion: nil)
+            }
             return searchHeaderView
         default:
             return UIView()
