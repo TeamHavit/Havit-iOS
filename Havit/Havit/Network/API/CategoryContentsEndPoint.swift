@@ -8,7 +8,7 @@
 import Foundation
 
 enum CategoryContentsEndPoint {
-    case getCategoryContents(option: String, filter: String)
+    case getCategoryContents(categoryID: String, option: String, filter: String)
     
     var requestTimeOut: Float {
         return 20
@@ -26,24 +26,26 @@ enum CategoryContentsEndPoint {
         case .getCategoryContents:
             return nil
         }
-        
-        func getURL(from environment: APIEnvironment) -> String {
-            let baseUrl = environment.baseUrl
-            switch self {
-            case .getCategoryContents(let option, let filter):
-                return "\(baseUrl)/category/:categoryId?option=\(option)&filter=\(filter)"
-            }
-        }
-        
-        func createRequest(environment: APIEnvironment) -> NetworkRequest {
-            var headers: [String: String] = [:]
-            headers["Content-Type"] = "application/json"
-            headers["x-auth-token"] = environment.token
-            return NetworkRequest(url: getURL(from: environment),
-                                  headers: headers,
-                                  reqBody: requestBody,
-                                  reqTimeout: requestTimeOut,
-                                  httpMethod: httpMethod)
+    }
+    
+    func getURL(from environment: APIEnvironment) -> String {
+        let baseUrl = environment.baseUrl
+        switch self {
+        case .getCategoryContents(let categoryID, let option, let filter):
+            print("\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)")
+            return "\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)"
         }
     }
+    
+    func createRequest(environment: APIEnvironment) -> NetworkRequest {
+        var headers: [String: String] = [:]
+        headers["Content-Type"] = "application/json"
+        headers["x-auth-token"] = environment.token
+        return NetworkRequest(url: getURL(from: environment),
+                              headers: headers,
+                              reqBody: requestBody,
+                              reqTimeout: requestTimeOut,
+                              httpMethod: httpMethod)
+    }
+    
 }

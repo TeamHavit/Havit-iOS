@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CategoryContentsSeriviceable {
-    func getCategoryContents(option: String, filter: String) async throws -> [CategoryContents]?
+    func getCategoryContents(categoryID: String, option: String, filter: String) async throws -> [CategoryContents]?
 }

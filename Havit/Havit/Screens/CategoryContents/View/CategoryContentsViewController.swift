@@ -248,8 +248,8 @@ final class CategoryContentsViewController: BaseViewController {
     func getCategoryContents() {
         Task {
             do {
-                let categoryContents = try await categoryContentsService.getCategoryContents(option: "true", filter: "createdAt")
-
+                let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "3", option: "notified", filter: "created_at")
+                print(categoryContents)
                 if let categoryContents = categoryContents,
                    !categoryContents.isEmpty {
                     self.categoryContents = categoryContents
@@ -340,15 +340,15 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.backgroundColor = .white
                 gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-//                if let searchImageString = categoryContents[indexPath.row].image {
-//                    let url = URL(string: searchImageString)
-//                    cell.mainImageView.kf.setImage(with: url)
-//                }
-//                cell.titleLabel.text = categoryContents[indexPath.row].title
-//                cell.subtitleLabel.text = categoryContents[indexPath.row].
-//                cell.linkLabel.text = categoryContents[indexPath.row].url
-//                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
-//                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
+                if let searchImageString = categoryContents[indexPath.row].image {
+                    let url = URL(string: searchImageString)
+                    cell.mainImageView.kf.setImage(with: url)
+                }
+                cell.titleLabel.text = categoryContents[indexPath.row].title
+                cell.subtitleLabel.text = categoryContents[indexPath.row].datumDescription
+                cell.linkLabel.text = categoryContents[indexPath.row].url
+                cell.dateLabel.text = categoryContents[indexPath.row].createdAt
+                cell.alarmLabel.text = categoryContents[indexPath.row].notificationTime
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
@@ -375,7 +375,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return 4
         case contentsCollectionView:
-            return 10
+            return categoryContents.count
         default:
             return 0
         }
