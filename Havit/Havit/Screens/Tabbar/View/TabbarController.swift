@@ -125,16 +125,10 @@ class TabbarController: UITabBarController {
     }
     
     private func bind() {
-        let dummy: UIViewController = {
-            let dummy = UIViewController()
-            dummy.view.backgroundColor = .blue
-            return dummy
-        }()
-        let dummyInNavigation = wrapInNavigationController(viewController: dummy)
-        
+        let addContentViewControllerInNavigation = wrapInNavigationController(viewController: AddContentViewController())
         addButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.present(dummyInNavigation, animated: true, completion: nil)
+                self?.present(addContentViewControllerInNavigation, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
     }
