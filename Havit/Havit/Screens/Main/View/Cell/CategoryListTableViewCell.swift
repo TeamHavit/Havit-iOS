@@ -14,6 +14,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     
     private enum Count {
         static let maxCategoryCountInPage = 6
+        static let allContentPart = 1
     }
     
     private enum CategoryType: Int {
@@ -153,10 +154,12 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     func applyPageControlPages() {
         let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
+        
+        print(totalCellCount)
     }
     
     private func calculateTotalCategoryCellCount(with categories: [Category]) -> Int {
-        var categoryCount = categories.count
+        var categoryCount = categories.count + Count.allContentPart
         let filledCategoryCountInLastPage = categoryCount % Count.maxCategoryCountInPage
         let hasPlaceHolderCell = filledCategoryCountInLastPage != 0
         if hasPlaceHolderCell {
@@ -175,16 +178,15 @@ extension CategoryListTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let hasCategoryData = categories.count > indexPath.item
+        let hasCategoryData = categories.count + Count.allContentPart > indexPath.item
         if hasCategoryData {
             let categoryType = CategoryType.init(rawValue: indexPath.row)
             switch categoryType {
             case .allContent:
-                cell.backgroundImageView.image = ImageLiteral.imgCardCategoryLine
+                cell.updateAllContent(with: 100)
             default:
-                break
+                cell.updateCategory(category: categories[indexPath.item - 1])
             }
-            cell.updateCategory(category: categories[indexPath.item])
             return cell
         } else {
             cell.backgroundColor = .clear

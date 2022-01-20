@@ -54,7 +54,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }()
     private let recentEmptyView = MainRecentContentEmptyView()
     
-    private let dummyContents: [String] = []
+    var contents: [Content] = []
     
     // MARK: - init
     
@@ -80,8 +80,6 @@ final class RecentContentTableViewCell: BaseTableViewCell {
             $0.top.equalTo(titleLabel.snp.top).inset(-4)
             $0.trailing.equalToSuperview().inset(17)
         }
-        
-        setupContentPartLayout(with: dummyContents)
     }
     
     override func configUI() {
@@ -99,17 +97,23 @@ final class RecentContentTableViewCell: BaseTableViewCell {
             .disposed(by: disposeBag)
     }
     
-    private func setupContentPartLayout(with contents: [String]) {
+    func setupContentPartLayout(with contents: [Content]) {
         let hasContent = !contents.isEmpty
         
         if hasContent {
+            if contentView.subviews.contains(recentEmptyView) {
+                recentEmptyView.removeFromSuperview()
+            }
             contentView.addSubView(contentCollectionView)
             contentCollectionView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom)
                 $0.leading.trailing.bottom.equalToSuperview()
-                $0.height.equalTo(223)
+                $0.height.equalTo(223).priority(.high)
             }
         } else {
+            if contentView.subviews.contains(contentCollectionView) {
+                contentCollectionView.removeFromSuperview()
+            }
             contentView.addSubView(recentEmptyView)
             recentEmptyView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(14)
@@ -123,12 +127,12 @@ final class RecentContentTableViewCell: BaseTableViewCell {
 
 extension RecentContentTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyContents.count
+        return contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecentContentCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.update(title: dummyContents[indexPath.row], date: "2022.01.19", categoryTitle: "해빗화이팅")
+        cell.update(content: contents[indexPath.item])
         return cell
     }
 }

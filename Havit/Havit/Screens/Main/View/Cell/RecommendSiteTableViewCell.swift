@@ -56,6 +56,7 @@ final class RecommendSiteTableViewCell: BaseTableViewCell {
         return collectionView
     }()
     private let dummySiteImages: [UIImage] = [ImageLiteral.imgBranch, ImageLiteral.imgTstory, ImageLiteral.imgMedium, ImageLiteral.imgPinterest, ImageLiteral.imgVelog, ImageLiteral.imgOutstanding, ImageLiteral.imgSurfit, ImageLiteral.imgCarret, ImageLiteral.imgElleKorea, ImageLiteral.imgLivingsense, ImageLiteral.imgOpenas, ImageLiteral.imgMobiInside]
+    var sites: [Site] = []
     
     override func render() {
         contentView.addSubViews([separatorView, titleLabel, subtitleLabel, siteCollectionView])
@@ -94,7 +95,7 @@ extension RecommendSiteTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.updateSite(title: "사이트 이름", image: dummySiteImages[indexPath.item], type: "아티클", category: "새로운 아티클")
+        cell.update(sites: sites[indexPath.item], with: dummySiteImages[indexPath.item])
         return cell
     }
 }

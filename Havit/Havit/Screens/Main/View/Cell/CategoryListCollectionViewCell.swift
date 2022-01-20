@@ -88,4 +88,11 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
         
         titleLabel.text = category.title
     }
+    
+    func updateAllContent(with count: Int) {
+        backgroundImageView.image = ImageLiteral.imgCardCategoryLine
+        storedContentLabel.text = "저장 콘텐츠 \(count)"
+        storedContentLabel.applyColor(to: String(count), with: .havitPurple)
+        titleLabel.text = "모든 콘텐츠"
+    }
 }

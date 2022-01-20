@@ -52,7 +52,7 @@ enum CategoryEndPoint {
             return "\(baseUrl)/category/order"
         }
     }
-
+    
     func createRequest(environment: APIEnvironment) -> NetworkRequest {
         var headers: [String: String] = [:]
         headers["Content-Type"] = "application/json"
