@@ -21,6 +21,8 @@
 		15F41A8F2791C60000ADF17A /* SortPanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A8E2791C60000ADF17A /* SortPanModalTableViewCell.swift */; };
 		15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */; };
 		15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */; };
+		15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */; };
+		15F6403527995E5900D9654E /* CategoryContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403427995E5900D9654E /* CategoryContents.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
 		4D4DDD4727912AE10069F5FB /* CategoryListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */; };
@@ -273,6 +275,8 @@
 		15F41A8E2791C60000ADF17A /* SortPanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPanModalTableViewCell.swift; sourceTree = "<group>"; };
 		15F41A902791EDB400ADF17A /* MorePanModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalViewController.swift; sourceTree = "<group>"; };
 		15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalTableViewCell.swift; sourceTree = "<group>"; };
+		15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsServiceable.swift; sourceTree = "<group>"; };
+		15F6403427995E5900D9654E /* CategoryContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContents.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
 		4D4DDD4627912AE10069F5FB /* CategoryListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListDataModel.swift; sourceTree = "<group>"; };
@@ -503,6 +507,7 @@
 			children = (
 				4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */,
 				EDB6F4BE27990821006C66AA /* MainServiceable.swift */,
+				15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */,
 			);
 			path = Serviceable;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				4DD166F52796CE0700AD8960 /* Category.swift */,
 				EDB6F4C0279908AD006C66AA /* Content.swift */,
 				EDB6F4C227990944006C66AA /* Site.swift */,
+				15F6403427995E5900D9654E /* CategoryContents.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1472,6 +1478,7 @@
 				155D4F8A279132670069F035 /* ToastAlarm.swift in Sources */,
 				15D49CD7278EEB8B0030DBE5 /* CategoryFilterCollectionViewCell.swift in Sources */,
 				EDEF61992791392D00C93C84 /* Requestable.swift in Sources */,
+				15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
 				EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */,
 				EDE7D6D627957A71009C70EF /* RecentContentCollectionViewCell.swift in Sources */,
@@ -1488,6 +1495,7 @@
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
+				15F6403527995E5900D9654E /* CategoryContents.swift in Sources */,
 				ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */,
 				EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */,
 			);
