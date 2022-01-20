@@ -94,6 +94,7 @@ extension RecommendSiteTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        dump(sites[indexPath.item])
         let cell: RecommendSiteCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.update(sites: sites[indexPath.item], with: dummySiteImages[indexPath.item])
         return cell

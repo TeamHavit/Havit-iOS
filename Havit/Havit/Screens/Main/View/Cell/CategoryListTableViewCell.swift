@@ -154,8 +154,6 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     func applyPageControlPages() {
         let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
-        
-        print(totalCellCount)
     }
     
     private func calculateTotalCategoryCellCount(with categories: [Category]) -> Int {
