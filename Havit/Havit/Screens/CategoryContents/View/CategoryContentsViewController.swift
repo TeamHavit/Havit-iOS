@@ -19,7 +19,7 @@ final class CategoryContentsViewController: BaseViewController {
                                                                 environment: .development)
     private var categoryContents: [CategoryContents] = []
     
-    var isFromAllCategory: Bool = false
+    var isFromAllCategory: Bool = true
     
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
@@ -251,7 +251,7 @@ final class CategoryContentsViewController: BaseViewController {
         Task {
             do {
                 if isFromAllCategory {
-                    let categoryContents = try await categoryContentsService.getAllContents()
+                    let categoryContents = try await categoryContentsService.getAllContents(option: "notified", filter: "created_at")
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents

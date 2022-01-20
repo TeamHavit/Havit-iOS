@@ -17,9 +17,9 @@ struct CategoryContentsService: CategoryContentsSeriviceable {
         self.environment = environment
     }
     
-    func getAllContents() async throws -> [CategoryContents]? {
+    func getAllContents(option: String, filter: String) async throws -> [CategoryContents]? {
         let request = CategoryContentsEndPoint
-            .getAllContents
+            .getAllContents(option: option, filter: filter)
             .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }

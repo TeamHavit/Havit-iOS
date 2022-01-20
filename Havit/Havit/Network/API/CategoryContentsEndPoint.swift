@@ -8,7 +8,7 @@
 import Foundation
 
 enum CategoryContentsEndPoint {
-    case getAllContents
+    case getAllContents(option: String, filter: String)
     case getCategoryContents(categoryID: String, option: String, filter: String)
     case deleteContents(contentID: String)
     
@@ -20,7 +20,7 @@ enum CategoryContentsEndPoint {
         switch self {
         case .getAllContents:
             return .GET
-        case .getCategoryContents(categoryID: _, option: _, filter: _):
+        case .getCategoryContents:
             return .GET
         case .deleteContents:
             return .DELETE
@@ -31,7 +31,7 @@ enum CategoryContentsEndPoint {
         switch self {
         case .getAllContents:
             return nil
-        case .getCategoryContents(categoryID: _, option: _, filter: _):
+        case .getCategoryContents:
             return nil
         case .deleteContents:
             return nil
@@ -41,12 +41,12 @@ enum CategoryContentsEndPoint {
     func getURL(from environment: APIEnvironment) -> String {
         let baseUrl = environment.baseUrl
         switch self {
-        case .getAllContents:
-            return "\(baseUrl)/content"
-        case .getCategoryContents(categoryID: let categoryID, option: let option, filter: let filter):
+        case .getAllContents(let option, let filter):
+            print("\(baseUrl)/content?option=\(option)&filter=\(filter)")
+            return "\(baseUrl)/content?option=\(option)&filter=\(filter)"
+        case .getCategoryContents(let categoryID, let option, let filter):
             return "\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)"
         case .deleteContents(contentID: let contentID):
-            print("\(baseUrl)/content/\(contentID)")
             return "\(baseUrl)/content/\(contentID)"
         }
     }
