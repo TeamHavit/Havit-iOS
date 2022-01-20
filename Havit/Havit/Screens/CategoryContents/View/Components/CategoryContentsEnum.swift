@@ -21,3 +21,7 @@ enum FilterType: Int {
     case watched
     case alarm
 }
+
+enum MorePanModalButtonType {
+    case editTitle, share, goToCategory, setAlarm, delete
+}

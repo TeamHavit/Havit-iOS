@@ -13,4 +13,5 @@ struct Category: Decodable {
     let orderIndex: Int?
     var imageId: Int?
     let imageUrl: String?
+    let contentNumber: Int?
 }
