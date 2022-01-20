@@ -185,8 +185,11 @@ extension MainRecentViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = indexPath.item
         if let url = contents[item].url,
-           let isReadContent = contents[item].isSeen {
-            let webViewController = WebViewController(urlString: url, isReadContent: isReadContent)
+           let isReadContent = contents[item].isSeen,
+           let contentId = contents[item].id {
+            let webViewController = WebViewController(urlString: url,
+                                                      isReadContent: isReadContent,
+                                                      contentId: contentId)
             navigationController?.pushViewController(webViewController, animated: true)
         }
     }

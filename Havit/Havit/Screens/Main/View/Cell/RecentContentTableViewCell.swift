@@ -23,7 +23,7 @@ final class RecentContentTableViewCell: BaseTableViewCell {
     }
     
     var didTapOverallButton: (() -> Void)?
-    var didTapContentSection: ((String, Bool) -> Void)?
+    var didTapContentSection: ((String, Bool, Int) -> Void)?
     
     // MARK: - property
     
@@ -143,8 +143,9 @@ extension RecentContentTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let row = indexPath.row
         if let url = contents[row].url,
-           let isSeen = contents[row].isSeen {
-            didTapContentSection?(url, isSeen)
+           let isSeen = contents[row].isSeen,
+           let id = contents[row].id {
+            didTapContentSection?(url, isSeen, id)
         }
     }
 }
