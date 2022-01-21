@@ -18,7 +18,7 @@ class SortPanModalViewController: BaseViewController, PanModalPresentable {
     
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
-    private var categoryContents: [CategoryContents] = []
+    private var categoryContents: [Content] = []
     var previousViewController: CategoryContentsViewController?
     
     var isFromAllCategory: Bool = true

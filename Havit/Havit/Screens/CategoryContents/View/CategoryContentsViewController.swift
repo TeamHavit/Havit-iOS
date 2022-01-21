@@ -17,7 +17,10 @@ final class CategoryContentsViewController: BaseViewController {
     // MARK: - Property
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
-    var categoryContents: [CategoryContents] = []
+    
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
+    var categoryContents: [Content] = []
     
     var isFromAllCategory: Bool = false
     
@@ -316,6 +319,29 @@ final class CategoryContentsViewController: BaseViewController {
         contentsCollectionView.dataSource = self
     }
     
+    private func patchContentToggle(contentId: Int, item: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    let indexPath = IndexPath(item: item, section: 0)
+                    guard
+                        let cell = contentsCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
+                    else { return }
+                    
+                    print(isSeen)
+                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
     @objc func goToCategoryCorrection(_: UIButton) {
         let manageCategoryViewController = ManageCategoryViewController()
         navigationController?.pushViewController(manageCategoryViewController, animated: true)
@@ -361,7 +387,6 @@ final class CategoryContentsViewController: BaseViewController {
 extension CategoryContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
-            print("앙대")
             return
         }
         switch indexPath.row {
@@ -409,20 +434,11 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             switch gridType {
             case .grid:
                 let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                let categoryContent = categoryContents[indexPath.row]
                 cell.backgroundColor = .white
-                gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
-                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                cell.moreButton.tag = indexPath.row
-                if let searchImageString = categoryContents[indexPath.row].image {
-                    let url = URL(string: searchImageString)
-                    cell.mainImageView.kf.setImage(with: url)
+                cell.update(content: categoryContents[indexPath.item])
+                cell.didTapIsReadButton = { [weak self] contentId, item in
+                    self?.patchContentToggle(contentId: contentId, item: item)
                 }
-                cell.titleLabel.text = categoryContent.title
-                cell.subtitleLabel.text = categoryContent.datumDescription
-                cell.linkLabel.text = categoryContent.url
-                cell.dateLabel.text = categoryContent.createdAt
-                cell.alarmLabel.text = categoryContent.notificationTime
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
@@ -436,7 +452,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     cell.mainImageView.kf.setImage(with: url)
                 }
                 cell.titleLabel.text = categoryContent.title
-                cell.subtitleLabel.text = categoryContent.datumDescription
+                cell.subtitleLabel.text = categoryContent.contentDescription
                 cell.linkLabel.text = categoryContent.url
                 cell.dateLabel.text = categoryContent.createdAt
                 cell.alarmLabel.text = categoryContent.notificationTime
@@ -453,7 +469,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     cell.mainImageView.kf.setImage(with: url)
                 }
                 cell.titleLabel.text = categoryContent.title
-                cell.subtitleLabel.text = categoryContent.datumDescription
+                cell.subtitleLabel.text = categoryContent.contentDescription
                 cell.linkLabel.text = categoryContent.url
                 cell.dateLabel.text = categoryContent.createdAt
                 cell.alarmLabel.text = categoryContent.notificationTime

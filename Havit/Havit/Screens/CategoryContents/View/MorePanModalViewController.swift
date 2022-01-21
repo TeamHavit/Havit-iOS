@@ -27,7 +27,7 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     var longFormHeight: PanModalHeight = .contentHeight(451)
     var cornerRadius: CGFloat = 30
     
-    var contents: CategoryContents?
+    var contents: Content?
     
     private let moreList = ["제목 수정", "공유", "카테고리 이동", "알림 설정", "삭제"]
     
@@ -215,9 +215,7 @@ extension MorePanModalViewController: UITableViewDelegate {
         case .none:
             print("임시 프린트")
         }
-        
     }
-
 }
 
 extension MorePanModalViewController: UITableViewDataSource {
