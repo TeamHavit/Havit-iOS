@@ -109,7 +109,24 @@ extension SortPanModalViewController: UITableViewDelegate {
                         self.dismiss(animated: true) {
                             self.previousViewController?.categoryContents = categoryContents
                             self.previousViewController?.contentsCollectionView.reloadData()
-                            self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
+                            
+                            var configuration  = UIButton.Configuration.plain()
+                            configuration.buttonSize = .large
+                            configuration.imagePlacement = .leading
+                            configuration.imagePadding = 3
+                            configuration.image = ImageLiteral.iconUpdown
+                            var attributes = AttributeContainer()
+                            attributes.foregroundColor = .gray003
+                            
+                            guard let sortList = self.previousViewController?.sortList[indexPath.row] else {
+                                return
+                            }
+                            var attributedText = AttributedString.init(sortList, attributes: attributes)
+                            attributedText.font = UIFont.font(.pretendardMedium, ofSize: 12)
+                            configuration.attributedTitle = attributedText
+                            
+                            self.previousViewController?.sortButton.configuration = configuration
+                            
                             self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.createdAt
                         }
                     } else {
@@ -122,7 +139,24 @@ extension SortPanModalViewController: UITableViewDelegate {
                         self.dismiss(animated: true) {
                             self.previousViewController?.categoryContents = categoryContents
                             self.previousViewController?.contentsCollectionView.reloadData()
-                            self.previousViewController?.sortButton.setTitle(self.previousViewController?.sortList[indexPath.row], for: .normal)
+                            
+                            var configuration  = UIButton.Configuration.plain()
+                            configuration.buttonSize = .large
+                            configuration.imagePlacement = .leading
+                            configuration.imagePadding = 3
+                            configuration.image = ImageLiteral.iconUpdown
+                            var attributes = AttributeContainer()
+                            attributes.foregroundColor = .gray003
+                            
+                            guard let sortList = self.previousViewController?.sortList[indexPath.row] else {
+                                return
+                            }
+                            var attributedText = AttributedString.init(sortList, attributes: attributes)
+                            attributedText.font = UIFont.font(.pretendardMedium, ofSize: 12)
+                            configuration.attributedTitle = attributedText
+                            
+                            self.previousViewController?.sortButton.configuration = configuration
+        
                             self.previousViewController?.contentsSortType = cell.contentsSortType ?? ContentsSortType.createdAt
                         }
                     } else {
