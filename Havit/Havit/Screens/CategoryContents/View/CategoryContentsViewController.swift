@@ -24,6 +24,8 @@ final class CategoryContentsViewController: BaseViewController {
                                                                            environment: .development)
     var categoryContents: [Content] = []
     
+    var categoryContentsIsEmpty: CategoryContentsIsEmpty = .noEmpty
+    
     var isFromAllCategory: Bool = false
     
     private var gridAnd1XnConstraints: Constraint?
@@ -149,6 +151,7 @@ final class CategoryContentsViewController: BaseViewController {
         collectionView.register(cell: ContentsCollectionViewCell.self)
         collectionView.register(cell: CategoryContents2xNCollectionViewCell.self)
         collectionView.register(cell: CategoryContents1xNCollectionViewCell.self)
+        collectionView.register(cell: NotSearchedCollectionViewCell.self)
         collectionView.backgroundColor = .whiteGray
         return collectionView
     }()
@@ -303,23 +306,24 @@ final class CategoryContentsViewController: BaseViewController {
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
                         self.totalLabel.text = "전체 \(categoryContents.count)"
+                        self.categoryContentsIsEmpty = .noEmpty
                     } else {
-                        // empty 띄우기
                         self.categoryContents = []
                         self.totalLabel.text = "전체 0"
+                        self.categoryContentsIsEmpty = .empty
                     }
                 } else {
                     if let nowCategory = getNowCategory(), let id = nowCategory.id {
                         let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(id), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
-                        print(categoryContents)
                         if let categoryContents = categoryContents,
                            !categoryContents.isEmpty {
                             self.categoryContents = categoryContents
                             self.totalLabel.text = "전체 \(categoryContents.count)"
+                            self.categoryContentsIsEmpty = .noEmpty
                         } else {
-                            // empty 띄우기
                             self.categoryContents = []
                             self.totalLabel.text = "전체 0"
+                            self.categoryContentsIsEmpty = .empty
                         }
                     }
                    
@@ -414,8 +418,6 @@ final class CategoryContentsViewController: BaseViewController {
                     guard
                         let cell = contentsCollectionView.cellForItem(at: indexPath) as? CategoryContents1xNCollectionViewCell
                     else { return }
-
-                    print(isSeen)
                     cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
                 }
             } catch APIServiceError.serverError {
@@ -436,8 +438,6 @@ final class CategoryContentsViewController: BaseViewController {
                     guard
                         let cell = contentsCollectionView.cellForItem(at: indexPath) as? CategoryContents2xNCollectionViewCell
                     else { return }
-                    
-                    print(isSeen)
                     cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
                 }
             } catch APIServiceError.serverError {
@@ -480,18 +480,23 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {
-        switch gridType {
-        case .grid:
-            gridType = .grid2xN
-            contentsCollectionView.backgroundColor = .white
-        case .grid2xN:
-            gridType = .grid1xN
-        case .grid1xN:
-            gridType = .grid
-            contentsCollectionView.backgroundColor = .whiteGray
+        switch categoryContentsIsEmpty {
+        case .empty:
+            fallthrough
+        case .noEmpty:
+            switch gridType {
+            case .grid:
+                gridType = .grid2xN
+                contentsCollectionView.backgroundColor = .white
+            case .grid2xN:
+                gridType = .grid1xN
+            case .grid1xN:
+                gridType = .grid
+                contentsCollectionView.backgroundColor = .whiteGray
+            }
+            contentsCollectionView.reloadData()
+            updateViewConstraints()
         }
-        contentsCollectionView.reloadData()
-        updateViewConstraints()
     }
 }
 
@@ -517,14 +522,19 @@ extension CategoryContentsViewController: UICollectionViewDelegate {
             contentsFilterType = cell.contentsFilterType
             getCategoryContents()
         case contentsCollectionView:
-            let item = indexPath.item
-            if let url = categoryContents[item].url,
-               let isReadContent = categoryContents[item].isSeen,
-               let contentId = categoryContents[item].id {
-                let webViewController = WebViewController(urlString: url,
-                                                          isReadContent: isReadContent,
-                                                          contentId: contentId)
-                navigationController?.pushViewController(webViewController, animated: true)
+            switch categoryContentsIsEmpty {
+            case .empty:
+                fallthrough
+            case .noEmpty:
+                let item = indexPath.item
+                if let url = categoryContents[item].url,
+                   let isReadContent = categoryContents[item].isSeen,
+                   let contentId = categoryContents[item].id {
+                    let webViewController = WebViewController(urlString: url,
+                                                              isReadContent: isReadContent,
+                                                              contentId: contentId)
+                    navigationController?.pushViewController(webViewController, animated: true)
+                }
             }
         default:
             print("임시 프린트")
@@ -558,49 +568,56 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             if indexPath.row == 0 {
                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
                cell.isSelected = true
-               
            }
             cell.layer.masksToBounds = true
             return cell
         case contentsCollectionView:
-            switch gridType {
-            case .grid:
-                let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                cell.backgroundColor = .white
-                cell.update(content: categoryContents[indexPath.item])
-                cell.didTapIsReadButton = { [weak self] contentId, item in
-                    self?.patchContentToggle(contentId: contentId, item: item)
-                }
-                if categoryContents[indexPath.row].isNotified == true {
-                    cell.alarmImageView.isHidden = false
-                }
-                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+            switch categoryContentsIsEmpty {
+            case .empty:
+                let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                cell.imageView.image = UIImage(named: "imgSearch")
+                cell.noResultLabel.isHidden = false
                 return cell
-            case .grid2xN:
-                let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                cell.backgroundColor = .white
-                contentsCollectionView.backgroundColor = .white
-                cell.update(content: categoryContents[indexPath.item])
-                cell.didTapIsReadButton = { [weak self] contentId, item in
-                    self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
+            case .noEmpty:
+                switch gridType {
+                case .grid:
+                    let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                    cell.backgroundColor = .white
+                    cell.update(content: categoryContents[indexPath.item])
+                    cell.didTapIsReadButton = { [weak self] contentId, item in
+                        self?.patchContentToggle(contentId: contentId, item: item)
+                    }
+                    if categoryContents[indexPath.row].isNotified == true {
+                        cell.alarmImageView.isHidden = false
+                    }
+                    cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                    return cell
+                case .grid2xN:
+                    let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                    cell.backgroundColor = .white
+                    contentsCollectionView.backgroundColor = .white
+                    cell.update(content: categoryContents[indexPath.item])
+                    cell.didTapIsReadButton = { [weak self] contentId, item in
+                        self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
+                    }
+                    if categoryContents[indexPath.row].isNotified == true {
+                        cell.alarmImageView.isHidden = false
+                    }
+                    cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                    return cell
+                case .grid1xN:
+                    let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                    cell.backgroundColor = .white
+                    cell.update(content: categoryContents[indexPath.item])
+                    cell.didTapIsReadButton = { [weak self] contentId, item in
+                        self?.patchContentToggleGrid1xN(contentId: contentId, item: item)
+                    }
+                    if categoryContents[indexPath.row].isNotified == true {
+                        cell.alarmImageView.isHidden = false
+                    }
+                    cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                    return cell
                 }
-                if categoryContents[indexPath.row].isNotified == true {
-                    cell.alarmImageView.isHidden = false
-                }
-                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                return cell
-            case .grid1xN:
-                let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                cell.backgroundColor = .white
-                cell.update(content: categoryContents[indexPath.item])
-                cell.didTapIsReadButton = { [weak self] contentId, item in
-                    self?.patchContentToggleGrid1xN(contentId: contentId, item: item)
-                }
-                if categoryContents[indexPath.row].isNotified == true {
-                    cell.alarmImageView.isHidden = false
-                }
-                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                return cell
             }
         default:
             return UICollectionViewCell()
@@ -614,7 +631,12 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return 4
         case contentsCollectionView:
-            return categoryContents.count
+            switch categoryContentsIsEmpty {
+            case .empty:
+                return 1
+            case .noEmpty:
+                return categoryContents.count
+            }
         default:
             return 0
         }
@@ -636,13 +658,18 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: label.frame.width + 28, height: 31)
             }
         case contentsCollectionView:
-            switch gridType {
-            case .grid:
-                return CGSize(width: view.frame.width, height: 139)
-            case .grid2xN:
-                return CGSize(width: (view.frame.width / 2) - 20, height: 253)
-            case .grid1xN:
-                return CGSize(width: view.frame.width, height: 307)
+            switch categoryContentsIsEmpty {
+            case .empty:
+                return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
+            case .noEmpty:
+                switch gridType {
+                case .grid:
+                    return CGSize(width: view.frame.width, height: 139)
+                case .grid2xN:
+                    return CGSize(width: (view.frame.width / 2) - 20, height: 253)
+                case .grid1xN:
+                    return CGSize(width: view.frame.width, height: 307)
+                }
             }
         default:
             return CGSize(width: 0, height: 0)
