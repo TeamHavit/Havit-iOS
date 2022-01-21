@@ -15,9 +15,12 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
-    var previousViewController: CategoryContentsViewController?
+    var previousContentsViewController: CategoryContentsViewController?
+    var previousSearchViewController: SearchContentsViewController?
     
     var morePanModalCellType: MorePanModalButtonType?
+    
+    var modalFromType: ModalFromType = .contents
     
     var panScrollable: UIScrollView? {
         return nil
@@ -193,7 +196,12 @@ extension MorePanModalViewController: UITableViewDelegate {
         case .goToCategory:
             self.dismiss(animated: true) {
                 let manageCategoryViewController = ManageCategoryViewController()
-                self.previousViewController?.navigationController?.pushViewController(manageCategoryViewController, animated: true)
+                switch self.modalFromType {
+                case .contents:
+                    self.previousContentsViewController?.navigationController?.pushViewController(manageCategoryViewController, animated: true)
+                case .search:
+                    self.previousSearchViewController?.navigationController?.pushViewController(manageCategoryViewController, animated: true)
+                }
             }
         case .setAlarm:
             print("setAlarm")
@@ -203,7 +211,12 @@ extension MorePanModalViewController: UITableViewDelegate {
                     let categoryContents = try await categoryContentsService.deleteContents(contentID: "\((contents?.id)!)")
                     // 성공, 삭제 분기 처리하기
                     self.dismiss(animated: true) {
-                        self.previousViewController?.contentsCollectionView.reloadData()
+                        switch self.modalFromType {
+                        case .contents:
+                            self.previousContentsViewController?.contentsCollectionView.reloadData()
+                        case .search:
+                            self.previousSearchViewController?.resultCollectionView.reloadData()
+                        }
                     }
                 } catch APIServiceError.serverError {
                     print("serverError")
