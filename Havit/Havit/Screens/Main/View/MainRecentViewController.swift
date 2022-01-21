@@ -174,6 +174,7 @@ extension MainRecentViewController: UICollectionViewDataSource {
         let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .white
         cell.update(content: contents[indexPath.item])
+        cell.moreButton.isHidden = true
         cell.didTapIsReadButton = { [weak self] contentId, item in
             self?.patchContentToggle(contentId: contentId, item: item)
         }
