@@ -114,7 +114,6 @@ final class WebViewController: BaseViewController {
                           rightBarButtonItem: reloadUrlBarButton)
     }
     
-    
     private func setNavigationItem(leftBarButtonItem: UIBarButtonItem,
                                    titleView: UIView,
                                    rightBarButtonItem: UIBarButtonItem) {

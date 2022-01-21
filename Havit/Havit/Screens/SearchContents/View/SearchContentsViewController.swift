@@ -14,7 +14,7 @@ final class SearchContentsViewController: BaseViewController {
     
     let searchContentsService: SearchContentsService = SearchContentsService(apiService: APIService(),
                                                                              environment: .development)
-    var searchResult: [SearchContents] = []
+    var searchResult: [Content] = []
     
     enum SearchResultType {
         case searching, result, noResult
@@ -203,10 +203,11 @@ extension SearchContentsViewController: UICollectionViewDataSource {
                 cell.mainImageView.kf.setImage(with: url)
             }
             cell.titleLabel.text = searchResult[indexPath.row].title
-            cell.subtitleLabel.text = searchResult[indexPath.row].datumDescription
+            cell.subtitleLabel.text = searchResult[indexPath.row].contentDescription
             cell.linkLabel.text = searchResult[indexPath.row].url
             cell.dateLabel.text = searchResult[indexPath.row].createdAt
             cell.alarmLabel.text = searchResult[indexPath.row].notificationTime
+            
             if searchResult[indexPath.row].isNotified == true {
                 cell.alarmImageView.isHidden = false
             }

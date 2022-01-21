@@ -17,7 +17,7 @@ struct SearchContentsService: SearchContentsSeriviceable {
         self.environment = environment
     }
 
-    func getSearchResult(keyword: String) async throws -> [SearchContents]? {
+    func getSearchResult(keyword: String) async throws -> [Content]? {
         let request = SearchContentsEndPoint
             .getSearchResult(keyword: keyword)
             .createRequest(environment: environment)

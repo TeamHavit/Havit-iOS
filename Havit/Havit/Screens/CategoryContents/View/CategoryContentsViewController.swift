@@ -22,7 +22,7 @@ final class CategoryContentsViewController: BaseViewController {
                                                                            environment: .development)
     var categoryContents: [Content] = []
     
-    var isFromAllCategory: Bool = false
+    var isFromAllCategory: Bool = true
     
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
@@ -514,6 +514,9 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.didTapIsReadButton = { [weak self] contentId, item in
                     self?.patchContentToggle(contentId: contentId, item: item)
                 }
+                if categoryContents[indexPath.row].isNotified == true {
+                    cell.alarmImageView.isHidden = false
+                }
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
                 return cell
             case .grid2xN:
@@ -524,6 +527,9 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.didTapIsReadButton = { [weak self] contentId, item in
                     self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
                 }
+                if categoryContents[indexPath.row].isNotified == true {
+                    cell.alarmImageView.isHidden = false
+                }
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
                 return cell
             case .grid1xN:
@@ -532,6 +538,9 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.update(content: categoryContents[indexPath.item])
                 cell.didTapIsReadButton = { [weak self] contentId, item in
                     self?.patchContentToggleGrid1xN(contentId: contentId, item: item)
+                }
+                if categoryContents[indexPath.row].isNotified == true {
+                    cell.alarmImageView.isHidden = false
                 }
                 cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
                 return cell
