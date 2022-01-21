@@ -36,10 +36,13 @@ final class MainContentEmptyView: UIView {
         button.layer.cornerRadius = 24
         return button
     }()
+    
+    private var isCategoryContentView: Bool
 
     // MARK: - init
     
-    init(guideText: String) {
+    init(guideText: String, isCategoryContentView: Bool = false) {
+        self.isCategoryContentView = isCategoryContentView
         super.init(frame: .zero)
         titleLabel.text = guideText
         render()
@@ -70,7 +73,7 @@ final class MainContentEmptyView: UIView {
         
         createContentButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(noContentImageView.snp.bottom).offset(78)
+            $0.top.equalTo(noContentImageView.snp.bottom).offset(isCategoryContentView ? 30 : 78)
             $0.width.equalTo(233)
             $0.height.equalTo(48)
         }

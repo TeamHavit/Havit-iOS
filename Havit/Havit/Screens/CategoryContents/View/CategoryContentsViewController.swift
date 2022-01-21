@@ -24,8 +24,6 @@ final class CategoryContentsViewController: BaseViewController {
                                                                            environment: .development)
     var categoryContents: [Content] = []
     
-    var categoryContentsIsEmpty: CategoryContentsIsEmpty = .noEmpty
-    
     var isFromAllCategory: Bool = false
     
     private var gridAnd1XnConstraints: Constraint?
@@ -162,6 +160,9 @@ final class CategoryContentsViewController: BaseViewController {
         return button
     }()
     
+    private let emptyView = MainContentEmptyView(guideText:
+                                                    "아직 저장된 콘텐츠가 없습니다.", isCategoryContentView: true)
+    
     // MARK: - init
     
     init(categoryId: Int, categories: [Category]) {
@@ -180,8 +181,8 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(categories)
-        print(categoryId)
+        dump(categories)
+        dump(categoryId)
         bind()
         getCategoryContents()
         setDelegations()
@@ -193,8 +194,9 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     override func render() {
-        self.view.addSubViews([mainView, filterView])
-        mainView.addSubViews([mainViewBorderView, contentsCollectionView])
+        self.view.addSubView(mainView)
+        mainView.addSubViews([filterView, mainViewBorderView, emptyView])
+        emptyView.addSubView(contentsCollectionView)
         filterView.addSubViews([totalLabel, gridButton, sortButton, filterCollectionView])
         
         mainView.snp.makeConstraints {
@@ -209,9 +211,14 @@ final class CategoryContentsViewController: BaseViewController {
         }
         
         mainViewBorderView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(mainView)
+            $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(filterView.snp.bottom)
             $0.height.equalTo(1)
+        }
+        
+        emptyView.snp.makeConstraints {
+            $0.top.equalTo(mainViewBorderView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         
         totalLabel.snp.makeConstraints {
@@ -306,11 +313,9 @@ final class CategoryContentsViewController: BaseViewController {
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
                         self.totalLabel.text = "전체 \(categoryContents.count)"
-                        self.categoryContentsIsEmpty = .noEmpty
                     } else {
                         self.categoryContents = []
                         self.totalLabel.text = "전체 0"
-                        self.categoryContentsIsEmpty = .empty
                     }
                 } else {
                     if let nowCategory = getNowCategory(), let id = nowCategory.id {
@@ -319,16 +324,15 @@ final class CategoryContentsViewController: BaseViewController {
                            !categoryContents.isEmpty {
                             self.categoryContents = categoryContents
                             self.totalLabel.text = "전체 \(categoryContents.count)"
-                            self.categoryContentsIsEmpty = .noEmpty
                         } else {
                             self.categoryContents = []
                             self.totalLabel.text = "전체 0"
-                            self.categoryContentsIsEmpty = .empty
                         }
                     }
                    
                 }
                 DispatchQueue.main.async {
+                    self.updateCollectionViewEmptyState()
                     self.contentsCollectionView.reloadData()
                 }
             } catch APIServiceError.serverError {
@@ -370,6 +374,12 @@ final class CategoryContentsViewController: BaseViewController {
         navigationItem.titleView = navigationTitleButton
         navigationItem.searchController = searchController
         navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
+    }
+    
+    func updateCollectionViewEmptyState() {
+        let isContentEmpty = categoryContents.isEmpty
+        
+        contentsCollectionView.isHidden = isContentEmpty
     }
     
     private func setDelegations() {
@@ -480,10 +490,9 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {
-        switch categoryContentsIsEmpty {
-        case .empty:
-            fallthrough
-        case .noEmpty:
+        let hasContent = !categoryContents.isEmpty
+        
+        if hasContent {
             switch gridType {
             case .grid:
                 gridType = .grid2xN
@@ -522,10 +531,9 @@ extension CategoryContentsViewController: UICollectionViewDelegate {
             contentsFilterType = cell.contentsFilterType
             getCategoryContents()
         case contentsCollectionView:
-            switch categoryContentsIsEmpty {
-            case .empty:
-                fallthrough
-            case .noEmpty:
+            let hasContent = !categoryContents.isEmpty
+            
+            if hasContent {
                 let item = indexPath.item
                 if let url = categoryContents[item].url,
                    let isReadContent = categoryContents[item].isSeen,
@@ -572,52 +580,44 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
             cell.layer.masksToBounds = true
             return cell
         case contentsCollectionView:
-            switch categoryContentsIsEmpty {
-            case .empty:
-                let cell: NotSearchedCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                cell.imageView.image = UIImage(named: "imgSearch")
-                cell.noResultLabel.isHidden = false
-                return cell
-            case .noEmpty:
-                switch gridType {
-                case .grid:
-                    let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                    cell.backgroundColor = .white
-                    cell.update(content: categoryContents[indexPath.item])
-                    cell.didTapIsReadButton = { [weak self] contentId, item in
-                        self?.patchContentToggle(contentId: contentId, item: item)
-                    }
-                    if categoryContents[indexPath.row].isNotified == true {
-                        cell.alarmImageView.isHidden = false
-                    }
-                    cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                    return cell
-                case .grid2xN:
-                    let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                    cell.backgroundColor = .white
-                    contentsCollectionView.backgroundColor = .white
-                    cell.update(content: categoryContents[indexPath.item])
-                    cell.didTapIsReadButton = { [weak self] contentId, item in
-                        self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
-                    }
-                    if categoryContents[indexPath.row].isNotified == true {
-                        cell.alarmImageView.isHidden = false
-                    }
-                    cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                    return cell
-                case .grid1xN:
-                    let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                    cell.backgroundColor = .white
-                    cell.update(content: categoryContents[indexPath.item])
-                    cell.didTapIsReadButton = { [weak self] contentId, item in
-                        self?.patchContentToggleGrid1xN(contentId: contentId, item: item)
-                    }
-                    if categoryContents[indexPath.row].isNotified == true {
-                        cell.alarmImageView.isHidden = false
-                    }
-                    cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                    return cell
+            switch gridType {
+            case .grid:
+                let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                cell.backgroundColor = .white
+                cell.update(content: categoryContents[indexPath.item])
+                cell.didTapIsReadButton = { [weak self] contentId, item in
+                    self?.patchContentToggle(contentId: contentId, item: item)
                 }
+                if categoryContents[indexPath.row].isNotified == true {
+                    cell.alarmImageView.isHidden = false
+                }
+                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                return cell
+            case .grid2xN:
+                let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                cell.backgroundColor = .white
+                contentsCollectionView.backgroundColor = .white
+                cell.update(content: categoryContents[indexPath.item])
+                cell.didTapIsReadButton = { [weak self] contentId, item in
+                    self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
+                }
+                if categoryContents[indexPath.row].isNotified == true {
+                    cell.alarmImageView.isHidden = false
+                }
+                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                return cell
+            case .grid1xN:
+                let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+                cell.backgroundColor = .white
+                cell.update(content: categoryContents[indexPath.item])
+                cell.didTapIsReadButton = { [weak self] contentId, item in
+                    self?.patchContentToggleGrid1xN(contentId: contentId, item: item)
+                }
+                if categoryContents[indexPath.row].isNotified == true {
+                    cell.alarmImageView.isHidden = false
+                }
+                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
+                return cell
             }
         default:
             return UICollectionViewCell()
@@ -631,12 +631,7 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
         case filterCollectionView:
             return 4
         case contentsCollectionView:
-            switch categoryContentsIsEmpty {
-            case .empty:
-                return 1
-            case .noEmpty:
-                return categoryContents.count
-            }
+            return categoryContents.count
         default:
             return 0
         }
@@ -658,18 +653,13 @@ extension CategoryContentsViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: label.frame.width + 28, height: 31)
             }
         case contentsCollectionView:
-            switch categoryContentsIsEmpty {
-            case .empty:
-                return CGSize(width: view.frame.width, height: (mainView.frame.size.height - 15) / 2)
-            case .noEmpty:
-                switch gridType {
-                case .grid:
-                    return CGSize(width: view.frame.width, height: 139)
-                case .grid2xN:
-                    return CGSize(width: (view.frame.width / 2) - 20, height: 253)
-                case .grid1xN:
-                    return CGSize(width: view.frame.width, height: 307)
-                }
+            switch gridType {
+            case .grid:
+                return CGSize(width: view.frame.width, height: 139)
+            case .grid2xN:
+                return CGSize(width: (view.frame.width / 2) - 20, height: 253)
+            case .grid1xN:
+                return CGSize(width: view.frame.width, height: 307)
             }
         default:
             return CGSize(width: 0, height: 0)
