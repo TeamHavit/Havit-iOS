@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import PanModal
 import SnapKit
+import ShareExtension
 
 class MorePanModalViewController: BaseViewController, PanModalPresentable {
     
@@ -185,11 +186,16 @@ extension MorePanModalViewController: UITableViewDelegate {
         
         switch cell.morePanModalCellType {
         case .editTitle:
-            print("editTitle")
+            print("edirTitle")
+            // let editContentsTitleViewController = ./ShareExtension.EditContentsTitleViewController()
+//            navigationController?.pushViewController(editContentsTitleViewController, animated: true)
         case .share:
             print("share")
         case .goToCategory:
-            print("goToCategory")
+            self.dismiss(animated: true) {
+                let manageCategoryViewController = ManageCategoryViewController()
+                self.previousViewController?.navigationController?.pushViewController(manageCategoryViewController, animated: true)
+            }
         case .setAlarm:
             print("setAlarm")
         case .delete:
