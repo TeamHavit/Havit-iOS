@@ -37,7 +37,7 @@ final class AddContentViewController: BaseViewController {
         textView.tintColor = .havitPurple
         textView.font = .font(.pretendardReular, ofSize: 13)
         textView.layer.cornerRadius = 4
-        textView.contentInset = UIEdgeInsets(top: 12, left: 11, bottom: 12, right: 11)
+        textView.contentInset = UIEdgeInsets(top: 12, left: 11, bottom: 15, right: 11)
         textView.isScrollEnabled = false
         return textView
     }()
@@ -102,6 +102,7 @@ final class AddContentViewController: BaseViewController {
         urlTextView.snp.makeConstraints {
             $0.top.equalTo(urlInsertNoticeLabel.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(42)
         }
 
         nextButton.snp.makeConstraints {
