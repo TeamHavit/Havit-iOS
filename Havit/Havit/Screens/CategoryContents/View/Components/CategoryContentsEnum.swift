@@ -42,3 +42,7 @@ enum ContentsFilterType: String {
 enum ModalFromType {
     case contents, search
 }
+
+enum CategoryContentsIsEmpty {
+    case empty, noEmpty
+}

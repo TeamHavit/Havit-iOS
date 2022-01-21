@@ -79,31 +79,13 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
         categoryTableView.dataSource = self
     }
     
-    private func getCategoryTitle() -> String? {
-        for i in 1..<categories.count {
-            if categories[i].id! == categoryId {
-                return categories[i - 1].title
-            }
-        }
-        return nil
-    }
-    
     private func getNowCategory() -> Category? {
-        for i in 1..<categories.count {
+        for i in 0..<categories.count {
             if categories[i].id! == categoryId {
-                return categories[i - 1]
+                return categories[i]
             }
         }
         return nil
-    }
-    
-    private func getNowCategoryIndex() -> Int {
-        for i in 1..<categories.count {
-            if categories[i].id! == categoryId {
-                return i - 1
-            }
-        }
-        return -1
     }
     
     @objc func showCategoryPanModalViewController(_ sender: UIButton) {
@@ -128,7 +110,6 @@ extension CategoryPanModalViewController: UITableViewDelegate {
         
         self.dismiss(animated: true) {
             self.previousViewController.categoryId = cell.tag
-            print(cell.tag)
             
             var configuration  = UIButton.Configuration.plain()
             configuration.buttonSize = .large
@@ -137,7 +118,7 @@ extension CategoryPanModalViewController: UITableViewDelegate {
             configuration.title = "카테고리명"
             configuration.image = ImageLiteral.iconDropBlack
             
-            var attributes = AttributeContainer()
+            let attributes = AttributeContainer()
             var attributedText = AttributedString.init(cell.cellLabel.text!, attributes: attributes)
             attributedText.font = UIFont.font(.pretendardBold, ofSize: 16)
             attributedText.foregroundColor = .black
@@ -147,6 +128,7 @@ extension CategoryPanModalViewController: UITableViewDelegate {
                                   primaryAction: nil)
             button.addTarget(self.previousViewController, action: #selector(self.showCategoryPanModalViewController(_:)), for: .touchUpInside)
             self.previousViewController.navigationItem.titleView = button
+            self.previousViewController.getCategoryContents()
             self.previousViewController.contentsCollectionView.reloadData()
         }
     }
@@ -161,12 +143,11 @@ extension CategoryPanModalViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withType: CategoryPanModalTableViewCell.self, for: indexPath)
         cell.cellLabel.text = categories[indexPath.row].title
         cell.selectionStyle = .none
-        if let nowCategoryId = getNowCategory()?.id {
-            cell.tag = nowCategoryId
-            if let id = getNowCategory()?.id {
-                if id != categories[indexPath.row].id {
-                    cell.cellImageView.isHidden = true
-                }
+        
+        if let nowCategory = getNowCategory(), let id = nowCategory.id {
+            cell.tag = categories[indexPath.row].id!
+            if id != categories[indexPath.row].id {
+                cell.cellImageView.isHidden = true
             }
         }
         
