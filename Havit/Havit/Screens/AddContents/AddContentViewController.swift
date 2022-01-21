@@ -155,21 +155,17 @@ final class AddContentViewController: BaseViewController {
 
 extension AddContentViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = urlTextView.sizeThatFits(size)
 
-        let fixedWidth = urlTextView.frame.size.width
-        urlTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        let newSize = urlTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        var newFrame = urlTextView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        urlTextView.frame = newFrame
-
-        urlTextView.translatesAutoresizingMaskIntoConstraints = true
-
-        if urlTextView.frame.size.height >= textViewMaxHeight {
-            urlTextView.isScrollEnabled = true
-            urlTextView.frame.size.height = self.textViewMaxHeight
-        } else {
-            urlTextView.isScrollEnabled = false
+        urlTextView.constraints.forEach { (constraint) in
+            if estimatedSize.height >= 125 {
+                urlTextView.isScrollEnabled = true
+            } else {
+                if constraint.firstAttribute == .height {
+                    constraint.constant = estimatedSize.height
+                }
+            }
         }
     }
 }
