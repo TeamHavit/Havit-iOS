@@ -563,7 +563,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                     label.sizeToFit()
                     return label
                 }()
-                cell.layer.cornerRadius = (label.frame.width / 2) * (label.frame.height / label.frame.width) + 10
+                cell.layer.cornerRadius = (label.frame.width / 2) * (label.frame.height / label.frame.width) + 8
             }
             if indexPath.row == 0 {
                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
