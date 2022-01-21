@@ -16,6 +16,13 @@ struct CategoryService: CategorySeriviceable {
         self.apiService = apiService
         self.environment = environment
     }
+    
+    func createCategory(title: String, imageId: Int) async throws -> String? {
+        let request = CategoryEndPoint
+            .createCategory(title: title, imageId: imageId)
+            .createRequest(environment: environment)
+        return try await self.apiService.request(request)
+    }
 
     func getCategory() async throws -> [Category]? {
         let request = CategoryEndPoint

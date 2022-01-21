@@ -71,6 +71,14 @@
 		4DD166FD2796D0C900AD8960 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
 		4DD167002796D11500AD8960 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
 		4DE2C1A3279995AA00A3A2E4 /* MyPageDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2C1A2279995A900A3A2E4 /* MyPageDescriptionView.swift */; };
+		4F404564279B3C2900103AC7 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */; };
+		4F404565279B3C9D00103AC7 /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534CE27994604000C7034 /* SaveContentsViewController.swift */; };
+		4F404566279B3CA500103AC7 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
+		4F404567279B3CA800103AC7 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
+		4F404568279B3CAD00103AC7 /* SetAlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D5279981D8000C7034 /* SetAlertCollectionViewCell.swift */; };
+		4F404569279B3CB300103AC7 /* ShareCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */; };
+		4F40456A279B3CB600103AC7 /* CategoryEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */; };
+		4F40456B279B3CC000103AC7 /* EntryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */; };
 		4F4545E02790B69600A9E3B1 /* EntryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */; };
 		4F4545E82790B69600A9E3B1 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
@@ -90,6 +98,9 @@
 		4F6FC76B279A997500085E32 /* ShareServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FC764279A90A400085E32 /* ShareServiceable.swift */; };
 		4F6FC76F279AACC700085E32 /* TargetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FC76E279AACC700085E32 /* TargetContent.swift */; };
 		4F81AE182797E97D00336AFE /* AddCategoryTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */; };
+		4FABF93B279B1D5400E92E69 /* RequestCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FABF93A279B1D5400E92E69 /* RequestCategory.swift */; };
+		4FABF93C279B218F00E92E69 /* RequestCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FABF93A279B1D5400E92E69 /* RequestCategory.swift */; };
+		4FABF93D279B21A500E92E69 /* SelectCategoryIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */; };
 		4FB24FC22792129B00CCDB0C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F282786A9260059DE76 /* BaseModel.swift */; };
 		4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF6190279136DD00C93C84 /* HttpMethod.swift */; };
 		4FB24FC4279212A700CCDB0C /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF61922791375900C93C84 /* APIEnvironment.swift */; };
@@ -145,7 +156,7 @@
 		4FC6EC622798A8E0000BD4E0 /* CategoryEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FA2796D01300AD8960 /* CategoryEndPoint.swift */; };
 		4FC6EC632798A8F7000BD4E0 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
 		4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
-		4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */; };
+		4FC6EC682798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */; };
 		4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534CE27994604000C7034 /* SaveContentsViewController.swift */; };
 		4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
 		4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
@@ -341,9 +352,10 @@
 		4F6FC766279A976400085E32 /* SaveTargetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTargetContent.swift; sourceTree = "<group>"; };
 		4F6FC76E279AACC700085E32 /* TargetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetContent.swift; sourceTree = "<group>"; };
 		4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTitleViewController.swift; sourceTree = "<group>"; };
+		4FABF93A279B1D5400E92E69 /* RequestCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCategory.swift; sourceTree = "<group>"; };
 		4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryIconViewController.swift; sourceTree = "<group>"; };
 		4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
-		4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FD534CE27994604000C7034 /* SaveContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContentsViewController.swift; sourceTree = "<group>"; };
 		4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsTitleViewController.swift; sourceTree = "<group>"; };
 		4FD534D327997E21000C7034 /* SetAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertViewController.swift; sourceTree = "<group>"; };
@@ -605,15 +617,24 @@
 		4F81AE142797E59A00336AFE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4FABF939279B1CE900E92E69 /* Model */,
 				4F4DF4EC27943E8200DD629C /* View */,
 			);
 			path = Category;
 			sourceTree = "<group>";
 		};
+		4FABF939279B1CE900E92E69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FABF93A279B1D5400E92E69 /* RequestCategory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4FC6EC652798AE01000BD4E0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4FC6EC672798AE38000BD4E0 /* CategoryCollectionViewCell.swift */,
+				4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1465,6 +1486,7 @@
 				4FB24FD8279217C700CCDB0C /* ImageLiteral.swift in Sources */,
 				4FB24FC7279212B000CCDB0C /* Requestable.swift in Sources */,
 				4F6FC769279A996F00085E32 /* ShareService.swift in Sources */,
+				4FABF93B279B1D5400E92E69 /* RequestCategory.swift in Sources */,
 				4FB24FC32792129F00CCDB0C /* HttpMethod.swift in Sources */,
 				4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */,
 				4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */,
@@ -1472,7 +1494,7 @@
 				4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */,
 				4FD534D6279981D8000C7034 /* SetAlertCollectionViewCell.swift in Sources */,
 				4FB24FDA279217D700CCDB0C /* BaseTableViewCell.swift in Sources */,
-				4FC6EC682798AE38000BD4E0 /* CategoryCollectionViewCell.swift in Sources */,
+				4FC6EC682798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift in Sources */,
 				4FB24FDD279217F900CCDB0C /* Reactive+UIViewController.swift in Sources */,
 				4F6FC76A279A997200085E32 /* SaveTargetContent.swift in Sources */,
 				4FC6EC582798725A000BD4E0 /* SelectCategoryIconViewController.swift in Sources */,
@@ -1557,22 +1579,26 @@
 				4D4DDD4727912AE10069F5FB /* CategoryIconList.swift in Sources */,
 				4DD166F62796CE0700AD8960 /* Category.swift in Sources */,
 				4F6FC763279A8B9A00085E32 /* ShareEndPoint.swift in Sources */,
+				4F404565279B3C9D00103AC7 /* SaveContentsViewController.swift in Sources */,
 				ED443F7C278B63190059DE76 /* UICollectionView+Extension.swift in Sources */,
 				4D9DE1F0278F2B0700F1889C /* CategoryCollectionViewCell.swift in Sources */,
 				ED443EAE278598670059DE76 /* AppDelegate.swift in Sources */,
 				EDEF61B02791444700C93C84 /* search_category.json in Sources */,
 				EDE7D6D427956A3F009C70EF /* RecentContentTableViewCell.swift in Sources */,
+				4F404569279B3CB300103AC7 /* ShareCategoryCollectionViewCell.swift in Sources */,
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */,
 				ED069DC42799907A0084410B /* ContentToggle.swift in Sources */,
 				EDB6F4C1279908AD006C66AA /* Content.swift in Sources */,
 				15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */,
+				4F404567279B3CA800103AC7 /* SetAlertViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
 				4D2D21D5279AFFD3000D58AA /* TargetContent.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,
+				4FABF93D279B21A500E92E69 /* SelectCategoryIconViewController.swift in Sources */,
 				EDE7D6DC2795BE0E009C70EF /* LogoTableViewCell.swift in Sources */,
 				ED069DC8279992580084410B /* ContentToggleService.swift in Sources */,
 				EDE7D6CE27943046009C70EF /* MainCategoryCollectionFlowLayout.swift in Sources */,
@@ -1589,16 +1615,19 @@
 				EDE7D6D827958F2F009C70EF /* RecommendSiteTableViewCell.swift in Sources */,
 				4F6FC767279A976400085E32 /* SaveTargetContent.swift in Sources */,
 				EDEF61B6279146C800C93C84 /* MockParser.swift in Sources */,
+				4F40456A279B3CB600103AC7 /* CategoryEmptyViewController.swift in Sources */,
 				ED3502AB279876E70033C280 /* MainAlarmViewController.swift in Sources */,
 				EDE7D6DA2795ADA3009C70EF /* RecommendSiteCollectionViewCell.swift in Sources */,
 				ED443F192786A3450059DE76 /* CategoryContentsViewController.swift in Sources */,
 				15F6403727995EA400D9654E /* CategoryContentsService.swift in Sources */,
 				ED443F212786A41B0059DE76 /* SocialLoginViewController.swift in Sources */,
 				3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */,
+				4FABF93C279B218F00E92E69 /* RequestCategory.swift in Sources */,
 				EDEF61892790B05A00C93C84 /* MainSearchHeaderView.swift in Sources */,
 				EDDE0999279077B90093B83F /* BaseCollectionViewCell.swift in Sources */,
 				4D4E96222794BD1700F11788 /* CategoryIconCollectionViewCell.swift in Sources */,
 				4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */,
+				4F404568279B3CAD00103AC7 /* SetAlertCollectionViewCell.swift in Sources */,
 				1546A3F62797F78D009AE579 /* CategoryPanModalViewController.swift in Sources */,
 				EDDE0965278EA9CC0093B83F /* PreviewProvider.swift in Sources */,
 				15D49CE1278F19050030DBE5 /* ContentsCollectionViewCell.swift in Sources */,
@@ -1616,15 +1645,18 @@
 				15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */,
 				15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */,
 				ED443F332786AC640059DE76 /* UIColor+Extension.swift in Sources */,
+				4F404566279B3CA500103AC7 /* EditContentsTitleViewController.swift in Sources */,
 				4FD534E32799C0CD000C7034 /* AddContentViewController.swift in Sources */,
 				EDEF61932791375900C93C84 /* APIEnvironment.swift in Sources */,
 				EDE7D6D627957A71009C70EF /* RecentContentCollectionViewCell.swift in Sources */,
+				4F404564279B3C2900103AC7 /* SelectCategoryViewController.swift in Sources */,
 				ED443F172786A3320059DE76 /* SearchContentsViewModel.swift in Sources */,
 				EDEF6195279137E600C93C84 /* APIServiceError.swift in Sources */,
 				ED443F4C2786BBAF0059DE76 /* UIDevice+Extension.swift in Sources */,
 				EDDE099B2790789B0093B83F /* BaseTableViewCell.swift in Sources */,
 				EDE7D6D227955FE4009C70EF /* GuidelineTableViewCell.swift in Sources */,
 				ED443F0B2786A2B00059DE76 /* TabbarController.swift in Sources */,
+				4F40456B279B3CC000103AC7 /* EntryNavigationViewController.swift in Sources */,
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */,
 				EDEF6191279136DD00C93C84 /* HttpMethod.swift in Sources */,

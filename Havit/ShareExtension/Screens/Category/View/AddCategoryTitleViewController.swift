@@ -107,8 +107,8 @@ final class AddCategoryTitleViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         setUpKeyboardForButtonAnimation()
+        bind()
     }
     
     // MARK: - func
@@ -167,6 +167,17 @@ final class AddCategoryTitleViewController: BaseViewController {
             .bind {
                 self.nextButton.isEnabled = $0
             }
+            .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .bind(onNext: {
+                let userRequestCategory = RequestCategory(title: self.titleTextField.text)
+                let selectCategoryIconViewController = SelectCategoryIconViewController()
+                selectCategoryIconViewController.userRequestCategory = userRequestCategory
+                selectCategoryIconViewController.targetContent = self.targetContent
+                
+                self.navigationController?.pushViewController(selectCategoryIconViewController, animated: true)
+            })
             .disposed(by: disposeBag)
     }
     
