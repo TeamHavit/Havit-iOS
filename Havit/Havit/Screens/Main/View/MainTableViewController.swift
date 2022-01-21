@@ -153,9 +153,18 @@ extension MainTableViewController: UITableViewDataSource {
                 let categoryViewController = CategoryViewController(type: .main)
                 self?.navigationController?.pushViewController(categoryViewController, animated: true)
             }
-            cell.didTapCategory = { [weak self] _ in
-                let categoryContentViewController = CategoryContentsViewController()
-                self?.navigationController?.pushViewController(categoryContentViewController, animated: true)
+            cell.didTapCategory = { [weak self] row in
+                let isAllContentRow = row == .zero
+                let categoryContentViewController: CategoryContentsViewController?
+                if isAllContentRow {
+                    categoryContentViewController = CategoryContentsViewController(categoryId: -1,
+                                                                                     categories: self?.categories ?? [])
+                    categoryContentViewController?.isFromAllCategory = true
+                } else {
+                    categoryContentViewController = CategoryContentsViewController(categoryId: self?.categories[row].id ?? -1,
+                                                                                     categories: self?.categories ?? [])
+                }
+                self?.navigationController?.pushViewController(categoryContentViewController ?? UIViewController(), animated: true)
             }
             return cell
         case .guideline:

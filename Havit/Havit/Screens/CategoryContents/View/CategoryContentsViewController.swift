@@ -18,6 +18,8 @@ final class CategoryContentsViewController: BaseViewController {
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
     var categoryContents: [CategoryContents] = []
+    var categories: [Category]
+    var categoryId: Int
     
     var isFromAllCategory: Bool = false
     
@@ -27,7 +29,6 @@ final class CategoryContentsViewController: BaseViewController {
     private var gridType: GridType = .grid
     var contentsSortType: ContentsSortType = .createdAt
     var contentsFilterType: ContentsFilterType = .all
-    var categoryId = 0
     
     var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
     var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
@@ -151,7 +152,9 @@ final class CategoryContentsViewController: BaseViewController {
     
     // MARK: - init
     
-    override init() {
+    init(categoryId: Int, categories: [Category]) {
+        self.categoryId = categoryId
+        self.categories = categories
         super.init()
         hidesBottomBarWhenPushed = true
     }
