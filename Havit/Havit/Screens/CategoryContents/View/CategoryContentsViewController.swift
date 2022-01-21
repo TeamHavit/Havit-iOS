@@ -177,6 +177,8 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(categories)
+        print(categoryId)
         bind()
         getCategoryContents()
         setDelegations()
@@ -305,7 +307,7 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 } else {
-                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "1", option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(categoryId), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -366,10 +368,9 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     private func getCategoryTitle() -> String? {
-        for i in categories {
-            if i.id! == categoryId {
-                print(i.title)
-                return i.title
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1].title
             }
         }
         return nil
