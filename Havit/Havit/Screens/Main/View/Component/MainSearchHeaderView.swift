@@ -56,7 +56,7 @@ final class MainSearchHeaderView: UIView {
     
     private func bind() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        self.rx.gestureRecognizers
+        searchBarView.rx.gestureRecognizers
             .onNext([tap])
     }
     
