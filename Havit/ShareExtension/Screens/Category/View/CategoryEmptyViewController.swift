@@ -65,6 +65,7 @@ final class CategoryEmptyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
     
     // MARK: - func
@@ -77,7 +78,7 @@ final class CategoryEmptyViewController: BaseViewController {
         view.addSubViews([categoryEmptyNoticeLabel, categoryEmptyImageView, addCategoryButton])
         
         categoryEmptyNoticeLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(40)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
             $0.leading.equalToSuperview().inset(16)
         }
         
@@ -99,5 +100,15 @@ final class CategoryEmptyViewController: BaseViewController {
         title = "카테고리 추가"
         navigationController?.navigationBar.titleTextAttributes = navigationTitleTextAttributes
         navigationItem.rightBarButtonItem = navigationRightButton
+    }
+    
+    private func bind() {
+        addCategoryButton.rx.tap
+            .bind(onNext: {
+                let addCategoryTitleViewController = AddCategoryTitleViewController()
+                addCategoryTitleViewController.targetContent = self.targetContent
+                self.navigationController?.pushViewController(addCategoryTitleViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
