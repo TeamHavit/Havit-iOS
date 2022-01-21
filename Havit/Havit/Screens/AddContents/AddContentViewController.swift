@@ -12,6 +12,7 @@ final class AddContentViewController: BaseViewController {
     // MARK: - property
     
     private var keyboardHeight: CGFloat = 0
+    private let textViewMaxHeight: CGFloat = 125
     
     private let navigationRightButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
@@ -36,8 +37,8 @@ final class AddContentViewController: BaseViewController {
         textView.tintColor = .havitPurple
         textView.font = .font(.pretendardReular, ofSize: 13)
         textView.layer.cornerRadius = 4
-        textView.contentInset = UIEdgeInsets(top: 12, left: 11, bottom: 12, right: 11)
-        textView.isScrollEnabled = true
+        textView.contentInset = UIEdgeInsets(top: 12, left: 11, bottom: 15, right: 11)
+        textView.isScrollEnabled = false
         return textView
     }()
     
@@ -74,6 +75,11 @@ final class AddContentViewController: BaseViewController {
         super.viewDidLoad()
         bind()
         setUpKeyboardForButtonAnimation()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTextView()
     }
     
     // MARK: - func
@@ -125,6 +131,12 @@ final class AddContentViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         urlTextView.becomeFirstResponder()
     }
+
+    private func setTextView() {
+        urlTextView.text = ""
+        urlTextView.frame.size.height = 42
+        urlTextView.isScrollEnabled = false
+    }
     
     // MARK: - @objc
     
@@ -143,13 +155,21 @@ final class AddContentViewController: BaseViewController {
 
 extension AddContentViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let textViewBoundSize = textView.bounds.size
-        let newTextViewSize = CGSize(width: textViewBoundSize.width, height: CGFloat.greatestFiniteMagnitude)
-        let estimatedSize = textView.sizeThatFits(newTextViewSize)
-        textView.constraints.forEach { constraint in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
+
+        let fixedWidth = urlTextView.frame.size.width
+        urlTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        let newSize = urlTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        var newFrame = urlTextView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        urlTextView.frame = newFrame
+
+        urlTextView.translatesAutoresizingMaskIntoConstraints = true
+
+        if urlTextView.frame.size.height >= textViewMaxHeight {
+            urlTextView.isScrollEnabled = true
+            urlTextView.frame.size.height = self.textViewMaxHeight
+        } else {
+            urlTextView.isScrollEnabled = false
         }
     }
 }
