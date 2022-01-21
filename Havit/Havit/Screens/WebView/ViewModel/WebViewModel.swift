@@ -25,11 +25,11 @@ final class WebViewModel {
     // MARK: - property
     private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
                                                                            environment: .development)
-    private let contentId: Int
+    private let contentId: Int?
     
     // MARK: - init
     
-    init(urlString: String, isReadContent: Bool, contentId: Int) {
+    init(urlString: String, isReadContent: Bool, contentId: Int?) {
         self.urlString = BehaviorSubject<String?>(value: urlString)
         self.canGoBack = BehaviorSubject(value: false)
         self.canGoForward = BehaviorSubject(value: false)
@@ -70,6 +70,9 @@ final class WebViewModel {
     func toggleContent() {
         Task {
             do {
+                guard let contentId = contentId else {
+                    return
+                }
                 let isSeen = try await toggleService.patchContentToggle(contentId: contentId)?.isSeen
                 self.isReadContent.onNext(isSeen ?? false)
             } catch let error {

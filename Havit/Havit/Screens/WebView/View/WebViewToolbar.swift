@@ -38,20 +38,23 @@ final class WebViewToolbar: UIToolbar {
     
     // MARK: - init
     
-    override init(frame: CGRect) {
+    convenience init(canCheckRead: Bool) {
         let frame = CGRect(origin: .zero,
                            size: CGSize(width: UIScreen.main.bounds.height,
                                         height: Size.toolbarHeight))
-        super.init(frame: frame)
-        
+        self.init(frame: frame)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                             target: nil,
                                             action: nil)
         var toolbarItems = [backBarButton,
                             forwardBarButton,
                             shareBarButton,
-                            safariBarButton,
-                            checkReadBarButton].reduce([]) { (barButtonItems, barButtonItem) in
+                            safariBarButton]
+        if canCheckRead {
+            toolbarItems.append(checkReadBarButton)
+        }
+        
+        toolbarItems = toolbarItems.reduce([]) { (barButtonItems, barButtonItem) in
             return barButtonItems + [barButtonItem, flexibleSpace]
         }
         toolbarItems.removeLast()
@@ -59,6 +62,10 @@ final class WebViewToolbar: UIToolbar {
                       animated: false)
         self.isTranslucent = false
         self.barTintColor = .whiteGray
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     @available(*, unavailable)
