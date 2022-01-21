@@ -22,11 +22,19 @@ final class WebViewModel {
     
     var urlRequest: Observable<URLRequest>
     
-    init(urlString: String, isReadContent: Bool) {
+    // MARK: - property
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
+    private let contentId: Int
+    
+    // MARK: - init
+    
+    init(urlString: String, isReadContent: Bool, contentId: Int) {
         self.urlString = BehaviorSubject<String?>(value: urlString)
         self.canGoBack = BehaviorSubject(value: false)
         self.canGoForward = BehaviorSubject(value: false)
         self.isReadContent = BehaviorSubject(value: isReadContent)
+        self.contentId = contentId
         
         self.urlRequest = self.urlString
             .compactMap { urlString -> String? in
@@ -54,6 +62,19 @@ final class WebViewModel {
         func getGoogleSearchUrl(withKeyword keyword: String?) -> String {
             let googleSearchUrl = "https://www.google.com/search?q=\(keyword ?? "")"
             return googleSearchUrl
+        }
+    }
+    
+    // MARK: - func
+    
+    func toggleContent() {
+        Task {
+            do {
+                let isSeen = try await toggleService.patchContentToggle(contentId: contentId)?.isSeen
+                self.isReadContent.onNext(isSeen ?? false)
+            } catch let error {
+                self.isReadContent.onError(error)
+            }
         }
     }
 }
