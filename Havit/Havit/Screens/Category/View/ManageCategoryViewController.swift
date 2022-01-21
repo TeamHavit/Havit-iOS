@@ -215,7 +215,7 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
         cell.presentEditCategoryClosure = {
             let categoryId = self.categories[indexPath.row].id ?? 0
             let titleText = self.categories[indexPath.row].title ?? ""
-            var imageId = self.categories[indexPath.row].imageId ?? 0
+            let imageId = self.categories[indexPath.row].imageId ?? 0
             
             let editCategory = EditCategoryViewController(categoryId: categoryId, titleText: titleText, imageId: imageId)
             let compareId = (categoryId == editCategory.categoryId)
@@ -223,11 +223,14 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
             editCategory.sendEditData = {
                 if compareId {
                     if let index = self.categories[indexPath.row].orderIndex {
-                        self.categories[index].title = editCategory.titleText
+                        let titleText = editCategory.titleText
+                        self.categories[index].title = titleText
+                        cell.categoryTitleLabel.text = self.categories[index].title
+
+                        let iconImageId = editCategory.iconImageId
+                        self.categories[index].imageId = iconImageId
+                        cell.categoryImageView.image = self.categoryIconList[iconImageId-1].categoryIcon
                     }
-                    imageId = editCategory.iconImageId
-                    cell.categoryImageView.image = self.categoryIconList[imageId].categoryIcon
-                    collectionView.reloadData()
                 }
             }
             
@@ -235,11 +238,11 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
                 if compareId {
                     if let index = self.categories[indexPath.row].orderIndex {
                         self.categories.remove(at: index)
+                        self.categoryCollectionView.deleteItems(at: [indexPath])
                     }
                     collectionView.reloadData()
                 }
             }
-
             self.navigationController?.pushViewController(editCategory, animated: true)
         }
         return cell
