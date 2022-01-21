@@ -68,18 +68,24 @@ final class SearchContentsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
-        searchController.isActive = true
-        self.definesPresentationContext = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        setFocusSearchBar()
+    }
+    
+    override func viewDidLayoutSubviews() {
+       setSearchBarTextField()
+    }
+    
+    func setFocusSearchBar() {
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()
         }
     }
     
-    override func viewDidLayoutSubviews() {
+    func setSearchBarTextField() {
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.backgroundColor = .clear
             textField.font = UIFont.font(.pretendardMedium, ofSize: CGFloat(14))
@@ -162,7 +168,7 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     @objc func clearClicked(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -260,7 +266,6 @@ extension SearchContentsViewController: UISearchBarDelegate {
 extension SearchContentsViewController: UISearchControllerDelegate {
     func didPresentSearchController(_ searchController: UISearchController) {
         DispatchQueue.main.async {
-            print("?")
             self.searchController.searchBar.becomeFirstResponder()
         }
            
