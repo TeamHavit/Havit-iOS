@@ -186,8 +186,6 @@ extension MorePanModalViewController: UITableViewDelegate {
         switch cell.morePanModalCellType {
         case .editTitle:
             print("editTitle")
-            // let editContentsTitleViewController = ./ShareExtension.EditContentsTitleViewController()
-//            navigationController?.pushViewController(editContentsTitleViewController, animated: true)
         case .share:
             print("share")
         case .goToCategory:
@@ -201,8 +199,9 @@ extension MorePanModalViewController: UITableViewDelegate {
             Task {
                 do {
                     let categoryContents = try await categoryContentsService.deleteContents(contentID: "\((contents?.id)!)")
-                    // 성공, 삭제 분기 처리하기
+            
                     self.dismiss(animated: true) {
+                        self.previousViewController?.getCategoryContents()
                         self.previousViewController?.contentsCollectionView.reloadData()
                     }
                 } catch APIServiceError.serverError {
