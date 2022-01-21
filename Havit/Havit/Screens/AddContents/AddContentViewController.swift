@@ -159,7 +159,7 @@ extension AddContentViewController: UITextViewDelegate {
         let estimatedSize = urlTextView.sizeThatFits(size)
 
         urlTextView.constraints.forEach { (constraint) in
-            if estimatedSize.height >= 125 {
+            if estimatedSize.height >= textViewMaxHeight {
                 urlTextView.isScrollEnabled = true
             } else {
                 if constraint.firstAttribute == .height {
