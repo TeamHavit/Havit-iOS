@@ -94,7 +94,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         let button = UIButton(configuration: configuration,
                               primaryAction: nil)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.gray003, for: .normal)
         button.addTarget(self, action: #selector(showSortPanModalViewController(_:)), for: .touchUpInside)
         return button
     }()
@@ -204,14 +204,14 @@ final class CategoryContentsViewController: BaseViewController {
         sortButton.snp.makeConstraints {
             $0.bottom.equalTo(filterView).inset(18)
             $0.trailing.equalTo(filterView).inset(16)
-            $0.width.equalTo(50)
+            $0.width.equalTo(55)
             $0.height.equalTo(20)
         }
         
         filterCollectionView.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(16)
             $0.bottom.equalTo(filterView).inset(9)
-            $0.trailing.equalTo(filterView).inset(70)
+            $0.trailing.equalTo(sortButton.snp.leading).inset(-20)
             $0.height.equalTo(31)
         }
         
