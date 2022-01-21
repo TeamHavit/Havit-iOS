@@ -174,6 +174,7 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         getCategoryContents()
         setDelegations()
     }
@@ -272,6 +273,15 @@ final class CategoryContentsViewController: BaseViewController {
                 textField.layer.addSublayer(border)
             }
         }
+    }
+    
+    private func bind() {
+        backButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func getCategoryContents() {
