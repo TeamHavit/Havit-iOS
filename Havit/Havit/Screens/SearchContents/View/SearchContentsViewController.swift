@@ -168,7 +168,7 @@ final class SearchContentsViewController: BaseViewController {
     private func setDelegations() {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
-        searchController.delegate = self
+//        searchController.delegate = self
         searchController.searchBar.delegate = self
     }
     
@@ -193,7 +193,9 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     @objc func clearClicked(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        searchController.dismiss(animated: true, completion: {
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc func showMorePanModalViewController(_ sender: UIButton) {
