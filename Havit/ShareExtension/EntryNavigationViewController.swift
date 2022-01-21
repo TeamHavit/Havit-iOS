@@ -50,7 +50,7 @@ final class EntryNavigationViewController: UINavigationController {
                 if let categories = try await categories,
                 let targetContents = try await targetContents {
                     self.categories = categories
-                    self.targetContent = TargetContent(title: targetContents.ogTitle, description: targetContents.ogDescription, ogImage: targetContents.ogImage, ogUrl: targetContents.ogURL)
+                    self.targetContent = TargetContent(title: targetContents.ogTitle, description: targetContents.ogDescription, ogImage: targetContents.ogImage, ogUrl: targetContents.ogURL, contentUrl: self.shareObjectUrl)
                 }
                 branchCategoryNavigate()
             } catch APIServiceError.serverError {

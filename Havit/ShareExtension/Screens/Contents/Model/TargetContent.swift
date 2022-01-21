@@ -12,4 +12,5 @@ struct TargetContent {
     var description: String?
     var ogImage: String?
     var ogUrl: String?
+    var contentUrl: String?
 }
