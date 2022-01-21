@@ -39,7 +39,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         button.setTitle("전체보기", for: .normal)
         return button
     }()
-    private lazy var categoryCollectionView: UICollectionView = {
+    lazy var categoryCollectionView: UICollectionView = {
         let flowLayout = MainCategoryCollectionViewFlowLayout(row: 2, column: 3)
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 5
@@ -176,6 +176,7 @@ final class CategoryListTableViewCell: BaseTableViewCell {
     func applyPageControlPages() {
         let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
+        pageControl.layoutIfNeeded()
     }
     
     func applyUserNickname(to nickname: String) {

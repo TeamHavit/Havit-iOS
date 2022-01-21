@@ -28,6 +28,9 @@ final class MainViewController: MainTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupBarHidden()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getMainData()
     }
     
