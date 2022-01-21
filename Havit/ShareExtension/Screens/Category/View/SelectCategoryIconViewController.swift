@@ -13,6 +13,18 @@ final class SelectCategoryIconViewController: BaseViewController {
     
     // MARK: - property
     
+    let categoryIconList: [CategoryIconList] = CategoryIconList.iconList
+    
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
+    
+    var categories: [Category] = []
+    
+    var targetContent: TargetContent?
+    
+    var userRequestCategory: RequestCategory?
+    
+    var selectedCategoryImageId: Int = 1
+    
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
                                             style: .plain,
@@ -91,12 +103,16 @@ final class SelectCategoryIconViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegation()
+        bind()
     }
     
     // MARK: - func
     
     override func configUI() {
         setNavigationBar()
+        view.backgroundColor = .white
+        completeButton.isEnabled = false
     }
     
     override func render() {
@@ -132,6 +148,68 @@ final class SelectCategoryIconViewController: BaseViewController {
         navigationItem.leftBarButtonItem = navigationLeftButton
         navigationItem.rightBarButtonItem = navigationRightButton
     }
+    
+    private func setDelegation() {
+        iconCollectionView.delegate = self
+    }
+    
+    private func bind() {
+        iconCollectionView.rx.itemSelected
+            .bind(onNext: { [weak self] _ in
+                if let selectedCategoryImageId = self?.selectedCategoryImageId {
+                    self?.completeButton.isEnabled = (selectedCategoryImageId > 1)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        completeButton.rx.tap
+            .bind(onNext: { [weak self] _ in
+                self?.createCategory {
+                    self?.getCategory()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func createCategory(completionHandler: @escaping () -> Void) {
+        Task {
+            do {
+                if let requestCategoryTitle = userRequestCategory?.title,
+                   let requestImageId = userRequestCategory?.imageId {
+                    _ = try await categoryService.createCategory(title: requestCategoryTitle,
+                                                             imageId: requestImageId)
+                }
+                completionHandler()
+            } catch APIServiceError.serverError {
+                Logger.debugDescription("serverError")
+            } catch APIServiceError.clientError(let message) {
+                Logger.debugDescription("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
+    private func getCategory() {
+        Task {
+            do {
+                async let responseCategories = try await categoryService.getCategory()
+                if let categories = try await responseCategories {
+                    self.categories = categories
+                }
+                pushNextViewController()
+            } catch APIServiceError.serverError {
+                Logger.debugDescription("serverError")
+            } catch APIServiceError.clientError(let message) {
+                Logger.debugDescription("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
+    private func pushNextViewController() {
+        let selectCategoryViewController = SelectCategoryViewController()
+        selectCategoryViewController.targetContent = self.targetContent
+        selectCategoryViewController.categories = self.categories
+        self.navigationController?.pushViewController(selectCategoryViewController, animated: true)
+    }
 }
 
 extension SelectCategoryIconViewController: UICollectionViewDataSource {
@@ -141,6 +219,15 @@ extension SelectCategoryIconViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryIconCollectionViewCell
+        cell.update(data: categoryIconList[indexPath.row])
         return cell
+    }
+}
+
+extension SelectCategoryIconViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedIconIndex = indexPath.row
+        selectedCategoryImageId = selectedIconIndex + 1
+        userRequestCategory?.imageId = selectedCategoryImageId
     }
 }

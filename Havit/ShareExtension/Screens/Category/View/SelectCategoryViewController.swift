@@ -80,7 +80,7 @@ final class SelectCategoryViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = true
         collectionView.isScrollEnabled = true
-        collectionView.register(cell: CategoryCollectionViewCell.self)
+        collectionView.register(cell: ShareCategoryCollectionViewCell.self)
         return collectionView
     }()
     
@@ -149,7 +149,7 @@ final class SelectCategoryViewController: BaseViewController {
         categoryCollectionView.snp.makeConstraints {
             $0.top.equalTo(selectCategoryNoticeLabel.snp.bottom).offset(34)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalTo(completeButton.snp.top)
+            $0.bottom.equalTo(completeButton.snp.top).offset(-10)
         }
         
         completeButton.snp.makeConstraints {
@@ -207,7 +207,7 @@ extension SelectCategoryViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ShareCategoryCollectionViewCell
         cell.update(data: categories[indexPath.row])
         return cell
     }
@@ -215,7 +215,7 @@ extension SelectCategoryViewController: UICollectionViewDataSource {
 
 extension SelectCategoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ShareCategoryCollectionViewCell {
             cell.didSelect()
             let selectedCategory = categories[indexPath.item]
             let selectedCategoryId = selectedCategory.id
@@ -229,7 +229,7 @@ extension SelectCategoryViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ShareCategoryCollectionViewCell {
             cell.didUnSelect()
             let unSelectedCategory = categories[indexPath.item]
             let unSelectedCategoryId = unSelectedCategory.id
