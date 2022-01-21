@@ -18,6 +18,7 @@ final class CategoryContentsViewController: BaseViewController {
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
     var categoryContents: [CategoryContents] = []
+    var categories: [Category] = []
     
     var isFromAllCategory: Bool = false
     
