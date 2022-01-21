@@ -30,6 +30,8 @@
 		15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
+		4D2D21D4279AFFAE000D58AA /* AddCategoryTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */; };
+		4D2D21D5279AFFD3000D58AA /* TargetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FC76E279AACC700085E32 /* TargetContent.swift */; };
 		4D4DDD4727912AE10069F5FB /* CategoryIconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4627912AE10069F5FB /* CategoryIconList.swift */; };
 		4D4DDD4B279144210069F5FB /* ManageCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DDD4A279144210069F5FB /* ManageCategoryViewController.swift */; };
 		4D4E961E2794566600F11788 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E961D2794566600F11788 /* EditCategoryViewController.swift */; };
@@ -1551,6 +1553,7 @@
 				ED443F7A278B61590059DE76 /* UITableView+Extension.swift in Sources */,
 				EDE7D6D027953E2E009C70EF /* MainCategoryPageControl.swift in Sources */,
 				ED443F8D278C51DF0059DE76 /* Logger.swift in Sources */,
+				4D2D21D4279AFFAE000D58AA /* AddCategoryTitleViewController.swift in Sources */,
 				4D4DDD4727912AE10069F5FB /* CategoryIconList.swift in Sources */,
 				4DD166F62796CE0700AD8960 /* Category.swift in Sources */,
 				4F6FC763279A8B9A00085E32 /* ShareEndPoint.swift in Sources */,
@@ -1566,6 +1569,7 @@
 				EDB6F4C1279908AD006C66AA /* Content.swift in Sources */,
 				15F41A912791EDB400ADF17A /* MorePanModalViewController.swift in Sources */,
 				EDEF61972791380E00C93C84 /* NetworkRequest.swift in Sources */,
+				4D2D21D5279AFFD3000D58AA /* TargetContent.swift in Sources */,
 				EDDE09A0279094BC0093B83F /* ReachRateNotificationTableViewCell.swift in Sources */,
 				ED443F4A2786BB5B0059DE76 /* UIButton+Extension.swift in Sources */,
 				EDEF618F279126EF00C93C84 /* Encodable+Extension.swift in Sources */,

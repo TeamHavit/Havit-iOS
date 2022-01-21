@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import SnapKit
+import ShareExtension
 
 class CategoryViewController: BaseViewController {
 
@@ -190,11 +191,13 @@ class CategoryViewController: BaseViewController {
     }
 
     private func bind() {
-//        addButton.rx.tap
-//            .bind(onNext: { [weak self] in
-//                // 카테고리 추가하는 뷰로 이동 
-//            })
-//            .disposed(by: disposeBag)
+        addButton.rx.tap
+            .bind(onNext: { [weak self] in
+                let addCategoryTitleViewController = AddCategoryTitleViewController()
+                let navigationController = UINavigationController(rootViewController: addCategoryTitleViewController)
+                self?.present(navigationController, animated: true)
+            })
+            .disposed(by: disposeBag)
 
         backButton.rx.tap
             .bind(onNext: { [weak self] in
