@@ -16,6 +16,8 @@ final class AddCategoryTitleViewController: BaseViewController {
     
     private var keyboardHeight: CGFloat = 0
     
+    var targetContent: TargetContent?
+    
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
                                             style: .plain,
@@ -113,6 +115,7 @@ final class AddCategoryTitleViewController: BaseViewController {
     
     override func configUI() {
         setNavigationBar()
+        view.backgroundColor = .white
     }
     
     override func render() {

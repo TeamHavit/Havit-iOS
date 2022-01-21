@@ -7,11 +7,16 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 
 final class SaveContentsViewController: BaseViewController {
     
     // MARK: - property
+    
+    var selectedCategoryIds: [Int] = []
+    
+    var targetContent: TargetContent?
     
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
@@ -30,13 +35,13 @@ final class SaveContentsViewController: BaseViewController {
         return barButtonItem
     }()
     
-    private let contentsImageView: UIImageView = {
+    private var contentsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.imgDummyContent
         return imageView
     }()
     
-    private let contentsTitleLabel: UILabel = {
+    private var contentsTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "콘텐츠 제목은 우리 몇글자까지 할까o.. 어카지어카지"
         label.font = .font(.pretendardSemibold, ofSize: 20)
@@ -46,7 +51,7 @@ final class SaveContentsViewController: BaseViewController {
         return label
     }()
     
-    private let contentsUrlLabel: UILabel = {
+    private var contentsUrlLabel: UILabel = {
         let label = UILabel()
         label.text = "m.blog.naver.com"
         label.font = .font(.pretendardSemibold, ofSize: 12)
@@ -114,7 +119,11 @@ final class SaveContentsViewController: BaseViewController {
     // MARK: - func
     
     override func configUI() {
+        view.backgroundColor = .white
         setNavigationBar()
+        self.contentsTitleLabel.text = targetContent?.title
+        self.contentsUrlLabel.text = targetContent?.contentUrl
+        setImage()
     }
     
     override func render() {
@@ -161,6 +170,13 @@ final class SaveContentsViewController: BaseViewController {
     private func setNavigationBar() {
         title = "콘텐츠 저장"
         navigationItem.leftBarButtonItem = navigationLeftButton
-        navigationItem.rightBarButtonItem = navigationRightButton
+        // navigationItem.rightBarButtonItem = navigationRightButton
+    }
+    
+    private func setImage() {
+        if let imageUrl = targetContent?.ogImage,
+           let url = URL(string: imageUrl) {
+            contentsImageView.kf.setImage(with: url)
+        }
     }
 }

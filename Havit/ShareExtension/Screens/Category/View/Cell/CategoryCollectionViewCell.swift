@@ -45,8 +45,6 @@ final class CategoryCollectionViewCell: BaseCollectionViewCell {
     override func prepareForReuse() {
         categoryImageView.image = nil
         categoryTitleLabel.text = ""
-        checkIcon.isHidden = true
-        backgroundColor = .purpleCategory
     }
 
     // MARK: - func
