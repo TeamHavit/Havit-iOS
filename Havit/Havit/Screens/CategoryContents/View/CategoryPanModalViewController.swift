@@ -17,6 +17,8 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
     var longFormHeight: PanModalHeight = .contentHeight(400)
     var cornerRadius: CGFloat = 0
     
+    var previousViewController: CategoryContentsViewController?
+    
     var categories: [Category]
     var categoryId: Int
     
@@ -112,12 +114,36 @@ extension CategoryPanModalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryPanModalTableViewCell else {
-            print("?")
             return
         }
         cell.backgroundColor = .purpleCategory
         cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
         cell.cellLabel.textColor = .havitPurple
+        
+        self.dismiss(animated: true) {
+            self.previousViewController?.categoryId = cell.tag
+            print(cell.tag)
+            
+            var configuration  = UIButton.Configuration.plain()
+            configuration.buttonSize = .large
+            configuration.imagePlacement = .trailing
+            configuration.imagePadding = 3
+            configuration.title = "카테고리명"
+            configuration.image = ImageLiteral.iconDropBlack
+            
+            var attributes = AttributeContainer()
+        
+            var attributedText = AttributedString.init(cell.cellLabel.text!, attributes: attributes)
+            attributedText.font = UIFont.font(.pretendardBold, ofSize: 16)
+            attributedText.foregroundColor = .black
+            configuration.attributedTitle = attributedText
+            
+            let button = UIButton(configuration: configuration,
+                                  primaryAction: nil)
+            button.addTarget(self, action: #selector(self.previousViewController?.showCategoryPanModalViewController(_:)), for: .touchUpInside)
+            self.previousViewController?.navigationItem.titleView = button
+            self.previousViewController?.contentsCollectionView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

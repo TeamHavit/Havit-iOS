@@ -480,6 +480,7 @@ final class CategoryContentsViewController: BaseViewController {
     
     @objc func showCategoryPanModalViewController(_ sender: UIButton) {
         let viewController = CategoryPanModalViewController(categoryId: categoryId, categories: categories)
+        viewController.previousViewController = self
         self.presentPanModal(viewController)
     }
     
