@@ -8,6 +8,7 @@
 import Foundation
 
 enum CategoryEndPoint {
+    case createCategory(title: String, imageId: Int)
     case getCategory
     case editCategory(categoryId: Int, title: String, imageId: Int)
     case changeCategoryOrder(categoryIndexArray: [Int])
@@ -19,6 +20,8 @@ enum CategoryEndPoint {
 
     var httpMethod: HttpMethod {
         switch self {
+        case .createCategory:
+            return .POST
         case .getCategory:
             return .GET
         case .editCategory:
@@ -32,6 +35,10 @@ enum CategoryEndPoint {
 
     var requestBody: Data? {
         switch self {
+        case .createCategory(let title, let imageId):
+            let parameters = ["title": title,
+                              "imageId": imageId.description]
+            return parameters.encode()
         case .getCategory:
             return nil
         case .editCategory(_, let title, let imageId):
@@ -49,6 +56,8 @@ enum CategoryEndPoint {
     func getURL(from environment: APIEnvironment) -> String {
         let baseUrl = environment.baseUrl
         switch self {
+        case .createCategory:
+            return "\(baseUrl)/category"
         case .getCategory:
             return "\(baseUrl)/category"
         case .editCategory(let categoryId, _, _):
