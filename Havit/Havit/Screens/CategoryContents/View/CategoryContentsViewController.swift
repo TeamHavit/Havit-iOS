@@ -169,6 +169,11 @@ final class CategoryContentsViewController: BaseViewController {
         setDelegations()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupBaseNavigationBar(backgroundColor: .whiteGray)
+    }
+    
     override func render() {
         self.view.addSubViews([mainView, filterView])
         mainView.addSubViews([mainViewBorderView, contentsCollectionView])
@@ -312,6 +317,8 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func goToCategoryCorrection(_: UIButton) {
+        let manageCategoryViewController = ManageCategoryViewController()
+        navigationController?.pushViewController(manageCategoryViewController, animated: true)
     }
     
     @objc func showSortPanModalViewController(_ sender: UIButton) {
