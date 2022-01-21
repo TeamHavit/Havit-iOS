@@ -338,13 +338,13 @@ final class CategoryContentsViewController: BaseViewController {
             configuration.title = "카테고리명"
             configuration.image = ImageLiteral.iconDropBlack
             
-            var attributes = AttributeContainer()
-            attributes.foregroundColor = .primaryBlack
-            guard let title = getCategoryTitle() else {
+            guard let nowCategory = getNowCategory() else {
                 return
             }
-        
-            var attributedText = AttributedString.init(title, attributes: attributes)
+            
+            var attributes = AttributeContainer()
+            attributes.foregroundColor = .primaryBlack
+            var attributedText = AttributedString.init(nowCategory.title!, attributes: attributes)
             attributedText.font = UIFont.font(.pretendardBold, ofSize: 16)
             attributedText.foregroundColor = .black
             configuration.attributedTitle = attributedText
@@ -369,7 +369,7 @@ final class CategoryContentsViewController: BaseViewController {
         contentsCollectionView.dataSource = self
     }
     
-    private func getCategoryTitle() -> String? {
+    private func getNowCategoryTitle() -> String? {
         for i in 1..<categories.count {
             if categories[i].id! == categoryId {
                 return categories[i - 1].title
@@ -379,9 +379,9 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     private func getNowCategory() -> Category? {
-        for i in 1..<categories.count {
+        for i in 0..<categories.count {
             if categories[i].id! == categoryId {
-                return categories[i - 1]
+                return categories[i]
             }
         }
         return nil
