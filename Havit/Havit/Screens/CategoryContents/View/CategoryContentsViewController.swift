@@ -307,9 +307,7 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 } else {
-                    guard let nowCategoryId = getNowCategory()?.id else {
-                        return
-                    }
+                    guard let nowCategoryId = getNowCategory()?.id else { return }
                     
                     let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(nowCategoryId), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
