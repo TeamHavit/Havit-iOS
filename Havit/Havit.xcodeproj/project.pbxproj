@@ -28,6 +28,7 @@
 		15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */; };
 		15F6403727995EA400D9654E /* CategoryContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403627995EA400D9654E /* CategoryContentsService.swift */; };
 		15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */; };
+		15F6403B279B40F200D9654E /* CategoryContentEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403A279B40F200D9654E /* CategoryContentEmptyView.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
 		4D2D21D4279AFFAE000D58AA /* AddCategoryTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */; };
@@ -326,6 +327,7 @@
 		15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsServiceable.swift; sourceTree = "<group>"; };
 		15F6403627995EA400D9654E /* CategoryContentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsService.swift; sourceTree = "<group>"; };
 		15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsEndPoint.swift; sourceTree = "<group>"; };
+		15F6403A279B40F200D9654E /* CategoryContentEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentEmptyView.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3BBB51D92794023E0098A835 /* WebViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewToolbar.swift; sourceTree = "<group>"; };
 		4D4DDD4627912AE10069F5FB /* CategoryIconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconList.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			children = (
 				1546A3F82797F998009AE579 /* CategoryContentsEnum.swift */,
 				1546A3FA2797FA9C009AE579 /* Cells */,
+				15F6403A279B40F200D9654E /* CategoryContentEmptyView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1674,6 +1677,7 @@
 				ED443F1F2786A4060059DE76 /* CategoryViewModel.swift in Sources */,
 				EDEF618B2790C2AC00C93C84 /* SearchBarView.swift in Sources */,
 				EDEF6191279136DD00C93C84 /* HttpMethod.swift in Sources */,
+				15F6403B279B40F200D9654E /* CategoryContentEmptyView.swift in Sources */,
 				ED443EB0278598670059DE76 /* SceneDelegate.swift in Sources */,
 				1546A40627984EF9009AE579 /* SearchContentsService.swift in Sources */,
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
@@ -1738,7 +1742,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1763,7 +1767,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1907,7 +1911,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
