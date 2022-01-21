@@ -177,7 +177,6 @@ final class CategoryListTableViewCell: BaseTableViewCell {
         let totalCellCount = calculateTotalCategoryCellCount(with: categories)
         pageControl.pages = totalCellCount / Count.maxCategoryCountInPage
         pageControl.layoutIfNeeded()
-        
     }
     
     func applyUserNickname(to nickname: String) {
