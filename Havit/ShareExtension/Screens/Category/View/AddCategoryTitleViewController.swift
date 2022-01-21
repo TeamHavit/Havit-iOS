@@ -10,11 +10,18 @@ import UIKit
 import RxCocoa
 import SnapKit
 
+enum CategoryEntryPointType {
+    case share
+    case category
+}
+
 final class AddCategoryTitleViewController: BaseViewController {
     
     // MARK: - property
     
     private var keyboardHeight: CGFloat = 0
+    
+    private var type: CategoryEntryPointType
     
     var targetContent: TargetContent?
     
@@ -103,6 +110,17 @@ final class AddCategoryTitleViewController: BaseViewController {
         return button
     }()
     
+    // MARK: - init
+
+    init(type: CategoryEntryPointType) {
+        self.type = type
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -175,6 +193,7 @@ final class AddCategoryTitleViewController: BaseViewController {
                 let selectCategoryIconViewController = SelectCategoryIconViewController()
                 selectCategoryIconViewController.userRequestCategory = userRequestCategory
                 selectCategoryIconViewController.targetContent = self.targetContent
+                selectCategoryIconViewController.categoryEntryPoint = self.type
                 
                 self.navigationController?.pushViewController(selectCategoryIconViewController, animated: true)
             })

@@ -236,10 +236,11 @@ extension ManageCategoryViewController: UICollectionViewDataSource {
             
             editCategory.sendDeleteData = {
                 if compareId {
-                    if let index = self.categories[indexPath.row].orderIndex {
-                        self.categories.remove(at: index)
-                        self.categoryCollectionView.deleteItems(at: [indexPath])
-                    }
+                    let index = indexPath.row
+                    print(index)
+                    self.categories.remove(at: index)
+                    self.categoryCollectionView.deleteItems(at: [indexPath])
+                    
                     collectionView.reloadData()
                 }
             }
