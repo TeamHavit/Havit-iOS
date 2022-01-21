@@ -1137,8 +1137,8 @@
 				EDE7D6C62792BDB4009C70EF /* RateContentView.swift */,
 				EDE7D6CF27953E2E009C70EF /* MainCategoryPageControl.swift */,
 				EDE7D6DD2797E3C7009C70EF /* MainCategoryEmptyView.swift */,
-				EDE7D6DF2797EEA7009C70EF /* MainRecentContentEmptyView.swift */,
 				ED87AE61279827E100517AEC /* MainContentEmptyView.swift */,
+				EDE7D6DF2797EEA7009C70EF /* MainRecentContentEmptyView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
