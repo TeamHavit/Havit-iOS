@@ -206,7 +206,17 @@ final class SearchContentsViewController: BaseViewController {
 }
 
 extension SearchContentsViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = indexPath.item
+        if let url = searchResult[item].url,
+           let isReadContent = searchResult[item].isSeen,
+           let contentId = searchResult[item].id {
+            let webViewController = WebViewController(urlString: url,
+                                                      isReadContent: isReadContent,
+                                                      contentId: contentId)
+            navigationController?.pushViewController(webViewController, animated: true)
+        }
+    }
 }
 
 extension SearchContentsViewController: UICollectionViewDataSource {

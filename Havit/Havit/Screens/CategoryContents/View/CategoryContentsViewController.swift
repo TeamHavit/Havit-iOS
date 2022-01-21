@@ -474,7 +474,6 @@ extension CategoryContentsViewController: UICollectionViewDelegate {
         }
       
     }
-    
 }
 
 extension CategoryContentsViewController: UICollectionViewDataSource {
