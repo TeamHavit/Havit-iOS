@@ -304,19 +304,21 @@ final class CategoryContentsViewController: BaseViewController {
                         self.categoryContents = categoryContents
                         self.totalLabel.text = "전체 \(categoryContents.count)"
                     } else {
-                       // Emtpy 띄우기
+                       // Emtpy 띄우기 
                     }
                 } else {
-                    guard let nowCategoryId = getNowCategory()?.id else { return }
-                    
-                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(nowCategoryId), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
-                    if let categoryContents = categoryContents,
-                       !categoryContents.isEmpty {
-                        self.categoryContents = categoryContents
-                        self.totalLabel.text = "전체 \(categoryContents.count)"
-                    } else {
-                       // Emtpy 띄우기
+                    if let nowCategory = getNowCategory(), let id = nowCategory.id {
+                        let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(id), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
+                        print(categoryContents)
+                        if let categoryContents = categoryContents,
+                           !categoryContents.isEmpty {
+                            self.categoryContents = categoryContents
+                            self.totalLabel.text = "전체 \(categoryContents.count)"
+                        } else {
+                           // Emtpy 띄우기
+                        }
                     }
+                   
                 }
                 DispatchQueue.main.async {
                     self.contentsCollectionView.reloadData()
@@ -367,15 +369,6 @@ final class CategoryContentsViewController: BaseViewController {
         filterCollectionView.dataSource = self
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
-    }
-    
-    private func getNowCategoryTitle() -> String? {
-        for i in 1..<categories.count {
-            if categories[i].id! == categoryId {
-                return categories[i - 1].title
-            }
-        }
-        return nil
     }
     
     private func getNowCategory() -> Category? {
