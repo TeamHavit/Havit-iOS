@@ -268,7 +268,5 @@ extension SearchContentsViewController: UISearchControllerDelegate {
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()
         }
-           
     }
-    
 }
