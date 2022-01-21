@@ -84,6 +84,24 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
         }
         return nil
     }
+    
+    private func getNowCategory() -> Category? {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1]
+            }
+        }
+        return nil
+    }
+    
+    private func getNowCategoryIndex() -> Int {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return i - 1
+            }
+        }
+        return -1
+    }
 }
 
 extension CategoryPanModalViewController: UITableViewDelegate {
@@ -94,6 +112,7 @@ extension CategoryPanModalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryPanModalTableViewCell else {
+            print("?")
             return
         }
         cell.backgroundColor = .purpleCategory
@@ -111,6 +130,15 @@ extension CategoryPanModalViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withType: CategoryPanModalTableViewCell.self, for: indexPath)
         cell.cellLabel.text = categories[indexPath.row].title
         cell.selectionStyle = .none
+        if let nowCategoryId = getNowCategory()?.id {
+            cell.tag = nowCategoryId
+            if let id = getNowCategory()?.id {
+                if id != categories[indexPath.row].id {
+                    cell.cellImageView.isHidden = true
+                }
+            }
+        }
+        
         return cell
     }
 }
