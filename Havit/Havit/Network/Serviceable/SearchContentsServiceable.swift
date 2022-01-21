@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SearchContentsSeriviceable {
-    func getSearchResult(keyword: String) async throws -> [SearchContents]?
+    func getSearchResult(keyword: String) async throws -> [Content]?
 }
