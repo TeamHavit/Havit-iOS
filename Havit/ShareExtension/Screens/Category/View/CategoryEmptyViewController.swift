@@ -105,7 +105,7 @@ final class CategoryEmptyViewController: BaseViewController {
     private func bind() {
         addCategoryButton.rx.tap
             .bind(onNext: {
-                let addCategoryTitleViewController = AddCategoryTitleViewController()
+                let addCategoryTitleViewController = AddCategoryTitleViewController(type: .category)
                 addCategoryTitleViewController.targetContent = self.targetContent
                 self.navigationController?.pushViewController(addCategoryTitleViewController, animated: true)
             })

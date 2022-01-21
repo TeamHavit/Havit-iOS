@@ -23,6 +23,8 @@ final class SelectCategoryIconViewController: BaseViewController {
     
     var userRequestCategory: RequestCategory?
     
+    var categoryEntryPoint: CategoryEntryPointType?
+    
     var selectedCategoryImageId: Int = 1
     
     private let navigationLeftButton: UIBarButtonItem = {
@@ -164,8 +166,17 @@ final class SelectCategoryIconViewController: BaseViewController {
         
         completeButton.rx.tap
             .bind(onNext: { [weak self] _ in
-                self?.createCategory {
-                    self?.getCategory()
+                switch self?.categoryEntryPoint {
+                case .share:
+                    self?.createCategory {
+                        self?.getCategory()
+                    }
+                case .category:
+                    self?.createCategory {
+                        self?.dismiss(animated: true, completion: nil)
+                    }
+                default:
+                    break
                 }
             })
             .disposed(by: disposeBag)
