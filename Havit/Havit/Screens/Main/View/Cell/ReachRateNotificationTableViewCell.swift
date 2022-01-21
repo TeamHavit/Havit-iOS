@@ -72,7 +72,7 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
         notificationLabel.snp.makeConstraints {
             $0.centerY.equalTo(notificationView)
             $0.leading.equalToSuperview().inset(36)
-            $0.trailing.equalTo(closeButton.snp.leading).offset(-5)
+            $0.trailing.equalTo(closeButton.snp.leading).offset(-5).priority(.low)
         }
     }
     
@@ -93,7 +93,9 @@ final class ReachRateNotificationTableViewCell: BaseTableViewCell {
             .disposed(by: disposeBag)
     }
     
-    func updateNotificationLabel(to text: String) {
-        notificationLabel.text = text
+    func updateNotificationLabel(with totalCount: Int, watchedCount: Int) {
+        let rate: Double = Double(watchedCount) / Double(totalCount)
+        
+        notificationLabel.text = "도달률이 \(Int(rate * 100))% 이하로 떨어졌어요!"
     }
 }

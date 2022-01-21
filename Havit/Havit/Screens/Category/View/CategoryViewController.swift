@@ -234,6 +234,13 @@ extension CategoryViewController: UICollectionViewDataSource {
         cell.update(data: categories[indexPath.row])
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let categoryId = categories[indexPath.item].id else { return }
+        let categoryContentViewController = CategoryContentsViewController(categoryId: categoryId,
+                                                                           categories: categories)
+        navigationController?.pushViewController(categoryContentViewController, animated: true)
+    }
 }
 
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {

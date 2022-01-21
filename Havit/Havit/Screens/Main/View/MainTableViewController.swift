@@ -112,7 +112,10 @@ extension MainTableViewController: UITableViewDataSource {
         case .notification:
             let cell = tableView.dequeueReusableCell(withType: ReachRateNotificationTableViewCell.self,
                                                      for: indexPath)
-            cell.updateNotificationLabel(to: "도달률이 50% 이하로 떨어졌어요!")
+            if let totalContent = user?.totalContentNumber,
+               let watchedContent = user?.totalSeenContentNumber {
+                cell.updateNotificationLabel(with: totalContent, watchedCount: watchedContent)
+            }
             cell.didTapCloseButton = { [weak self] in
                 self?.presentableCellTypesInReachSection.removeAll { type in
                     type == .notification
@@ -153,9 +156,18 @@ extension MainTableViewController: UITableViewDataSource {
                 let categoryViewController = CategoryViewController(type: .main)
                 self?.navigationController?.pushViewController(categoryViewController, animated: true)
             }
-            cell.didTapCategory = { [weak self] _ in
-                let categoryContentViewController = CategoryContentsViewController()
-                self?.navigationController?.pushViewController(categoryContentViewController, animated: true)
+            cell.didTapCategory = { [weak self] row in
+                let isAllContentRow = row == .zero
+                let categoryContentViewController: CategoryContentsViewController?
+                if isAllContentRow {
+                    categoryContentViewController = CategoryContentsViewController(categoryId: -1,
+                                                                                     categories: self?.categories ?? [])
+                    categoryContentViewController?.isFromAllCategory = true
+                } else {
+                    categoryContentViewController = CategoryContentsViewController(categoryId: self?.categories[row].id ?? -1,
+                                                                                     categories: self?.categories ?? [])
+                }
+                self?.navigationController?.pushViewController(categoryContentViewController ?? UIViewController(), animated: true)
             }
             return cell
         case .guideline:

@@ -17,6 +17,8 @@ final class CategoryContentsViewController: BaseViewController {
     // MARK: - Property
     let categoryContentsService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
                                                                 environment: .development)
+    var categories: [Category]
+    var categoryId: Int
     
     private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
                                                                            environment: .development)
@@ -30,7 +32,6 @@ final class CategoryContentsViewController: BaseViewController {
     private var gridType: GridType = .grid
     var contentsSortType: ContentsSortType = .createdAt
     var contentsFilterType: ContentsFilterType = .all
-    var categoryId = 0
     
     var sortList: [String] = ["최신순", "과거순", "최근 조회순"]
     var filterList: [String] = ["전체", "안 봤어요", "봤어요", "알람"]
@@ -160,7 +161,9 @@ final class CategoryContentsViewController: BaseViewController {
     
     // MARK: - init
     
-    override init() {
+    init(categoryId: Int, categories: [Category]) {
+        self.categoryId = categoryId
+        self.categories = categories
         super.init()
         hidesBottomBarWhenPushed = true
     }
@@ -174,6 +177,7 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         getCategoryContents()
         setDelegations()
     }
@@ -277,6 +281,15 @@ final class CategoryContentsViewController: BaseViewController {
                 textField.layer.addSublayer(border)
             }
         }
+    }
+    
+    private func bind() {
+        backButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func getCategoryContents() {
