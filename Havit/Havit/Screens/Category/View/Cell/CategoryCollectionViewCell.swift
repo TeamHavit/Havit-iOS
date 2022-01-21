@@ -30,7 +30,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
         return image
     }()
 
-    private let categoryTitleLabel: UILabel = {
+    var categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .font(.pretendardMedium, ofSize: 14)
         return label
