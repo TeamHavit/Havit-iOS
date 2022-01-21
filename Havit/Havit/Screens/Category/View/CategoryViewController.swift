@@ -104,6 +104,9 @@ class CategoryViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setupBaseNavigationBar(backgroundColor: .white)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         getCategory()
     }
 
