@@ -95,7 +95,7 @@ final class CategoryContentsViewController: BaseViewController {
         
         let button = UIButton(configuration: configuration,
                               primaryAction: nil)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.gray003, for: .normal)
         button.addTarget(self, action: #selector(showSortPanModalViewController(_:)), for: .touchUpInside)
         return button
     }()
@@ -150,6 +150,12 @@ final class CategoryContentsViewController: BaseViewController {
         return collectionView
     }()
     
+    private let backButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
+        button.setImage(ImageLiteral.btnBackBlack, for: .normal)
+        return button
+    }()
+    
     // MARK: - init
     
     init(categoryId: Int, categories: [Category]) {
@@ -178,7 +184,8 @@ final class CategoryContentsViewController: BaseViewController {
         filterView.addSubViews([totalLabel, gridButton, sortButton, filterCollectionView])
         
         mainView.snp.makeConstraints {
-            $0.leading.bottom.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
         }
         
         filterView.snp.makeConstraints {
@@ -207,14 +214,14 @@ final class CategoryContentsViewController: BaseViewController {
         sortButton.snp.makeConstraints {
             $0.bottom.equalTo(filterView).inset(18)
             $0.trailing.equalTo(filterView).inset(16)
-            $0.width.equalTo(50)
+            $0.width.equalTo(55)
             $0.height.equalTo(20)
         }
         
         filterCollectionView.snp.makeConstraints {
             $0.leading.equalTo(filterView).offset(16)
             $0.bottom.equalTo(filterView).inset(9)
-            $0.trailing.equalTo(filterView).inset(70)
+            $0.trailing.equalTo(sortButton.snp.leading).inset(-20)
             $0.height.equalTo(31)
         }
         
@@ -305,6 +312,7 @@ final class CategoryContentsViewController: BaseViewController {
         navigationItem.rightBarButtonItem = navigationRightButton
         navigationItem.titleView = navigationTitleButton
         navigationItem.searchController = searchController
+        navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
     }
     
     private func setDelegations() {
@@ -312,6 +320,10 @@ final class CategoryContentsViewController: BaseViewController {
         filterCollectionView.dataSource = self
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
+    }
+    
+    private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
+        return UIBarButtonItem(customView: button)
     }
     
     @objc func goToCategoryCorrection(_: UIButton) {
@@ -357,7 +369,6 @@ final class CategoryContentsViewController: BaseViewController {
 extension CategoryContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
-            print("앙대")
             return
         }
         switch indexPath.row {
@@ -399,6 +410,11 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 }()
                 cell.layer.cornerRadius = (label.frame.width / 2) * (label.frame.height / label.frame.width) + 10
             }
+            if indexPath.row == 0 {
+               collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+               cell.isSelected = true
+               
+           }
             cell.layer.masksToBounds = true
             return cell
         case contentsCollectionView:

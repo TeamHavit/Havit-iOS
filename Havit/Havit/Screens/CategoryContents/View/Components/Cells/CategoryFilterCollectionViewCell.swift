@@ -51,6 +51,7 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
         didSet {
             contentView.backgroundColor = isSelected ? .primaryBlack : .whiteGray
             filterNameLabel.textColor = isSelected ? .white : .gray003
+            filterImageView.image = isSelected ? ImageLiteral.btnAlarmGray : ImageLiteral.btnAlarm
         }
     }
 
