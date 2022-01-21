@@ -177,6 +177,8 @@ final class CategoryContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(categories)
+        print(categoryId)
         bind()
         getCategoryContents()
         setDelegations()
@@ -305,7 +307,9 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 } else {
-                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: "1", option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
+                    guard let nowCategoryId = getNowCategory()?.id else { return }
+                    
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(nowCategoryId), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -326,6 +330,31 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     func setNavigationItem() {
+        if !isFromAllCategory {
+            var configuration  = UIButton.Configuration.plain()
+            configuration.buttonSize = .large
+            configuration.imagePlacement = .trailing
+            configuration.imagePadding = 3
+            configuration.title = "카테고리명"
+            configuration.image = ImageLiteral.iconDropBlack
+            
+            var attributes = AttributeContainer()
+            attributes.foregroundColor = .primaryBlack
+            guard let title = getCategoryTitle() else {
+                return
+            }
+        
+            var attributedText = AttributedString.init(title, attributes: attributes)
+            attributedText.font = UIFont.font(.pretendardBold, ofSize: 16)
+            attributedText.foregroundColor = .black
+            configuration.attributedTitle = attributedText
+            
+            let button = UIButton(configuration: configuration,
+                                  primaryAction: nil)
+            button.addTarget(self, action: #selector(showCategoryPanModalViewController(_:)), for: .touchUpInside)
+            navigationTitleButton = button
+        }
+        
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.rightBarButtonItem = navigationRightButton
         navigationItem.titleView = navigationTitleButton
@@ -338,6 +367,24 @@ final class CategoryContentsViewController: BaseViewController {
         filterCollectionView.dataSource = self
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
+    }
+    
+    private func getCategoryTitle() -> String? {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1].title
+            }
+        }
+        return nil
+    }
+    
+    private func getNowCategory() -> Category? {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1]
+            }
+        }
+        return nil
     }
     
     private func patchContentToggle(contentId: Int, item: Int) {
@@ -431,8 +478,9 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showCategoryPanModalViewController(_ sender: UIButton) {
-        
-        self.presentPanModal(CategoryPanModalViewController())
+        let viewController = CategoryPanModalViewController(categoryId: categoryId, categories: categories)
+        viewController.previousViewController = self
+        self.presentPanModal(viewController)
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {

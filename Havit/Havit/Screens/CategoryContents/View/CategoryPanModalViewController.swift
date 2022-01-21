@@ -16,8 +16,11 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
     var shortFormHeight: PanModalHeight = .contentHeight(400)
     var longFormHeight: PanModalHeight = .contentHeight(400)
     var cornerRadius: CGFloat = 0
-
-    let categoryList = ["UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스", "UX/UI 디자인 레퍼런스"]
+    
+    var previousViewController: CategoryContentsViewController?
+    
+    var categories: [Category]
+    var categoryId: Int
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -33,7 +36,18 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
         tableView.register(cell: CategoryPanModalTableViewCell.self, forCellReuseIdentifier: CategoryPanModalTableViewCell.className)
         return tableView
     }()
-
+    
+    init(categoryId: Int, categories: [Category]) {
+        self.categoryId = categoryId
+        self.categories = categories
+        super.init()
+        hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegations()
@@ -63,12 +77,39 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
     }
+    
+    private func getCategoryTitle() -> String? {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1].title
+            }
+        }
+        return nil
+    }
+    
+    private func getNowCategory() -> Category? {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1]
+            }
+        }
+        return nil
+    }
+    
+    private func getNowCategoryIndex() -> Int {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return i - 1
+            }
+        }
+        return -1
+    }
 }
 
 extension CategoryPanModalViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -78,6 +119,31 @@ extension CategoryPanModalViewController: UITableViewDelegate {
         cell.backgroundColor = .purpleCategory
         cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
         cell.cellLabel.textColor = .havitPurple
+        
+        self.dismiss(animated: true) {
+            self.previousViewController?.categoryId = cell.tag
+            print(cell.tag)
+            
+            var configuration  = UIButton.Configuration.plain()
+            configuration.buttonSize = .large
+            configuration.imagePlacement = .trailing
+            configuration.imagePadding = 3
+            configuration.title = "카테고리명"
+            configuration.image = ImageLiteral.iconDropBlack
+            
+            var attributes = AttributeContainer()
+        
+            var attributedText = AttributedString.init(cell.cellLabel.text!, attributes: attributes)
+            attributedText.font = UIFont.font(.pretendardBold, ofSize: 16)
+            attributedText.foregroundColor = .black
+            configuration.attributedTitle = attributedText
+            
+            let button = UIButton(configuration: configuration,
+                                  primaryAction: nil)
+            button.addTarget(self, action: #selector(self.previousViewController?.showCategoryPanModalViewController(_:)), for: .touchUpInside)
+            self.previousViewController?.navigationItem.titleView = button
+            self.previousViewController?.contentsCollectionView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,8 +154,17 @@ extension CategoryPanModalViewController: UITableViewDelegate {
 extension CategoryPanModalViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withType: CategoryPanModalTableViewCell.self, for: indexPath)
-        cell.cellLabel.text = categoryList[indexPath.row]
+        cell.cellLabel.text = categories[indexPath.row].title
         cell.selectionStyle = .none
+        if let nowCategoryId = getNowCategory()?.id {
+            cell.tag = nowCategoryId
+            if let id = getNowCategory()?.id {
+                if id != categories[indexPath.row].id {
+                    cell.cellImageView.isHidden = true
+                }
+            }
+        }
+        
         return cell
     }
 }
