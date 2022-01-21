@@ -26,7 +26,7 @@ class MorePanModalViewController: BaseViewController, PanModalPresentable {
     var longFormHeight: PanModalHeight = .contentHeight(451)
     var cornerRadius: CGFloat = 30
     
-    var contents: CategoryContents?
+    var contents: Content?
     
     private let moreList = ["제목 수정", "공유", "카테고리 이동", "알림 설정", "삭제"]
     
@@ -185,11 +185,16 @@ extension MorePanModalViewController: UITableViewDelegate {
         
         switch cell.morePanModalCellType {
         case .editTitle:
-            print("editTitle")
+            print("edirTitle")
+            // let editContentsTitleViewController = ./ShareExtension.EditContentsTitleViewController()
+//            navigationController?.pushViewController(editContentsTitleViewController, animated: true)
         case .share:
             print("share")
         case .goToCategory:
-            print("goToCategory")
+            self.dismiss(animated: true) {
+                let manageCategoryViewController = ManageCategoryViewController()
+                self.previousViewController?.navigationController?.pushViewController(manageCategoryViewController, animated: true)
+            }
         case .setAlarm:
             print("setAlarm")
         case .delete:
@@ -209,9 +214,7 @@ extension MorePanModalViewController: UITableViewDelegate {
         case .none:
             print("임시 프린트")
         }
-        
     }
-
 }
 
 extension MorePanModalViewController: UITableViewDataSource {

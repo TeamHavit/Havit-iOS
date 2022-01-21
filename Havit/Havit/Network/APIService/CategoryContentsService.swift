@@ -17,14 +17,14 @@ struct CategoryContentsService: CategoryContentsSeriviceable {
         self.environment = environment
     }
     
-    func getAllContents(option: String, filter: String) async throws -> [CategoryContents]? {
+    func getAllContents(option: String, filter: String) async throws -> [Content]? {
         let request = CategoryContentsEndPoint
             .getAllContents(option: option, filter: filter)
             .createRequest(environment: environment)
         return try await self.apiService.request(request)
     }
     
-    func getCategoryContents(categoryID: String, option: String, filter: String) async throws -> [CategoryContents]? {
+    func getCategoryContents(categoryID: String, option: String, filter: String) async throws -> [Content]? {
         let request = CategoryContentsEndPoint
             .getCategoryContents(categoryID: categoryID, option: option, filter: filter)
             .createRequest(environment: environment)
