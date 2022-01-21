@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_splash" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-1q-J5N">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_splash" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-1q-J5N">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
@@ -24,9 +24,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="OlA-1q-J5N" secondAttribute="bottom" id="Lfe-fo-89k"/>
-                            <constraint firstItem="OlA-1q-J5N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eoY-Wb-Mi7"/>
+                            <constraint firstAttribute="trailing" secondItem="OlA-1q-J5N" secondAttribute="trailing" id="Ryd-O3-5qs"/>
                             <constraint firstItem="OlA-1q-J5N" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="m6Y-p8-6sy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OlA-1q-J5N" secondAttribute="trailing" id="uY6-Oa-c9y"/>
+                            <constraint firstItem="OlA-1q-J5N" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="s2L-GR-9em"/>
                         </constraints>
                     </view>
                 </viewController>
