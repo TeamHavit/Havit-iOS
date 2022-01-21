@@ -112,7 +112,10 @@ extension MainTableViewController: UITableViewDataSource {
         case .notification:
             let cell = tableView.dequeueReusableCell(withType: ReachRateNotificationTableViewCell.self,
                                                      for: indexPath)
-            cell.updateNotificationLabel(to: "도달률이 50% 이하로 떨어졌어요!")
+            if let totalContent = user?.totalContentNumber,
+               let watchedContent = user?.totalSeenContentNumber {
+                cell.updateNotificationLabel(with: totalContent, watchedCount: watchedContent)
+            }
             cell.didTapCloseButton = { [weak self] in
                 self?.presentableCellTypesInReachSection.removeAll { type in
                     type == .notification
