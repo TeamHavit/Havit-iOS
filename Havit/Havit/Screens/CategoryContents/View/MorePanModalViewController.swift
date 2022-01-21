@@ -10,7 +10,6 @@ import UIKit
 import Kingfisher
 import PanModal
 import SnapKit
-import ShareExtension
 
 class MorePanModalViewController: BaseViewController, PanModalPresentable {
     

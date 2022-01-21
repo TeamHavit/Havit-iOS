@@ -329,8 +329,6 @@ final class CategoryContentsViewController: BaseViewController {
                     guard
                         let cell = contentsCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
                     else { return }
-                    
-                    print(isSeen)
                     cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
                 }
             } catch APIServiceError.serverError {
