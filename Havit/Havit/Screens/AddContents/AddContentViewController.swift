@@ -16,8 +16,8 @@ final class AddContentViewController: BaseViewController {
     
     private let navigationRightButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
-                                            target: nil,
-                                            action: nil)
+                                            target: self,
+                                            action: #selector(didTapCloseButton))
         barButtonItem.tintColor = .havitGray
         return barButtonItem
     }()
@@ -125,6 +125,13 @@ final class AddContentViewController: BaseViewController {
                 self.nextButton.isEnabled = $0
             }
             .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setUpKeyboardForButtonAnimation() {
@@ -150,6 +157,11 @@ final class AddContentViewController: BaseViewController {
         UIView.animate(withDuration: TimeInterval(0.1), animations: {
             self.nextButton.transform = CGAffineTransform.init(translationX: 0, y: -(self.keyboardHeight))
         })
+    }
+    
+    @objc
+    private func didTapCloseButton() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
