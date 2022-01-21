@@ -307,7 +307,11 @@ final class CategoryContentsViewController: BaseViewController {
                        // Emtpy 띄우기
                     }
                 } else {
-                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(categoryId), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
+                    guard let nowCategoryId = getNowCategory()?.id else {
+                        return
+                    }
+                    
+                    let categoryContents = try await categoryContentsService.getCategoryContents(categoryID: String(nowCategoryId), option: contentsFilterType.rawValue, filter: contentsSortType.rawValue)
                     if let categoryContents = categoryContents,
                        !categoryContents.isEmpty {
                         self.categoryContents = categoryContents
@@ -371,6 +375,15 @@ final class CategoryContentsViewController: BaseViewController {
         for i in 1..<categories.count {
             if categories[i].id! == categoryId {
                 return categories[i - 1].title
+            }
+        }
+        return nil
+    }
+    
+    private func getNowCategory() -> Category? {
+        for i in 1..<categories.count {
+            if categories[i].id! == categoryId {
+                return categories[i - 1]
             }
         }
         return nil
@@ -466,8 +479,8 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showCategoryPanModalViewController(_ sender: UIButton) {
-        
-        self.presentPanModal(CategoryPanModalViewController())
+        let viewController = CategoryPanModalViewController(categoryId: categoryId, categories: categories)
+        self.presentPanModal(viewController)
     }
     
     @objc func changeContentsShow(_ sender: UIButton) {

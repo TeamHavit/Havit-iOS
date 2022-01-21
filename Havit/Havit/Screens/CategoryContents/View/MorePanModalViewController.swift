@@ -185,7 +185,7 @@ extension MorePanModalViewController: UITableViewDelegate {
         
         switch cell.morePanModalCellType {
         case .editTitle:
-            print("edirTitle")
+            print("editTitle")
             // let editContentsTitleViewController = ./ShareExtension.EditContentsTitleViewController()
 //            navigationController?.pushViewController(editContentsTitleViewController, animated: true)
         case .share:
