@@ -15,6 +15,8 @@ final class SelectCategoryViewController: BaseViewController {
     
     var categories: [Category] = []
     
+    var targetContent: TargetContent?
+    
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
                                             style: .plain,
