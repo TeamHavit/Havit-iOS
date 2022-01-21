@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class SelectCategoryViewController: BaseViewController {
@@ -14,6 +15,8 @@ final class SelectCategoryViewController: BaseViewController {
     // MARK: - property
     
     var categories: [Category] = []
+    
+    var selectedCategoryIds: [Int] = []
     
     var targetContent: TargetContent?
     
@@ -28,7 +31,7 @@ final class SelectCategoryViewController: BaseViewController {
     
     private let navigationRightButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
-                                            target: nil,
+                                            target: #selector(dismissButtonDidTap),
                                             action: nil)
         barButtonItem.tintColor = .havitGray
         return barButtonItem
@@ -76,6 +79,7 @@ final class SelectCategoryViewController: BaseViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = true
+        collectionView.isScrollEnabled = true
         collectionView.register(cell: CategoryCollectionViewCell.self)
         return collectionView
     }()
@@ -111,8 +115,9 @@ final class SelectCategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegation()
+        bind()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -121,6 +126,8 @@ final class SelectCategoryViewController: BaseViewController {
     
     override func configUI() {
         setNavigationBar()
+        completeButton.isEnabled = false
+        view.backgroundColor = .white
     }
     
     override func render() {
@@ -142,7 +149,7 @@ final class SelectCategoryViewController: BaseViewController {
         categoryCollectionView.snp.makeConstraints {
             $0.top.equalTo(selectCategoryNoticeLabel.snp.bottom).offset(34)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(completeButton.snp.top)
         }
         
         completeButton.snp.makeConstraints {
@@ -153,12 +160,44 @@ final class SelectCategoryViewController: BaseViewController {
     
     private func setNavigationBar() {
         title = "콘텐츠 저장"
-        navigationItem.leftBarButtonItem = navigationLeftButton
-        navigationItem.rightBarButtonItem = navigationRightButton
     }
     
     private func setDelegation() {
         categoryCollectionView.delegate = self
+    }
+    
+    private func bind() {
+        completeButton.rx.tap
+            .bind(onNext: { [weak self] in
+                let saveContentsViewController = SaveContentsViewController()
+                if let selectedCategoryIds = self?.selectedCategoryIds,
+                   let targetContent = self?.targetContent {
+                    saveContentsViewController.selectedCategoryIds = selectedCategoryIds
+                    saveContentsViewController.targetContent = targetContent
+                    self?.navigationController?.pushViewController(saveContentsViewController, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        addCategoryButton.rx.tap
+            .bind(onNext: {
+                let addCategoryTitleViewController = AddCategoryTitleViewController()
+                addCategoryTitleViewController.targetContent = self.targetContent
+                self.navigationController?.pushViewController(addCategoryTitleViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // MARK: - objc
+    
+    @objc
+    private func dismissButtonDidTap() {
+        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+    }
+    
+    @objc
+    private func previousButtonDidTap() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -178,12 +217,32 @@ extension SelectCategoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
             cell.didSelect()
+            let selectedCategory = categories[indexPath.item]
+            let selectedCategoryId = selectedCategory.id
+            
+            if let selectedCategoryId = selectedCategoryId {
+                self.selectedCategoryIds.append(selectedCategoryId)
+            }
+            
+            self.completeButton.isEnabled = true
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
             cell.didUnSelect()
+            let unSelectedCategory = categories[indexPath.item]
+            let unSelectedCategoryId = unSelectedCategory.id
+            
+            if let unselectedCategoryId = unSelectedCategoryId {
+                self.selectedCategoryIds = self.selectedCategoryIds.filter {
+                    $0 != unselectedCategoryId
+                }
+            }
+            
+            if selectedCategoryIds.count == 0 {
+                self.completeButton.isEnabled = false
+            }
         }
     }
 }
