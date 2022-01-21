@@ -152,6 +152,7 @@ extension MainTableViewController: UITableViewDataSource {
             cell.setupCategoryPartLayout(with: categories)
             cell.applyPageControlPages()
             cell.applyUserNickname(to: user?.nickname ?? "")
+            cell.categoryCollectionView.reloadData()
             cell.didTapOverallButton = { [weak self] in
                 let categoryViewController = CategoryViewController(type: .main)
                 self?.navigationController?.pushViewController(categoryViewController, animated: true)
