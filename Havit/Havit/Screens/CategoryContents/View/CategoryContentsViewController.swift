@@ -396,6 +396,11 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 }()
                 cell.layer.cornerRadius = (label.frame.width / 2) * (label.frame.height / label.frame.width) + 10
             }
+            if indexPath.row == 0 {
+               collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+               cell.isSelected = true
+               
+           }
             cell.layer.masksToBounds = true
             return cell
         case contentsCollectionView:
