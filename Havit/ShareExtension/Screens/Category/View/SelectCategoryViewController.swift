@@ -181,7 +181,7 @@ final class SelectCategoryViewController: BaseViewController {
         
         addCategoryButton.rx.tap
             .bind(onNext: {
-                let addCategoryTitleViewController = AddCategoryTitleViewController()
+                let addCategoryTitleViewController = AddCategoryTitleViewController(type: .share)
                 addCategoryTitleViewController.targetContent = self.targetContent
                 self.navigationController?.pushViewController(addCategoryTitleViewController, animated: true)
             })

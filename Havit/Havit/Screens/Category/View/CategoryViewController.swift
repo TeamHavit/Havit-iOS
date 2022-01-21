@@ -42,7 +42,6 @@ class CategoryViewController: BaseViewController {
         return label
     }()
 
-    // 📌 카테고리 추가 버튼은 재사용될 것 같아서 나중에 따로 빼면 좋을 것 같아요 !
     private let addButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
 
@@ -193,7 +192,7 @@ class CategoryViewController: BaseViewController {
     private func bind() {
         addButton.rx.tap
             .bind(onNext: { [weak self] in
-                let addCategoryTitleViewController = AddCategoryTitleViewController()
+                let addCategoryTitleViewController = AddCategoryTitleViewController(type: .category)
                 let navigationController = UINavigationController(rootViewController: addCategoryTitleViewController)
                 self?.present(navigationController, animated: true)
             })
