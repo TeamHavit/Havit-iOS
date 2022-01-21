@@ -68,12 +68,13 @@ final class WebViewController: BaseViewController {
         return webView
     }()
     
-    private let toolbar = WebViewToolbar()
+    private let toolbar: WebViewToolbar
     
     // MARK: - init
     
-    init(urlString: String, isReadContent: Bool, contentId: Int) {
+    init(urlString: String, isReadContent: Bool, contentId: Int?) {
         viewModel = WebViewModel(urlString: urlString, isReadContent: isReadContent, contentId: contentId)
+        self.toolbar = WebViewToolbar(canCheckRead: contentId != nil)
         super.init()
         self.hidesBottomBarWhenPushed = true
     }

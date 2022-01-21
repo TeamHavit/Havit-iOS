@@ -186,7 +186,7 @@ extension MainTableViewController: UITableViewDataSource {
             cell.didTapSiteSection = { [weak self] url in
                 let webViewController = WebViewController(urlString: url,
                                                           isReadContent: false,
-                                                          contentId: -1)
+                                                          contentId: nil)
                 self?.navigationController?.pushViewController(webViewController, animated: true)
             }
             return cell
