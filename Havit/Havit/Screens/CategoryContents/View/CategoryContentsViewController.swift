@@ -304,7 +304,9 @@ final class CategoryContentsViewController: BaseViewController {
                         self.categoryContents = categoryContents
                         self.totalLabel.text = "전체 \(categoryContents.count)"
                     } else {
-                       // Emtpy 띄우기 
+                        // empty 띄우기
+                        self.categoryContents = []
+                        self.totalLabel.text = "전체 0"
                     }
                 } else {
                     if let nowCategory = getNowCategory(), let id = nowCategory.id {
@@ -315,7 +317,9 @@ final class CategoryContentsViewController: BaseViewController {
                             self.categoryContents = categoryContents
                             self.totalLabel.text = "전체 \(categoryContents.count)"
                         } else {
-                           // Emtpy 띄우기
+                            // empty 띄우기
+                            self.categoryContents = []
+                            self.totalLabel.text = "전체 0"
                         }
                     }
                    

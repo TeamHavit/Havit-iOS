@@ -108,8 +108,6 @@ extension CategoryPanModalViewController: UITableViewDelegate {
         cell.cellLabel.font = UIFont.font(.pretendardSemibold, ofSize: 16)
         cell.cellLabel.textColor = .havitPurple
         
-        print("클릭된 셀 : \(cell.cellLabel.text), \(cell.tag)")
-        
         self.dismiss(animated: true) {
             self.previousViewController.categoryId = cell.tag
             
