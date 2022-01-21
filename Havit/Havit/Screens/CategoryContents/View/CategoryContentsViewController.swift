@@ -499,6 +499,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.didTapIsReadButton = { [weak self] contentId, item in
                     self?.patchContentToggle(contentId: contentId, item: item)
                 }
+                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
@@ -508,6 +509,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.didTapIsReadButton = { [weak self] contentId, item in
                     self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
                 }
+                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
                 return cell
             case .grid1xN:
                 let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
@@ -516,6 +518,7 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 cell.didTapIsReadButton = { [weak self] contentId, item in
                     self?.patchContentToggleGrid1xN(contentId: contentId, item: item)
                 }
+                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
                 return cell
             }
         default:
