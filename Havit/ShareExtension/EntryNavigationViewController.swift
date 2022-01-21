@@ -6,33 +6,51 @@
 //
 
 import UIKit
+import Social
+import MobileCoreServices
 
 @objc(EntryNavigationViewController)
 final class EntryNavigationViewController: UINavigationController {
     
-    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
+    // MARK: - property
     
+    let categoryService: CategorySeriviceable = CategoryService(apiService: APIService(), environment: .development)
+    let shareService: ShareServiceable = ShareService(apiService: APIService(), environment: .development)
+    var shareObjectUrl: String?
     var categories: [Category] = []
+    var targetContent: TargetContent?
+
+    // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCategory()
         configUI()
+        getShareObjectUrl { [weak self] in
+            self?.getShareExtensionData()
+        }
     }
+    
+    // MARK: - func
     
     private func configUI() {
         view.backgroundColor = .white
         setupBaseNavigationBar()
     }
     
-    private func getCategory() {
+    private func getShareExtensionData() {
         Task {
             do {
-                let categories = try await categoryService.getCategory()
-                if let categories = categories, !categories.isEmpty {
+                guard let shareObjectUrl = shareObjectUrl else {
+                    return
+                }
+                
+                async let categories = try await categoryService.getCategory()
+                async let targetContents = try await shareService.getTargetContents(targetUrl: shareObjectUrl)
+                
+                if let categories = try await categories,
+                let targetContents = try await targetContents {
                     self.categories = categories
-                } else {
-                    self.categories = []
+                    self.targetContent = TargetContent(title: targetContents.ogTitle, description: targetContents.ogDescription, ogImage: targetContents.ogImage, ogUrl: targetContents.ogURL, contentUrl: self.shareObjectUrl)
                 }
                 branchCategoryNavigate()
             } catch APIServiceError.serverError {
@@ -48,10 +66,12 @@ final class EntryNavigationViewController: UINavigationController {
     private func branchCategoryNavigate() {
         if categories.isEmpty {
             let categoryEmptyViewController = CategoryEmptyViewController()
+            categoryEmptyViewController.targetContent = self.targetContent
             self.pushViewController(categoryEmptyViewController, animated: true)
         } else {
             let selectCategoryViewControllr = SelectCategoryViewController()
             selectCategoryViewControllr.categories = self.categories
+            selectCategoryViewControllr.targetContent = self.targetContent
             self.pushViewController(selectCategoryViewControllr, animated: true)
         }
     }
@@ -67,5 +87,27 @@ final class EntryNavigationViewController: UINavigationController {
         navigationBar.compactAppearance = appearance
         navigationBar.scrollEdgeAppearance = appearance
         navigationBar.isTranslucent = false
+    }
+    
+    private func getShareObjectUrl(completionHandler: @escaping () -> Void) {
+        if let extensionItems = extensionContext?.inputItems.first as? NSExtensionItem {
+            if let itemProviders = extensionItems.attachments {
+                for itemProvider in itemProviders {
+                    if itemProvider.hasItemConformingToTypeIdentifier("public.url") {
+                        itemProvider.loadItem(forTypeIdentifier: "public.url", options: nil, completionHandler: { (url, error) -> Void in
+                            if let shareURL = url as? NSURL {
+                                if let shareObjectUrl = shareURL.absoluteString {
+                                    self.shareObjectUrl = shareObjectUrl
+                                    completionHandler()
+                                } else {
+                                    Logger.debugDescription(error)
+                                }
+                            }
+                        })
+                    }
+                }
+                
+            }
+        }
     }
 }
