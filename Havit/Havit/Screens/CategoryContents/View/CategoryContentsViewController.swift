@@ -166,6 +166,9 @@ final class CategoryContentsViewController: BaseViewController {
         self.categories = categories
         super.init()
         hidesBottomBarWhenPushed = true
+        
+        dump(categoryId)
+        dump(categories)
     }
     
     @available(*, unavailable)
