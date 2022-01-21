@@ -26,7 +26,6 @@
 		15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */; };
 		15F640312799456000D9654E /* SearchContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F640302799456000D9654E /* SearchContents.swift */; };
 		15F6403327995E3700D9654E /* CategoryContentsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */; };
-		15F6403527995E5900D9654E /* CategoryContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403427995E5900D9654E /* CategoryContents.swift */; };
 		15F6403727995EA400D9654E /* CategoryContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403627995EA400D9654E /* CategoryContentsService.swift */; };
 		15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
@@ -297,7 +296,6 @@
 		15F41A922791F2FD00ADF17A /* MorePanModalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePanModalTableViewCell.swift; sourceTree = "<group>"; };
 		15F640302799456000D9654E /* SearchContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContents.swift; sourceTree = "<group>"; };
 		15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsServiceable.swift; sourceTree = "<group>"; };
-		15F6403427995E5900D9654E /* CategoryContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContents.swift; sourceTree = "<group>"; };
 		15F6403627995EA400D9654E /* CategoryContentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsService.swift; sourceTree = "<group>"; };
 		15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentsEndPoint.swift; sourceTree = "<group>"; };
 		3BBB51D3279062910098A835 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -829,7 +827,6 @@
 				15F640302799456000D9654E /* SearchContents.swift */,
 				EDB6F4C0279908AD006C66AA /* Content.swift */,
 				EDB6F4C227990944006C66AA /* Site.swift */,
-				15F6403427995E5900D9654E /* CategoryContents.swift */,
 				EDB6F4C627997E92006C66AA /* User.swift */,
 				ED069DC32799907A0084410B /* ContentToggle.swift */,
 			);
@@ -1596,7 +1593,6 @@
 				ED443F462786B99B0059DE76 /* UIViewController+Extension.swift in Sources */,
 				ED443F0D2786A2D30059DE76 /* MainViewController.swift in Sources */,
 				ED443F132786A2FF0059DE76 /* WebViewModel.swift in Sources */,
-				15F6403527995E5900D9654E /* CategoryContents.swift in Sources */,
 				ED443F442786B9420059DE76 /* UIView+Extension.swift in Sources */,
 				EDDE099727905C7D0093B83F /* MainTopView.swift in Sources */,
 			);
