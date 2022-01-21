@@ -149,6 +149,12 @@ final class CategoryContentsViewController: BaseViewController {
         return collectionView
     }()
     
+    private let backButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
+        button.setImage(ImageLiteral.btnBackBlack, for: .normal)
+        return button
+    }()
+    
     // MARK: - init
     
     override init() {
@@ -175,7 +181,8 @@ final class CategoryContentsViewController: BaseViewController {
         filterView.addSubViews([totalLabel, gridButton, sortButton, filterCollectionView])
         
         mainView.snp.makeConstraints {
-            $0.leading.bottom.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
         }
         
         filterView.snp.makeConstraints {
@@ -302,6 +309,7 @@ final class CategoryContentsViewController: BaseViewController {
         navigationItem.rightBarButtonItem = navigationRightButton
         navigationItem.titleView = navigationTitleButton
         navigationItem.searchController = searchController
+        navigationItem.leftBarButtonItem = makeBarButtonItem(with: backButton)
     }
     
     private func setDelegations() {
@@ -309,6 +317,10 @@ final class CategoryContentsViewController: BaseViewController {
         filterCollectionView.dataSource = self
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
+    }
+    
+    private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
+        return UIBarButtonItem(customView: button)
     }
     
     @objc func goToCategoryCorrection(_: UIButton) {
