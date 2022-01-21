@@ -8,13 +8,18 @@
 import UIKit
 
 import Kingfisher
+import PanModal
 import SnapKit
 
 final class SearchContentsViewController: BaseViewController {
     
     let searchContentsService: SearchContentsService = SearchContentsService(apiService: APIService(),
                                                                              environment: .development)
-    var searchResult: [SearchContents] = []
+    
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
+    
+    var searchResult: [Content] = []
     
     enum SearchResultType {
         case searching, result, noResult
@@ -167,13 +172,58 @@ final class SearchContentsViewController: BaseViewController {
         searchController.searchBar.delegate = self
     }
     
+    private func patchContentToggle(contentId: Int, item: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    let indexPath = IndexPath(item: item, section: 0)
+                    guard
+                        let cell = resultCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
+                    else { return }
+                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
     @objc func clearClicked(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        searchController.dismiss(animated: true, completion: {
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
+    @objc func showMorePanModalViewController(_ sender: UIButton) {
+        let viewController = MorePanModalViewController()
+        viewController.contents = searchResult[sender.tag]
+        viewController.previousSearchViewController = self
+        viewController.modalFromType = .search
+        self.presentPanModal(viewController)
     }
 }
 
 extension SearchContentsViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch resultType {
+        case .result:
+            let item = indexPath.item
+            if let url = searchResult[item].url,
+               let isReadContent = searchResult[item].isSeen,
+               let contentId = searchResult[item].id {
+                let webViewController = WebViewController(urlString: url,
+                                                          isReadContent: isReadContent,
+                                                          contentId: contentId)
+                navigationController?.pushViewController(webViewController, animated: true)
+            }
+        default:
+            break
+        }
+    }
 }
 
 extension SearchContentsViewController: UICollectionViewDataSource {
@@ -198,20 +248,19 @@ extension SearchContentsViewController: UICollectionViewDataSource {
             return cell
         case .result:
             let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-            if let searchImageString = searchResult[indexPath.row].image {
-                let url = URL(string: searchImageString)
-                cell.mainImageView.kf.setImage(with: url)
+            cell.backgroundColor = .white
+            cell.update(content: searchResult[indexPath.item])
+            cell.didTapIsReadButton = { [weak self] contentId, item in
+                self?.patchContentToggle(contentId: contentId, item: item)
             }
-            cell.titleLabel.text = searchResult[indexPath.row].title
-            cell.subtitleLabel.text = searchResult[indexPath.row].datumDescription
-            cell.linkLabel.text = searchResult[indexPath.row].url
-            cell.dateLabel.text = searchResult[indexPath.row].createdAt
-            cell.alarmLabel.text = searchResult[indexPath.row].notificationTime
             if searchResult[indexPath.row].isNotified == true {
                 cell.alarmImageView.isHidden = false
             }
-            // 읽음 버튼은 머지 후 다음 pr에서 넣기
+            cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
             
+            if searchResult[indexPath.row].isNotified == true {
+                cell.alarmImageView.isHidden = false
+            }
             mainLabel.textColor = .gray003
             numberLabel.textColor = .havitPurple
             return cell
@@ -268,7 +317,5 @@ extension SearchContentsViewController: UISearchControllerDelegate {
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()
         }
-           
     }
-    
 }

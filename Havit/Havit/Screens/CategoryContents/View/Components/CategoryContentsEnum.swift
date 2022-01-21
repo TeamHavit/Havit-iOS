@@ -38,3 +38,7 @@ enum ContentsFilterType: String {
     case seen = "true"
     case alarm = "notified"
 }
+
+enum ModalFromType {
+    case contents, search
+}
