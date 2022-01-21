@@ -111,8 +111,8 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         }
         
         isReadButton.snp.makeConstraints {
-            $0.trailing.equalTo(contentView).inset(16)
-            $0.bottom.equalTo(contentView).inset(15)
+            $0.trailing.equalTo(contentView).inset(15)
+            $0.bottom.equalTo(contentView).inset(9)
             $0.width.equalTo(31)
             $0.height.equalTo(42)
         }
