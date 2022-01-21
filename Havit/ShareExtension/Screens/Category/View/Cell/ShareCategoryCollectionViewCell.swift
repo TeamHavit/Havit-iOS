@@ -1,5 +1,5 @@
 //
-//  CategoryCollectionViewCell.swift
+//  ShareCategoryCollectionViewCell.swift
 //  ShareExtension
 //
 //  Created by Noah on 2022/01/20.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class CategoryCollectionViewCell: BaseCollectionViewCell {
+final class ShareCategoryCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - property
     
