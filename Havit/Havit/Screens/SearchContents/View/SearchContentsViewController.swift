@@ -240,7 +240,6 @@ extension SearchContentsViewController: UICollectionViewDataSource {
                 cell.alarmImageView.isHidden = false
             }
             cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-            return cell
             
             if searchResult[indexPath.row].isNotified == true {
                 cell.alarmImageView.isHidden = false
