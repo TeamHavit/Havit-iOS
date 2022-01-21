@@ -137,7 +137,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
             $0.top.equalTo(mainImageView.snp.bottom).offset(15)
             $0.trailing.equalTo(contentView).inset(16)
             $0.width.equalTo(16)
-            $0.height.equalTo(16)
+            $0.height.equalTo(10)
         }
         
         titleLabel.snp.makeConstraints {
@@ -174,7 +174,7 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         
         isReadButton.snp.makeConstraints {
             $0.trailing.equalTo(contentView).inset(15)
-            $0.bottom.equalTo(borderView.snp.top).inset(4)
+            $0.bottom.equalTo(borderView.snp.top).offset(-5)
             $0.width.equalTo(31)
             $0.height.equalTo(42)
         }
