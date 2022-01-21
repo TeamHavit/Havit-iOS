@@ -133,13 +133,11 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         dateLabel.snp.makeConstraints {
             $0.leading.equalTo(mainImageView.snp.trailing).offset(12)
             $0.bottom.equalToSuperview().inset(38)
-            // $0.width.equalTo(55)
         }
         
         linkLabel.snp.makeConstraints {
             $0.leading.equalTo(dateLabel.snp.trailing).offset(3)
             $0.top.equalTo(dateLabel)
-            // $0.trailing.equalTo(contentView).inset(49)
             $0.width.equalTo(128)
         }
         
