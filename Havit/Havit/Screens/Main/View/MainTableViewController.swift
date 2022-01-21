@@ -164,7 +164,7 @@ extension MainTableViewController: UITableViewDataSource {
                                                                                      categories: self?.categories ?? [])
                     categoryContentViewController?.isFromAllCategory = true
                 } else {
-                    categoryContentViewController = CategoryContentsViewController(categoryId: self?.categories[row].id ?? -1,
+                    categoryContentViewController = CategoryContentsViewController(categoryId: self?.categories[row-1].id ?? -1,
                                                                                      categories: self?.categories ?? [])
                 }
                 self?.navigationController?.pushViewController(categoryContentViewController ?? UIViewController(), animated: true)

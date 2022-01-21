@@ -17,7 +17,7 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
     var longFormHeight: PanModalHeight = .contentHeight(400)
     var cornerRadius: CGFloat = 0
     
-    var previousViewController: CategoryContentsViewController?
+    var previousViewController: CategoryContentsViewController
     
     var categories: [Category]
     var categoryId: Int
@@ -37,7 +37,8 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
         return tableView
     }()
     
-    init(categoryId: Int, categories: [Category]) {
+    init(previousViewController: CategoryContentsViewController, categoryId: Int, categories: [Category]) {
+        self.previousViewController = previousViewController
         self.categoryId = categoryId
         self.categories = categories
         super.init()
@@ -104,6 +105,11 @@ class CategoryPanModalViewController: BaseViewController, PanModalPresentable {
         }
         return -1
     }
+    
+    @objc func showCategoryPanModalViewController(_ sender: UIButton) {
+        let viewController = CategoryPanModalViewController(previousViewController: previousViewController, categoryId: categoryId, categories: categories)
+        self.presentPanModal(viewController)
+    }
 }
 
 extension CategoryPanModalViewController: UITableViewDelegate {
@@ -121,7 +127,7 @@ extension CategoryPanModalViewController: UITableViewDelegate {
         cell.cellLabel.textColor = .havitPurple
         
         self.dismiss(animated: true) {
-            self.previousViewController?.categoryId = cell.tag
+            self.previousViewController.categoryId = cell.tag
             print(cell.tag)
             
             var configuration  = UIButton.Configuration.plain()
@@ -132,7 +138,6 @@ extension CategoryPanModalViewController: UITableViewDelegate {
             configuration.image = ImageLiteral.iconDropBlack
             
             var attributes = AttributeContainer()
-        
             var attributedText = AttributedString.init(cell.cellLabel.text!, attributes: attributes)
             attributedText.font = UIFont.font(.pretendardBold, ofSize: 16)
             attributedText.foregroundColor = .black
@@ -140,9 +145,9 @@ extension CategoryPanModalViewController: UITableViewDelegate {
             
             let button = UIButton(configuration: configuration,
                                   primaryAction: nil)
-            button.addTarget(self, action: #selector(self.previousViewController?.showCategoryPanModalViewController(_:)), for: .touchUpInside)
-            self.previousViewController?.navigationItem.titleView = button
-            self.previousViewController?.contentsCollectionView.reloadData()
+            button.addTarget(self.previousViewController, action: #selector(self.showCategoryPanModalViewController(_:)), for: .touchUpInside)
+            self.previousViewController.navigationItem.titleView = button
+            self.previousViewController.contentsCollectionView.reloadData()
         }
     }
     

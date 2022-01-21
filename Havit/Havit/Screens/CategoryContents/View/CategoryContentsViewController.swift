@@ -24,7 +24,7 @@ final class CategoryContentsViewController: BaseViewController {
                                                                            environment: .development)
     var categoryContents: [Content] = []
     
-    var isFromAllCategory: Bool = true
+    var isFromAllCategory: Bool = false
     
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
@@ -478,8 +478,7 @@ final class CategoryContentsViewController: BaseViewController {
     }
     
     @objc func showCategoryPanModalViewController(_ sender: UIButton) {
-        let viewController = CategoryPanModalViewController(categoryId: categoryId, categories: categories)
-        viewController.previousViewController = self
+        let viewController = CategoryPanModalViewController(previousViewController: self, categoryId: categoryId, categories: categories)
         self.presentPanModal(viewController)
     }
     
