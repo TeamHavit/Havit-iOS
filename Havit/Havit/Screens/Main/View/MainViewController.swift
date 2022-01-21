@@ -27,7 +27,7 @@ final class MainViewController: MainTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupNavigationBarHidden()
+        setupBarHidden()
         getMainData()
     }
     
@@ -61,8 +61,9 @@ final class MainViewController: MainTableViewController {
             .disposed(by: disposeBag)
     }
     
-    private func setupNavigationBarHidden() {
+    private func setupBarHidden() {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - network
@@ -77,12 +78,13 @@ final class MainViewController: MainTableViewController {
                 
                 if let categories = try await categories,
                    let contents = try await recentContent,
-                   let sites = try await recommendSite,
+                   let recommendSite = try await recommendSite,
                    let user = try await user {
                     self.categories = categories
                     self.contents = contents
-                    self.sites = sites
+                    self.sites = recommendSite
                     self.user = user
+                    
                     tableView.reloadData()
                 }
             } catch APIServiceError.serverError {

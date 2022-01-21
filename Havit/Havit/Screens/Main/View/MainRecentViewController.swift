@@ -21,6 +21,8 @@ final class MainRecentViewController: BaseViewController {
     
     private let mainService: MainService = MainService(apiService: APIService(),
                                                        environment: .development)
+    private let toggleService: ContentToggleService = ContentToggleService(apiService: APIService(),
+                                                                           environment: .development)
     private let backButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(ImageLiteral.btnBackBlack, for: .normal)
@@ -34,12 +36,27 @@ final class MainRecentViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .gray000
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(cell: ContentsCollectionViewCell.self)
         return collectionView
     }()
     private let recentEmptyView = MainContentEmptyView(guideText:
                                                             "최근에 저장한 콘텐츠가 없습니다.\n새로운 콘텐츠를 저장해 보세요!")
     private var contents: [Content] = []
+    
+    // MARK: - init
+    
+    override init() {
+        super.init()
+        hidesBottomBarWhenPushed = true
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +88,12 @@ final class MainRecentViewController: BaseViewController {
     }
     
     // MARK: - func
+    
+    private func setupEmptyView(with contents: [Content]) {
+        let isContentEmpty = contents.isEmpty
+        
+        contentCollectionView.isHidden = isContentEmpty
+    }
     
     private func bind() {
         backButton.rx.tap
@@ -108,6 +131,30 @@ final class MainRecentViewController: BaseViewController {
                 if let content = try await recentContent {
                     self.contents = content
                     contentCollectionView.reloadData()
+                    setupEmptyView(with: content)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
+    private func patchContentToggle(contentId: Int, item: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    let indexPath = IndexPath(item: item, section: 0)
+                    guard
+                        let cell = contentCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
+                    else { return }
+                    
+                    print(isSeen)
+                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
                 }
             } catch APIServiceError.serverError {
                 print("serverError")
@@ -127,6 +174,23 @@ extension MainRecentViewController: UICollectionViewDataSource {
         let cell: ContentsCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.backgroundColor = .white
         cell.update(content: contents[indexPath.item])
+        cell.didTapIsReadButton = { [weak self] contentId, item in
+            self?.patchContentToggle(contentId: contentId, item: item)
+        }
         return cell
+    }
+}
+
+extension MainRecentViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = indexPath.item
+        if let url = contents[item].url,
+           let isReadContent = contents[item].isSeen,
+           let contentId = contents[item].id {
+            let webViewController = WebViewController(urlString: url,
+                                                      isReadContent: isReadContent,
+                                                      contentId: contentId)
+            navigationController?.pushViewController(webViewController, animated: true)
+        }
     }
 }

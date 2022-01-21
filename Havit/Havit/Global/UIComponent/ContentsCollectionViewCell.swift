@@ -13,6 +13,10 @@ import SnapKit
 
 final class ContentsCollectionViewCell: BaseCollectionViewCell {
     
+    var didTapIsReadButton: ((Int, Int) -> Void)?
+    
+    // MARK: - property
+    
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.imgContentsDummyImg1
@@ -74,6 +78,8 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         label.textColor = .havitPurple
         return label
     }()
+    
+    private var contentId: Int?
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
@@ -160,13 +166,26 @@ final class ContentsCollectionViewCell: BaseCollectionViewCell {
         isReadButton.rx.tap
             .asDriver()
             .drive(onNext: { [weak self] in
-                let isReadArticle = self?.isReadButton.imageView?.image == ImageLiteral.btnContentsRead
-                self?.isReadButton.setImage(isReadArticle ? ImageLiteral.btnContentsUnread : ImageLiteral.btnContentsRead, for: .normal)
+                if let indexPath = self?.getCollectionCellIndexPath(),
+                   let contentId = self?.contentId {
+                    self?.didTapIsReadButton?(contentId, indexPath)
+                }
             })
             .disposed(by: disposeBag)
     }
     
+    private func getCollectionCellIndexPath() -> Int {
+        guard
+            let superView = self.superview as? UICollectionView,
+            let indexPath = superView.indexPath(for: self)?.row
+        else { return -1 }
+
+        return indexPath
+    }
+    
     func update(content: Content) {
+        contentId = content.id
+        
         if let imageUrl = content.image,
            let url = URL(string: imageUrl) {
             mainImageView.kf.setImage(with: url)

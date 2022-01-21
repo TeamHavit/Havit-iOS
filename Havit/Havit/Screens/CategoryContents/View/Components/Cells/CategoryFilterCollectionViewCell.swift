@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
+    
+    var contentsFilterType: ContentsFilterType = .all
 
     var filterNameLabel: UILabel = {
         var label = UILabel()
@@ -45,6 +47,13 @@ final class CategoryFilterCollectionViewCell: BaseCollectionViewCell {
         super.init(frame: .zero)
     }
     
+    override var isSelected: Bool {
+        didSet {
+            contentView.backgroundColor = isSelected ? .primaryBlack : .whiteGray
+            filterNameLabel.textColor = isSelected ? .white : .gray003
+        }
+    }
+
     override func render() {
         contentView.addSubview(filterNameLabel)
         filterNameLabel.snp.makeConstraints {

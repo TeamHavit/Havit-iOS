@@ -26,7 +26,7 @@ class CategoryCollectionViewCell: BaseCollectionViewCell {
     var categoryImageView: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiteral.imgCategoryNone
-        // image.contentMode = .scaleToFill
+        image.contentMode = .scaleToFill
         return image
     }()
 

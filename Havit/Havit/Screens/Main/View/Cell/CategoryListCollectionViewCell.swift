@@ -37,6 +37,7 @@ final class CategoryListCollectionViewCell: BaseCollectionViewCell {
     }()
     
     override func prepareForReuse() {
+        backgroundColor = .purpleCategory
         backgroundImageView.image = nil
         iconImageView.image = nil
         titleLabel.text = ""

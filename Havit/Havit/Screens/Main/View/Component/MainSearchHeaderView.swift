@@ -7,9 +7,12 @@
 
 import UIKit
 
+import RxCocoa
 import SnapKit
 
 final class MainSearchHeaderView: UIView {
+    
+    var didTapSearchHeader: (() -> Void)?
 
     // MARK: - property
     
@@ -26,6 +29,7 @@ final class MainSearchHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bind()
         render()
     }
     
@@ -50,7 +54,18 @@ final class MainSearchHeaderView: UIView {
         }
     }
     
+    private func bind() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.rx.gestureRecognizers
+            .onNext([tap])
+    }
+    
     func updateBackgroundColor(to color: UIColor) {
         backgroundColor = color
+    }
+    
+    @objc
+    private func handleTap(_ sender: UITapGestureRecognizer) {
+        didTapSearchHeader?()
     }
 }

@@ -11,5 +11,6 @@ struct Site: Codable {
     let id: Int?
     let title: String?
     let url: String?
+    let imageUrl: String?
     let websiteCategory: String?
 }

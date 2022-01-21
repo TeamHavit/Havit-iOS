@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 class SortPanModalTableViewCell: BaseTableViewCell {
+    var contentsSortType: ContentsSortType?
+    
     var cellLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.font(.pretendardMedium, ofSize: 16)
