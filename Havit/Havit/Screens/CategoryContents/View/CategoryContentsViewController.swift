@@ -27,7 +27,7 @@ final class CategoryContentsViewController: BaseViewController {
     private var gridAnd1XnConstraints: Constraint?
     private var grid2XnConstraints: Constraint?
     
-    private var gridType: GridType = .grid
+    private var gridType: GridType = .grid2xN
     var contentsSortType: ContentsSortType = .createdAt
     var contentsFilterType: ContentsFilterType = .all
     var categoryId = 0
@@ -323,12 +323,55 @@ final class CategoryContentsViewController: BaseViewController {
         Task {
             do {
                 async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
-                
                 if let contentToggle = try await contentToggle,
                    let isSeen = contentToggle.isSeen {
                     let indexPath = IndexPath(item: item, section: 0)
                     guard
                         let cell = contentsCollectionView.cellForItem(at: indexPath) as? ContentsCollectionViewCell
+                    else { return }
+                    
+                    print(isSeen)
+                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
+                }
+            } catch APIServiceError.serverError {
+                print("serverError")
+            } catch APIServiceError.clientError(let message) {
+                print("clientError:\(String(describing: message))")
+            }
+        }
+    }
+    
+//    private func patchContentToggleGrid1xN(contentId: Int, item: Int) {
+//        Task {
+//            do {
+//                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+//                if let contentToggle = try await contentToggle,
+//                   let isSeen = contentToggle.isSeen {
+//                    let indexPath = IndexPath(item: item, section: 0)
+//                    guard
+//                        let cell = contentsCollectionView.cellForItem(at: indexPath) as? CategoryContents1xNCollectionViewCell
+//                    else { return }
+//                    
+//                    print(isSeen)
+//                    cell.isReadButton.setImage(isSeen ? ImageLiteral.btnContentsRead : ImageLiteral.btnContentsUnread, for: .normal)
+//                }
+//            } catch APIServiceError.serverError {
+//                print("serverError")
+//            } catch APIServiceError.clientError(let message) {
+//                print("clientError:\(String(describing: message))")
+//            }
+//        }
+//    }
+    
+    private func patchContentToggleGrid2xN(contentId: Int, item: Int) {
+        Task {
+            do {
+                async let contentToggle = try await toggleService.patchContentToggle(contentId: contentId)
+                if let contentToggle = try await contentToggle,
+                   let isSeen = contentToggle.isSeen {
+                    let indexPath = IndexPath(item: item, section: 0)
+                    guard
+                        let cell = contentsCollectionView.cellForItem(at: indexPath) as? CategoryContents2xNCollectionViewCell
                     else { return }
                     
                     print(isSeen)
@@ -442,38 +485,22 @@ extension CategoryContentsViewController: UICollectionViewDataSource {
                 return cell
             case .grid2xN:
                 let cell: CategoryContents2xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                let categoryContent = categoryContents[indexPath.row]
                 cell.backgroundColor = .white
-                gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
-                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                cell.moreButton.tag = indexPath.row
-                if let searchImageString = categoryContents[indexPath.row].image {
-                    let url = URL(string: searchImageString)
-                    cell.mainImageView.kf.setImage(with: url)
+                contentsCollectionView.backgroundColor = .white
+                cell.update(content: categoryContents[indexPath.item])
+                cell.didTapIsReadButton = { [weak self] contentId, item in
+                    self?.patchContentToggleGrid2xN(contentId: contentId, item: item)
                 }
-                cell.titleLabel.text = categoryContent.title
-                cell.subtitleLabel.text = categoryContent.contentDescription
-                cell.linkLabel.text = categoryContent.url
-                cell.dateLabel.text = categoryContent.createdAt
-                cell.alarmLabel.text = categoryContent.notificationTime
                 return cell
             case .grid1xN:
-                let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-                let categoryContent = categoryContents[indexPath.row]
-                cell.backgroundColor = .white
-                gridButton.setImage(ImageLiteral.iconLayout3, for: .normal)
-                cell.moreButton.addTarget(self, action: #selector(showMorePanModalViewController(_:)), for: .touchUpInside)
-                cell.moreButton.tag = indexPath.row
-                if let searchImageString = categoryContents[indexPath.row].image {
-                    let url = URL(string: searchImageString)
-                    cell.mainImageView.kf.setImage(with: url)
-                }
-                cell.titleLabel.text = categoryContent.title
-                cell.subtitleLabel.text = categoryContent.contentDescription
-                cell.linkLabel.text = categoryContent.url
-                cell.dateLabel.text = categoryContent.createdAt
-                cell.alarmLabel.text = categoryContent.notificationTime
-                return cell
+//                let cell: CategoryContents1xNCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+//                cell.backgroundColor = .white
+//                cell.update(content: categoryContents[indexPath.item])
+//                cell.didTapIsReadButton = { [weak self] contentId, item in
+//                    self?.patchContentToggle(contentId: contentId, item: item)
+//                }
+//                return cell
+                return UICollectionViewCell()
             }
         default:
             return UICollectionViewCell()
