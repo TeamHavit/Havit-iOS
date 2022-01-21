@@ -354,7 +354,6 @@ final class CategoryContentsViewController: BaseViewController {
 extension CategoryContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
-            print("앙대")
             return
         }
         switch indexPath.row {
