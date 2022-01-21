@@ -193,7 +193,9 @@ final class SearchContentsViewController: BaseViewController {
     }
     
     @objc func clearClicked(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        searchController.dismiss(animated: true, completion: {
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc func showMorePanModalViewController(_ sender: UIButton) {
@@ -207,14 +209,19 @@ final class SearchContentsViewController: BaseViewController {
 
 extension SearchContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = indexPath.item
-        if let url = searchResult[item].url,
-           let isReadContent = searchResult[item].isSeen,
-           let contentId = searchResult[item].id {
-            let webViewController = WebViewController(urlString: url,
-                                                      isReadContent: isReadContent,
-                                                      contentId: contentId)
-            navigationController?.pushViewController(webViewController, animated: true)
+        switch resultType {
+        case .result:
+            let item = indexPath.item
+            if let url = searchResult[item].url,
+               let isReadContent = searchResult[item].isSeen,
+               let contentId = searchResult[item].id {
+                let webViewController = WebViewController(urlString: url,
+                                                          isReadContent: isReadContent,
+                                                          contentId: contentId)
+                navigationController?.pushViewController(webViewController, animated: true)
+            }
+        default:
+            break
         }
     }
 }
@@ -310,7 +317,5 @@ extension SearchContentsViewController: UISearchControllerDelegate {
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()
         }
-           
     }
-    
 }
