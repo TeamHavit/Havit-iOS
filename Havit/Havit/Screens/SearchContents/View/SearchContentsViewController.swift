@@ -168,7 +168,7 @@ final class SearchContentsViewController: BaseViewController {
     private func setDelegations() {
         resultCollectionView.delegate = self
         resultCollectionView.dataSource = self
-//        searchController.delegate = self
+        searchController.delegate = self
         searchController.searchBar.delegate = self
     }
     
@@ -209,14 +209,19 @@ final class SearchContentsViewController: BaseViewController {
 
 extension SearchContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = indexPath.item
-        if let url = searchResult[item].url,
-           let isReadContent = searchResult[item].isSeen,
-           let contentId = searchResult[item].id {
-            let webViewController = WebViewController(urlString: url,
-                                                      isReadContent: isReadContent,
-                                                      contentId: contentId)
-            navigationController?.pushViewController(webViewController, animated: true)
+        switch resultType {
+        case .result:
+            let item = indexPath.item
+            if let url = searchResult[item].url,
+               let isReadContent = searchResult[item].isSeen,
+               let contentId = searchResult[item].id {
+                let webViewController = WebViewController(urlString: url,
+                                                          isReadContent: isReadContent,
+                                                          contentId: contentId)
+                navigationController?.pushViewController(webViewController, animated: true)
+            }
+        default:
+            break
         }
     }
 }
