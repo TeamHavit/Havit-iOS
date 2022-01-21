@@ -429,24 +429,41 @@ final class CategoryContentsViewController: BaseViewController {
 
 extension CategoryContentsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
-            return
-        }
-        switch indexPath.row {
-        case 0:
-            cell.contentsFilterType = .all
-        case 1:
-            cell.contentsFilterType = .notSeen
-        case 2:
-            cell.contentsFilterType = .seen
-        case 3:
-            cell.contentsFilterType = .alarm
+        switch collectionView {
+        case filterCollectionView:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryFilterCollectionViewCell else {
+                return
+            }
+            switch indexPath.row {
+            case 0:
+                cell.contentsFilterType = .all
+            case 1:
+                cell.contentsFilterType = .notSeen
+            case 2:
+                cell.contentsFilterType = .seen
+            case 3:
+                cell.contentsFilterType = .alarm
+            default:
+                print("임시 프린트")
+            }
+            contentsFilterType = cell.contentsFilterType
+            getCategoryContents()
+        case contentsCollectionView:
+            let item = indexPath.item
+            if let url = categoryContents[item].url,
+               let isReadContent = categoryContents[item].isSeen,
+               let contentId = categoryContents[item].id {
+                let webViewController = WebViewController(urlString: url,
+                                                          isReadContent: isReadContent,
+                                                          contentId: contentId)
+                navigationController?.pushViewController(webViewController, animated: true)
+            }
         default:
             print("임시 프린트")
         }
-        contentsFilterType = cell.contentsFilterType
-        getCategoryContents()
+      
     }
+    
 }
 
 extension CategoryContentsViewController: UICollectionViewDataSource {
