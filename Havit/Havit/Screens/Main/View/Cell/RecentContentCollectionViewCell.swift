@@ -95,7 +95,13 @@ final class RecentContentCollectionViewCell: BaseCollectionViewCell {
             dateLabel.text = changeDateFormat(with: createdAt)
         }
         
-        if let title = content.title {
+        if var title = content.title {
+            if title.count > 10 {
+                let title1 = title.components(separatedBy: " ")[0]
+                let title2 = title.components(separatedBy: " ")[1]
+                
+                title = "\(title1) \(title2)"
+            }
             buttonConfiguration.attributedTitle = AttributedString(title, attributes: buttonContainer)
             categoryTagButton.configuration = buttonConfiguration
         }
