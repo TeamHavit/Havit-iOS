@@ -29,6 +29,7 @@
 		15F6403727995EA400D9654E /* CategoryContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403627995EA400D9654E /* CategoryContentsService.swift */; };
 		15F6403927995EE100D9654E /* CategoryContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */; };
 		15F6403B279B40F200D9654E /* CategoryContentEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403A279B40F200D9654E /* CategoryContentEmptyView.swift */; };
+		15F6403C279BAC0B00D9654E /* CreateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5FE2279B783600C196C9 /* CreateContent.swift */; };
 		3BBB51D4279062910098A835 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB51D3279062910098A835 /* WebKit.framework */; };
 		3BBB51DA2794023E0098A835 /* WebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB51D92794023E0098A835 /* WebViewToolbar.swift */; };
 		4D2D21D4279AFFAE000D58AA /* AddCategoryTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81AE172797E97D00336AFE /* AddCategoryTitleViewController.swift */; };
@@ -163,7 +164,6 @@
 		4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
 		4FC6EC682798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */; };
 		4FCB5FE3279B783600C196C9 /* CreateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5FE2279B783600C196C9 /* CreateContent.swift */; };
-		4FCB5FE4279B783800C196C9 /* CreateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5FE2279B783600C196C9 /* CreateContent.swift */; };
 		4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534CE27994604000C7034 /* SaveContentsViewController.swift */; };
 		4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
 		4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
@@ -1532,7 +1532,7 @@
 				4FB24FD9279217D300CCDB0C /* BaseCollectionViewCell.swift in Sources */,
 				4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */,
 				4FB24FE02792180100CCDB0C /* UIView+Extension.swift in Sources */,
-				4FCB5FE4279B783800C196C9 /* CreateContent.swift in Sources */,
+				15F6403C279BAC0B00D9654E /* CreateContent.swift in Sources */,
 				4F40456C279B6D7000103AC7 /* CategoryContentsServiceable.swift in Sources */,
 				4FB24FE32792180B00CCDB0C /* UIButton+Extension.swift in Sources */,
 				4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */,
@@ -1742,7 +1742,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1767,7 +1767,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
@@ -1911,7 +1911,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T6LRAVDGQW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Havit/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
