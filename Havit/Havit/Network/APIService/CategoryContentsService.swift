@@ -17,6 +17,13 @@ struct CategoryContentsService: CategoryContentsSeriviceable {
         self.environment = environment
     }
     
+    func createContent(targetContent: TargetContent, categoryIds: [Int]) async throws -> String? {
+        let request = CategoryContentsEndPoint
+            .createContent(requestContent: targetContent, categoryIds: categoryIds)
+            .createRequest(environment: .development)
+        return try await self.apiService.request(request)
+    }
+    
     func getAllContents(option: String, filter: String) async throws -> [Content]? {
         let request = CategoryContentsEndPoint
             .getAllContents(option: option, filter: filter)

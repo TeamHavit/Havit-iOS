@@ -8,6 +8,7 @@
 import Foundation
 
 enum CategoryContentsEndPoint {
+    case createContent(requestContent: TargetContent, categoryIds: [Int])
     case getAllContents(option: String, filter: String)
     case getCategoryContents(categoryID: String, option: String, filter: String)
     case deleteContents(contentID: String)
@@ -18,6 +19,8 @@ enum CategoryContentsEndPoint {
     
     var httpMethod: HttpMethod {
         switch self {
+        case .createContent:
+            return .POST
         case .getAllContents:
             return .GET
         case .getCategoryContents:
@@ -29,6 +32,21 @@ enum CategoryContentsEndPoint {
     
     var requestBody: Data? {
         switch self {
+        case .createContent(let targetContent, let categoryIds):
+            if let title = targetContent.title,
+               let description = targetContent.description,
+               let image = targetContent.ogImage,
+               let url = targetContent.ogUrl {
+                let parameters = CreateContent(title: title,
+                                               description: description,
+                                               image: image,
+                                               url: url,
+                                               isNotified: false,
+                                               notificationTime: "",
+                                               categoryIds: categoryIds)
+                return parameters.encode()
+            }
+            return nil
         case .getAllContents:
             return nil
         case .getCategoryContents:
@@ -41,11 +59,11 @@ enum CategoryContentsEndPoint {
     func getURL(from environment: APIEnvironment) -> String {
         let baseUrl = environment.baseUrl
         switch self {
+        case .createContent:
+            return "\(baseUrl)/content"
         case .getAllContents(let option, let filter):
-            print("\(baseUrl)/content?option=\(option)&filter=\(filter)")
             return "\(baseUrl)/content?option=\(option)&filter=\(filter)"
         case .getCategoryContents(let categoryID, let option, let filter):
-            print("\(baseUrl)/content?option=\(option)&filter=\(filter)")
             return "\(baseUrl)/category/\(categoryID)?option=\(option)&filter=\(filter)"
         case .deleteContents(contentID: let contentID):
             return "\(baseUrl)/content/\(contentID)"

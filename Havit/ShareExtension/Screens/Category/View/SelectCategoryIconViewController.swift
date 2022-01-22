@@ -165,7 +165,9 @@ final class SelectCategoryIconViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         completeButton.rx.tap
-            .bind(onNext: { [weak self] _ in
+            .asDriver()
+            .throttle(.seconds(3), latest: false)
+            .drive(onNext: { [weak self] _ in
                 switch self?.categoryEntryPoint {
                 case .share:
                     self?.createCategory {

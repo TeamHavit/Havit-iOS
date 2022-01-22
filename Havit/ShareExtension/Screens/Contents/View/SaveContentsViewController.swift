@@ -9,10 +9,14 @@ import UIKit
 
 import Kingfisher
 import SnapKit
+import SwiftUI
 
 final class SaveContentsViewController: BaseViewController {
     
     // MARK: - property
+    
+    let categoryContentService: CategoryContentsSeriviceable = CategoryContentsService(apiService: APIService(),
+                                                                                       environment: .development)
     
     var selectedCategoryIds: [Int] = []
     
@@ -37,6 +41,9 @@ final class SaveContentsViewController: BaseViewController {
     
     private var contentsImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 6
+        imageView.clipsToBounds = true
         imageView.image = ImageLiteral.imgDummyContent
         return imageView
     }()
@@ -114,6 +121,7 @@ final class SaveContentsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
     
     // MARK: - func
@@ -177,6 +185,51 @@ final class SaveContentsViewController: BaseViewController {
         if let imageUrl = targetContent?.ogImage,
            let url = URL(string: imageUrl) {
             contentsImageView.kf.setImage(with: url)
+        }
+    }
+    
+    private func bind() {
+        editTitleButton.rx.tap
+            .bind(onNext: { [weak self] _ in
+                let editContentTitleViewController = EditContentsTitleViewController()
+                editContentTitleViewController.targetContent = self?.targetContent
+                editContentTitleViewController.contentsTitleTextView.text = self?.targetContent?.title
+                self?.navigationController?.pushViewController(editContentTitleViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        completeButton.rx.tap
+            .asDriver()
+            .throttle(.seconds(3), latest: false)
+            .drive(onNext: { [weak self] _ in
+                self?.createContent {
+                    let alertController = UIAlertController(title: "콘텐츠 저장 완료!",
+                                                            message: nil,
+                                                            preferredStyle: UIAlertController.Style.alert)
+                    let completeAction = UIAlertAction(title: "완료", style: .default, handler: {[weak self] _ in
+                        self?.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+                    })
+                    alertController.addAction(completeAction)
+                    self?.present(alertController, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func createContent(completionHandler: @escaping() -> Void) {
+        Task {
+            do {
+                Logger.debugDescription(self.targetContent)
+                if let requestTargetContent = self.targetContent {
+                    let requestCategoryIds = self.selectedCategoryIds
+                    _ = try await categoryContentService.createContent(targetContent: requestTargetContent,
+                                                                       categoryIds: requestCategoryIds)
+                }
+            } catch APIServiceError.serverError {
+                Logger.debugDescription("serverError")
+            } catch APIServiceError.clientError(let message) {
+                Logger.debugDescription("clientError:\(String(describing: message))")
+            }
         }
     }
 }
