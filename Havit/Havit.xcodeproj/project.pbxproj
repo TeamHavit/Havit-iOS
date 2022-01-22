@@ -79,6 +79,10 @@
 		4F404569279B3CB300103AC7 /* ShareCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */; };
 		4F40456A279B3CB600103AC7 /* CategoryEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DF4ED27943E9D00DD629C /* CategoryEmptyViewController.swift */; };
 		4F40456B279B3CC000103AC7 /* EntryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */; };
+		4F40456C279B6D7000103AC7 /* CategoryContentsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403227995E3700D9654E /* CategoryContentsServiceable.swift */; };
+		4F40456D279B6D9000103AC7 /* CategoryContentsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403827995EE100D9654E /* CategoryContentsEndPoint.swift */; };
+		4F40456E279B6D9300103AC7 /* CategoryContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F6403627995EA400D9654E /* CategoryContentsService.swift */; };
+		4F40456F279B6F3500103AC7 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F4C0279908AD006C66AA /* Content.swift */; };
 		4F4545E02790B69600A9E3B1 /* EntryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4545DF2790B69600A9E3B1 /* EntryNavigationViewController.swift */; };
 		4F4545E82790B69600A9E3B1 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F4545DD2790B69600A9E3B1 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED443F342786AF2C0059DE76 /* BaseViewController.swift */; };
@@ -157,6 +161,8 @@
 		4FC6EC632798A8F7000BD4E0 /* CategoryServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FF2796D11500AD8960 /* CategoryServiceable.swift */; };
 		4FC6EC642798A970000BD4E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD166FC2796D0C900AD8960 /* CategoryService.swift */; };
 		4FC6EC682798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */; };
+		4FCB5FE3279B783600C196C9 /* CreateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5FE2279B783600C196C9 /* CreateContent.swift */; };
+		4FCB5FE4279B783800C196C9 /* CreateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB5FE2279B783600C196C9 /* CreateContent.swift */; };
 		4FD534CF27994604000C7034 /* SaveContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534CE27994604000C7034 /* SaveContentsViewController.swift */; };
 		4FD534D127996BDB000C7034 /* EditContentsTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */; };
 		4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD534D327997E21000C7034 /* SetAlertViewController.swift */; };
@@ -356,6 +362,7 @@
 		4FC6EC572798725A000BD4E0 /* SelectCategoryIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryIconViewController.swift; sourceTree = "<group>"; };
 		4FC6EC5B2798911B000BD4E0 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		4FC6EC672798AE38000BD4E0 /* ShareCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FCB5FE2279B783600C196C9 /* CreateContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContent.swift; sourceTree = "<group>"; };
 		4FD534CE27994604000C7034 /* SaveContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContentsViewController.swift; sourceTree = "<group>"; };
 		4FD534D027996BDB000C7034 /* EditContentsTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsTitleViewController.swift; sourceTree = "<group>"; };
 		4FD534D327997E21000C7034 /* SetAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlertViewController.swift; sourceTree = "<group>"; };
@@ -877,6 +884,7 @@
 				EDB6F4C627997E92006C66AA /* User.swift */,
 				ED069DC32799907A0084410B /* ContentToggle.swift */,
 				4F6FC766279A976400085E32 /* SaveTargetContent.swift */,
+				4FCB5FE2279B783600C196C9 /* CreateContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1482,6 +1490,7 @@
 			files = (
 				4FB24FE22792180800CCDB0C /* UILabel+Extension.swift in Sources */,
 				4FB24FC6279212AE00CCDB0C /* NetworkRequest.swift in Sources */,
+				4F40456D279B6D9000103AC7 /* CategoryContentsEndPoint.swift in Sources */,
 				4FB24FDF279217FF00CCDB0C /* UIColor+Extension.swift in Sources */,
 				4FB24FD8279217C700CCDB0C /* ImageLiteral.swift in Sources */,
 				4FB24FC7279212B000CCDB0C /* Requestable.swift in Sources */,
@@ -1511,6 +1520,7 @@
 				4FB24FCA2792177200CCDB0C /* MockParser.swift in Sources */,
 				4FB24FC9279212B600CCDB0C /* NetworkStatus.swift in Sources */,
 				4FC6EC5C2798911B000BD4E0 /* SelectCategoryViewController.swift in Sources */,
+				4F40456F279B6F3500103AC7 /* Content.swift in Sources */,
 				4F6FC76F279AACC700085E32 /* TargetContent.swift in Sources */,
 				4FC6EC632798A8F7000BD4E0 /* CategoryServiceable.swift in Sources */,
 				4FB24FE72792181900CCDB0C /* UICollectionView+Extension.swift in Sources */,
@@ -1519,12 +1529,15 @@
 				4FB24FD9279217D300CCDB0C /* BaseCollectionViewCell.swift in Sources */,
 				4FD534D427997E21000C7034 /* SetAlertViewController.swift in Sources */,
 				4FB24FE02792180100CCDB0C /* UIView+Extension.swift in Sources */,
+				4FCB5FE4279B783800C196C9 /* CreateContent.swift in Sources */,
+				4F40456C279B6D7000103AC7 /* CategoryContentsServiceable.swift in Sources */,
 				4FB24FE32792180B00CCDB0C /* UIButton+Extension.swift in Sources */,
 				4F4545F12791B3CD00A9E3B1 /* BaseViewController.swift in Sources */,
 				4F6FC768279A996C00085E32 /* ShareEndPoint.swift in Sources */,
 				4FB24FE62792181400CCDB0C /* UITableView+Extension.swift in Sources */,
 				4FB24FE92792182100CCDB0C /* Encodable+Extension.swift in Sources */,
 				4FC6EC592798728A000BD4E0 /* CategoryIconCollectionViewCell.swift in Sources */,
+				4F40456E279B6D9300103AC7 /* CategoryContentsService.swift in Sources */,
 				4F4DF4EE27943E9D00DD629C /* CategoryEmptyViewController.swift in Sources */,
 				4FB24FE82792181C00CCDB0C /* NSObject+Extension.swift in Sources */,
 			);
@@ -1587,6 +1600,7 @@
 				EDE7D6D427956A3F009C70EF /* RecentContentTableViewCell.swift in Sources */,
 				4F404569279B3CB300103AC7 /* ShareCategoryCollectionViewCell.swift in Sources */,
 				EDE7D6C52792BC9B009C70EF /* ReachRateTableViewCell.swift in Sources */,
+				4FCB5FE3279B783600C196C9 /* CreateContent.swift in Sources */,
 				ED443F422786B8060059DE76 /* Reactive+UIViewController.swift in Sources */,
 				15F41A932791F2FD00ADF17A /* MorePanModalTableViewCell.swift in Sources */,
 				ED069DC42799907A0084410B /* ContentToggle.swift in Sources */,
