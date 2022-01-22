@@ -147,7 +147,8 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         }
         
         subtitleLabel.snp.makeConstraints {
-            $0.leading.trailing.equalTo(contentView).offset(16)
+            $0.leading.equalTo(contentView).offset(16)
+            $0.trailing.equalTo(contentView).offset(-60)
             $0.top.equalTo(titleLabel.snp.bottom).offset(9)
         }
         
