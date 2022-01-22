@@ -377,6 +377,8 @@ final class CategoryContentsViewController: BaseViewController {
         filterCollectionView.dataSource = self
         contentsCollectionView.delegate = self
         contentsCollectionView.dataSource = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
     }
     
     private func getNowCategory() -> Category? {
@@ -497,6 +499,16 @@ final class CategoryContentsViewController: BaseViewController {
             contentsCollectionView.reloadData()
             updateViewConstraints()
         }
+    }
+}
+
+extension CategoryContentsViewController: UISearchControllerDelegate {
+   
+}
+
+extension CategoryContentsViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        navigationController?.pushViewController(SearchContentsViewController(), animated: true)
     }
 }
 
