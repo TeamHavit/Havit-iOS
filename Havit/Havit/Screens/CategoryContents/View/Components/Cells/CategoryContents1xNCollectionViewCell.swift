@@ -143,12 +143,12 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         titleLabel.snp.makeConstraints {
             $0.leading.equalTo(contentView).offset(16)
             $0.top.equalTo(mainImageView.snp.bottom).offset(15)
-            $0.trailing.equalTo(moreButton.snp.leading).inset(18)
+            $0.trailing.equalTo(moreButton.snp.leading).offset(-18)
         }
         
         subtitleLabel.snp.makeConstraints {
             $0.leading.equalTo(contentView).offset(16)
-            $0.trailing.equalTo(contentView).offset(-60)
+            $0.trailing.equalTo(contentView).inset(60)
             $0.top.equalTo(titleLabel.snp.bottom).offset(9)
         }
         
@@ -168,14 +168,13 @@ final class CategoryContents1xNCollectionViewCell: BaseCollectionViewCell {
         alarmLabel.snp.makeConstraints {
             $0.leading.equalTo(contentView).offset(16)
             $0.top.equalTo(dateLabel.snp.bottom).offset(7)
-            $0.trailing.equalTo(isReadButton.snp.leading).inset(1)
-            $0.width.equalTo(182)
+            $0.trailing.equalTo(isReadButton.snp.leading).offset(-10)
             $0.height.equalTo(13)
         }
         
         isReadButton.snp.makeConstraints {
             $0.trailing.equalTo(contentView).inset(15)
-            $0.bottom.equalTo(borderView.snp.top).offset(-5)
+            $0.bottom.equalTo(borderView.snp.top).inset(5)
             $0.width.equalTo(31)
             $0.height.equalTo(42)
         }
