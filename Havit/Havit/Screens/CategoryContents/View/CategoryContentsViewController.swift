@@ -517,7 +517,11 @@ extension CategoryContentsViewController: UISearchControllerDelegate {
 
 extension CategoryContentsViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        navigationController?.pushViewController(SearchContentsViewController(), animated: true)
+        let searchContentViewController = SearchContentsViewController()
+        let navigationController = UINavigationController(rootViewController: searchContentViewController)
+        navigationController.modalTransitionStyle = .crossDissolve
+        navigationController.modalPresentationStyle = .overFullScreen
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
