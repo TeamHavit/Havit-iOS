@@ -13,4 +13,6 @@ struct TargetContent {
     var ogImage: String?
     var ogUrl: String?
     var contentUrl: String?
+    var isNotified: Bool?
+    var notificationTime: String?
 }
