@@ -48,7 +48,7 @@ final class EditContentsTitleViewController: BaseViewController {
         return label
     }()
     
-    private let contentsTitleTextView: UITextView = {
+    let contentsTitleTextView: UITextView = {
         let textView = UITextView()
         textView.font = .font(.pretendardMedium, ofSize: 20)
         textView.text = "콘텐츠 제목 어쩌구 저쩌구 블라블라 TIP"
