@@ -13,6 +13,8 @@ final class EditContentsTitleViewController: BaseViewController {
     
     // MARK: - property
     
+    var targetContent: TargetContent?
+    
     private let navigationLeftButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(image: ImageLiteral.btnBackBlack,
                                             style: .plain,
@@ -65,6 +67,7 @@ final class EditContentsTitleViewController: BaseViewController {
     // MARK: - func
     
     override func configUI() {
+        view.backgroundColor = .white
         setNavigationBar()
     }
     
