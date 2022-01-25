@@ -11,6 +11,9 @@ https://user-images.githubusercontent.com/55099365/150919289-52d35f31-c658-433a-
   
 [🗂 HAVIT WORKFLOW 보러가기 🗂](https://github.com/TeamHavit/Havit-iOS/blob/develop/README/workflow.md)
 
+[💜 29th APPJAM DemoDay HAVIT 발표자료 💜](https://github.com/TeamHavit/Havit-iOS/files/7932448/_.pdf)
+
+  
 </div>
 
 <br/>
