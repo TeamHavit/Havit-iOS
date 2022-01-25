@@ -1,14 +1,25 @@
 <div align="center"> 
   
+_**기억하고 싶은 콘텐츠를 저장하는 가장 쉬운 방법, HAVIT**_
+
+
+https://user-images.githubusercontent.com/55099365/150919289-52d35f31-c658-433a-8ffa-d84c8e6e85d8.mp4
+
+
+![1](https://user-images.githubusercontent.com/55099365/150916716-510441ba-6442-4f0d-b10c-06ab72c2306c.png)
+![2](https://user-images.githubusercontent.com/55099365/150916814-7dbd4003-6492-46e6-9d43-1786f7366efb.png)
+![3](https://user-images.githubusercontent.com/55099365/150916821-52fd521f-b422-4451-8d2e-637de6abfd3c.png)
+![4](https://user-images.githubusercontent.com/55099365/150916871-af3dcfd6-63a7-4436-8095-b0e54c1ee41f.png)
+![5](https://user-images.githubusercontent.com/55099365/150916850-fe91fc09-903d-4e0d-908e-cb4acb6e1dc0.png)
+![6](https://user-images.githubusercontent.com/55099365/150916889-90a9f6bd-f3c5-4125-b7d1-a0591b4f63df.png)
+![7](https://user-images.githubusercontent.com/55099365/150916903-443317aa-57c1-4746-b452-543d3b20cece.png)
+![8](https://user-images.githubusercontent.com/55099365/150916920-b9f3c557-fbe8-48e1-b4d1-e210f4bd4918.png)
+![9](https://user-images.githubusercontent.com/55099365/150916934-4fd809af-830d-40ad-9a09-2fa303fd4787.png)
 ![10](https://user-images.githubusercontent.com/55099365/150482589-779758ba-c236-49e7-903d-1c136e10dfc3.png)
 
-  
-_**기억하고 싶은 모든 콘텐츠를 내 손 안에, HAVIT**_
+</div>
 
 <br/>
-<br/>
-  
-</div>
 
 ### 🛠 Development Environment
 
