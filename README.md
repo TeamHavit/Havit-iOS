@@ -2,6 +2,8 @@
   
 _**기억하고 싶은 콘텐츠를 저장하는 가장 쉬운 방법, HAVIT**_
 
+[<img width="200" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/196023806-5eb7be0f-c7cf-4661-bb39-35a15146c33a.png">](https://apps.apple.com/kr/app/havit/id1607518014?l=en)
+
 
 https://user-images.githubusercontent.com/55099365/150919289-52d35f31-c658-433a-8ffa-d84c8e6e85d8.mp4
   
